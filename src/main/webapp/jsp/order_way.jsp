@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<button>BACK</button>
+<button>NORMAL ORDER</button>
+<button>SIMPLE ORDER</button>
 </body>
 </html>
