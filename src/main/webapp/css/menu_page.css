@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+
+
+.containor{
+	display: flex; 
+	height: 1080px; 
+	width: 1920px; 
+	border: 5px solid gold;
+}
+
+.header{
+	border: 5px solid black; 
+	height: 1080px; 
+	width: 200px; 
+	position: relative;
+	
+
+	
+}
+
+.header button{
+	width: 100%;
+	font-size: 30pt;
+}
+
+.header-under{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 30pt;
+}
+
+.easy-title{
+	height: 100%; 
+	text-align: center; 
+	font-size: 100pt; 
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+
+
+
+
+
+
+
+/* contents  */
+.easy-contents{
+	border: 5px solid red; 
+	width: 1220px;
+	position: relative;
+}
+
+.contents{
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 1100px;
+	height: 900px;
+	border: 2px solid green;
+	position: relative;
+	top: 50px;
+	
+}
+
+.content-box{
+	border: 1px solid black;
+	font-size: 30pt;
+	width: 200px;
+	height: 200px;
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	top: 350px;
+	
+	
+	
+	
+}
+
+
+.contents-under{
+	width: 100%;
+	font-size: 50pt;
+	display: inline-flex;
+	position: absolute;
+	bottom: 0;
+	justify-content: center;
+	
+	
+}
+
+.contents-under button{
+	margin-left: 15px;
+	margin-right: 15px;
+	width: 200px;
+	font-size: 50px;
+}
+
+
+
+/* footer */
+.easy-footer{
+	border: 5px solid blue; 
+	position: relative;
+	width: 500px;
+}
+
+.footer-page{
+	width: 450px;
+	height: 900px;
+	border: 3px solid purple;
+	position: relative;
+	top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
+	
+	
+}
+
+.footer-button button{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+	font-size: 50pt;
+	
+	
+}
