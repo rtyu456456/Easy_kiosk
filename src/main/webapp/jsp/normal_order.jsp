@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<button>BACK</button>
-<button>NORMAL ORDER</button>
-<button>SIMPLE ORDER</button>
+<h1>${sessionScope.orderType}</h1>
+<h1>${sessionScope.whereToEat}</h1>
 </body>
 </html>

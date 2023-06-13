@@ -7,18 +7,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
-
-@WebServlet("/MainC")
-public class MainC extends HttpServlet {
-	
+@WebServlet("/OrderTypeC")
+public class OrderTypeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 	}
 
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.whereToEat(request);
-		request.getRequestDispatcher("jsp/order_type.jsp").forward(request, response);
+		HttpSession session = EasyDAO.orderType(request);
+		if (session.getAttribute("orderType").equals("normalOrder")) {
+			request.getRequestDispatcher("jsp/normal_order.jsp").forward(request, response);
+		} else {
+			request.getRequestDispatcher("jsp/simple_order.jsp").forward(request, response);
+		}
 	}
 
 }
