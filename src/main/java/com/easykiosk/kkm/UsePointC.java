@@ -7,16 +7,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/EarnPointC")
-public class EarnPointC extends HttpServlet {
+@WebServlet("/UsePointC")
+public class UsePointC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("jsp/earn_point_pressnum.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("jsp/payment_method.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getNum(request);
-		EasyDAO.getCustomer(request);
-		request.getRequestDispatcher("jsp/earn_point_usepoint.jsp").forward(request, response);
 	}
 
 }
