@@ -6,7 +6,6 @@ import java.sql.ResultSet;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import javax.websocket.Session;
 
 public class EasyDAO {
 
@@ -26,7 +25,7 @@ public class EasyDAO {
 
 	public static HttpSession getNum(HttpServletRequest request) {
 		String phoneNumber = request.getParameter("phoneNumber");
-		HttpSession session = request.getSession(false);
+		HttpSession session = request.getSession();
 		session.setAttribute("phoneNumber", phoneNumber);
 		return session;
 	}
@@ -37,26 +36,40 @@ public class EasyDAO {
 		ResultSet rs = null;
 		String phoneNumber = (String) request.getSession().getAttribute("phoneNumber");
 		int point = 500;
-		String sql = "select * from EK_USER where u_no = ?";
+		String sql1 = "select * from EK_USER where u_no = ?";
 
 		try {
 			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
+			System.out.println("연결 성공!");
+			pstmt = con.prepareStatement(sql1);
 			pstmt.setString(1, phoneNumber);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				sql = "update EK_USER set u_point = ? + ? where u_no = ?";
+				String sql2 = "update EK_USER set u_point = ? + ? where u_no = ?";
+				pstmt.close();
+				pstmt = con.prepareStatement(sql2);
 				pstmt.setInt(1, point);
 				pstmt.setInt(2, 300);
 				pstmt.setString(3, phoneNumber);
+				pstmt.executeUpdate();
 			} else {
-				sql = "insert into EK_USER values(?, ?)";
+				String sql3 = "insert into EK_USER values(?, ?)";
+				rs.close();
+				pstmt.close();
+				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, phoneNumber);
 				pstmt.setInt(2, point);
+				pstmt.executeUpdate();
+				pstmt.close();
+				pstmt = con.prepareStatement(sql1);
+				pstmt.setString(1, phoneNumber);
+				rs = pstmt.executeQuery();
+				rs.next();
 			}
 			User user = new User();
-			user.setPhoneNumber(rs.getString(phoneNumber));
-			user.setPoint(rs.getInt(point));
+			user.setPhoneNumber(rs.getString("u_no"));
+			user.setPoint(rs.getInt("u_point"));
+			System.out.println(user.toString());
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
 			pstmt.executeUpdate();

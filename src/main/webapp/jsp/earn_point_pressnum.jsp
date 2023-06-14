@@ -27,7 +27,7 @@
 	function validateForm() {
 		var phoneNumber = document.getElementById("phoneNumber").value;
 		if (phoneNumber.length < 8) {
-			alert("전화번호는 8자리 이상이어야 합니다.");
+			alert("전화번호를 8자리 입력해주세요.");
 			clearNumber();
 			return false;
 		}
