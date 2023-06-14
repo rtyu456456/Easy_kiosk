@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<button>카드</button>
+<button>현금</button>
+<button>QR코드</button>
 </body>
 </html>
