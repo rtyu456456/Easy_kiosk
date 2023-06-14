@@ -10,15 +10,21 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/CoffeeController")
 public class CoffeeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	EasyPageDAO.getMenuCoffee(request);
-	
-	request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
-	request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
-	request.getRequestDispatcher("menu_page.jsp").forward(request, response);
+		
+		EasyPageDAO.getEdao().getMenuCoffee(request);
+		EasyPageDAO.getEdao().paging(0, request);
+		
+		
+		
+		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
+		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
+		request.getRequestDispatcher("menu_page.jsp").forward(request, response);
 	
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
 	}
 
 }
