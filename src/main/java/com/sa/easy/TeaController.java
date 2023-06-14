@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class TeaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EasyPageDAO.getEdao(). getMenuTea(request);
-		EasyPageDAO.getEdao().paging(0, request);
+		EasyPageDAO.getEdao().paging(1, request);
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");

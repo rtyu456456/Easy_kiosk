@@ -13,7 +13,7 @@
 			<c:forEach var="menus" items="${menus }">
 				
 				<button class="content-box">
-					<img src="img/${menus.m_img }">
+					<div><img src="img/${menus.m_img }"></div>
 					<div>${menus.m_name}</div>
 					<div>${menus.m_price }</div>
 				</button>
@@ -22,7 +22,7 @@
 		</div>
 		<div class="contents-under">
 			<c:choose>
-				<c:when test="${curPageNo > 0 }">
+				<c:when test="${curPageNo > 1 }">
 					<button
 						onclick="location.href='EasyPageController?p=${curPageNo - 1 }'">이전</button>
 				</c:when>
@@ -42,8 +42,6 @@
 					
 				</c:otherwise>
 			</c:choose>
-
-
 		</div>
 	</div>
 </body>
