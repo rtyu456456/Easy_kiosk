@@ -14,7 +14,7 @@ public class EarnPointC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getNum(request);
+		// EasyDAO.getNum(request);
 		EasyDAO.getCustomer(request);
 		request.getRequestDispatcher("jsp/earn_point_usepoint.jsp").forward(request, response);
 	}

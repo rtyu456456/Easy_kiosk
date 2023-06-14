@@ -9,8 +9,7 @@
 <body>
 	<form action="UsePointC">
 	<h1>use point</h1>
-	${sessionScope.user.phoneNumber }
-	${sessionScope.phoneNumber}님의 포인트가 ${sessionScope.user.point }원 적립됐습니다.
+	${sessionScope.user.phoneNumber }님의 포인트가 ?? 적립되어 현재 ${sessionScope.user.point }원입니다.
 	<br> 포인트를 사용하시겠습니까?
 	<button>네</button>
 	<button type="button" onclick="location.href=''">아니오</button>

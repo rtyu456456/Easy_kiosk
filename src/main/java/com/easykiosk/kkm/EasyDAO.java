@@ -30,11 +30,12 @@ public class EasyDAO {
 		return session;
 	}
 
-	public static void getCustomer(HttpServletRequest request) {
+	public static void getCustomer(HttpServletRequest request) { // 고객의 번호와 포인트 update 또는 insert
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String phoneNumber = (String) request.getSession().getAttribute("phoneNumber");
+		String phoneNumber = request.getParameter("phoneNumber");
+		// String phoneNumber = (String) request.getSession().getAttribute("phoneNumber");
 		int point = 500;
 		String sql1 = "select * from EK_USER where u_no = ?";
 
@@ -46,20 +47,25 @@ public class EasyDAO {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				String sql2 = "update EK_USER set u_point = ? + ? where u_no = ?";
-				pstmt.close();
+				rs.close();
+				pstmt.close(); // 위에서 사용한 pstmt는 닫고서 다시 사용해야함
 				pstmt = con.prepareStatement(sql2);
 				pstmt.setInt(1, point);
 				pstmt.setInt(2, 300);
 				pstmt.setString(3, phoneNumber);
 				pstmt.executeUpdate();
+				pstmt = con.prepareStatement(sql1);
+				pstmt.setString(1, phoneNumber);
+				rs = pstmt.executeQuery();
+				rs.next();
 			} else {
 				String sql3 = "insert into EK_USER values(?, ?)";
-				rs.close();
+				rs.close(); // 위에서 사용한 rs는 닫고서 다시 사용해야함
 				pstmt.close();
 				pstmt = con.prepareStatement(sql3);
 				pstmt.setString(1, phoneNumber);
 				pstmt.setInt(2, point);
-				pstmt.executeUpdate();
+				pstmt.executeUpdate(); // executeUpdate 까먹지 말기
 				pstmt.close();
 				pstmt = con.prepareStatement(sql1);
 				pstmt.setString(1, phoneNumber);
@@ -67,7 +73,7 @@ public class EasyDAO {
 				rs.next();
 			}
 			User user = new User();
-			user.setPhoneNumber(rs.getString("u_no"));
+			user.setPhoneNumber(rs.getString("u_no")); // rs.getString에는 변수가 아니라 "DB내용"
 			user.setPoint(rs.getInt("u_point"));
 			System.out.println(user.toString());
 			HttpSession session = request.getSession();
@@ -80,20 +86,8 @@ public class EasyDAO {
 		} finally {
 			DBManager.close(con, pstmt, rs);
 		}
-
 	}
 
-	public static void UsePoint(HttpServletRequest request) {
-		Connection con = null;
-		PreparedStatement pstmt = null;
 
-		try {
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			DBManager.close(null, null, null);
-		}
-	}
 
 }
