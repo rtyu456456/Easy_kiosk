@@ -20,6 +20,8 @@ public class CoffeeController extends HttpServlet {
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
 		request.getRequestDispatcher("menu_page.jsp").forward(request, response);
 	
+		
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

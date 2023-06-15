@@ -12,7 +12,7 @@
 		<div class="contents">
 			<c:forEach var="menus" items="${menus }">
 				<button class="content-box"
-					onclick="modalPage('img/${menus.m_img}', '${menus.m_name }', ${menus.m_price })">
+					onclick="modalPage('img/${menus.m_img}', '${menus.m_name }', ${menus.m_price }, '${menus.m_ice }')">
 					<div>
 						<img src="img/${menus.m_img }"> 
 					</div>
@@ -29,10 +29,14 @@
 	 	<div class="modal-name">상품명</div>
 	 	<div>설명 </div>
 	 	<div>사이즈</div>
+	 	<div class="useIce">
+	 	<button id="hot">HOT</button>
+	 	<button id="ice">ICE</button>
+	 	</div>
 	 	<div class="count">
-		<button>수량 -</button>
-	 	<div> 수량 ? </div>
-		<button onclick="plusPrice(${menus.m_pirce})">수량 +</button>
+		<button id="minus-price">-</button>
+	 	<div id="count"> 수량 ? </div>
+		<button id="plus-price">+</button>
 		</div>
 	 	<div><span class="modal-price"></span>원</div>
 		<button id="close-modal">주문 취소</button>
