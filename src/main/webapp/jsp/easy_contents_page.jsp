@@ -8,18 +8,39 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div>
+	<div> 
 		<div class="contents">
 			<c:forEach var="menus" items="${menus }">
-				
-				<button class="content-box">
-					<div><img src="img/${menus.m_img }"></div>
+				<button class="content-box"
+					onclick="modalPage('img/${menus.m_img}', '${menus.m_name }', ${menus.m_price })">
+					<div>
+						<img src="img/${menus.m_img }"> 
+					</div>
 					<div>${menus.m_name}</div>
-					<div>${menus.m_price }</div>
+					<div>${menus.m_price }원</div>
 				</button>
-				
 			</c:forEach>
 		</div>
+
+
+		<dialog id="modal"> 
+		<div class="con">
+		<img id="modal-img" src="#"/>
+	 	<div class="modal-name">상품명</div>
+	 	<div>설명 </div>
+	 	<div>사이즈</div>
+	 	<div class="count">
+		<button>수량 -</button>
+	 	<div> 수량 ? </div>
+		<button onclick="plusPrice(${menus.m_pirce})">수량 +</button>
+		</div>
+	 	<div><span class="modal-price"></span>원</div>
+		<button id="close-modal">주문 취소</button>
+		<button>장바구니 담기</button>
+		</div>
+		</dialog>
+
+
 		<div class="contents-under">
 			<c:choose>
 				<c:when test="${curPageNo > 1 }">
@@ -37,12 +58,14 @@
 						onclick="location.href='EasyPageController?p=${curPageNo + 1 }'">다음</button>
 				</c:when>
 				<c:otherwise>
-				
 					<button disabled="disabled">다음</button>
-					
 				</c:otherwise>
 			</c:choose>
 		</div>
 	</div>
+
+
+
 </body>
+
 </html>

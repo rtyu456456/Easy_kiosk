@@ -253,7 +253,7 @@ public class EasyPageDAO {
 	public void paging(int page, HttpServletRequest request) {
 		request.setAttribute("curPageNo", page);
 		
-		int cnt = 2; // 한페이지당 보여줄 개수
+		int cnt = 1; // 한페이지당 보여줄 개수
 		int total = menus.size(); // 총 데이터 개수
 		// 4
 		int pageCount = (int)Math.ceil((double)total / cnt); // 총 페이지 수

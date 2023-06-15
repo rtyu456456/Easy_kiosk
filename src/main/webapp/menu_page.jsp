@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href=css/menu_page.css>
+<link rel="stylesheet" href=css/modal_page.css>
 </head>
 <body>
 	<div class="containor">
@@ -38,7 +39,7 @@
 			</div>
 		</div>
 
-
 	</div>
+<script type="text/javascript" src="js/modal.js"></script>
 </body>
 </html>
