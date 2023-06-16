@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +10,13 @@
 <body>
 	<form action="UsePointC">
 	<h1>use point</h1>
-	${sessionScope.user.phoneNumber }님의 현재 포인트는 ${sessionScope.user.savingPoint }원 입니다.
+	${sessionScope.user.phoneNumber }님의 현재 포인트는 ${sessionScope.user.savingPoint }원 입니다.<br>
+	600(임의값)원이 적립됩니다.
+	<c:if test="${sessionScope.user.savingPoint != 0}">
 	<br>포인트를 모두 사용해서 할인을 받으시겠습니까?
 	<br>사용하지 않으시면 600(임의값)원이 적립됩니다.
 	<button name="usePoint" value="usePoint">포인트 사용</button>
+	</c:if>
 	<button type="button" onclick="location.href='PaymentMethodC?notUsePoint=notUsePoint'">적립 받기</button>
 	<!--
 	<button type="button" onclick="location.href='PaymentMethodC'" name="notUsePoint" value="notUsePoint">적립 받기</button>

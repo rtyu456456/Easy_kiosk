@@ -47,21 +47,22 @@ public class EasyDAO {
 			pstmt.setString(1, phoneNumber);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				String sql_update = "update EK_USER set u_point = ? + ? where u_no = ?"; // 기존의 유저일 경우
-				int userPoint = rs.getInt("u_point"); // 유저의 현재 포인트
-				pstmt.close(); // 위에서 사용한 pstmt는 닫고서 다시 사용해야함
-				pstmt = con.prepareStatement(sql_update);
-				pstmt.setInt(1, userPoint); // pstmt.setInt(1, rs.getInt("u_point")); 로 할 경우 윗줄에서 pstmt.close()가 됐기 때문에
-											// rs의 값을 받아올 수 없음
-				pstmt.setInt(2, point);
-				pstmt.setString(3, phoneNumber);
-				pstmt.executeUpdate();
-				rs.close();
-				pstmt.close();
-				pstmt = con.prepareStatement(sql_select); // 아래 User에 담아주기 위해서 다시 select로 조회
-				pstmt.setString(1, phoneNumber);
-				rs = pstmt.executeQuery();
-				rs.next();
+//				String sql_update = "update EK_USER set u_point = ? + ? where u_no = ?"; // 기존의 유저일 경우
+//				int userPoint = rs.getInt("u_point"); // 유저의 현재 포인트
+//				pstmt.close(); // 위에서 사용한 pstmt는 닫고서 다시 사용해야함
+//				pstmt = con.prepareStatement(sql_update);
+//				pstmt.setInt(1, userPoint); // pstmt.setInt(1, rs.getInt("u_point")); 로 할 경우 윗줄에서 pstmt.close()가 됐기 때문에
+//											// rs의 값을 받아올 수 없음
+//				pstmt.setInt(2, point);
+//				pstmt.setString(3, phoneNumber);
+//				pstmt.executeUpdate();
+//				rs.close();
+//				pstmt.close();
+//				pstmt = con.prepareStatement(sql_select); // 아래 User에 담아주기 위해서 다시 select로 조회
+//				pstmt.setString(1, phoneNumber);
+//				rs = pstmt.executeQuery();
+//				rs.next();
+				System.out.println("등록된 유저입니다");
 			} else {
 				String sql_insert = "insert into EK_USER values(?, ?)"; // 새로 등록한 유저일 경우
 				rs.close(); // 위에서 사용한 rs는 닫고서 다시 사용해야함

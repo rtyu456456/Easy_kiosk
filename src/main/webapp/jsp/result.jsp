@@ -15,7 +15,7 @@
 <c:if test="${sessionScope.orderType eq 'simpleOrder'}"> <!-- 간편 결제시 -->
     결제하신 금액 : ${sessionScope.user.finalPrice }<br>
 </c:if>
- <c:if test="${sessionScope.howPoint eq 'usePoint'}"> <!-- 포인트 사용시 -->
+<c:if test="${sessionScope.howPoint eq 'usePoint'}"> <!-- 포인트 사용시 -->
    	구매하신 금액 : ${sessionScope.user.totalPrice }<br>
     할인받은 금액 : ${sessionScope.user.usedPoint }<br>
     결제하신 금액 : ${sessionScope.user.finalPrice }<br>
