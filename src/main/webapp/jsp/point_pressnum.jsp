@@ -58,6 +58,7 @@
 		<hr>
 		<button>확인</button>
 		<button type="button" onclick="history.back()">뒤로가기</button>
+		<button type="button" onclick="location.href='HC'">처음으로</button>
 	</form>
 </body>
 </html>

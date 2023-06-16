@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/UsePointC")
 public class UsePointC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.remainPoint(request);
+		EasyDAO.usePoint(request);
 		request.getRequestDispatcher("jsp/point_usepoint.jsp").forward(request, response);
 	}
 

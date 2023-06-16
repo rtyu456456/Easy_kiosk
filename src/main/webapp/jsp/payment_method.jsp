@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<button>카드</button>
-<button>현금</button>
-<button>QR코드</button>
+	<form action="PaymentMethodC" method="post">
+		<button name="card" value="card">카드</button>
+		<button name="cash" value="cash">현금</button>
+		<button name="qr" value="qr">QR코드</button>
+	</form>
 </body>
 </html>
