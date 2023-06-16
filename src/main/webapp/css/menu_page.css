@@ -1,60 +1,67 @@
 @charset "UTF-8";
 
-
-
-.containor{
-	display: flex; 
-	height: 1080px; 
-	width: 1920px; 
+.containor {
+	display: flex;
+	height: 1080px;
+	width: 1920px;
 	border: 5px solid gold;
 }
 
-.header{
-	border: 5px solid black; 
-	height: 1080px; 
-	width: 200px; 
+.header {
+	border: 5px solid black;
+	height: 1080px;
+	width: 200px;
 	position: relative;
-	
-
-	
+	background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%,
+		rgba(36, 60, 132, 1) 100%);
 }
 
-.header button{
+.header button {
 	width: 100%;
 	font-size: 30pt;
 }
 
-.header-under{
+.header-under {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	font-size: 30pt;
 }
 
-.easy-title{
-	height: 100%; 
-	text-align: center; 
-	font-size: 100pt; 
+#logo {
+	width: 100%;
+	height: 25px;
+}
+
+.easy-title {
+	height: 100%;
+	text-align: center;
+	font-size: 100pt;
 	margin-left: auto;
 	margin-right: auto;
-	
 }
-
-
-
-
-
-
 
 /* contents  */
-.easy-contents{
-	border: 5px solid red; 
+.easy-contents {
+	border: 5px solid red;
 	width: 1220px;
 	position: relative;
+	display: flex;
+	justify-content: center;
+	align-content: center;
 }
 
+#page-button {
+	width: 100%;
+	height: 50px;
+	border-radius: 50px;
+	padding: 5px 0px;
+	margin: 500px 0px;
+	background-color: #243C84;
+	border: none;
+}
 
-.contents{
+.contents {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
@@ -62,12 +69,12 @@
 	height: 900px;
 	border: 2px solid green;
 	position: relative;
-	top: 50px;
-	
+	top: 80px;
+
 }
 
-.content-box{
-	border-radius:5px;
+.content-box {
+	border-radius: 5px;
 	border: 1px solid black;
 	font-size: 30pt;
 	width: 200px;
@@ -76,42 +83,33 @@
 	margin-left: auto;
 	margin-right: auto;
 	top: 350px;
-	
-	
-	
-	
 }
 
-
-.contents-under{
+.contents-under {
 	width: 100%;
 	font-size: 50pt;
 	display: inline-flex;
 	position: absolute;
 	bottom: 0;
 	justify-content: center;
-	
-	
 }
 
-.contents-under button{
-	border-radius:5px;
+.contents-under button {
+	border-radius: 5px;
 	margin-left: 15px;
 	margin-right: 15px;
 	width: 200px;
 	font-size: 50px;
 }
 
-
-
 /* footer */
-.easy-footer{
-	border: 5px solid blue; 
+.easy-footer {
+	border: 5px solid blue;
 	position: relative;
 	width: 500px;
 }
 
-.footer-page{
+.footer-page {
 	width: 450px;
 	height: 900px;
 	border: 3px solid purple;
@@ -119,17 +117,11 @@
 	top: 50px;
 	margin-left: auto;
 	margin-right: auto;
-	
-	
-	
-	
 }
 
-.footer-button button{
+.footer-button button {
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	font-size: 50pt;
-	
-	
 }

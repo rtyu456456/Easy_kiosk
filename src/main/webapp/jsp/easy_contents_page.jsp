@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div> 
+	 
 		<div class="contents">
 			<c:forEach var="menus" items="${menus }">
 				<button class="content-box"
@@ -54,29 +54,7 @@
 		</div>
 		</dialog>
 
-
-		<div class="contents-under">
-			<c:choose>
-				<c:when test="${curPageNo > 1 }">
-					<button
-						onclick="location.href='EasyPageController?p=${curPageNo - 1 }'">이전</button>
-				</c:when>
-				<c:otherwise>
-					<button disabled="disabled">이전</button>
-				</c:otherwise>
-			</c:choose>
-
-			<c:choose>
-				<c:when test="${curPageNo < pageCount }">
-					<button
-						onclick="location.href='EasyPageController?p=${curPageNo + 1 }'">다음</button>
-				</c:when>
-				<c:otherwise>
-					<button disabled="disabled">다음</button>
-				</c:otherwise>
-			</c:choose>
-		</div>
-	</div>
+	
 
 
 

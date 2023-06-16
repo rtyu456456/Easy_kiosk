@@ -116,6 +116,9 @@ class selectedMenu{
 		selectedIce.value = selectMenu.ice;
 		selectedCount.value = selectMenu.count;
 		selectedPrice.value = selectMenu.price;	
+		
+		
+	
 
 	})
 
