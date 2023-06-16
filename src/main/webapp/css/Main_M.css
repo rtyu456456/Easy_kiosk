@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+html {
+	width: 100vw; 
+	height: 100vh;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+button {
+	background-color: transparent;
+	outline: 0;
+}
+
+button:focus {
+  outline: 2px solid #ebd9a2;
+}
+
+.container {
+	display: flex;
+/*	background-color: #3970b7; */
+	width: 100%;
+	height: 100%;
+/*	border: 3px solid gray; */
+	background: linear-gradient(180deg, rgba(235,217,162,1) 0%, rgba(255,255,255,1) 100%);
+/* 	background: linear-gradient(45deg, #d2001a, #7462ff, #f48e21, #23d5ab); */
+    background-size: 300% 300%;
+    animation: color 16s ease-in-out infinite;
+}
+
+.left--aside {
+	width: 25%;
+/*	border: 2px solid white;  */
+	text-align: center;
+}
+
+.main {
+	width: 50%;
+/*	border: 2px solid black;  */
+	text-align: center;
+}
+
+.right--aside {
+	width: 25%;
+/*	border: 2px solid pink; */
+	text-align: center;
+}
+
+.left--aside__logo img {
+	margin-top: 36px;
+}
+
+.left--aside__nav {
+	margin: 100px 0;
+}
+
+.left--aside__nav li {
+	margin-top: 42px;
+}
+
+.left--aside__nav button {
+/* 	border: 2px solid white; */
+	width: 122px;
+	height: 48px;
+	border-radius: 8px;
+	color: #000000; /* 텍스트 흰색 */
+	font-style: italic;
+	font-weight: 800;
+    background-color: #ebd9a2; /* 네온 배경색 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 6px; /* 모서리를 둥글게 설정 */
+    box-shadow: 0 0 6px #000000; /* 네온 효과를 위한 그림자 */
+}
+
+.left--aside__footer div {
+	margin-top: 22px;
+}
+
+.left--aside__footer button {
+	/* 	border: 2px solid white; */
+	width: 122px;
+	height: 48px;
+	border-radius: 6px;
+	font-style: italic;
+	font-weight: 800;
+	color: #000000; /* 텍스트 흰색 */
+    background-color: #ebd9a2;/* 네온 배경색 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 6px; /* 모서리를 둥글게 설정 */
+    box-shadow: 0 0 6px #000000; /* 네온 효과를 위한 그림자 */
+}
+
+.main__menu {
+	margin-top: 18px;
+	width: 100%;
+	height: 65%;
+/*	border: 2px solid black;  */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.main_footer_arrow {
+	margin-top: 42px;
+	display: flex;
+	justify-content: center;
+}
+
+.main_footer_arrow li {
+	margin: 32px 30px 0px 30px;
+}
+
+.main_footer_arrow button {
+/* 	border: 2px solid white; */
+	width: 122px;
+	height: 48px;
+	border-radius: 6px;
+	color: #000000; /* 텍스트 흰색 */
+	font-style: italic;
+	font-weight: 800;
+    background-color:  #ebd9a2; /* 네온 배경색 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 6px; /* 모서리를 둥글게 설정 */
+    box-shadow: 0 0 6px #000000; /* 네온 효과를 위한 그림자 */
+}
+
+.right--aside__cart {
+	width: 100%;
+	height: 65%;
+	border: 0.8px solid #600000;  
+	border-radius: 16px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.cart--paybtn {
+	margin-top: 52px;
+}
+
+.cart--paybtn button {
+/* 	border: 2px solid white; */
+	width: 180px;
+	height: 70px; 
+	color: #000000; /* 텍스트 흰색 */
+	font-size: 18px;
+	font-style: italic;
+	font-weight: 800;
+    background-color: #ebd9a2; /* 네온 배경색 */
+    border: none; /* 테두리 제거 */
+    padding: 10px 20px; /* 여백 설정 */
+    border-radius: 6px; /* 모서리를 둥글게 설정 */
+    box-shadow: 0 0 10px #000000; /* 네온 효과를 위한 그림자 */
+}
+
+@keyframes color {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100 50%;
+  }
+  0% {
+    background-position: 0 50%;
+  }
+}
+
+.s1 {
+	padding-top: 20px;
+	color: #000000; /* 텍스트 흰색 */
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 
+    0 0 20px #8a4baf, 0 0 30px #8a4baf, 
+    0 0 40px #8a4baf, 0 0 50px #8a4baf; /* 부드러운 네온 효과 */
+}
