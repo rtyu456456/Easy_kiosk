@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "css/reset.css";
+
+.manage-container {
+ width: 100vw;
+ height: 100vh;
+ display : grid;
+ grid-template-columns: 200px auto;
+ grid-template-rows: 100px auto;
+ grid-template-areas:
+ 'logo search'
+ 'navbar main';
+}
+
+.manage-logo {
+	grid-area: logo;
+	border: 2px solid blue;
+}
+
+.manage-navbar {
+	grid-area: navbar;
+}
+
+.manage-search {
+	grid-area: search;
+}
+
+.manage-main {
+	grid-area: main;
+	border: 2px solid red;
+}
+
+.manage-menu-container{
+	display: flex;
+}
+
+.manage-item {
+	width: 180px;
+	height: 35px;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
