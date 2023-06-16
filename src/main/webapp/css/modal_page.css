@@ -1,64 +1,64 @@
 @charset "UTF-8";
 
-#modal{
-	border-radius: 25px;
+#modal {
+	border-radius: 5px;
 	position: fixed;
-  	width: 80vw;
+	width: 80vw;
 	height: 80vh;
 	font-size: 50px;
-		
 }
 
-
-.con{
-	position:relative;
+.con {
+	position: relative;
 	top: 250px;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
 
-.con button{
+.con button {
 	width: 400px;
 	height: 100px;
 	font-size: 50px;
 }
 
-.useIce{
+.useIce {
 	display: flex;
-	position:relative;
+	position: relative;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	
 }
 
 #hot {
-	border-radius:30px;
+	border-radius: 5px;
 	width: 200px;
 	height: 50px;
 	font-size: 25px;
 }
-
 
 #ice {
-	border-radius:30px;
+	border-radius: 5px;
 	width: 200px;
 	height: 50px;
 	font-size: 25px;
 }
 
-.count{
+.count {
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
 }
-.count button{
-	border-radius:30px;
+
+.count button {
+	border-radius: 5px;
 	width: 50px;
 	height: 50px;
 	font-size: 25px;
-	
+}
+
+.modal-button {
+	border-radius: 5px;
 }

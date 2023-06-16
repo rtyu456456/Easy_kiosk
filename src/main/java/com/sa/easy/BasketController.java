@@ -9,7 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/BasketController")
 public class BasketController extends HttpServlet {
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
+		System.out.println(request.getParameter("pocketPrice"));
+		System.out.println(request.getParameter("pocketIce"));
+		System.out.println(request.getParameter("pocketCount"));
+		System.out.println(request.getParameter("pocketName"));
+		
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");

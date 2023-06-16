@@ -31,6 +31,7 @@
 	 	<div>사이즈</div>
 	 	<div class="useIce">
 	 	<button id="hot">HOT</button>
+	 	&nbsp;
 	 	<button id="ice">ICE</button>
 	 	</div>
 	 	<div class="count">
@@ -39,8 +40,17 @@
 		<button id="plus-price">+</button>
 		</div>
 	 	<div><span class="modal-price"></span>원</div>
-		<button id="close-modal">주문 취소</button>
-		<button>장바구니 담기</button>
+	 	
+	 	
+		<button class="modal-button"  id="close-modal">주문 취소</button>
+		
+	 	<form action="BasketController">
+	 	<input hidden id="pocketName" name="pocketName">
+	 	<input type="hidden" id="pocketIce" name="pocketIce">
+	 	<input type="hidden" id="pocketCount" name="pocketCount">
+	 	<input type="hidden" id="pocketPrice" name="pocketPrice">
+		<button class="modal-button" id="in-my-pocket">장바구니 담기</button>
+	 	</form>
 		</div>
 		</dialog>
 
