@@ -16,7 +16,7 @@ public class OrderTypeC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = EasyDAO.orderType(request);
+		HttpSession session = EasyDAO.getEasyDAO().orderType(request);
 		if (session.getAttribute("orderType").equals("normalOrder")) {
 			request.getRequestDispatcher("jsp/normal_order.jsp").forward(request, response);
 		} else {

@@ -13,9 +13,9 @@ public class PaymentMethodC extends HttpServlet {
 			throws ServletException, IOException {
 
 		if(request.getParameter("notUsePoint") != null){
-		EasyDAO.notUsePoint(request);
+		EasyDAO.getEasyDAO().notUsePoint(request);
 		}
-		request.getRequestDispatcher("jsp/payment_method.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/payment/payment_method.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -29,11 +29,11 @@ public class PaymentMethodC extends HttpServlet {
 		System.out.println("QR : " + qr);
 		
 		if (card != null) {
-			request.getRequestDispatcher("jsp/payment_card.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/payment/payment_card.jsp").forward(request, response);
 		} else if (cash != null) {
-			request.getRequestDispatcher("jsp/payment_cash.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/payment/payment_cash.jsp").forward(request, response);
 		} else if (qr != null) {
-			request.getRequestDispatcher("jsp/payment_qr.jsp").forward(request, response);
+			request.getRequestDispatcher("jsp/payment/payment_qr.jsp").forward(request, response);
 		}
 	}
 

@@ -11,12 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 public class HC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("HC 진입");
-		EasyDAO.resetSession(request);
+		EasyDAO.getEasyDAO().resetSession(request);
 		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 		// html로 하면 메소드나 Syste.out같은 기능들이 동작하지 않음!
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
-
+	
 }

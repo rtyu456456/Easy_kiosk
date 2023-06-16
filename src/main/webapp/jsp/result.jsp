@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>결과 화면</title>
 </head>
 <body>
 <h1>RESULT</h1>
@@ -33,7 +33,7 @@
 	</form>
 	
 	<a href="HC"><button>처음으로</button></a> <!-- 세션 삭제 -->
- 	<button onclick="location.href='HC'">처음으로</button> 세션 삭제
+ 	<button onclick="location.href='HC'">처음으로</button>
 
 </body>
 </html>

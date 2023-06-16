@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>포인트 사용 결과</title>
 </head>
 <body>
 	<form action="PaymentMethodC" method="get">

@@ -9,32 +9,35 @@ import javax.servlet.http.HttpSession;
 
 public class EasyDAO {
 
-	public static void whereToEat(HttpServletRequest request) {
+	public static final EasyDAO EASYDAO = new EasyDAO();
+	
+	public EasyDAO() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public static EasyDAO getEasyDAO() {
+		return EASYDAO;
+	}
+	
+	public void whereToEat(HttpServletRequest request) { // 매장, 포장 선택 값 세션에 담기
 		String whereToEat = request.getParameter("whereToEat"); // 클라이언트가 선택한 버튼의 값 가져오기
 		HttpSession session = request.getSession();
 		session.setAttribute("whereToEat", whereToEat); // 세션에 선택한 주문 유형 저장
 	}
 
-	public static HttpSession orderType(HttpServletRequest request) {
+	public HttpSession orderType(HttpServletRequest request) { // 일반, 간편 선택 값 세션에 담기
 		String orderType = request.getParameter("orderType");
 		HttpSession session = request.getSession(); 
 		session.setAttribute("orderType", orderType);
 		return session;
 	}
 
-	public static HttpSession getNum(HttpServletRequest request) {
-		String phoneNumber = request.getParameter("phoneNumber");
-		HttpSession session = request.getSession();
-		session.setAttribute("phoneNumber", phoneNumber);
-		return session;
-	}
-
-	public static void getCustomer(HttpServletRequest request) { // 고객의 번호와 포인트 update 또는 insert
+	public void getCustomer(HttpServletRequest request) { // 고객의 번호와 포인트 update 또는 insert
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String phoneNumber = request.getParameter("phoneNumber"); // input 안의 값
-		int point = 500; // 최초 회원 등록시 받는 포인트
+		int point = 600; // 물건 구매시 받는 포인트(임의값, 물건 구매값*0.1)
 		String sql_select = "select * from EK_USER where u_no = ?";
 
 		try {
@@ -50,7 +53,7 @@ public class EasyDAO {
 				pstmt = con.prepareStatement(sql_update);
 				pstmt.setInt(1, userPoint); // pstmt.setInt(1, rs.getInt("u_point")); 로 할 경우 윗줄에서 pstmt.close()가 됐기 때문에
 											// rs의 값을 받아올 수 없음
-				pstmt.setInt(2, 1000); // 1000원 추가
+				pstmt.setInt(2, point);
 				pstmt.setString(3, phoneNumber);
 				pstmt.executeUpdate();
 				rs.close();
@@ -65,7 +68,7 @@ public class EasyDAO {
 				pstmt.close();
 				pstmt = con.prepareStatement(sql_insert);
 				pstmt.setString(1, phoneNumber);
-				pstmt.setInt(2, point); // 500원 추가(임의값)
+				pstmt.setInt(2, 0); // 최초 등록시 포인트는 0원
 				pstmt.executeUpdate(); // executeUpdate 까먹지 말기
 				pstmt.close();
 				pstmt = con.prepareStatement(sql_select);
@@ -86,7 +89,7 @@ public class EasyDAO {
 		}
 	}
 
-	public static void usePoint(HttpServletRequest request) { // 일반 주문시 사용되는 메소드
+	public void usePoint(HttpServletRequest request) { // 일반 주문시 사용되는 메소드
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		User user = (User) request.getSession().getAttribute("user"); // user bean값을 다시 User user에 담아서 getPoint를 사용할 수 있게 함
@@ -142,7 +145,7 @@ public class EasyDAO {
 		}
 	}
 
-	public static void notUsePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
+	public void notUsePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		User user = (User) request.getSession().getAttribute("user");
@@ -179,7 +182,7 @@ public class EasyDAO {
 
 	}
 
-	public static void resetSession(HttpServletRequest request) {
+	public void resetSession(HttpServletRequest request) { // 처음으로 돌아갈때 호출되는 세션 삭제
 		HttpSession session = request.getSession();
 		System.out.println(session);
 //		session.setAttribute("howPoint", null);
@@ -189,13 +192,3 @@ public class EasyDAO {
 	}
 
 }
-		//결과창에서 쓰고싶은 값
-		//1. 이번에 사용할 포인트 (잔여포인트를 그대로 넣으면 안됨) 만약 잔여포인트 쓰고싶으면 초과했을 때 로직이 따로 필요함 (아예 분리하거나)
-		// usedPoint
-		//2. 남은 포인트 remainPoint
-		//3. 최종결제금액 finalPrice
-		//흐름을 타보자
-		//1. 간편결제일 때, 생각할 필요x 별도로 메소드 만들어서 넣어버리면 됨 (거기 결과창은 최종금액)
-		//2. 일반결제이고 포인트 적립할 때 (usedPoint = 0, remainPoint=총금액*0.1+user.getU_point();, finalPrice=총금액)
-		//3. 일반결제이고 포인트 쓸 때(포인트<총금액) (usedPoint = user.getU_point();, remainPoint = 0;, finalPrice=총금액-usedPoint)
-		//4. 일반결제이고 포인트 쓸 때(포인트>=총금액) (usedPoint = 총 금액; remainPoint user.getU_point-총금액;, finalPrice=0;)

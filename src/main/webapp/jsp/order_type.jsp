@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>주문 방식 선택</title>
 </head>
 <body>
 	<form action="OrderTypeC" method="post">

@@ -4,13 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>포인트 사용 여부</title>
 </head>
 <body>
 	<form action="UsePointC">
 	<h1>use point</h1>
-	${sessionScope.user.phoneNumber }님의 포인트가 ?? 적립되어 현재 ${sessionScope.user.savingPoint }원입니다.
-	<br> 포인트를 모두 사용해서 할인을 받으시겠습니까? 사용하지 않으시면 적립됩니다.
+	${sessionScope.user.phoneNumber }님의 현재 포인트는 ${sessionScope.user.savingPoint }원 입니다.
+	<br>포인트를 모두 사용해서 할인을 받으시겠습니까?
+	<br>사용하지 않으시면 600(임의값)원이 적립됩니다.
 	<button name="usePoint" value="usePoint">포인트 사용</button>
 	<button type="button" onclick="location.href='PaymentMethodC?notUsePoint=notUsePoint'">적립 받기</button>
 	<!--

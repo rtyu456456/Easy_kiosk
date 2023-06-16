@@ -5,34 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>전화번호 버튼 입력</title>
-<script type="text/javascript">
-	function displayNumber(buttonNumber) {
-		var phoneNumberInput = document.getElementById("phoneNumber");
-		var phoneNumber = phoneNumberInput.value;
-		if (phoneNumber.length < 8) {
-			phoneNumber += buttonNumber;
-			phoneNumberInput.value = phoneNumber;
-		} 
-	}
-	function clearNumber() {
-		document.getElementById("phoneNumber").value = "";
-	}
-	function deleteLastDigit() {
-		var phoneNumber = document.getElementById("phoneNumber").value;
-		if (phoneNumber.length > 0) {
-			phoneNumber = phoneNumber.slice(0, -1);
-			document.getElementById("phoneNumber").value = phoneNumber;
-		}
-	}
-	function validateForm() {
-		var phoneNumber = document.getElementById("phoneNumber").value;
-		if (phoneNumber.length < 8) {
-			alert("전화번호를 8자리 입력해주세요.");
-			clearNumber();
-			return false;
-		}
-	}
-</script>
+<script type="text/javascript" src="js/pressnum.js"></script>
 </head>
 <body>
 	010과 하이픈(-)을 제외한 8자리 전화번호

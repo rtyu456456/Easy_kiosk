@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>시작 화면</title>
 </head>
 <body>
 <form action="MainC" method="post">

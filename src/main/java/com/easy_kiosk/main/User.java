@@ -1,15 +1,14 @@
 package com.easy_kiosk.main;
 
 public class User {
-	private String phoneNumber;
-	private int savingPoint;
-	private int usedPoint;
-	private int remainPoint;
-	private int totalPrice;
-	private int finalPrice;
+	private String phoneNumber; // 전화번호
+	private int savingPoint; // 현재 포인트
+	private int usedPoint; // 사용 포인트
+	private int remainPoint; // 남은 포인트
+	private int totalPrice; // 총 구매가격
+	private int finalPrice; // 최종 결제가격
 	
 	public User() {
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(String phoneNumber, int savingPoint, int usedPoint, int remainPoint, int totalPrice, int finalPrice) {
