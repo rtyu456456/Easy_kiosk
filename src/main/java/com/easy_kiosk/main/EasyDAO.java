@@ -1,4 +1,4 @@
-package com.easykiosk.kkm;
+package com.easy_kiosk.main;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

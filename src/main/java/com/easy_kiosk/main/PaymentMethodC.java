@@ -1,4 +1,4 @@
-package com.easykiosk.kkm;
+package com.easy_kiosk.main;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

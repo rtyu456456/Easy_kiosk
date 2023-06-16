@@ -28,14 +28,12 @@
 	주문하신 메뉴 : ?? 00개<br>
 	추가 옵션 : ??<br>
 
-	<form action="HomeController" method="get">
+	<form action="HC">
 	<button>처음</button>
 	</form>
 	
-	<a href="HomeController"><button>처음으로</button></a> <!-- 세션 삭제 -->
-<!-- 	<a href="HC"><button onclick="location.href='HC222'">처음으로</button> 세션 삭제
+	<a href="HC"><button>처음으로</button></a> <!-- 세션 삭제 -->
+ 	<button onclick="location.href='HC'">처음으로</button> 세션 삭제
 
-
-
- --></body>
+</body>
 </html>

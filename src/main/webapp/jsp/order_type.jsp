@@ -5,8 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="css/index.css">
-<link rel="stylesheet" href="css/normalize.css">
 </head>
 <body>
 	<form action="OrderTypeC" method="post">

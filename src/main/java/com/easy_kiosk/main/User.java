@@ -1,4 +1,4 @@
-package com.easykiosk.kkm;
+package com.easy_kiosk.main;
 
 public class User {
 	private String phoneNumber;
