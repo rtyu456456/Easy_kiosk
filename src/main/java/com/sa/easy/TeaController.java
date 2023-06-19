@@ -14,6 +14,8 @@ public class TeaController extends HttpServlet {
 		 * EasyPageDAO.getEdao(). getMenuTea(request); EasyPageDAO.getEdao().paging(1,
 		 * request);
 		 */
+		request.getSession().setAttribute("tb", "tea-button");
+		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
 		request.getRequestDispatcher("menu_page.jsp").forward(request, response);

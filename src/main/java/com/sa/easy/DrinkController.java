@@ -14,6 +14,8 @@ public class DrinkController extends HttpServlet {
 		 * EasyPageDAO.getEdao().getMenuDrink(request); EasyPageDAO.getEdao().paging(1,
 		 * request);
 		 */
+		request.getSession().setAttribute("tb", "drink-button");
+
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");

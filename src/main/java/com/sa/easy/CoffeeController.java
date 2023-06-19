@@ -15,6 +15,7 @@ public class CoffeeController extends HttpServlet {
 		 * EasyPageDAO.getEdao().getMenuCoffee(request); EasyPageDAO.getEdao().paging(1,
 		 * request);
 		 */
+		request.getSession().setAttribute("tb", "coffee-button");
 		
 		
 		

@@ -1,10 +1,5 @@
 $(document).ready(function() {
-	$(".coffee-button").off("click").on("click",function(){
-		if($(".e").hasClass("active")){
-			$(".coffee-button").removeClass("active");
-		}else{
-			$(".coffee-button").addClass("active");
-		}
-		
-	});
+	let caid = $("#tb").text();
+	$("#"+ caid).css("backgroundColor", "#011E61");
+	$("#"+ caid).css("color", "white");
 });

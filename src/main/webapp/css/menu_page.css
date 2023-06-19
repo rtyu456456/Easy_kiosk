@@ -39,12 +39,8 @@
 	border: 0;
 	font-family: 'Inter';
 }
-.coffee-button.active{
-	color: white;
-	border: 0;
-	background-color: #011E61;
-}
-.coffee-button {
+
+#coffee-button {
 	position: absolute;
 	width: 224px;
 	height: 115px;
@@ -61,7 +57,7 @@
 	background-color: white;
 }
 
-.coffee-button:hover {
+#coffee-button:hover {
 	position: absolute;
 	width: 224px;
 	height: 115px;
@@ -78,22 +74,6 @@
 	background-color: #011E61;
 }
 
-.coffee-button:active {
-	position: absolute;
-	width: 224px;
-	height: 115px;
-	left: 30px;
-	top: 150px;
-	border-radius: 30px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 70px;
-	line-height: 97px;
-	color: white;
-	border: 0;
-	background-color: #011E61;
-}
 
 #tea-button {
 	position: absolute;
@@ -130,22 +110,6 @@
 	background-color: #011E61;
 }
 
-#tea-button:active {
-	position: absolute;
-	width: 224px;
-	height: 115px;
-	left: 30px;
-	top: 350px;
-	border-radius: 30px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 70px;
-	line-height: 97px;
-	color: white;
-	border: 0;
-	background-color: #011E61;
-}
 
 #dessert-button {
 	position: absolute;
@@ -182,22 +146,6 @@
 	background-color: #011E61;
 }
 
-#dessert-button:active {
-	position: absolute;
-	width: 224px;
-	height: 115px;
-	left: 30px;
-	top: 550px;
-	border-radius: 30px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 60px;
-	line-height: 97px;
-	color: white;
-	border: 0;
-	background-color: #011E61;
-}
 
 #drink-button {
 	position: absolute;
@@ -234,22 +182,6 @@
 	background-color: #011E61;
 }
 
-#drink-button:active {
-	position: absolute;
-	width: 224px;
-	height: 115px;
-	left: 30px;
-	top: 750px;
-	border-radius: 30px;
-	font-family: 'Inter';
-	font-style: normal;
-	font-weight: 600;
-	font-size: 70px;
-	line-height: 97px;
-	color: white;
-	border: 0;
-	background-color: #011E61;
-}
 
 #call-button img {
 	width: 60px;
