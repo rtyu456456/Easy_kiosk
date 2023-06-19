@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DessertController")
 public class DessertController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyPageDAO.getEdao().getMenuDessert(request);
-		EasyPageDAO.getEdao().paging(1, request);
+		/*
+		 * EasyPageDAO.getEdao().getMenuDessert(request);
+		 * EasyPageDAO.getEdao().paging(1, request);
+		 */
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");

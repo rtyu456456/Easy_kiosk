@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 public class CoffeeController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		EasyPageDAO.getEdao().getMenuCoffee(request);
-		EasyPageDAO.getEdao().paging(1, request);
+		/*
+		 * EasyPageDAO.getEdao().getMenuCoffee(request); EasyPageDAO.getEdao().paging(1,
+		 * request);
+		 */
 		
 		
 		

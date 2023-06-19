@@ -1,22 +1,355 @@
 @charset "UTF-8";
 
+@import "normalize.css";
+
 .containor {
-	display: flex;
-	height: 1080px;
-	width: 1920px;
-	border: 5px solid gold;
-}
-
-.header {
-	border: 5px solid black;
-	height: 1080px;
-	width: 200px;
 	position: relative;
-	background: linear-gradient(270deg, rgba(255, 255, 255, 1) 0%,
-		rgba(36, 60, 132, 1) 100%);
+	width: 1920px;
+	height: 1080px;
+	background: #011E61;
+	border: 1px solid #011E61;
 }
 
-.header button {
+/*header*/
+.header {
+	box-sizing: border-box;
+	position: relative;
+	width: 288px;
+	height: 1038px;
+	left: 20px;
+	top: 17px;
+	background: #FFFFFF;
+	border: 3px solid #011E61;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 30px;
+}
+
+#home {
+	position: absolute;
+	width: 250px;
+	height: -500px;
+	left: 20px;
+	top: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 40px;
+	background-color: white;
+	color: #011E61;
+	border: 0;
+	font-family: 'Inter';
+}
+.coffee-button.active{
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+.coffee-button {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 150px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: #011E61;
+	border: 0;
+	background-color: white;
+}
+
+.coffee-button:hover {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 150px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+.coffee-button:active {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 150px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#tea-button {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 350px;
+	background: #011E61;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: #011E61;
+	border: 0;
+	background-color: white;
+}
+
+#tea-button:hover {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 350px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#tea-button:active {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 350px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#dessert-button {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 550px;
+	background: #011E61;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 60px;
+	line-height: 97px;
+	color: #011E61;
+	border: 0;
+	background-color: white;
+}
+
+#dessert-button:hover {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 550px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 60px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#dessert-button:active {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 550px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 60px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#drink-button {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 750px;
+	background: #011E61;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: #011E61;
+	border: 0;
+	background-color: white;
+}
+
+#drink-button:hover {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 750px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#drink-button:active {
+	position: absolute;
+	width: 224px;
+	height: 115px;
+	left: 30px;
+	top: 750px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 70px;
+	line-height: 97px;
+	color: white;
+	border: 0;
+	background-color: #011E61;
+}
+
+#call-button img {
+	width: 60px;
+	height: 60px;
+}
+
+#call-button {
+	position: absolute;
+	width: 150px;
+	height: 36px;
+	left: 0px;
+	top: 920px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 25px;
+	line-height: 36px;
+	color: #011E61;
+	background-color: white;
+	border: 0;
+}
+
+#before-button img {
+	width: 60px;
+	height: 60px;
+}
+
+#before-button {
+	position: absolute;
+	width: 150px;
+	height: 36px;
+	left: 130px;
+	top: 920px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 900;
+	font-size: 25px;
+	line-height: 36px;
+	color: #011E61;
+	background-color: white;
+	border: 0;
+}
+
+/* contents */
+.easy-contents {
+	box-sizing: border-box;
+	position: absolute;
+	width: 1184px;
+	height: 943px;
+	left: 372px;
+	top: 61px;
+	background: #FFFFFF;
+	border: 3px solid #011E61;
+	border-radius: 30px;
+}
+
+#left-arrow img {
+	width: 100px;
+	height: 100px;
+}
+
+#left-arrow button {
+	position: absolute;
+	top: 40%;
+	height: 150px;
+	background-color: white;
+	border: 0;
+}
+
+#right-arrow button {
+	position: absolute;
+	top: 40%;
+	right: 0;
+	height: 150px;
+	background-color: white;
+	border: 0;
+	height: 150px;
+}
+
+#right-arrow img {
+	width: 100px;
+	height: 100px;
+	transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+/*footer*/
+.easy-footer {
+	box-sizing: border-box;
+	position: absolute;
+	width: 295px;
+	height: 1081px;
+	left: 1626px;
+	top: 0px;
+	background: #FFFFFF;
+	border: 3px solid #FFFFFF;
+	border-radius: 30px 0px 0px 30px;
+}
+
+/* .
+button {
 	width: 100%;
 	font-size: 30pt;
 }
@@ -26,8 +359,8 @@
 	position: absolute;
 	bottom: 0;
 	font-size: 30pt;
-}
-
+} */
+/* 
 #logo {
 	width: 100%;
 	height: 25px;
@@ -41,7 +374,7 @@
 	margin-right: auto;
 }
 
-/* contents  */
+contents 
 .easy-contents {
 	border: 5px solid red;
 	width: 1220px;
@@ -70,7 +403,6 @@
 	border: 2px solid green;
 	position: relative;
 	top: 80px;
-
 }
 
 .content-box {
@@ -102,7 +434,7 @@
 	font-size: 50px;
 }
 
-/* footer */
+footer
 .easy-footer {
 	border: 5px solid blue;
 	position: relative;
@@ -124,4 +456,4 @@
 	position: absolute;
 	bottom: 0;
 	font-size: 50pt;
-}
+} */
