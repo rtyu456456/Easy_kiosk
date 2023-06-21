@@ -66,7 +66,7 @@
 						</button>
 					</c:when>
 					<c:otherwise>
-						<button id="page-button" disabled="disabled">
+						<button id="page-button" hidden disabled="disabled">
 							<i id="left-arrow" class="fa-solid fa-chevron-up"></i>
 						</button>
 					</c:otherwise>
@@ -88,7 +88,7 @@
 
 				</c:when>
 				<c:otherwise>
-					<button id="page-button" disabled="disabled">
+					<button id="page-button" hidden disabled="disabled">
 						<i id="right-arrow" class="fa-solid fa-chevron-up"></i>
 					</button>
 				</c:otherwise>
