@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.normal-order-img {
+	position: relative;
+	top: 0px;
+	left: -200px;
+}
+
+.normal-order-text {
+	position: relative;
+	width: 825px;
+	height: 206px;
+	left: -141px;
+	top: -34px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 170px;
+	letter-spacing: -5px;
+	line-height: 206px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+}
+
+.normal-order-desc {
+	position: relative;
+	left: -206px;
+	font-weight : 600;
+	font-size: 48px;
+	line-height: 58px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+	font-weight: 600;
+}
+
+.simple-order-img {
+	position: relative;
+	top: 0px;
+	left: -200px;
+}
+
+.simple-order-text {
+	position: relative;
+	width: 825px;
+	height: 206px;
+	left: -88px;
+	top : -34px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 170px;
+	letter-spacing: -5px;
+	line-height: 206px;
+	color: #011E61;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	top: -34px;
+}
+
+.simple-order-desc {
+	position: relative;
+	left: 10px;
+	font-weight : 600;
+	font-size: 48px;
+	line-height: 58px;
+	color: #011E61;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight: 600;
+}

@@ -10,15 +10,15 @@ import javax.servlet.http.HttpSession;
 public class EasyDAO {
 
 	public static final EasyDAO EASYDAO = new EasyDAO();
-	
+
 	public EasyDAO() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static EasyDAO getEasyDAO() {
 		return EASYDAO;
 	}
-	
+
 	public void whereToEat(HttpServletRequest request) { // 매장, 포장 선택 값 세션에 담기
 		String whereToEat = request.getParameter("whereToEat"); // 클라이언트가 선택한 버튼의 값 가져오기
 		HttpSession session = request.getSession();
@@ -27,7 +27,7 @@ public class EasyDAO {
 
 	public HttpSession orderType(HttpServletRequest request) { // 일반, 간편 선택 값 세션에 담기
 		String orderType = request.getParameter("orderType");
-		HttpSession session = request.getSession(); 
+		HttpSession session = request.getSession();
 		session.setAttribute("orderType", orderType);
 		return session;
 	}
@@ -93,7 +93,8 @@ public class EasyDAO {
 	public void usePoint(HttpServletRequest request) { // 일반 주문시 사용되는 메소드
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		User user = (User) request.getSession().getAttribute("user"); // user bean값을 다시 User user에 담아서 getPoint를 사용할 수 있게 함
+		User user = (User) request.getSession().getAttribute("user"); // user bean값을 다시 User user에 담아서 getPoint를 사용할 수
+																		// 있게 함
 		String userNo = user.getPhoneNumber();
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
 		int usedPoint = 0; // 사용할 포인트
@@ -130,7 +131,7 @@ public class EasyDAO {
 				user.setTotalPrice(totalPrice);
 				user.setFinalPrice(finalPrice);
 				System.out.println("getPhoneNumber : " + user.getPhoneNumber());
-				System.out.println("getSavingPoint : " +user.getSavingPoint());
+				System.out.println("getSavingPoint : " + user.getSavingPoint());
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
 				String usePoint = request.getParameter("usePoint");
@@ -146,7 +147,7 @@ public class EasyDAO {
 		}
 	}
 
-	public void notUsePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
+	public void savePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		User user = (User) request.getSession().getAttribute("user");
@@ -171,9 +172,9 @@ public class EasyDAO {
 				user.setFinalPrice(finalPrice);
 				HttpSession session = request.getSession();
 				session.setAttribute("user", user);
-				String notUsePoint = request.getParameter("notUsePoint");
-				System.out.println("howPoint : " + request.getParameter("notUsePoint"));
-				session.setAttribute("howPoint", notUsePoint);
+				String savePoint = request.getParameter("savePoint");
+				System.out.println("howPoint : " + request.getParameter("savePoint"));
+				session.setAttribute("howPoint", savePoint);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -186,10 +187,50 @@ public class EasyDAO {
 	public void resetSession(HttpServletRequest request) { // 처음으로 돌아갈때 호출되는 세션 삭제
 		HttpSession session = request.getSession();
 		System.out.println(session);
-//		session.setAttribute("howPoint", null);
-//		session.setAttribute("user", null);
-//		session.setAttribute("phoneNumber", null);
-		session.invalidate();
+		session.setAttribute("whereToEat", null);
+		session.setAttribute("orderType", null);
+		session.setAttribute("phoneNumber", null);
+		session.setAttribute("user", null);
+		session.setAttribute("howPoint", null);
+		// orderNum은 유지
+//		session.invalidate();
 	}
 
-}
+	public void orderNum(HttpServletRequest request) {
+		 HttpSession session = request.getSession();
+		    String orderType = (String) session.getAttribute("orderType");
+		    System.out.println(orderType);
+
+		    // 세션에서 저장된 변수 값을 가져옴
+		    Integer normalNum = (Integer) session.getAttribute("normalNum");
+		    Integer simpleNum = (Integer) session.getAttribute("simpleNum");
+		    if (normalNum == null) {
+		        normalNum = 0; // 1부터 시작
+		    }
+		    if (simpleNum == null) {
+		        simpleNum = 3; // 4부터 시작
+		    }
+
+		    if (orderType.equals("normalOrder")) {
+		        System.out.println(orderType.equals("normalOrder"));
+		        System.out.println(normalNum);
+		        normalNum++;
+		        session.setAttribute("orderNum", normalNum);
+		        if (normalNum == 3) { // 3까지는 표시됨
+		            normalNum = 0;
+		        }
+		    } else { // if (orderType.equals("simpleOrder"))
+		        System.out.println(orderType.equals("simpleOrder"));
+		        System.out.println(simpleNum);
+		        simpleNum++;
+		        session.setAttribute("orderNum", simpleNum);
+		        if (simpleNum == 6) { // 6까지는 표시됨
+		            simpleNum = 3;
+		        }
+		    }
+
+		    // 수정된 변수 값을 세션에 다시 저장
+		    session.setAttribute("normalNum", normalNum);
+		    session.setAttribute("simpleNum", simpleNum);
+		}
+	}

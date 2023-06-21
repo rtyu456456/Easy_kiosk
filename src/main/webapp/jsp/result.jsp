@@ -11,8 +11,8 @@
 <h1>RESULT</h1>
 <hr>
 ~영수증~<br>
-대기번호 : ??<br>
-<c:if test="${sessionScope.orderType eq 'simpleOrder'}"> <!-- 간편 결제시 -->
+주문번호 : ${sessionScope.orderNum }<br>
+<c:if test="${sessionScope.orderType eq 'simpleOrder' || sessionScope.orderType eq 'normalOrder'}"> <!-- 간편 결제, 포인트 사용 안 할시 -->
     결제하신 금액 : ${sessionScope.user.finalPrice }<br>
 </c:if>
 <c:if test="${sessionScope.howPoint eq 'usePoint'}"> <!-- 포인트 사용시 -->
@@ -21,7 +21,7 @@
     결제하신 금액 : ${sessionScope.user.finalPrice }<br>
 	현재 포인트 : ${sessionScope.user.remainPoint }<br>
 </c:if>
-<c:if test="${sessionScope.howPoint eq 'notUsePoint'}"> <!-- 포인트 적립시 -->
+<c:if test="${sessionScope.howPoint eq 'savePoint'}"> <!-- 포인트 적립시 -->
     결제하신 금액 : ${sessionScope.user.finalPrice }<br>
 	현재 포인트 : ${sessionScope.user.remainPoint }<br>
 </c:if>
@@ -29,11 +29,8 @@
 	추가 옵션 : ??<br>
 
 	<form action="HC">
-	<button>처음</button>
+	<button>처음으로</button>
 	</form>
-	
-	<a href="HC"><button>처음으로</button></a> <!-- 세션 삭제 -->
- 	<button onclick="location.href='HC'">처음으로</button>
 
 </body>
 </html>

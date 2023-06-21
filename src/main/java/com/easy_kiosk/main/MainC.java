@@ -17,9 +17,10 @@ public class MainC extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//EasyDAO.resetSession(request);
 		EasyDAO.getEasyDAO().whereToEat(request);
-		request.getRequestDispatcher("jsp/order_type.jsp").forward(request, response);
+		request.setAttribute("nav", "nav.jsp");
+		request.setAttribute("contentPage", "order_type.jsp");
+		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 }

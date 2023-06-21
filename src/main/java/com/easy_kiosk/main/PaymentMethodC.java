@@ -12,8 +12,8 @@ public class PaymentMethodC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if(request.getParameter("notUsePoint") != null){
-		EasyDAO.getEasyDAO().notUsePoint(request);
+		if(request.getParameter("savePoint") != null){
+		EasyDAO.getEasyDAO().savePoint(request);
 		}
 		request.getRequestDispatcher("jsp/payment/payment_method.jsp").forward(request, response);
 	}

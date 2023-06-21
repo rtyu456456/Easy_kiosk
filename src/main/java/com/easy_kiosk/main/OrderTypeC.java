@@ -17,10 +17,13 @@ public class OrderTypeC extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = EasyDAO.getEasyDAO().orderType(request);
+		request.setAttribute("nav", "nav.jsp");
 		if (session.getAttribute("orderType").equals("normalOrder")) {
-			request.getRequestDispatcher("jsp/normal_order.jsp").forward(request, response);
+			request.setAttribute("contentPage", "normal_order.jsp");
+			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 		} else {
-			request.getRequestDispatcher("jsp/simple_order.jsp").forward(request, response);
+			request.setAttribute("contentPage", "simple_order.jsp");
+			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 		}
 	}
 
