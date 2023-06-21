@@ -2,66 +2,162 @@
 
 @import "nomalize.css";
 
-
-#modal {
-	border-radius: 5px;
-	position: fixed;
+/* menu_page에 있는 직원 호출 modal */
+#staff-call {
+	text-align: center;
 	width: 80vw;
 	height: 80vh;
-	font-size: 50px;
+	font-size: 50pt;
+	color: #BD433B;
+}
+
+#staff-call-page {
+	position: relative;
+	top: 30%;
+}
+
+#close-button {
+	display: inline;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 100px;
+	background-color: #011E61;
+	border-radius: 20px;
+	color: white;
+	font-size: 50pt;
+}
+
+/* easy_contents_page에 있는 menu modal */
+#modal {
+	width: 80vw;
+	height: 80vh;
+	border: 1px solid #011E61;
+	border-radius: 20px;
 }
 
 .con {
 	position: relative;
-	top: 250px;
-	justify-content: center;
-	align-items: center;
+	top: 10%;
+	left: -5%;
 	text-align: center;
 }
 
-.con button {
-	width: 400px;
-	height: 100px;
-	font-size: 50px;
-}
-
-.useIce {
+#modal-header {
 	display: flex;
-	position: relative;
 	justify-content: center;
-	align-items: center;
-	text-align: center;
 }
 
-#hot {
-	border-radius: 5px;
-	width: 200px;
-	height: 50px;
-	font-size: 25px;
+#modal-img {
+	width: 300px;
+	height: 3S00px;
 }
 
-#ice {
-	border-radius: 5px;
-	width: 200px;
-	height: 50px;
-	font-size: 25px;
+.modal-name {
+	position: relative;
+	top: 50px;
+	color: #011E61;
+	font-size: 50px;
+	line-height: 85px;
+	font-weight: bolder;
+}
+
+#modal-price {
+	position: relative;
+	top: 50px;
+	color: #011E61;
+	font-size: 50px;
+	line-height: 85px;
+	font-weight: bolder;
 }
 
 .count {
 	position: relative;
+	top: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	text-align: center;
+	font-size: 50px;
+	font-weight: bolder;
+	color: #011E61;
 }
 
 .count button {
 	border-radius: 5px;
 	width: 50px;
 	height: 50px;
-	font-size: 25px;
+	font-size: 30px;
+	background: #FFFFFF;
+	border: 3px solid #011E61;
+	font-weight: bolder;
+	color: #011E61;
 }
 
-.modal-button {
-	border-radius: 5px;
+.useIce {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	top: 50px;
 }
+
+#hot {
+	position: relative;
+	font-size: 25px;
+	width: 250px;
+	height: 50px;
+	background: #BD433B;
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	font-weight: bolder;
+}
+
+#ice {
+	position: relative;
+	left: 25px;
+	font-size: 25px;
+	width: 250px;
+	height: 50px;
+	background: #0B3598;
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	font-weight: bolder;
+	
+}
+
+#modal-footer{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	top: 100px;
+}
+
+.close-modal {
+	position: relative;
+	border-radius: 5px;
+	width: 350px;
+	height: 100px;
+	background-color: white;
+	border: 1px solid #011E61;
+	font-size: 35pt;
+	font-weight: bolder;
+} 
+
+#in-my-pocket {
+	position: relative;
+	left: 25px;
+	border-radius: 5px;
+	width: 350px;
+	height: 100px;
+	background-color: #011E61;
+	border: 1px solid #011E61;
+	font-size: 35pt;
+	color:white;
+	font-weight: bolder;
+} 

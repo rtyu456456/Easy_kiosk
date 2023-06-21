@@ -31,13 +31,29 @@
 			<jsp:include page="${easyTitlePage }"></jsp:include>
 			<div class="header-under">
 				<button id="call-button">
-					<img alt="" src="img/직원호출.png"><br> 직원호출
+					<div><i class="fa-solid fa-bell"></i></div>
+					직원호출
 				</button>
 				<button id="before-button">
-					<img alt="" src="img/leftArrow.png"><br> 이전으로
+					<div><i class="fa-solid fa-arrow-right"></i></div> 
+					이전으로
 				</button>
 			</div>
 		</div>
+
+	
+		<dialog id="staff-call">
+		<div id="staff-call-page">	
+		<h1>
+		카운터에 호출 요청이 전송되었습니다.<br>
+		잠시만 기다려 주세요.
+		</h1>
+		<button id="close-button">확인</button>
+		</div>
+		</dialog>
+
+
+
 
 
 		<div class="easy-contents">
@@ -46,12 +62,12 @@
 					<c:when test="${curPageNo > 1 }">
 						<button id="page-button"
 							onclick="location.href='EasyPageController?p=${curPageNo - 1 }'">
-							<img alt="" src="img/contents-left-arrow.png">
+							<i id="left-arrow" class="fa-solid fa-chevron-up"></i>
 						</button>
 					</c:when>
 					<c:otherwise>
 						<button id="page-button" disabled="disabled">
-							<img alt="" src="img/contents-left-arrow.png">
+							<i id="left-arrow" class="fa-solid fa-chevron-up"></i>
 						</button>
 					</c:otherwise>
 				</c:choose>
@@ -67,13 +83,13 @@
 
 					<button id="page-button"
 						onclick="location.href='EasyPageController?p=${curPageNo + 1 }'">
-						<img alt="" src="img/contents-left-arrow.png">
+						<i id="right-arrow" class="fa-solid fa-chevron-up"></i>
 					</button>
 
 				</c:when>
 				<c:otherwise>
 					<button id="page-button" disabled="disabled">
-						<img alt="" src="img/contents-left-arrow.png">
+						<i id="right-arrow" class="fa-solid fa-chevron-up"></i>
 					</button>
 				</c:otherwise>
 			</c:choose>
@@ -82,7 +98,8 @@
 
 
 		<div class="easy-footer">
-			<div class="footer-page"></div>
+			<div class="footer-page">
+			</div>
 			<div class="footer-button">
 				<button>결제하기</button>
 			</div>
@@ -91,6 +108,7 @@
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/css.js"></script>
+	<script type="text/javascript" src="js/staff_call.js"></script>
 
 </body>
 </html>

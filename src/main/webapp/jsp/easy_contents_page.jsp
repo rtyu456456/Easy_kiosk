@@ -9,15 +9,13 @@
 </head>
 <body>
 	 
-		<div class="contents">
+		<div class="grid-contents">
 			<c:forEach var="menus" items="${menus }">
-				<button class="content-box"
-					onclick="modalPage('img/${menus.m_img}', '${menus.m_name }', ${menus.m_price }, '${menus.m_ice }')">
-					<div>
-						<img src="img/${menus.m_img }"> 
-					</div>
-					<div>${menus.m_name}</div>
-					<div>${menus.m_price }원</div>
+				<button class="grid-content-box"
+					onclick="modalPage('${menus.m_img}', '${menus.m_name }', ${menus.m_price }, '${menus.m_ice }')">
+					<img src="${menus.m_img }"> 
+					<div id="content-box-name">${menus.m_name}</div>
+					<div id="content-box-price">${menus.m_price }원</div>
 				</button>
 			</c:forEach>
 		</div>
@@ -25,32 +23,37 @@
 
 		<dialog id="modal"> 
 		<div class="con">
+		<div id="modal-header">
 		<img id="modal-img" src="#"/>
+		<div>
 	 	<div class="modal-name">상품명</div>
-	 	<div>설명 </div>
-	 	<div>사이즈</div>
-	 	<div class="useIce">
-	 	<button id="hot">HOT</button>
-	 	&nbsp;
-	 	<button id="ice">ICE</button>
-	 	</div>
+	 	<div id="modal-price" ><span class="modal-price"></span>원</div>
 	 	<div class="count">
 		<button id="minus-price">-</button>
+	 	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 	 	<div id="count"> 수량 ? </div>
+	 	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
 		<button id="plus-price">+</button>
 		</div>
-	 	<div><span class="modal-price"></span>원</div>
+	 	</div>
+	 	</div>
 	 	
-	 	
-		<button class="modal-button"  id="close-modal">주문 취소</button>
-		
+	 	<div class="useIce">
+	 	<button id="hot">뜨겁게</button>
+	 	&nbsp;
+	 	<button id="ice">얼음</button>
+	 	</div>
+	 	<div id="modal-footer">
+		<button id="modal-button"  class="close-modal">취소</button>
 	 	<form action="BasketController">
+	 	<input hidden id="pocketimg" name="pocketImg">
 	 	<input hidden id="pocketName" name="pocketName">
 	 	<input type="hidden" id="pocketIce" name="pocketIce">
 	 	<input type="hidden" id="pocketCount" name="pocketCount">
 	 	<input type="hidden" id="pocketPrice" name="pocketPrice">
-		<button class="modal-button" id="in-my-pocket">장바구니 담기</button>
+		<button class="modal-button" id="in-my-pocket">선택 완료</button>
 	 	</form>
+		</div>
 		</div>
 		</dialog>
 

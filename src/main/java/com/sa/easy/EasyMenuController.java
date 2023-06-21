@@ -11,7 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 public class EasyMenuController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		EasyPageDAO.getEdao().getMenuCoffee(request);
+		EasyPageDAO.getEdao().paging(1, request);
 		
+		request.getSession().setAttribute("tb", "coffee-button");
+
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
 		request.getRequestDispatcher("menu_page.jsp").forward(request, response);

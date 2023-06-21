@@ -30,59 +30,13 @@ public class EasyPageDAO {
 		return EDAO;
 	}
 
-
-
-
-
-	/*
-	 * public void getAllMenu(HttpServletRequest request) { Connection con = null;
-	 * PreparedStatement pstmt = null; ResultSet rs = null;
-	 * 
-	 * String sql = "select * from EK_MENU";
-	 * 
-	 * try {
-	 * 
-	 * 
-	 * con = DBManager.connect(); System.out.println("연결성공"); pstmt =
-	 * con.prepareStatement(sql); rs = pstmt.executeQuery();
-	 * 
-	 * 
-	 * menus = new ArrayList<Menu>(); while (rs.next()) { String no =
-	 * rs.getString("m_no"); String name = rs.getString("m_name"); int price =
-	 * rs.getInt("m_price"); String img = rs.getString("m_img"); String ice =
-	 * rs.getString("m_ice"); String type = rs.getString("m_type"); String type_easy
-	 * = rs.getString("m_type_easy"); String weather = rs.getString("m_weather");
-	 * String stock = rs.getString("m_stock"); Menu menu = new Menu(no, name, price,
-	 * img, ice, type, type_easy, weather, stock);
-	 * 
-	 * menus.add(menu);
-	 * 
-	 * }
-	 * 
-	 * 
-	 * request.setAttribute("menus", menus);
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * 
-	 * } catch (Exception e) { System.out.println("db에러"); e.printStackTrace();
-	 * }finally { DBManager.close(con, pstmt, rs); }
-	 * 
-	 * 
-	 * }
-	 */
-
 	public void getMenuCoffee(HttpServletRequest request) {
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from EK_MENU where m_type_EASY='COFFEE'";
+		String sql = "select * from EK_MENU where m_type_EASY='COFFEE' ORDER BY M_ORDER DESC";
 	
 		try {		
 			con = DBManager.connect();
@@ -97,12 +51,16 @@ public class EasyPageDAO {
 				String name = rs.getString("m_name");
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
-				String ice = rs.getString("m_ice");
+				int ice = rs.getInt("m_ice");
+				int size = rs.getInt("m_size");
 				String type = rs.getString("m_type");
 				String type_easy = rs.getString("m_type_easy");
-				String weather = rs.getString("m_weather");
-				String stock = rs.getString("m_stock");
-				Menu menu = new Menu(no, name, price, img, ice, type, type_easy, weather, stock);
+				String option = rs.getString("m_option");
+				String desc = rs.getString("m_desc");
+				int weather = rs.getInt("m_weather");
+				int soldout = rs.getInt("m_soldout");
+				int order = rs.getInt("m_order");
+				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
 				
 				menus.add(menu);
 				
@@ -126,7 +84,7 @@ public class EasyPageDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from EK_MENU where m_type_EASY='TEA'";
+		String sql = "select * from EK_MENU where m_type_EASY='TEA' ORDER BY M_ORDER DESC";
 	
 		try {
 			
@@ -143,12 +101,16 @@ public class EasyPageDAO {
 				String name = rs.getString("m_name");
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
-				String ice = rs.getString("m_ice");
+				int ice = rs.getInt("m_ice");
+				int size = rs.getInt("m_size");
 				String type = rs.getString("m_type");
 				String type_easy = rs.getString("m_type_easy");
-				String weather = rs.getString("m_weather");
-				String stock = rs.getString("m_stock");
-				Menu menu = new Menu(no, name, price, img, ice, type, type_easy, weather, stock);
+				String option = rs.getString("m_option");
+				String desc = rs.getString("m_desc");
+				int weather = rs.getInt("m_weather");
+				int soldout = rs.getInt("m_soldout");
+				int order = rs.getInt("m_order");
+				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
 				
 				menus.add(menu);
 				
@@ -174,7 +136,7 @@ public class EasyPageDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from EK_MENU where m_type_EASY='DESSERT'";
+		String sql = "select * from EK_MENU where m_type_EASY='NONE' ORDER BY M_ORDER DESC";
 	
 		try {
 			con = DBManager.connect();
@@ -189,12 +151,16 @@ public class EasyPageDAO {
 				String name = rs.getString("m_name");
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
-				String ice = rs.getString("m_ice");
+				int ice = rs.getInt("m_ice");
+				int size = rs.getInt("m_size");
 				String type = rs.getString("m_type");
 				String type_easy = rs.getString("m_type_easy");
-				String weather = rs.getString("m_weather");
-				String stock = rs.getString("m_stock");
-				Menu menu = new Menu(no, name, price, img, ice, type, type_easy, weather, stock);
+				String option = rs.getString("m_option");
+				String desc = rs.getString("m_desc");
+				int weather = rs.getInt("m_weather");
+				int soldout = rs.getInt("m_soldout");
+				int order = rs.getInt("m_order");
+				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
 				
 				menus.add(menu);
 				
@@ -221,7 +187,7 @@ public class EasyPageDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from EK_MENU where m_type_EASY='BEVERAGE'";
+		String sql = "select * from EK_MENU where m_type_EASY='BEVERAGE' ORDER BY M_ORDER DESC";
 	
 		try {
 			
@@ -238,12 +204,16 @@ public class EasyPageDAO {
 				String name = rs.getString("m_name");
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
-				String ice = rs.getString("m_ice");
+				int ice = rs.getInt("m_ice");
+				int size = rs.getInt("m_size");
 				String type = rs.getString("m_type");
 				String type_easy = rs.getString("m_type_easy");
-				String weather = rs.getString("m_weather");
-				String stock = rs.getString("m_stock");
-				Menu menu = new Menu(no, name, price, img, ice, type, type_easy, weather, stock);
+				String option = rs.getString("m_option");
+				String desc = rs.getString("m_desc");
+				int weather = rs.getInt("m_weather");
+				int soldout = rs.getInt("m_soldout");
+				int order = rs.getInt("m_order");
+				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
 				
 				menus.add(menu);
 				
@@ -268,7 +238,7 @@ public class EasyPageDAO {
 	public void paging(int page, HttpServletRequest request) {
 		request.setAttribute("curPageNo", page);
 		
-		int cnt = 1; // 한페이지당 보여줄 개수
+		int cnt = 4; // 한페이지당 보여줄 개수
 		int total = menus.size(); // 총 데이터 개수
 		// 4
 		int pageCount = (int)Math.ceil((double)total / cnt); // 총 페이지 수

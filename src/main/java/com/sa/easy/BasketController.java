@@ -15,6 +15,7 @@ public class BasketController extends HttpServlet {
 		System.out.println(request.getParameter("pocketCount"));
 		System.out.println(request.getParameter("pocketName"));
 		
+	
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");

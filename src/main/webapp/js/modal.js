@@ -1,12 +1,14 @@
-const modal = document.getElementById("modal");
+const modalid = document.getElementById("modal");
 const modalImg = document.getElementById("modal-img");
-const closeModal = document.getElementById("close-modal");
+const closeModal = modal.querySelector(".close-modal");
 const modalName = modal.querySelector(".modal-name");
 const modalPrice = modal.querySelector(".modal-price");
 const iceButton = document.getElementById("ice");
 const hotButton = document.getElementById("hot");
 const count = document.getElementById("count");
 const pocket = document.getElementById("in-my-pocket");
+
+const selectedImg = document.getElementById("pocketImg");
 const selectedName = document.getElementById("pocketName");
 const selectedIce = document.getElementById("pocketIce");
 const selectedCount = document.getElementById("pocketCount");
@@ -34,15 +36,22 @@ function modalPage(imgSrc, easyName, easyPrice, useice) {
 		hotButton.style.display = 'block';
 		hotButton.textContent = "Only Hot";
 		console.log("Hot");
+	} else{
+		iceButton.style.display = 'none';
+		hotButton.style.display = 'none';
+		console.log("디저트");
 	}
 
-
 	iceButton.addEventListener("click", () => {
+		useice = 1;
 		console.log("Ice");
+		console.log(useice);
 	})
 
 	hotButton.addEventListener("click", () => {
+		useice = 0;
 		console.log("Hot");
+		console.log(useice);
 	})
 
 
@@ -91,6 +100,7 @@ function modalPage(imgSrc, easyName, easyPrice, useice) {
 
 class selectedMenu{
 	constructor(){
+		this.img = imgSrc;
         this.name = easyName;
         this.ice = useice;
         this.count = totalCount;
@@ -108,6 +118,7 @@ class selectedMenu{
 
 		const selectMenu = new selectedMenu();
 		console.log(selectMenu.name);
+		console.log(selectMenu.img);
 		console.log(selectMenu.ice);
 		console.log(selectMenu.count);
 		console.log(selectMenu.price);
@@ -116,6 +127,8 @@ class selectedMenu{
 		selectedIce.value = selectMenu.ice;
 		selectedCount.value = selectMenu.count;
 		selectedPrice.value = selectMenu.price;	
+		selectedImg.value = selectMenu.img;
+		
 		
 		
 	
@@ -126,14 +139,18 @@ class selectedMenu{
 }
 
 
+	closeModal.addEventListener("click", ()=>{
+		iceButton.textContent = "얼음";
+		hotButton.textContent = "뜨겁게";
+		modal.close();
+	})
+	
+	
+	
+	
+
+		
+	
 
 
 
-
-
-
-closeModal.addEventListener("click", closeM);
-
-function closeM() {
-	modal.close();
-}

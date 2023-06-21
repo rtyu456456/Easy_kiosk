@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/TeaController")
 public class TeaController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * EasyPageDAO.getEdao(). getMenuTea(request); EasyPageDAO.getEdao().paging(1,
-		 * request);
-		 */
+		
+		  EasyPageDAO.getEdao(). getMenuTea(request); 
+		  EasyPageDAO.getEdao().paging(1, request);
+		 
 		request.getSession().setAttribute("tb", "tea-button");
 		
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");

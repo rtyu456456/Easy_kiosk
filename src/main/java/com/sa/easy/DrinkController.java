@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/DrinkController")
 public class DrinkController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*
-		 * EasyPageDAO.getEdao().getMenuDrink(request); EasyPageDAO.getEdao().paging(1,
-		 * request);
-		 */
+		
+		  EasyPageDAO.getEdao().getMenuDrink(request); 
+		  EasyPageDAO.getEdao().paging(1, request);
+		 
 		request.getSession().setAttribute("tb", "drink-button");
 
 		
