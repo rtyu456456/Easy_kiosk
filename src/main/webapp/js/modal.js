@@ -7,20 +7,82 @@ const iceButton = document.getElementById("ice");
 const hotButton = document.getElementById("hot");
 const count = document.getElementById("count");
 const pocket = document.getElementById("in-my-pocket");
+const sizeM = document.getElementById("m-size");
+const sizeL = document.getElementById("l-size");
+const sizeW = document.getElementById("w-size");
 
 const selectedImg = document.getElementById("pocketImg");
 const selectedName = document.getElementById("pocketName");
 const selectedIce = document.getElementById("pocketIce");
 const selectedCount = document.getElementById("pocketCount");
 const selectedPrice = document.getElementById("pocketPrice");
+const selectedSize = document.getElementById("pocketSize");
 
 
-function modalPage(imgSrc, easyName, easyPrice, useice) {
+function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	console.log(modalPrice);
 	console.log(easyName);
 	console.log(easyPrice);
 	console.log(imgSrc);
 	console.log(useice);
+	console.log(size);
+	
+	modal.showModal();
+	
+	modalImg.src = imgSrc;
+	modalName.textContent = easyName;
+	
+	let totalCount = 1;
+	let c = 1;
+	modalPrice.textContent = easyPrice;
+	count.textContent = totalCount;
+	
+	let Price = easyPrice;
+	let plusPrice = document.getElementById("plus-price");
+	plusPrice.addEventListener("click", () => {
+		easyPrice += Price;
+		console.log(easyPrice);
+		modalPrice.textContent = easyPrice;
+
+		totalCount += c;
+		count.textContent = totalCount;
+	})
+
+
+	let minusPrice = document.getElementById("minus-price");
+	minusPrice.addEventListener("click", () => {
+		if (easyPrice > Price) {
+			easyPrice -= Price;
+		} else {
+			easyPrice = Price;
+		}
+		console.log(easyPrice);
+
+		totalCount -= c;
+		if (totalCount < 1) {
+			totalCount = 1;
+		}
+
+		count.textContent = totalCount;
+		modalPrice.textContent = easyPrice;
+	})
+
+
+	if(size == 0){
+		sizeM.style.display = 'none';
+		sizeL.style.display = 'none';
+		sizeW.textContent = "";
+	}
+
+	sizeM.addEventListener("click", ()=>{
+		size = "M사이즈";
+		console.log(size);
+	})
+
+	sizeL.addEventListener("click", ()=>{
+		size = "L사이즈";
+		console.log(size);
+	})
 
 
 	if (useice == 2) {
@@ -43,59 +105,17 @@ function modalPage(imgSrc, easyName, easyPrice, useice) {
 	}
 
 	iceButton.addEventListener("click", () => {
-		useice = 1;
+		useice = "ICE";
 		console.log("Ice");
 		console.log(useice);
 	})
 
 	hotButton.addEventListener("click", () => {
-		useice = 0;
+		useice = "HOT";
 		console.log("Hot");
 		console.log(useice);
 	})
 
-
-	modalName.textContent = easyName;
-	modalImg.src = imgSrc;
-
-	modal.showModal();
-
-	let totalCount = 1;
-	let c = 1;
-	modalPrice.textContent = easyPrice;
-	count.textContent = totalCount;
-
-	let Price = easyPrice;
-	let plusPrice = document.getElementById("plus-price");
-	plusPrice.addEventListener("click", () => {
-		easyPrice += Price;
-		console.log(easyPrice);
-		modalPrice.textContent = easyPrice;
-
-
-		totalCount += c;
-		count.textContent = totalCount;
-	})
-
-
-	let minusPrice = document.getElementById("minus-price");
-	minusPrice.addEventListener("click", () => {
-		if (easyPrice > Price) {
-			easyPrice -= Price;
-		} else {
-			easyPrice = Price;
-		}
-		console.log(easyPrice);
-
-
-		totalCount -= c;
-		if (totalCount < 1) {
-			totalCount = 1;
-		}
-
-		count.textContent = totalCount;
-		modalPrice.textContent = easyPrice;
-	})
 
 
 class selectedMenu{
@@ -105,12 +125,12 @@ class selectedMenu{
         this.ice = useice;
         this.count = totalCount;
         this.price = easyPrice;
+        this.size = size;
     }
 	
 }
 
 	pocket.addEventListener("click", () => {
-		
 		/*console.log(easyName);
 		console.log(useice);
 		console.log(totalCount);
@@ -122,16 +142,21 @@ class selectedMenu{
 		console.log(selectMenu.ice);
 		console.log(selectMenu.count);
 		console.log(selectMenu.price);
+		console.log(selectMenu.size);
 		
 		selectedName.value = selectMenu.name;
 		selectedIce.value = selectMenu.ice;
 		selectedCount.value = selectMenu.count;
 		selectedPrice.value = selectMenu.price;	
+		selectedSize.value = selectMenu.size;	
 		selectedImg.value = selectMenu.img;
 		
-		
-		
-	
+		console.log(selectedName.value);
+		console.log(selectedIce.value );
+		console.log(selectedCount.value);
+		console.log(selectedPrice.value);
+		console.log(selectedSize.value);
+		console.log(selectedImg.value);
 
 	})
 

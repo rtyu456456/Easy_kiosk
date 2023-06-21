@@ -99,6 +99,7 @@
 
 		<div class="easy-footer">
 			<div class="footer-page">
+			<jsp:include page="${easyBasketPage }"></jsp:include>
 			</div>
 			<div class="footer-button">
 				<button>결제하기</button>

@@ -12,7 +12,7 @@
 	<div class="easy-title">
 		<span style="display: none;" id="tb">${sessionScope.tb }</span>
 		<div>
-			<button id="coffee-button" onclick="location.href='CoffeeController'">커피</button>
+			<button id="coffee-button" onclick="location.href='EasyMenuController'">커피</button>
 		</div>
 		<div>
 			<button id="tea-button" onclick="location.href='TeaController'">차</button>

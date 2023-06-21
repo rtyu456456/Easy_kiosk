@@ -7,7 +7,7 @@
 	text-align: center;
 	width: 80vw;
 	height: 80vh;
-	font-size: 50pt;
+	font-size: 25pt;
 	color: #BD433B;
 }
 
@@ -94,6 +94,64 @@
 	color: #011E61;
 }
 
+#size {
+	position: relative;
+	left:70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30pt;
+	font-weight: bolder;
+}
+
+#w-size {
+	position: relative;
+	right: 100px;
+	color: #011E61;
+}
+
+#m-size {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	right: 50px;
+	border-radius: 50px;
+	background-color: white;
+	color: #011E61;
+	font-weight: bolder;
+}
+#m-size:hover{
+	width: 100px;
+	height: 100px;
+	position: relative;
+	right: 50px;
+	border-radius: 50px;
+	color: white;
+	background-color: #011E61;
+	font-weight: bolder;
+}
+
+
+#l-size {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background-color: white;
+	color: #011E61;
+	font-weight: bolder;
+	
+}
+
+#l-size:hover{
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	color: white;
+	background-color: #011E61;
+	font-weight: bolder;
+	
+}
+
 .useIce {
 	display: flex;
 	justify-content: center;
@@ -105,9 +163,9 @@
 
 #hot {
 	position: relative;
-	font-size: 25px;
+	font-size: 40px;
 	width: 250px;
-	height: 50px;
+	height: 80px;
 	background: #BD433B;
 	border-radius: 5px;
 	color: white;
@@ -118,18 +176,17 @@
 #ice {
 	position: relative;
 	left: 25px;
-	font-size: 25px;
+	font-size: 40px;
 	width: 250px;
-	height: 50px;
+	height: 80px;
 	background: #0B3598;
 	border-radius: 5px;
 	color: white;
 	border: 0;
 	font-weight: bolder;
-	
 }
 
-#modal-footer{
+#modal-footer {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -147,7 +204,7 @@
 	border: 1px solid #011E61;
 	font-size: 35pt;
 	font-weight: bolder;
-} 
+}
 
 #in-my-pocket {
 	position: relative;
@@ -158,6 +215,6 @@
 	background-color: #011E61;
 	border: 1px solid #011E61;
 	font-size: 35pt;
-	color:white;
+	color: white;
 	font-weight: bolder;
-} 
+}

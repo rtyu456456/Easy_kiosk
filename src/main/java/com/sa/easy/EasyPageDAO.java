@@ -61,7 +61,7 @@ public class EasyPageDAO {
 				int soldout = rs.getInt("m_soldout");
 				int order = rs.getInt("m_order");
 				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
-				
+				System.out.println(img);
 				menus.add(menu);
 				
 			}
