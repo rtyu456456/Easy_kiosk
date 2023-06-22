@@ -168,9 +168,7 @@ public class EasyDAO {
 		}
 	}
 
-	public void savePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
-		Connection con = null;
-		PreparedStatement pstmt = null;
+	public void savePointForView(HttpServletRequest request) {
 		User user = (User) request.getSession().getAttribute("user");
 		String userNo = user.getPhoneNumber();
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
@@ -178,15 +176,9 @@ public class EasyDAO {
 		int remainPoint = 0; // 남은 포인트
 		int totalPrice = 6000; // 총 구매 가격
 		int finalPrice = 0; // 최종 결제 가격
-		String sql = "update EK_USER set u_point = ? where u_no = ?";
 		try {
-			con = DBManager.connect();
-			pstmt = con.prepareStatement(sql);
 			remainPoint = (int) (totalPrice * 0.1 + savingPoint); // 남은 포인트 = 총 구매 가격 * 0.1 + 현재 포인트
 			finalPrice = totalPrice; // 최종 결제 가격 = 총 구매 가격(할인이 없기 때문)
-			pstmt.setInt(1, remainPoint);
-			pstmt.setString(2, userNo);
-			if (pstmt.executeUpdate() == 1) {
 				user.setSavingPoint(savingPoint);
 				user.setUsedPoint(usedPoint);
 				user.setRemainPoint(remainPoint);
@@ -196,6 +188,37 @@ public class EasyDAO {
 				String savePoint = request.getParameter("savePoint");
 				System.out.println("howPoint : " + request.getParameter("savePoint"));
 				session.setAttribute("howPoint", savePoint);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	public void savePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		User user = (User) request.getSession().getAttribute("user");
+		String userNo = user.getPhoneNumber();
+		int savingPoint = user.getSavingPoint(); // 현재 포인트
+		int usedPoint = user.getUsedPoint(); // 사용할 포인트
+		int remainPoint = user.getRemainPoint(); // 남은 포인트
+		int totalPrice = 6000; // 총 구매 가격
+		int finalPrice = user.getFinalPrice(); // 최종 결제 가격
+		String sql = "update EK_USER set u_point = ? where u_no = ?";
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, remainPoint);
+			pstmt.setString(2, userNo);
+			if (pstmt.executeUpdate() == 1) {
+				user.setSavingPoint(savingPoint);
+				user.setUsedPoint(usedPoint);
+				user.setRemainPoint(remainPoint);
+				user.setFinalPrice(finalPrice);
+				HttpSession session = request.getSession();
+				session.setAttribute("user", user);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -217,7 +240,7 @@ public class EasyDAO {
 //		session.invalidate();
 	}
 
-	public void orderNum(HttpServletRequest request) { // 주문번호 계산
+	public void orderNum(HttpServletRequest request) { // 주문번호
 		 HttpSession session = request.getSession();
 		    String orderType = (String) session.getAttribute("orderType");
 		    System.out.println(orderType);

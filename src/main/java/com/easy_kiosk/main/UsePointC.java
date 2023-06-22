@@ -17,7 +17,7 @@ public class UsePointC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getEasyDAO().usePointForView(request); // 포인트 사용
+		EasyDAO.getEasyDAO().usePointForView(request); // 포인트 사용(DB적용X, 예상 수치 보여주기만)
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "payment/payment_method.jsp");
 		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
