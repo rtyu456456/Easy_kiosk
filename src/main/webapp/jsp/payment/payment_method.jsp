@@ -10,7 +10,6 @@
 	<form action="PaymentMethodC" method="post">
 		<button name="card" value="card">카드</button>
 		<button name="cash" value="cash">현금</button>
-		<button name="qr" value="qr">QR코드</button>
 	</form>
 </body>
 </html>

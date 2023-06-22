@@ -136,9 +136,7 @@ public class EasyDAO {
 				session.setAttribute("user", user);
 				String usePoint = request.getParameter("usePoint");
 				System.out.println("howPoint : " + request.getParameter("usePoint"));
-				System.out.println("===============>>>>>>>>>>");
 				session.setAttribute("howPoint", usePoint);
-				System.out.println("===============>>>>>>>>>>");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -216,7 +214,7 @@ public class EasyDAO {
 		        System.out.println(normalNum);
 		        normalNum++;
 		        session.setAttribute("orderNum", normalNum);
-		        if (normalNum == 3) { // 3까지는 표시됨
+		        if (normalNum == 3) { // 3까지 표시됨
 		            normalNum = 0;
 		        }
 		    } else { // if (orderType.equals("simpleOrder"))
@@ -224,7 +222,7 @@ public class EasyDAO {
 		        System.out.println(simpleNum);
 		        simpleNum++;
 		        session.setAttribute("orderNum", simpleNum);
-		        if (simpleNum == 6) { // 6까지는 표시됨
+		        if (simpleNum == 6) { // 6까지 표시됨
 		            simpleNum = 3;
 		        }
 		    }

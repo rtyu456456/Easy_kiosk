@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="css/order_type.css">
 <link rel="stylesheet" href="css/point/point_confirm.css">
 <link rel="stylesheet" href="css/point/point_pressnum.css">
+<link rel="stylesheet" href="css/point/point_selectpoint.css">
 </head>
 <body class="main-view">
 	<jsp:include page="${nav}"></jsp:include>

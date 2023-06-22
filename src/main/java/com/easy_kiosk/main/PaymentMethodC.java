@@ -12,28 +12,28 @@ public class PaymentMethodC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		if(request.getParameter("savePoint") != null){
-		EasyDAO.getEasyDAO().savePoint(request);
-		}
-		request.getRequestDispatcher("jsp/payment/payment_method.jsp").forward(request, response);
+		/*
+		 * if(request.getParameter("savePoint") != null){
+		 * EasyDAO.getEasyDAO().savePoint(request); }
+		 */
+		EasyDAO.getEasyDAO().savePoint(request); // 포인트 적립
+		request.setAttribute("nav", "nav.jsp");
+		request.setAttribute("contentPage", "payment/payment_method.jsp");
+		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String card = request.getParameter("card");
 		String cash = request.getParameter("cash");
-		String qr = request.getParameter("qr");
 
 		System.out.println("Card : " + card);
 		System.out.println("Cash : " + cash);
-		System.out.println("QR : " + qr);
 		
 		if (card != null) {
 			request.getRequestDispatcher("jsp/payment/payment_card.jsp").forward(request, response);
-		} else if (cash != null) {
+		} else {
 			request.getRequestDispatcher("jsp/payment/payment_cash.jsp").forward(request, response);
-		} else if (qr != null) {
-			request.getRequestDispatcher("jsp/payment/payment_qr.jsp").forward(request, response);
 		}
 	}
 

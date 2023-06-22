@@ -11,12 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 public class UsePointC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		EasyDAO.getEasyDAO().getCustomer(request);
-		request.getRequestDispatcher("jsp/point/point_selectpoint.jsp").forward(request, response);
+		request.setAttribute("nav", "nav.jsp");
+		request.setAttribute("contentPage", "point/point_selectpoint.jsp");
+		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getEasyDAO().usePoint(request);
-		request.getRequestDispatcher("jsp/point/point_usepoint.jsp").forward(request, response);
+		EasyDAO.getEasyDAO().usePoint(request); // 포인트 사용
+		request.setAttribute("nav", "nav.jsp");
+		request.setAttribute("contentPage", "payment/payment_method.jsp");
+		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 }
