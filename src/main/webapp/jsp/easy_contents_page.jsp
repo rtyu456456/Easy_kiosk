@@ -57,7 +57,7 @@
 	 	<input type="hidden" id="pocketPrice" name="pocketPrice">
 	 	<input type="hidden" id="pocketSize" name="pocketSize">
 	 	</form> --> 
-		<button class="modal-button" id="in-my-pocket">선택 완료</button>
+		<button class="modal-button" id="in-my-pocket" onclick="addToCart()">선택 완료</button>
 		</div>
 		</dialog>
 

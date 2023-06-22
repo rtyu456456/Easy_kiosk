@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href=css/menu_page.css>
+<link rel="stylesheet" href=css/basket_page.css>
 <link rel="stylesheet" href=css/modal_page.css>
 <script src="https://kit.fontawesome.com/6b43b4cc79.js"
 	crossorigin="anonymous"></script>
@@ -101,15 +102,13 @@
 			<div class="footer-page">
 			<jsp:include page="${easyBasketPage }"></jsp:include>
 			</div>
-			<div class="footer-button">
-				<button>결제하기</button>
-			</div>
 		</div>
 
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/css.js"></script>
 	<script type="text/javascript" src="js/staff_call.js"></script>
+	<script type="text/javascript" src="js/basket.js"></script>
 
 </body>
 </html>

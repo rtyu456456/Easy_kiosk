@@ -40,12 +40,20 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	sizeM.style.backgroundColor = '#011E61';
 	sizeM.style.color = 'white';
 
+
 	let Price = easyPrice;
+	let priceL = Price + 500;
 	let plusPrice = document.getElementById("plus-price");
 	plusPrice.addEventListener("click", () => {
+		
+		if(size == "L사이즈"){
+		easyPrice += priceL; 
+		modalPrice.textContent = easyPrice;
+		}else{
 		easyPrice += Price;
 		console.log(easyPrice);
 		modalPrice.textContent = easyPrice;
+		}
 
 		totalCount += c;
 		count.textContent = totalCount;
@@ -54,11 +62,24 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 
 	let minusPrice = document.getElementById("minus-price");
 	minusPrice.addEventListener("click", () => {
-		if (easyPrice > Price) {
-			easyPrice -= Price;
-		} else {
-			easyPrice = Price;
+		
+		if(size == "L사이즈"){
+			if(easyPrice > priceL){
+				easyPrice -= priceL;
+			}else{
+				easyPrice = priceL;
+			}
+			modalPrice.textContent = easyPrice;
+		}else{
+			
+			if (easyPrice > Price) {
+				easyPrice -= Price;
+			}else{
+				easyPrice = Price;
+			}
+			modalPrice.textContent = easyPrice;
 		}
+		
 		console.log(easyPrice);
 
 		totalCount -= c;
@@ -67,7 +88,6 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		}
 
 		count.textContent = totalCount;
-		modalPrice.textContent = easyPrice;
 	})
 
 
@@ -88,6 +108,11 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		sizeM.style.color = 'white';
 		sizeL.style.backgroundColor = 'white';
 		sizeL.style.color = '#011E61';
+		
+		easyPrice = Price;
+		modalPrice.textContent = easyPrice;
+		totalCount = 1;
+		count.textContent = totalCount;
 	})
 
 	sizeL.addEventListener("click", () => {
@@ -97,6 +122,12 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		sizeL.style.color = 'white';
 		sizeM.style.backgroundColor = 'white';
 		sizeM.style.color = '#011E61';
+		
+		easyPrice = priceL; 
+		modalPrice.textContent = easyPrice;
+		totalCount = 1;
+		count.textContent = totalCount;
+		
 	})
 
 
@@ -163,12 +194,12 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		}
 
 		const selectMenu = new selectedMenu();
-		console.log(selectMenu.name);
+	/*	console.log(selectMenu.name);
 		console.log(selectMenu.img);
 		console.log(selectMenu.ice);
 		console.log(selectMenu.count);
 		console.log(selectMenu.price);
-		console.log(selectMenu.size);
+		console.log(selectMenu.size);*/
 
 		/*JS로 장바구니C에 파라미터값 넘기기*/
 		location.href =

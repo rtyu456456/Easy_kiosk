@@ -17,6 +17,7 @@ public class DessertController extends HttpServlet {
 		
 		request.getSession().setAttribute("tb", "dessert-button");
 		
+		request.setAttribute("easyBasketPage", "jsp/easy_basket.jsp");
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
 		request.getRequestDispatcher("menu_page.jsp").forward(request, response);

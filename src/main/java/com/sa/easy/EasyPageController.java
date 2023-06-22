@@ -14,6 +14,7 @@ public class EasyPageController extends HttpServlet {
 		
 		EasyPageDAO.getEdao().paging(Integer.parseInt(request.getParameter("p")), request);
 		
+		request.setAttribute("easyBasketPage", "jsp/easy_basket.jsp");
 		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
 		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
 		request.getRequestDispatcher("menu_page.jsp").forward(request, response);

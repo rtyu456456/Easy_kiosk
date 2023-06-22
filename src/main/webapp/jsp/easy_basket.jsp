@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,11 +7,32 @@
 <title>Insert title here</title>
 </head>
 <body>
-<img alt="" src="${a.img }"> <br> 
- 이름 : ${a.name } <br>
- 가격 : ${a.price } <br>
- 수량 : ${a.count }개 <br>
- ice/hot : ${a.ice } <br>
- 사이즈 : ${a.size }
+		<input type="hidden" id="cartname" value="${a.name }">
+		<input type="hidden" id="cartprice" value="${a.price }">
+
+	<table id="cartTable2">
+		<tr>
+			<td class="box1"></td>
+		</tr>
+		<tr id="menu">
+			<td colspan="2"></td>
+		</tr>
+	</table>
+	<table id="cartTable">
+		<tr>
+			<td id="line"></td>
+		</tr>
+		<tr>
+			<td id="mungu" style="text-align: right">총 결제 금액</td>
+		</tr>
+		<tr>
+			<td id="totalPrice" style="text-align: right"></td>
+		</tr>
+		<tr id="paybox">
+			<td style="vertical-align: middle;"><img alt=""
+				src="css/shopping_list/img/cardIcon.png"></td>
+			<td id="paybox_comment">결제하기</td>
+		</tr>
+	</table>
 </body>
 </html>

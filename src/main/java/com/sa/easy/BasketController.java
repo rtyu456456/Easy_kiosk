@@ -24,7 +24,6 @@ public class BasketController extends HttpServlet {
 	
 		  request.setAttribute("a", selectedMenu);
 				
-		  
 		
 
 		
