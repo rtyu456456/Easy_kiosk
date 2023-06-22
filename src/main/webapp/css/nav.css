@@ -2,12 +2,6 @@
 
 @import "normalize.css";
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-* {
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
 .main-view {
 	position: relative;
 	width: 1920px;

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+
+.payment-card-img {
+	position: relative;
+	top: 70px;
+	left: 250px;
+}
+
+.payment-card-title {
+	position: relative;
+	left: 26px;
+	top: 237px;
+	font-weight: bold;
+	font-size: 150px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+}
+
+.payment-card-desc {
+	position: relative;
+	left: 252px;
+	top: 340px;
+	font-size: 50px;
+	line-height: 70px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+}
+
+.payment-card-finalPrice-text {
+	position: absolute;
+	top: 900px;
+	left: 250px;
+	font-size: 50px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+}
+
+.payment-card-finalPrice {
+	position: absolute;
+	top: 800px;
+	left: 500px;
+	font-size: 150px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+}
+
+.payment-card-button {
+	position: absolute;
+	width: 578px;
+	height: 259px;
+	left: 1229px;
+	top: 718px;
+	background: #FFFFFF;
+	border-radius: 165px;
+	font-weight: bold;
+	font-size: 120px;
+	color: #110E61;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

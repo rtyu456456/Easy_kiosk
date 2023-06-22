@@ -2,13 +2,13 @@
 
 @import "normalize.css";
 
-.normal-order-img {
+.payment-method-card-img {
 	position: relative;
-	top: 0px;
+	top: -17px;
 	left: -200px;
 }
 
-.normal-order-text {
+.payment-method-card-text {
 	position: relative;
 	width: 825px;
 	height: 206px;
@@ -23,9 +23,9 @@
 	text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
 }
 
-.normal-order-desc {
+.payment-method-card-desc {
 	position: relative;
-	left: -206px;
+	left: -386px;
 	font-weight : 600;
 	font-size: 48px;
 	line-height: 58px;
@@ -34,17 +34,17 @@
 	font-weight: 600;
 }
 
-.simple-order-img {
+.payment-method-cash-img {
 	position: relative;
-	top: 0px;
+	top: 21px;
 	left: -200px;
 }
 
-.simple-order-text {
+.payment-method-cash-text {
 	position: relative;
 	width: 825px;
 	height: 206px;
-	left: -88px;
+	left: -160px;
 	top : -34px;
 	font-style: normal;
 	font-weight: 600;
@@ -56,9 +56,9 @@
 	top: -34px;
 }
 
-.simple-order-desc {
+.payment-method-cash-desc {
 	position: relative;
-	left: 10px;
+	left: -130px;
 	font-weight : 600;
 	font-size: 48px;
 	line-height: 58px;

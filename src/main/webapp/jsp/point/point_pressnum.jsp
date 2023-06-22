@@ -20,22 +20,27 @@
 		<div class="point-pressnum-pressnum">
 			<form action="UsePointC" method="get"
 				onsubmit="return validateForm()">
-				<br> <input type="text" id="phoneNumber" name="phoneNumber"
-					readonly="readonly"> <br>
-				<button type="button" onclick="displayNumber(1)" class="num1">1</button>
-				<button type="button" onclick="displayNumber(2)" class="num2">2</button>
-				<button type="button" onclick="displayNumber(3)" class="num3">3</button>
+				<div class="phoneNumber-container"> <br> 
+				<span class="point-pressnum-010">010 - </span>
+				<input type="text" id="firstInput" name="firstInput" readonly="readonly" class="point-pressnum-firstInput">
+				<span class="point-pressnum-hyphen">-</span>
+				<input type="text" id="secondInput" name="secondInput" readonly="readonly" class="point-pressnum-secondInput">
 				<br>
-				<button type="button" onclick="displayNumber(4)" class="num4">4</button>
-				<button type="button" onclick="displayNumber(5)" class="num5">5</button>
-				<button type="button" onclick="displayNumber(6)" class="num6">6</button>
+				</div>
+				<button type="button" onclick="addNumberToInput(1)" class="num1">1</button>
+				<button type="button" onclick="addNumberToInput(2)" class="num2">2</button>
+				<button type="button" onclick="addNumberToInput(3)" class="num3">3</button>
 				<br>
-				<button type="button" onclick="displayNumber(7)" class="num7">7</button>
-				<button type="button" onclick="displayNumber(8)" class="num8">8</button>
-				<button type="button" onclick="displayNumber(9)" class="num9">9</button>
+				<button type="button" onclick="addNumberToInput(4)" class="num4">4</button>
+				<button type="button" onclick="addNumberToInput(5)" class="num5">5</button>
+				<button type="button" onclick="addNumberToInput(6)" class="num6">6</button>
+				<br>
+				<button type="button" onclick="addNumberToInput(7)" class="num7">7</button>
+				<button type="button" onclick="addNumberToInput(8)" class="num8">8</button>
+				<button type="button" onclick="addNumberToInput(9)" class="num9">9</button>
 				<br>
 				<button type="button" onclick="clearNumber()" class="clear-num">지우기</button>
-				<button type="button" onclick="displayNumber(0)" class="num0">0</button>
+				<button type="button" onclick="addNumberToInput(0)" class="num0">0</button>
 				<button type="button" onclick="deleteLastDigit()" class="backspace">
 					<img src="./img/backSpaceIcon.png">
 				</button>

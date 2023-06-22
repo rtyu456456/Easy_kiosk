@@ -2,12 +2,6 @@
 
 @import "normalize.css";
 
-@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-
-* {
-	font-family: 'Noto Sans KR', sans-serif;
-}
-
 .point-pressnum-container {
 	display: flex;
 	width: 1920px;
@@ -59,7 +53,7 @@
 	padding: 0;
 }
 
-#phoneNumber {
+.phoneNumber-container {
 	position: relative;
 	width: 877px;
 	height: 280px;
@@ -67,13 +61,60 @@
 	padding: 0;
 	top: -18px;
 	border: none;
-	text-align: center;
-	font-weight: lighter;
-	font-size: 90px;
-	letter-spacing: -5px;
-	color: #011E61;
-	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-	top: -18px;
+	background: #FFFFFF;
+}
+
+.point-pressnum-010 {
+	position: relative;
+    top: 67px;
+    left: 46px;
+    font-weight: bold;
+    font-size: 110px;
+    letter-spacing: -5px;
+    color: #011E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.point-pressnum-firstInput {
+	position: absolute;
+    width: 260px;
+    height: 256px;
+    left: 296px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 110px;
+    letter-spacing: -5px;
+    color: #011E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: underline;
+    border: none;
+}
+
+.point-pressnum-hyphen {
+	font-weight: bold;
+    position: relative;
+    left: 300px;
+    font-size: 110px;
+    letter-spacing: -5px;
+    color: #011E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    top: 62px;
+}
+
+.point-pressnum-secondInput {
+	position: absolute;
+    width: 260px;
+    height: 256px;
+    left: 611px;
+    position: absolute;
+    text-align: left;
+    font-weight: bold;
+    font-size: 110px;
+    letter-spacing: -5px;
+    color: #011E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    text-decoration: underline;
+    border: none;
 }
 
 .num1 {
@@ -122,7 +163,7 @@
 	width: 293px;
 	height: 162px;
 	left: 1627px;
-	top: 280px;
+	top: 262px;
 	border: none;
 	background: #FFFFFF;
 	font-weight: bold;
@@ -184,7 +225,7 @@
 	width: 293px;
 	height: 162px;
 	left: 1627px;
-	top: 442px;
+	top: 424px;
 	border: none;
 	background: #FFFFFF;
 	font-weight: bold;
@@ -243,7 +284,7 @@
 	width: 293px;
 	height: 162px;
 	left: 1627px;
-	top: 604px;
+	top: 586px;
 	border: none;
 	background: #FFFFFF;
 	font-weight: bold;
@@ -302,7 +343,7 @@
 	width: 293px;
 	height: 162.5px;
 	left: 1627px;
-	top: 766px;
+	top: 748px;
 	border: none;
 	background: #FFFFFF;
 }
@@ -314,7 +355,7 @@
 .point-pressnum-confirm {
 	position: relative;
     width: 877px;
-    height: 152px;
+    height: 169px;
     margin: 0;
     top: -18px;
     border: none;

@@ -36,7 +36,9 @@ public class EasyDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String phoneNumber = request.getParameter("phoneNumber"); // input 안의 값
+		String firstInput = request.getParameter("firstInput"); // 첫 번째 input
+	    String secondInput = request.getParameter("secondInput"); // 두 번째 input
+        String phoneNumber = firstInput + secondInput; // 첫 번째 페이지에서 넘어온 값들을 합침
 		int point = 600; // 물건 구매시 받는 포인트(임의값, 물건 구매값*0.1)
 		String sql_select = "select * from EK_USER where u_no = ?";
 

@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/UsePointC")
 public class UsePointC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getEasyDAO().getCustomer(request);
+		EasyDAO.getEasyDAO().getCustomer(request); // 고객 정보 조회
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "point/point_selectpoint.jsp");
 		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);

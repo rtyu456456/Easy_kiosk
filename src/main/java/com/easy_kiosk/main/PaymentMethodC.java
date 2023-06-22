@@ -28,9 +28,13 @@ public class PaymentMethodC extends HttpServlet {
 		System.out.println("Cash : " + cash);
 		
 		if (card != null) {
-			request.getRequestDispatcher("jsp/payment/payment_card.jsp").forward(request, response);
+			request.setAttribute("nav", "nav.jsp");
+			request.setAttribute("contentPage", "payment/payment_card.jsp");
+			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 		} else {
-			request.getRequestDispatcher("jsp/payment/payment_cash.jsp").forward(request, response);
+			request.setAttribute("nav", "nav.jsp");
+			request.setAttribute("contentPage", "payment/payment_cash.jsp");
+			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 		}
 	}
 
