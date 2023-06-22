@@ -10,6 +10,7 @@
 </head>
 <body>
 <h1>RESULT</h1>
+${sessionScope.howPoint}
 <hr>
 ~영수증~<br>
 <c:if test="${sessionScope.whereToEat eq 'eatin'}">
