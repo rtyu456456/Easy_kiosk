@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		<input type="hidden" id="cartname" value="${a.name }">
-		<input type="hidden" id="cartprice" value="${a.price }">
+		
 
 	<table id="cartTable2">
 		<tr>

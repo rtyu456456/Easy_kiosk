@@ -45,14 +45,14 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	let priceL = Price + 500;
 	let plusPrice = document.getElementById("plus-price");
 	plusPrice.addEventListener("click", () => {
-		
-		if(size == "L사이즈"){
-		easyPrice += priceL; 
-		modalPrice.textContent = easyPrice;
-		}else{
-		easyPrice += Price;
-		console.log(easyPrice);
-		modalPrice.textContent = easyPrice;
+
+		if (size == "L사이즈") {
+			easyPrice += priceL;
+			modalPrice.textContent = easyPrice;
+		} else {
+			easyPrice += Price;
+			console.log(easyPrice);
+			modalPrice.textContent = easyPrice;
 		}
 
 		totalCount += c;
@@ -62,24 +62,24 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 
 	let minusPrice = document.getElementById("minus-price");
 	minusPrice.addEventListener("click", () => {
-		
-		if(size == "L사이즈"){
-			if(easyPrice > priceL){
+
+		if (size == "L사이즈") {
+			if (easyPrice > priceL) {
 				easyPrice -= priceL;
-			}else{
+			} else {
 				easyPrice = priceL;
 			}
 			modalPrice.textContent = easyPrice;
-		}else{
-			
+		} else {
+
 			if (easyPrice > Price) {
 				easyPrice -= Price;
-			}else{
+			} else {
 				easyPrice = Price;
 			}
 			modalPrice.textContent = easyPrice;
 		}
-		
+
 		console.log(easyPrice);
 
 		totalCount -= c;
@@ -108,7 +108,7 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		sizeM.style.color = 'white';
 		sizeL.style.backgroundColor = 'white';
 		sizeL.style.color = '#011E61';
-		
+
 		easyPrice = Price;
 		modalPrice.textContent = easyPrice;
 		totalCount = 1;
@@ -122,12 +122,12 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		sizeL.style.color = 'white';
 		sizeM.style.backgroundColor = 'white';
 		sizeM.style.color = '#011E61';
-		
-		easyPrice = priceL; 
+
+		easyPrice = priceL;
 		modalPrice.textContent = easyPrice;
 		totalCount = 1;
 		count.textContent = totalCount;
-		
+
 	})
 
 
@@ -183,8 +183,8 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 			this.price = easyPrice;
 			this.size = size;
 		}
-
 	}
+	
 
 	pocket.addEventListener("click", () => {
 
@@ -194,21 +194,51 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		}
 
 		const selectMenu = new selectedMenu();
-	/*	console.log(selectMenu.name);
-		console.log(selectMenu.img);
-		console.log(selectMenu.ice);
-		console.log(selectMenu.count);
-		console.log(selectMenu.price);
-		console.log(selectMenu.size);*/
+
+		let name = selectMenu.name;
+		let price = selectMenu.price;
+
+		console.log(name);
+		console.log(price);
+
+		var cartTable = document.getElementById("cartTable2");
+		var newRow = cartTable.insertRow(cartTable.rows.length);
+
+		var menuCell = newRow.insertCell(0);
+		menuCell.innerHTML = name;
+
+		var priceCell = newRow.insertCell(1);
+		var priceValue = price;
+		priceCell.innerHTML = `<span class="price" data-price="${priceValue}">${priceValue}</span>`;
+
+		var quantityCell = newRow.insertCell(2);
+		quantityCell.innerHTML = `
+        <input class="plus-btn" type="button" value="1" onclick="changeQuantity(this, 'increase')">
+        <div class="count">1</div>
+        <input class="origin-val" value="${priceValue}" data-original-value="${priceValue}">
+        <input class="minus-btn" type="button" value="-1" onclick="changeQuantity(this, 'decrease')">
+        <button onclick="deleteMenu(this)">x</button>
+    `;
+
+		var prices = getPricesFromCart();
+		var total = totalPrice(prices);
+		updateTotalPrice(total);
+
+		/*	console.log(selectMenu.name);
+			console.log(selectMenu.img);
+			console.log(selectMenu.ice);
+			console.log(selectMenu.count);
+			console.log(selectMenu.price);
+			console.log(selectMenu.size);*/
 
 		/*JS로 장바구니C에 파라미터값 넘기기*/
-		location.href =
+		/*location.href =
 			'BasketController?name=' + selectMenu.name +
 			'&ice=' + selectMenu.ice +
 			'&count=' + selectMenu.count +
 			'&price=' + selectMenu.price +
 			'&size=' + selectMenu.size +
-			'&img=' + selectMenu.img;
+			'&img=' + selectMenu.img;*/
 
 		/* easy_contents_page.jsp에서 form 태그 통해 파라미터값 넘기기 
 		
@@ -226,14 +256,78 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		console.log(selectedSize.value);
 		console.log(selectedImg.value);*/
 
-
-
+		modal.close();
 
 	})
-
-
 }
 
+
+function updateTotalPrice(total) {
+	var totalPriceCell = document.getElementById("totalPrice");
+	if (totalPriceCell) {
+		totalPriceCell.innerText = total.toLocaleString() + "원";
+	}
+}
+
+function changeQuantity(btn, action) {
+	const countEl = btn.parentNode.querySelector(".count");
+	let count = parseInt(countEl.innerText);
+
+	if (action == "increase") {
+		count++;
+	} else if (action == "decrease") {
+		count = Math.max(count - 1, 0);
+	}
+
+	countEl.innerText = count;
+
+	const priceEl = btn.parentNode.parentNode.querySelector(".price");
+	const priceCell = btn.parentNode.parentNode.querySelector(".origin-val");
+	const price = parseInt(priceCell.dataset.originalValue) * count;
+
+	if (!isNaN(price)) {
+		priceEl.innerText = price;
+		priceEl.dataset.price = price;
+	}
+
+	var array = getPricesFromCart();
+	var total = totalPrice(array);
+	updateTotalPrice(total);
+}
+
+function deleteMenu(btn) {
+	var row = btn.parentNode.parentNode;
+	row.parentNode.removeChild(row);
+
+	var array = getPricesFromCart();
+	var total = totalPrice(array);
+	updateTotalPrice(total);
+	
+}
+
+function totalPrice(array) {
+	let total = 0;
+
+	for (let i = 0; i < array.length; i++) {
+		total += array[i];
+	}
+
+	return total;
+}
+
+function getPricesFromCart() {
+	var prices = [];
+	var menus = document.querySelectorAll("#cartTable2 tr:not(:first-child)");
+
+	menus.forEach(function(menu) {
+		var priceCell = menu.querySelector(".price");
+		if (priceCell && priceCell.dataset.price) {
+			prices.push(parseInt(priceCell.dataset.price));
+		}
+	});
+
+	return prices;
+}
 
 closeModal.addEventListener("click", () => {
 	iceButton.textContent = "얼음";
