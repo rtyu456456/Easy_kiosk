@@ -17,7 +17,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_MENU";
+		String sql = "SELECT * FROM EK_MENU ORDER BY M_NO";
 
 		try {
 			con = DBManager.connect();
@@ -32,10 +32,14 @@ public class ManageDAO {
 				menu.setM_price(rs.getInt("M_PRICE"));
 				menu.setM_img(rs.getString("M_IMG"));
 				menu.setM_ice(rs.getInt("M_ICE"));
+				menu.setM_size(rs.getInt("M_SIZE"));
 				menu.setM_type(rs.getString("M_TYPE"));
 				menu.setM_type_easy(rs.getString("M_TYPE_EASY"));
+				menu.setM_option(rs.getString("M_OPTION"));
+				menu.setM_desc(rs.getString("M_DESC"));
 				menu.setM_weather(rs.getInt("M_WEATHER"));
-				menu.setM_stock(rs.getInt("M_STOCK"));
+				menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+				menu.setM_order(rs.getInt("M_ORDER"));
 				menus.add(menu);
 			}
 
@@ -54,7 +58,7 @@ public class ManageDAO {
 		ResultSet rs = null;
 		String sql = "SELECT * FROM EK_MENU WHERE M_TYPE LIKE ?";
 		String type = request.getParameter("type");
-
+		
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -69,10 +73,14 @@ public class ManageDAO {
 				menu.setM_price(rs.getInt("M_PRICE"));
 				menu.setM_img(rs.getString("M_IMG"));
 				menu.setM_ice(rs.getInt("M_ICE"));
+				menu.setM_size(rs.getInt("M_SIZE"));
 				menu.setM_type(rs.getString("M_TYPE"));
 				menu.setM_type_easy(rs.getString("M_TYPE_EASY"));
+				menu.setM_option(rs.getString("M_OPTION"));
+				menu.setM_desc(rs.getString("M_DESC"));
 				menu.setM_weather(rs.getInt("M_WEATHER"));
-				menu.setM_stock(rs.getInt("M_STOCK"));
+				menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+				menu.setM_order(rs.getInt("M_ORDER"));
 				menus.add(menu);
 			}
 
@@ -209,7 +217,7 @@ public class ManageDAO {
 			menu.setM_type(rs.getString("M_TYPE"));
 			menu.setM_type_easy(rs.getString("M_TYPE_EASY"));
 			menu.setM_weather(rs.getInt("M_WEATHER"));
-			menu.setM_stock(rs.getInt("M_STOCK"));
+			menu.setM_soldout(rs.getInt("M_STOCK"));
 			menus.add(menu);
 			request.setAttribute("menus", menus);
 			request.setAttribute("menu", menu);
