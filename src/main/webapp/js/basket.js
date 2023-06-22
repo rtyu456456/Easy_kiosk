@@ -1,11 +1,11 @@
-const cartname = document.getElementById("cartname").value;
-const cartprice = document.getElementById("cartprice").value;
 
-
+	
+	
+	
 function addToCart() {
 	
-	let name = cartname;
-	let price = cartprice;
+	let name = window.menuInstance.name;
+	let price = window.menuInstance.price;
 	
 	console.log(name);
 	console.log(price);
@@ -74,6 +74,8 @@ function deleteMenu(btn) {
     var array = getPricesFromCart();
     var total = totalPrice(array);
     updateTotalPrice(total);
+    
+    window.menuInstance = new selectedMenu();
 }
 
 function totalPrice(array) {
