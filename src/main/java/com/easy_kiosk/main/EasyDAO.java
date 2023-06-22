@@ -134,7 +134,7 @@ public class EasyDAO {
 	}
 	
 	
-	public void usePoint(HttpServletRequest request) { // usePointForView의 계산된 값을 받아서 DB에 적용시키는 메소드(결제 확인시 작동)
+	public void usePoint(HttpServletRequest request) { // usePointForView의 계산된 값을 받아서 DB에 포인트를 사용시키는 메소드(결제 확인시 작동)
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		User user = (User) request.getSession().getAttribute("user"); // user bean값을 다시 User user에 담아서 getPoint를 사용할 수 있게 함
@@ -168,7 +168,7 @@ public class EasyDAO {
 		}
 	}
 
-	public void savePointForView(HttpServletRequest request) {
+	public void savePointForView(HttpServletRequest request) { // DB에 적용은 안 되고 고객에게 값을 보여주기 위한 메소드
 		User user = (User) request.getSession().getAttribute("user");
 		String userNo = user.getPhoneNumber();
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
@@ -196,7 +196,7 @@ public class EasyDAO {
 	
 	
 	
-	public void savePoint(HttpServletRequest request) { // 포인트 사용 안 하고 적립만 할 경우
+	public void savePoint(HttpServletRequest request) { // savePointForView의 계산된 값을 받아서 DB에 포인트를 적립시키는 메소드(결제 확인시 작동)
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		User user = (User) request.getSession().getAttribute("user");

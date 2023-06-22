@@ -8,7 +8,7 @@
 <title>전화번호 버튼 입력</title>
 <script type="text/javascript" src="js/pressnum.js"></script>
 </head>
-<body class="main-view" id="point-pressnum-nonscroll">
+<body class="main-view">
 	<div class="point-pressnum-container scroll">
 		<div class="point-pressnum-textarea">
 			<span class="point-pressnum-subtitle">포인트 적립을 위한</span><br> <span

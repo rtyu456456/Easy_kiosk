@@ -1,14 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <script src="https://kit.fontawesome.com/f0a74bdf41.js" crossorigin="anonymous"></script>
-</head>
-<body class="main-view">
 	<div class="nav">
 		<c:if test="${sessionScope.whereToEat eq null}"> <!-- 첫 화면에서만 출력 -->
 		<img src="./img/Logo.png" class="nav-logo">
@@ -25,5 +18,3 @@
 		<i class="fa-solid fa-bell"></i><br>
 		<span class="call-text">직원 호출</span>
 	</div>
-</body>
-</html>

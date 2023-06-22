@@ -8,10 +8,6 @@
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-#point-pressnum-nonscroll {
-	overflow: hidden;
-}
-
 .point-pressnum-container {
 	display: flex;
 	width: 1920px;
