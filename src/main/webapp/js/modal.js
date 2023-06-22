@@ -26,17 +26,20 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	console.log(imgSrc);
 	console.log(useice);
 	console.log(size);
-	
+
 	modal.showModal();
-	
+
 	modalImg.src = imgSrc;
 	modalName.textContent = easyName;
-	
+
 	let totalCount = 1;
 	let c = 1;
 	modalPrice.textContent = easyPrice;
 	count.textContent = totalCount;
-	
+	size = "M사이즈";
+	sizeM.style.backgroundColor = '#011E61';
+	sizeM.style.color = 'white';
+
 	let Price = easyPrice;
 	let plusPrice = document.getElementById("plus-price");
 	plusPrice.addEventListener("click", () => {
@@ -68,20 +71,32 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	})
 
 
-	if(size == 0){
+	if (size == 0) {
 		sizeM.style.display = 'none';
 		sizeL.style.display = 'none';
 		sizeW.textContent = "";
+	} else {
+		sizeW.textContent = "사이즈";
+		sizeM.style.display = 'block';
+		sizeL.style.display = 'block';
 	}
 
-	sizeM.addEventListener("click", ()=>{
+	sizeM.addEventListener("click", () => {
 		size = "M사이즈";
 		console.log(size);
+		sizeM.style.backgroundColor = '#011E61';
+		sizeM.style.color = 'white';
+		sizeL.style.backgroundColor = 'white';
+		sizeL.style.color = '#011E61';
 	})
 
-	sizeL.addEventListener("click", ()=>{
+	sizeL.addEventListener("click", () => {
 		size = "L사이즈";
 		console.log(size);
+		sizeL.style.backgroundColor = '#011E61';
+		sizeL.style.color = 'white';
+		sizeM.style.backgroundColor = 'white';
+		sizeM.style.color = '#011E61';
 	})
 
 
@@ -93,12 +108,14 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		hotButton.style.display = 'none';
 		iceButton.textContent = "Only Ice";
 		console.log("Ice");
+		useice = "ICE";
 	} else if (useice == 0) {
 		iceButton.style.display = 'none';
 		hotButton.style.display = 'block';
 		hotButton.textContent = "Only Hot";
 		console.log("Hot");
-	} else{
+		useice = "HOT";
+	} else {
 		iceButton.style.display = 'none';
 		hotButton.style.display = 'none';
 		console.log("디저트");
@@ -107,34 +124,43 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 	iceButton.addEventListener("click", () => {
 		useice = "ICE";
 		console.log("Ice");
-		console.log(useice);
+		iceButton.style.backgroundColor = '#072261';
+		iceButton.style.color = '#7c7c7c';
+		hotButton.style.backgroundColor = '#BD433B';
+		hotButton.style.color = 'white';
+
 	})
 
 	hotButton.addEventListener("click", () => {
 		useice = "HOT";
 		console.log("Hot");
-		console.log(useice);
+		iceButton.style.backgroundColor = '#0B3598';
+		iceButton.style.color = 'white';
+		hotButton.style.backgroundColor = '#541e1b';
+		hotButton.style.color = '#7c7c7c';
 	})
 
 
 
-class selectedMenu{
-	constructor(){
-		this.img = imgSrc;
-        this.name = easyName;
-        this.ice = useice;
-        this.count = totalCount;
-        this.price = easyPrice;
-        this.size = size;
-    }
-	
-}
+
+	class selectedMenu {
+		constructor() {
+			this.img = imgSrc;
+			this.name = easyName;
+			this.ice = useice;
+			this.count = totalCount;
+			this.price = easyPrice;
+			this.size = size;
+		}
+
+	}
 
 	pocket.addEventListener("click", () => {
-		/*console.log(easyName);
-		console.log(useice);
-		console.log(totalCount);
-		console.log(easyPrice);*/
+
+		if (useice == 2) {
+			alert('얼음 여부를 선택하세요');
+			return;
+		}
 
 		const selectMenu = new selectedMenu();
 		console.log(selectMenu.name);
@@ -143,6 +169,17 @@ class selectedMenu{
 		console.log(selectMenu.count);
 		console.log(selectMenu.price);
 		console.log(selectMenu.size);
+
+		/*JS로 장바구니C에 파라미터값 넘기기*/
+		location.href =
+			'BasketController?name=' + selectMenu.name +
+			'&ice=' + selectMenu.ice +
+			'&count=' + selectMenu.count +
+			'&price=' + selectMenu.price +
+			'&size=' + selectMenu.size +
+			'&img=' + selectMenu.img;
+
+		/* easy_contents_page.jsp에서 form 태그 통해 파라미터값 넘기기 
 		
 		selectedName.value = selectMenu.name;
 		selectedIce.value = selectMenu.ice;
@@ -156,7 +193,10 @@ class selectedMenu{
 		console.log(selectedCount.value);
 		console.log(selectedPrice.value);
 		console.log(selectedSize.value);
-		console.log(selectedImg.value);
+		console.log(selectedImg.value);*/
+
+
+
 
 	})
 
@@ -164,18 +204,28 @@ class selectedMenu{
 }
 
 
-	closeModal.addEventListener("click", ()=>{
-		iceButton.textContent = "얼음";
-		hotButton.textContent = "뜨겁게";
-		modal.close();
-	})
-	
-	
-	
-	
+closeModal.addEventListener("click", () => {
+	iceButton.textContent = "얼음";
+	iceButton.style.backgroundColor = '#0B3598';
+	iceButton.style.color = 'white';
+	hotButton.textContent = "뜨겁게";
+	hotButton.style.backgroundColor = '#BD433B';
+	hotButton.style.color = 'white';
+	sizeL.style.backgroundColor = 'white';
+	sizeL.style.color = '#011E61';
+	sizeM.style.backgroundColor = 'white';
+	sizeM.style.color = '#011E61';
 
-		
-	
+
+	modal.close();
+})
+
+
+
+
+
+
+
 
 
 

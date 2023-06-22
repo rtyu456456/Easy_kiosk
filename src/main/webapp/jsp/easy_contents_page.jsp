@@ -49,16 +49,15 @@
 	 	</div>
 	 	<div id="modal-footer">
 		<button id="modal-button"  class="close-modal">취소</button>
-	 	<form action="BasketController"> 
+	 	<!-- <form action="BasketController">
 	 	<input type="hidden" id="pocketImg" name="pocketImg">
 	 	<input hidden id="pocketName" name="pocketName">
 	 	<input type="hidden" id="pocketIce" name="pocketIce">
 	 	<input type="hidden" id="pocketCount" name="pocketCount">
 	 	<input type="hidden" id="pocketPrice" name="pocketPrice">
 	 	<input type="hidden" id="pocketSize" name="pocketSize">
+	 	</form> --> 
 		<button class="modal-button" id="in-my-pocket">선택 완료</button>
-	 	 </form> 
-		</div>
 		</div>
 		</dialog>
 

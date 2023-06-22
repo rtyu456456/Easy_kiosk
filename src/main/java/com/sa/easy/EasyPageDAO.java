@@ -136,7 +136,7 @@ public class EasyPageDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from EK_MENU where m_type_EASY='NONE' ORDER BY M_ORDER DESC";
+		String sql = "select * from EK_MENU where m_type_EASY='DESSERT' ORDER BY M_ORDER DESC";
 	
 		try {
 			con = DBManager.connect();

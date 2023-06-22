@@ -12,25 +12,20 @@ import javax.servlet.http.HttpServletResponse;
 public class BasketController extends HttpServlet {
 	protected void doGet(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
 		
-	String price = request.getParameter("pocketPrice");
-	String ice = request.getParameter("pocketIce");
-	String count = request.getParameter("pocketCount");
-	String name = request.getParameter("pocketName");
-	String size = request.getParameter("pocketSize");
-	String img = request.getParameter("pocketImg");
 		
-	SelectedMenu selectedMenu = new SelectedMenu(price, ice, count, name, size, img);
+		  String price = request.getParameter("price"); 
+		  String ice = request.getParameter("ice"); 
+		  String count = request.getParameter("count");
+		  String name = request.getParameter("name");
+		  String size = request.getParameter("size"); 
+		  String img = request.getParameter("img");
+		  
+		  SelectedMenu selectedMenu = new SelectedMenu(price, ice, count, name, size, img);
 	
-		request.setAttribute("a", selectedMenu);
+		  request.setAttribute("a", selectedMenu);
 				
-				
-		System.out.println(request.getParameter("pocketIce"));
-		System.out.println(request.getParameter("pocketCount"));
-		System.out.println(request.getParameter("pocketName"));
-		System.out.println(request.getParameter("pocketSize"));
-		System.out.println(request.getParameter("pocketImg"));
+		  
 		
-	
 
 		
 		request.setAttribute("easyBasketPage", "jsp/easy_basket.jsp");

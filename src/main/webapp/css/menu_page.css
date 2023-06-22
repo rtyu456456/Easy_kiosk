@@ -54,7 +54,7 @@
 	line-height: 97px;
 	color: #011E61;
 	border: 0;
-	background-color: white;
+	background-color: #c0c0c0;
 }
 
 #coffee-button:hover {
@@ -80,7 +80,6 @@
 	height: 115px;
 	left: 30px;
 	top: 350px;
-	background: #011E61;
 	border-radius: 30px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -89,7 +88,7 @@
 	line-height: 97px;
 	color: #011E61;
 	border: 0;
-	background-color: white;
+	background-color: #c0c0c0;
 }
 
 #tea-button:hover {
@@ -115,7 +114,6 @@
 	height: 115px;
 	left: 30px;
 	top: 550px;
-	background: #011E61;
 	border-radius: 30px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -124,10 +122,10 @@
 	line-height: 97px;
 	color: #011E61;
 	border: 0;
-	background-color: white;
+	background-color: #c0c0c0;
 }
 
-#dessert-button:hover {
+#dessert-button:hover{
 	position: absolute;
 	width: 224px;
 	height: 115px;
@@ -150,7 +148,6 @@
 	height: 115px;
 	left: 30px;
 	top: 750px;
-	background: #011E61;
 	border-radius: 30px;
 	font-family: 'Inter';
 	font-style: normal;
@@ -159,7 +156,7 @@
 	line-height: 97px;
 	color: #011E61;
 	border: 0;
-	background-color: white;
+	background-color: #c0c0c0;
 }
 
 #drink-button:hover {
@@ -295,20 +292,28 @@
 }
 
 .grid-content-box img {
-	width: 200px;
-	height: 250px;
+	width: 150px;
+	height: 200px;
+	position: relative;
+	bottom: 25px;
+}
+
+.grid-content-box img:hover {
+	transform: scale(1.2);
 }
 
 #content-box-name {
 	font-weight: 600;
-	font-size: 45px;
+	font-size: 40px;
 	color: #011E61;
+	position: relative;
+	bottom: 10px;
 }
 
 #content-box-price {
 	font-weight: 600;
-	font-size: 40px;
-	color: #011E61;
+	font-size: 35px;
+	color:#BD433B;
 }
 
 /*footer*/
