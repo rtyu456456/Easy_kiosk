@@ -1,4 +1,4 @@
-package com.kk.shopping_basket;
+package com.kk.shoppinglist;
 
 public class Menu {
 	private int no;
@@ -6,27 +6,35 @@ public class Menu {
 	private int price;
 	private String img;
 	private int ice;
+	private int size;
 	private String type;
 	private String typeeasy;
+	private String option;
+	private String desc;
 	private int weather;
-	private int stock;
+	private int soldout;
+	private int order;
 	
 	public Menu() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Menu(int no, String name, int price, String img, int ice, String type, String typeeasy, int weather,
-			int stock) {
+	public Menu(int no, String name, int price, String img, int ice, int size, String type, String typeeasy,
+			String option, String desc, int weather, int soldout, int order) {
 		super();
 		this.no = no;
 		this.name = name;
 		this.price = price;
 		this.img = img;
 		this.ice = ice;
+		this.size = size;
 		this.type = type;
 		this.typeeasy = typeeasy;
+		this.option = option;
+		this.desc = desc;
 		this.weather = weather;
-		this.stock = stock;
+		this.soldout = soldout;
+		this.order = order;
 	}
 
 	public int getNo() {
@@ -69,6 +77,14 @@ public class Menu {
 		this.ice = ice;
 	}
 
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
 	public String getType() {
 		return type;
 	}
@@ -85,6 +101,22 @@ public class Menu {
 		this.typeeasy = typeeasy;
 	}
 
+	public String getOption() {
+		return option;
+	}
+
+	public void setOption(String option) {
+		this.option = option;
+	}
+
+	public String getDesc() {
+		return desc;
+	}
+
+	public void setDesc(String desc) {
+		this.desc = desc;
+	}
+
 	public int getWeather() {
 		return weather;
 	}
@@ -93,12 +125,20 @@ public class Menu {
 		this.weather = weather;
 	}
 
-	public int getStock() {
-		return stock;
+	public int getSoldout() {
+		return soldout;
 	}
 
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setSoldout(int soldout) {
+		this.soldout = soldout;
+	}
+
+	public int getOrder() {
+		return order;
+	}
+
+	public void setOrder(int order) {
+		this.order = order;
 	}
 	
 	

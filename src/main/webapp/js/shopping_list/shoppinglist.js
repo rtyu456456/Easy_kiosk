@@ -1,78 +1,90 @@
-let pbtns = document.querySelectorAll(".plus-btn");
-let mbtns = document.querySelectorAll(".minus-btn");
+function addToCart(menu, price) {
+    var cartTable = document.getElementById("cartTable2");
+    var newRow = cartTable.insertRow(cartTable.rows.length);
 
-let originPrice = 0;
-/*
-for (i = 0; i < pbtns.length; i++) {
-	pbtns[i].addEventListener("click", (e) => {
-		const priceEl = e.target.parentNode.previousElementSibling;
-		console.log(priceEl);
-		const cntEl = e.target.nextSibling.nextSibling;
-		const originInput = e.target.nextSibling.nextSibling.nextSibling.nextSibling;
-		console.log(originInput.value)
-		let cnt = parseInt(cntEl.innerText);
-		cntEl.innerText = ++cnt;
-		priceEl.innerText = parseInt(originInput.value) * cnt;
-	});
-	
-	mbtns[i].addEventListener("click", (e) => {
-        const priceEl = e.target.parentNode.previousElementSibling;
-        console.log(priceEl);
-        const cntEl = e.target.previousSibling.previousSibling;
-        const originInput = e.target.nextSibling.nextSibling;
-        console.log(originInput.value)
-        let cnt = parseInt(cntEl.innerText);
-        if (cnt > 0) {
-            cntEl.innerText = --cnt;
-            priceEl.innerText = parseInt(originInput.value) * cnt;
+    var menuCell = newRow.insertCell(0);
+    menuCell.innerHTML = menu;
+
+    var priceCell = newRow.insertCell(1);
+    var priceValue = parseInt(price);
+    priceCell.innerHTML = `<span class="price" data-price="${priceValue}">${priceValue}</span>`;
+
+    var quantityCell = newRow.insertCell(2);
+    quantityCell.innerHTML = `
+        <input class="plus-btn" type="button" value="1" onclick="changeQuantity(this, 'increase')">
+        <div class="count">1</div>
+        <input class="origin-val" value="${priceValue}" data-original-value="${priceValue}">
+        <input class="minus-btn" type="button" value="-1" onclick="changeQuantity(this, 'decrease')">
+        <button onclick="deleteMenu(this)">x</button>
+    `;
+
+    var prices = getPricesFromCart();
+    var total = totalPrice(prices);
+    updateTotalPrice(total);
+}
+
+function updateTotalPrice(total) {
+    var totalPriceCell = document.getElementById("totalPrice");
+    if (totalPriceCell) {
+        totalPriceCell.innerText = total.toLocaleString() + "원";
+    }
+}
+
+function changeQuantity(btn, action) {
+    const countEl = btn.parentNode.querySelector(".count");
+    let count = parseInt(countEl.innerText);
+
+    if (action == "increase") {
+        count++;
+    } else if (action == "decrease") {
+        count = Math.max(count - 1, 1);
+    }
+
+    countEl.innerText = count;
+
+    const priceEl = btn.parentNode.parentNode.querySelector(".price");
+    const priceCell = btn.parentNode.querySelector(".origin-val");
+    const price = parseInt(priceCell.dataset.originalValue) * count;
+
+    if (!isNaN(price)) {
+        priceEl.innerText = price;
+        priceEl.dataset.price = price;
+    }
+    
+    var array = getPricesFromCart();
+    var total = totalPrice(array);
+    updateTotalPrice(total);
+}
+
+function deleteMenu(btn) {
+    var row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+
+    var array = getPricesFromCart();
+    var total = totalPrice(array);
+    updateTotalPrice(total);
+}
+
+function totalPrice(array) {
+    let total = 0;
+
+    for (let i = 0; i < array.length; i++) {
+        total += array[i];
+    }
+    
+    return total;
+}
+
+function getPricesFromCart() {
+    var prices = [];
+    var menus = document.querySelectorAll("#cartTable2 tr:not(:first-child)");
+
+    menus.forEach(function(menu) {
+        var priceCell = menu.querySelector(".price");
+        if (priceCell && priceCell.dataset.price) {
+            prices.push(parseInt(priceCell.dataset.price));
         }
     });
+
+    return prices;
 }
-*/
-
-for (let i = 0; i < pbtns.length; i++) {
-    pbtns[i].addEventListener("click", (e) => {
-        const priceEl = e.target.parentNode.previousElementSibling;
-        console.log(priceEl);
-        const cntEl = e.target.nextElementSibling;
-        const originInput = e.target.parentNode.querySelector(".origin-val");
-        console.log(originInput.value);
-        let cnt = parseInt(cntEl.innerText);
-        cntEl.innerText = ++cnt;
-        priceEl.innerText = parseInt(originInput.value) * cnt;
-    });
-
-    mbtns[i].addEventListener("click", (e) => {
-        const priceEl = e.target.parentNode.previousElementSibling;
-        console.log(priceEl);
-        const cntEl = e.target.nextElementSibling.nextElementSibling;
-        const originInput = e.target.parentNode.querySelector(".origin-val");
-        console.log(originInput.value);
-        let cnt = parseInt(cntEl.innerText);
-        if (cnt > 1) {
-            cntEl.innerText = --cnt;
-            priceEl.innerText = parseInt(originInput.value) * cnt;
-        }
-    });
-}
-
-	/*
-function count(p) {
-	// 결과를 표시할 element
-	const resultElement = document.querySelector(".count")
-	// 현재 화면에 표시된 값
-	let number = resultElement.innerText;
-
-	// 더하기/빼기
-	if (type == "plus") {
-		number = parseInt(number) + 1;
-
-	}
-	 }else if(type == "minus")  {
-	   number = parseInt(number) - 1;
-	   console.log(price);
-	 }
-	// 결과 출력
-	resultElement.innerText = number;
-}
-	 */
