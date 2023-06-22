@@ -14,5 +14,6 @@
 			<button type="submit" name="whereToEat" value="takeout" class="under-white"><span class="takeout">포장 주문 ></span></button>
 			<img src="./img/Title_Enter_Blue.png" class="title">
 	</form>
+	111
 </body>
 </html>
