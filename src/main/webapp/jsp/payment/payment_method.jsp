@@ -7,6 +7,12 @@
 <title>결제 방식 선택</title>
 </head>
 <body>
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/07_결제_방식을_선택해주세요.mp3">
+	</audio>
+
 	<form action="PaymentMethodC" method="post">
 		<button name="card" value="card" class="top-blue">
 			<img src="./img/cardIcon.png" class="payment-method-card-img"><span

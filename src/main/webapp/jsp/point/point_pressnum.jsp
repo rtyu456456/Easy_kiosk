@@ -9,6 +9,12 @@
 <script type="text/javascript" src="js/pressnum.js"></script>
 </head>
 <body class="main-view">
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/05_8자리_전화번호를_입력해주세요.mp3">
+	</audio>
+	
 	<div class="point-pressnum-container scroll">
 		<div class="point-pressnum-textarea">
 			<span class="point-pressnum-subtitle">포인트 적립을 위한</span><br> <span

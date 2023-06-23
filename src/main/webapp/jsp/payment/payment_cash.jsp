@@ -8,6 +8,12 @@
 <title>현금 결제</title>
 </head>
 <body id="payment-cash-body">
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/08_카운터에서_현금_결제를_해주세요.mp3">
+	</audio>
+
 	<form action="ResultC">
 	<img src="./img/cashIcon.png" class="payment-cash-img">
 	<div class="payment-cash-title">카운터의 점원에게

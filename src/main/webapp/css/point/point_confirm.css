@@ -46,6 +46,10 @@
     padding-bottom: 15px;
 }
 
+.point-confirm-no:active {
+	background: #D9D9D9;
+}
+
 .point-confirm-yes {
 	position: relative;
     width: 578px;
@@ -59,4 +63,8 @@
     color: #110E61;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-bottom: 15px;
+}
+
+.point-confirm-yes:active {
+	background: #D9D9D9;
 }

@@ -7,6 +7,12 @@
 <title>주문 방식 선택</title>
 </head>
 <body>
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/02_주문_방식을_선택해주세요.mp3">
+	</audio>
+
 	<form action="OrderTypeC" method="post">
 		<button name="orderType" value="normalOrder" class="top-blue">
 			<img src="./img/normalOrderIcon.png" class="normal-order-img"><span

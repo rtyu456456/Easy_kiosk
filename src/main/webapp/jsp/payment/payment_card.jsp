@@ -8,6 +8,12 @@
 <title>카드 결제</title>
 </head>
 <body>
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/08_IC_카드를_넣어주세요.mp3">
+	</audio>
+
 	<form action="ResultC">
 	<img src="./img/cardIcon.png" class="payment-card-img">
 	<span class="payment-card-title">IC카드를 넣어주세요<br></span>

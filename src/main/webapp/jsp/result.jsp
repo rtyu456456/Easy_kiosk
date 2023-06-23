@@ -9,6 +9,12 @@
 <title>결과 화면</title>
 </head>
 <body>
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/09_결제가_완료됐습니다_영수증을_출력하시겠어요.mp3">
+	</audio>
+
 	<span class="result-desc">결제가 완료됐습니다. 이용해 주셔서 감사합니다.</span>
 	<br><span class="result-ordernum-text">주문번호</span>
 	<br><div class="result-ordernum">${sessionScope.orderNum }</div>

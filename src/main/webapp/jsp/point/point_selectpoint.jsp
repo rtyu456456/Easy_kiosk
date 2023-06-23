@@ -8,8 +8,14 @@
 <title>포인트 사용 여부</title>
 </head>
 <body class="main-view">
+
+	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/06_포인트_이용_방식을_선택해주세요.mp3">
+	</audio>
+
 	<form action="UsePointC" method="post">
-		<div class="top-blue">
+		<div class="point-selectpoint-top-blue">
 			<span class="point-selectpoint-phonenumber">${sessionScope.user.phoneNumber }님의</span><br>
 			<span class="point-selectpoint-nowpoint-text">현재 포인트 : <span class="point-selectpoint-nowpoint">${sessionScope.user.savingPoint }원</span></span>
 			<c:if test="${sessionScope.user.savingPoint != 0}">
@@ -17,7 +23,7 @@
 				<button name="usePoint" value="usePoint" class="point-selectpoint-usepoint">사용하기</button>
 			</c:if>
 		</div>
-		<div class="under-white">
+		<div class="point-selectpoint-under-white">
 			<span class="point-selectpoint-pluspoint-text">예상 적립 포인트 : <span class="point-selectpoint-pluspoint">600원</span></span>
 			<button type="button" onclick="location.href='PaymentMethodC?savePoint=savePoint'" class="point-selectpoint-savepoint">적립하기</button>
 		</div>
