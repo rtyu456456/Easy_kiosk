@@ -11,8 +11,6 @@
 	<h1>${sessionScope.whereToEat}</h1>
 	<form action="PaymentMethodC" method="get">
 		<button>결제하기</button>
-		<button type="button" onclick="history.back()">뒤로가기</button>
-		<button type="button" onclick="location.href='HC'">처음으로</button>
 	</form>
 </body>
 </html>

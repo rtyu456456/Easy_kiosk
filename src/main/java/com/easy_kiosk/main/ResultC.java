@@ -19,7 +19,9 @@ public class ResultC extends HttpServlet {
 		} else if(session.getAttribute(howPoint)=="savePoint") { // 포인트 적립시(그냥 else로 적으면 간편 주문시 터짐)
 			EasyDAO.getEasyDAO().savePoint(request); // 결제 끝나면 실제로 DB에 적용
 		}
-		request.getRequestDispatcher("jsp/result.jsp").forward(request, response);
+		request.setAttribute("nav", "nav.jsp");
+		request.setAttribute("contentPage", "result.jsp");
+		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

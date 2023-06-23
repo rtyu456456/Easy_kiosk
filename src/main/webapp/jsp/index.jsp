@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="css/payment/payment_method.css">
 <link rel="stylesheet" href="css/payment/payment_card.css">
 <link rel="stylesheet" href="css/payment/payment_cash.css">
+<link rel="stylesheet" href="css/result.css">
 </head>
 <body class="main-view">
 	<jsp:include page="${nav}"></jsp:include>

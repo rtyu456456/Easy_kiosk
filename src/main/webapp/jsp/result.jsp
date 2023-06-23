@@ -9,13 +9,13 @@
 <title>결과 화면</title>
 </head>
 <body>
-	결제가 완료됐습니다. 이용해 주셔서 감사합니다.
-	<br>주문번호
-	<br>${sessionScope.orderNum }
-	<br>영수증을 출력하시겠습니까?
+	<span class="result-desc">결제가 완료됐습니다. 이용해 주셔서 감사합니다.</span>
+	<br><span class="result-ordernum-text">주문번호</span>
+	<br><div class="result-ordernum">${sessionScope.orderNum }</div>
+	<br><span class="result-receipt-text">영수증을 출력하시겠습니까?</span>
 	<form action="ReceiptC">
-		<button>예</button>
+		<button class="result-receipt-yes">예</button>
+		<button type="button" onclick="location.href='HC'" class="result-receipt-no">아니오</button>
 	</form>
-	<button onclick="location.href='HC'">아니오</button>
 </body>
 </html>
