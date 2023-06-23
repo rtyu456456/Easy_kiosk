@@ -43,7 +43,7 @@
 		<div class="manage-item">재고유무</div>
 		<div class="manage-item">총 판매량</div>
 	</div>
-	
+
 	<div class="manage-menu-wrapper">
 		<c:forEach items="${menus }" var="m">
 			<div class="manage-menu-main">
@@ -56,26 +56,70 @@
 				<div class="manage-item">${m.m_soldout }</div>
 				<div class="manage-item">${m.m_order }</div>
 				<div>
-					<button id="update">수정</button>
-					<dialog id="updatePage">${m.m_no }</dialog>
+					<button id="openUpdate">수정</button>
+					<dialog id="updateModal">
+					<button>close</button>
+
+					</dialog>
 					<button onclick="location.href='DeleteMenuC?m_no=${m.m_no }'">삭제</button>
 				</div>
 			</div>
 		</c:forEach>
-		<form action="AddMenuC">
+		<div>
+			<button id="openAdd">메뉴추가</button>
+			<input hidden value=${param.type } name="type">
+			<dialog id="addModal">
 			<div>
-				<button>메뉴추가</button>
-				<input hidden value=${param.type } name="type">
+				메뉴명 : <input placeholder="메뉴명">
 			</div>
-		</form>
+			<div>
+				가격 : <input placeholder="가격">
+			</div>
+			<div>
+				메뉴사진 : <input type="file" value="">
+			</div>
+			<div>
+				아이스핫 구분 : 
+				<select>
+					<option value=0>Hot만</option>
+					<option value=1>Ice만</option>
+					<option value=2>둘다</option>
+					<option value=3>구분없음</option>
+				</select>
+			</div>
+			<div>
+				사이즈 구분 : 
+				<select>
+					<option value=0>구분없음</option>
+					<option value=1>구분있음</option>
+				</select>
+			</div>
+			<div>
+				일반분류 : <input placeholder="일반분류">
+			</div>
+			<div>
+				간단분류 : <input placeholder="간단분류">
+			</div>
+			<div>
+				옵션여부 : <input placeholder="옵션여부">
+			</div>
+			<div>
+				메뉴설명 : <input placeholder="메뉴설명">
+			</div>
+			<div>
+				날씨별 추천여부 : <input placeholder="날씨별 추천여부">
+			</div>
+			<div>
+				재고여부 : <input placeholder="재고여부">
+			</div>
+			<div>
+				총주문수 : <input placeholder="총주문수">
+			</div>
+
+
+			<button id="closeAdd">닫기</button>
+			</dialog>
+		</div>
 	</div>
 </body>
-<script>
-const u_button = document.getElementById("update");
-const u_page = document.getElementById("updatePage");
-
-u_button.addEventListener("click", function() {
-	u_page.showModal();
-});
-</script>
 </html>

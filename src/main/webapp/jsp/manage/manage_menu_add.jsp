@@ -33,7 +33,6 @@
 		<div class="manage-item">
 			<a href="ManageMenuC?type=DESSERT"> 디저트 </a>
 		</div>
-	</div>
 	<div class="manage-menu-container">
 		<div class="manage-item">이미지</div>
 		<div class="manage-item">상품명</div>
@@ -96,13 +95,13 @@
 			</div>
 			<div class="manage-item">
 				<label>
-				 <input type="checkbox" name="m_option" value="시럽"> 시럽
+				 <input type="checkbox" name="m_option" value="SYRUP"> 시럽
 				</label>
 				<label>
-				 <input type="checkbox" name="m_option" value="휘핑크림"> 휘핑크림
+				 <input type="checkbox" name="m_option" value="CREAM"> 휘핑크림
 				</label>
 				<label>
-				 <input type="checkbox" name="m_option" value="샷"> 샷
+				 <input type="checkbox" name="m_option" value="SHOT"> 샷
 				</label>
 			</div>
 			<div class="manage-item">

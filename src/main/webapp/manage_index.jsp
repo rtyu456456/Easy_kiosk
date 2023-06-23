@@ -25,4 +25,7 @@
 	</div>
 
 </body>
+<script src="./js/updateMenu.js"></script>
+<script src="./js/addMenu.js"></script>
+<script src="./js/deleteMenu.js"></script>
 </html>

@@ -17,7 +17,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_MENU ORDER BY M_NO";
+		String sql = "SELECT * FROM EK_MENU ORDER BY M_ORDER DESC";
 
 		try {
 			con = DBManager.connect();
@@ -56,7 +56,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_MENU WHERE M_TYPE LIKE ?";
+		String sql = "SELECT * FROM EK_MENU WHERE M_TYPE LIKE ? ORDER BY M_ORDER DESC";
 		String type = request.getParameter("type");
 		
 		try {
