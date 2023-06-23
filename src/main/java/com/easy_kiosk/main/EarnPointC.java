@@ -16,7 +16,6 @@ public class EarnPointC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getEasyDAO().getCustomer(request);
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "point/point_pressnum.jsp");
 		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);

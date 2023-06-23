@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>결과 화면</title>
+<!-- <script type="text/javascript" src="js/result.js"></script> -->
 </head>
 <body>
 
@@ -23,5 +24,6 @@
 		<button class="result-receipt-yes">예</button>
 		<button type="button" onclick="location.href='HC'" class="result-receipt-no">아니오</button>
 	</form>
+	<p class="result-countdown"><span id="countdown"></span>초 후에 창이 닫힙니다.</p>
 </body>
 </html>

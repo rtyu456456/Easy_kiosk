@@ -1,10 +1,12 @@
+// 핸드폰 번호를 누를 수 있게 해주는 js
+
 function validateForm() { // 확인 버튼으로 값 제출시 호출됨
             var firstInput = document.getElementById("firstInput").value;
             var secondInput = document.getElementById("secondInput").value;
 
             // 입력값이 4자리인지 확인
             if (firstInput.length !== 4 || secondInput.length !== 4) {
-                alert("전화번호를 8자리 입력해주세요.");
+                swal ( "오류" ,  "전화번호를 8자리 입력해주세요" ,  "error" ) // alert창
                 clearNumber();
                 return false;
             }
@@ -17,12 +19,12 @@ function validateForm() { // 확인 버튼으로 값 제출시 호출됨
             return true;
         }
        
-function clearNumber() {
+function clearNumber() { // input의 모든 값을 전부 삭제하는 기능
 	document.getElementById("firstInput").value = "";
     document.getElementById("secondInput").value = "";
 }
  
-function addNumberToInput(number) {
+function addNumberToInput(number) { // 버튼을 누르면 1번input부터 2번 input까지 입력되는 기능
             var firstInput = document.getElementById("firstInput"); // 첫 번째 input안에 들어있는 값
             var secondInput = document.getElementById("secondInput"); // 두 번째 input안에 들어있는 값
 
@@ -36,7 +38,7 @@ function addNumberToInput(number) {
             }
         }
 
-function deleteLastDigit() {
+function deleteLastDigit() { // 오른쪽부터 하나씩 지우는 기능
             var firstInput = document.getElementById("firstInput");
             var secondInput = document.getElementById("secondInput");
 

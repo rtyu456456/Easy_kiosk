@@ -9,6 +9,8 @@
 <script type="text/javascript" src="js/pressnum.js"></script>
 </head>
 <body class="main-view">
+<!-- Sweet Alert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>
 	<audio id="audio" autoplay>

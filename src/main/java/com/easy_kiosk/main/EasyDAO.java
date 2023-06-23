@@ -66,6 +66,7 @@ public class EasyDAO {
 //				rs.next();
 				System.out.println("등록된 유저입니다");
 			} else {
+				System.out.println("첫 방문 고객입니다");
 				String sql_insert = "insert into EK_USER values(?, ?)"; // 새로 등록한 유저일 경우
 				rs.close(); // 위에서 사용한 rs는 닫고서 다시 사용해야함
 				pstmt.close();
