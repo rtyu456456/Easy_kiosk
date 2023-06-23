@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>결과 화면</title>
-<!-- <script type="text/javascript" src="js/result.js"></script> -->
+<script type="text/javascript" src="js/result.js"></script>
 </head>
 <body>
 

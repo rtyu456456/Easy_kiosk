@@ -145,6 +145,7 @@ public class EasyDAO {
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
 		int usedPoint = user.getUsedPoint(); // 사용할 포인트
 		int remainPoint = user.getRemainPoint(); // 남은 포인트
+		System.out.println("remainPoint : " + remainPoint);
 		int totalPrice = 6000; // 총 구매 가격
 		int finalPrice = user.getFinalPrice(); // 최종 결제 가격
 		String sql = "update EK_USER set u_point = ? where u_no = ?";
@@ -154,6 +155,7 @@ public class EasyDAO {
 			pstmt.setInt(1, remainPoint);
 			pstmt.setString(2, userNo);
 			if (pstmt.executeUpdate() == 1) {
+				System.out.println("포인트 사용 성공");
 				user.setSavingPoint(savingPoint);
 				user.setUsedPoint(usedPoint);
 				user.setRemainPoint(remainPoint);
@@ -165,6 +167,7 @@ public class EasyDAO {
 				session.setAttribute("user", user);
 			}
 		} catch (Exception e) {
+			System.out.println("포인트 사용 실패");
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, null);

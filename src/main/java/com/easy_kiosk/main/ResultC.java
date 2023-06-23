@@ -14,10 +14,10 @@ public class ResultC extends HttpServlet {
 		EasyDAO.getEasyDAO().orderNum(request); // 주문번호 계산
 		HttpSession session = request.getSession();
 		String howPoint = (String) session.getAttribute("howPoint");
-		System.out.println(howPoint);
-		if (session.getAttribute(howPoint)=="usePoint") { // 포인트 사용시
+		if (howPoint.equals("usePoint")) { // 포인트 사용시
+			System.out.println("포인트 사용 메소드 호출 성공");
 			EasyDAO.getEasyDAO().usePoint(request); // 결제 끝나면 실제로 DB에 적용
-		} else if(session.getAttribute(howPoint)=="savePoint") { // 포인트 적립시(그냥 else로 적으면 간편 주문시 터짐)
+		} else if(howPoint.equals("savePoint")) { // 포인트 적립시(그냥 else로 적으면 간편 주문시 터짐)
 			EasyDAO.getEasyDAO().savePoint(request); // 결제 끝나면 실제로 DB에 적용
 		}
 		request.setAttribute("nav", "nav.jsp");
