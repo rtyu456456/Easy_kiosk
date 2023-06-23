@@ -1,6 +1,6 @@
 	// 동작이 없으면 10초 후에 HC를 호출하는 js
 
-    // 1.jsp 페이지가 로드되면 타이머를 시작합니다.
+    // result.jsp 페이지가 로드되면 타이머를 시작합니다.
     document.addEventListener("DOMContentLoaded", function() {
       startTimer();
     });
@@ -25,7 +25,7 @@
           clearInterval(timer);
           location.href = "HC";
         }
-      }, 1000); // 1초 (1000ms)
+      }, 1000); // 1초마다 내부 값이 실행됩니다.
       
       // 마우스 움직임 이벤트 리스너를 추가합니다.
       document.addEventListener("mousemove", resetTimer);
