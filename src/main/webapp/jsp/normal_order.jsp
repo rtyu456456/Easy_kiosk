@@ -12,11 +12,12 @@
 	<audio id="audio" autoplay>
 		<source src="./mp3/03_메뉴를_선택해주세요.mp3">
 	</audio>
-	
+	<div style="position: relative; top: 40%; left: 50%; color: white;">
 	<h1>${sessionScope.orderType}</h1>
 	<h1>${sessionScope.whereToEat}</h1>
 	<form action="EarnPointC" method="get">
 		<button>결제하기</button>
 	</form>
+	</div>
 </body>
 </html>
