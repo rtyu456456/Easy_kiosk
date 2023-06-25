@@ -1,0 +1,346 @@
+const modal = document.getElementById("optionModal");
+const closeBtn = document.getElementById("close-btn");
+const totalPriceEl = document.getElementById("total-price");
+let totalCnt = document.getElementById("total-count");
+
+const ccImageSrc = document.getElementById("cartImageSrc");
+const ccName = document.getElementById("cartName");
+const ccPrice = document.getElementById("cartPrice");
+const ccCnt = document.getElementById("cartCnt");
+const ccIce = document.getElementById("cartIceOrHOt");
+
+let cart = {};
+let selectedOptions = {
+    iceOrHot: null,
+    optionSize: null,
+    shot: null,
+    syrup: null,
+    cream: null,
+};
+
+let modalIce = document.getElementById("modal-ice");
+let modalHot = document.getElementById("modal-hot");
+
+const addCart = modal.querySelector("#cart-btn");
+const plusbtn = modal.querySelector("#plus-btn");
+const minusbtn = modal.querySelector("#minus-btn");
+
+function addCartItem(cart) {
+	console.log(cart);  // cart 객체는 모달열때 값세팅이 되어지도록 됨
+	
+// cartItems가 null을 반환할경우 []가 사용되어짐 
+let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+	console.log(cartItems);
+	
+// 빈cartItems 배열에 세팅된 cart객체를 여기서 담아줌
+cartItems.push(cart);
+	console.log(cartItems);
+	console.log(JSON.stringify(cartItems));
+	
+// 로컬스토리지에는 문자열만 들어갈수있기때문에 cartItems(Json)을 문자열로 바꿔서 넣어줌
+localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+}
+
+function displayCartItems() {
+// 카트아이템스 가져오기
+let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+
+let cartContainer = document.getElementById("cartContainer");
+
+cartContainer.innerHTML = "";
+
+let totalCartPrice = 0;
+
+// cartItems 반복문 돌려서 장바구니 부분 세팅해주기 
+cartItems.forEach((item, index) => {
+	
+ 	// 총가격에 상품가격 더해주기
+    totalCartPrice += item.price;
+    
+	// 상위 요소를 생성
+    let itemContainer = document.createElement("div");
+	itemContainer.style.textAlign = "center";
+	itemContainer.style.border = "1.6px solid #222";
+	itemContainer.style.borderRadius = "6px";
+	itemContainer.style.backgroundColor = "#eed";
+    itemContainer.classList.add("itemContainer"); 
+    
+    // 이미지세팅
+    let imgEl = document.createElement("img");
+    imgEl.src = item.imageSrc;
+	
+	let quantityContainer = document.createElement("div");
+    quantityContainer.style.display = "flex";
+    quantityContainer.style.justifyContent = "center";
+    quantityContainer.style.alignItems = "center";
+
+    let minusBtn = document.createElement("button");
+    minusBtn.innerText = "-";
+    minusBtn.style.marginRight = "5px";
+    minusBtn.style.padding = "2px 8px";
+    minusBtn.style.fontSize = "18px";
+    minusBtn.style.fontWeight = "600";
+    minusBtn.style.color = "#dee";
+    minusBtn.style.backgroundColor = "#BD433B";
+    minusBtn.onclick = () => {
+        if (item.cnt > 1) {
+            item.cnt--;
+            updateCartItem(index, item);
+        }
+    };
+	
+    let quantityEl = document.createElement("span");
+    quantityEl.innerText = item.cnt;
+	
+	let plusBtn = document.createElement("button");
+    plusBtn.innerText = "+";
+    plusBtn.style.marginLeft = "5px";
+    plusBtn.style.padding = "2px 8px";
+    plusBtn.style.fontSize = "18px";
+    plusBtn.style.fontWeight = "500";
+    plusBtn.style.color = "#dee";
+    plusBtn.style.backgroundColor = "#0b3598";
+    plusBtn.onclick = () => {
+        item.cnt++;
+        updateCartItem(index, item);
+    };
+	
+	quantityContainer.appendChild(minusBtn);
+    quantityContainer.appendChild(quantityEl);
+    quantityContainer.appendChild(plusBtn);
+	
+	// 삭제 버튼의 컨테이너 생성, 나중에 css파일에 이쪽에서 제어하는 css부분들 분리해줄예정
+    let deleteBtnContainer = document.createElement("div");
+    deleteBtnContainer.style.textAlign = "end";
+    deleteBtnContainer.style.marginTop = "-8.8px";
+    deleteBtnContainer.style.marginRight = "-1.2px";
+    deleteBtnContainer.style.marginBottom = "10px";
+    
+    let deleteBtn = document.createElement("button");
+    deleteBtn.classList.add("dBtn"); 
+    deleteBtn.innerText = "X";
+    deleteBtn.style.fontSize = "18px";
+    deleteBtn.style.fontWeight = "500";
+    deleteBtn.style.color = "#222";
+    deleteBtn.style.backgroundColor = "grey";
+    deleteBtn.onclick = () => {
+        deleteCartItem(index);
+    };
+	
+	// 삭제 버튼 컨테이너에 삭제 버튼 추가
+    deleteBtnContainer.appendChild(deleteBtn);
+	
+	// 상위 요소에 이미지, 수량, 그리고 삭제 버튼 컨테이너를 추가
+    itemContainer.appendChild(deleteBtnContainer);
+    itemContainer.appendChild(imgEl);
+    itemContainer.appendChild(quantityContainer);
+	
+    // 상위 요소를 카트 컨테이너에 추가
+    cartContainer.appendChild(itemContainer);
+	});
+	
+	// 총가격 업뎃하기
+	let totalPriceCa = document.getElementById("total-cart-price");
+	totalPriceCa.innerText = "₩" + totalCartPrice + "원";
+	
+}
+
+function updateCartItem(index, item) {
+    // 로컬스토리지에서 카트아이템스 가져오기
+    let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+	
+    // 새로운 갯수를 기반으로 항목의 총 가격을 업데이트
+    item.price = item.unitPrice * item.cnt;
+	
+    // 수정한 그 객체 카트아이템스 배열에 다시 세팅
+    cartItems[index] = item;
+
+    // 내용이 바뀌었으니 로컬스토리지에 그 배열 다시 세팅
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+    // 바뀐내용 장바구니부분 다시 보여줘야되니까 다시 부르기
+    displayCartItems();
+}
+
+function deleteCartItem(index) {
+// 카트아이템스 가져오기
+let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+// 카트아이템스 배열에서 index번호에 있는 1개의 요소를 삭제
+cartItems.splice(index, 1);
+
+// 삭제했으니까 로컬스토리지 내용 다시 세팅
+localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+// 다시 세팅 됐으니까 다시 보여주기
+displayCartItems();
+}
+
+function openModal(imageSrc, name, price, ice, desc, options, size) {
+	
+	console.log(imageSrc);
+	console.log(name);
+	console.log(price);
+	console.log(ice);
+	console.log(desc);
+	console.log(options);
+	console.log(size);
+	
+	 // 모달 열때마다 초기화 세팅 옵션객체도마찬가지 옵션기본값은 no
+    selectedOptions = {
+        iceOrHot: null,
+        optionSize: null,
+		shot: 'no',
+		syrup: 'no',
+		cream: 'no',
+    };
+	
+	const optionButtons = document.querySelectorAll(".optionBtn button");
+	
+	// 옵션들 선택할때마다 active 값으로 버튼색 제어
+	optionButtons.forEach(button => {
+	    button.onclick = () => {
+	        // 같은 선택 카테고리에 속한 버튼의 active 클래스를 제거
+	        document.querySelectorAll(`.optionBtn button[name='${button.name}']`).forEach(btn => {
+	            btn.classList.remove('active');
+	        });
+	
+	        // 선택된 옵션을 업데이트
+	        selectedOptions[button.name] = button.value;
+	
+	        // yesBtn 혹은 noBtn 클래스를 가진 버튼에 active 클래스를 추가 
+	        if (button.classList.contains('yesBtn') || button.classList.contains('noBtn')) {
+	            button.classList.add('active');
+	        }
+	    };
+	});
+
+    // 모달 열때마다 선택한 그 커피를 세팅
+    cart = {name: name, price: price, unitPrice: price, iceOrHot: ice, imageSrc: imageSrc, cnt: 1};
+    
+    // 모달 열때마다 cart에 담을 커피객체 값들 세팅
+    totalPriceEl.innerText = cart.price;
+    totalCnt.innerText = '총 수량 : ' + cart.cnt;
+    let modalName = modal.querySelector(".modal-name");
+    modalName.innerText = name;
+    let modalPrice = modal.querySelector("#total-price");
+    modalPrice.innerText = "₩" + price + "원";
+    let modalImage = document.getElementById("modalImage");
+    modalImage.src = imageSrc;
+    let modalDesc = modal.querySelector(".m-desc");
+    modalDesc.innerText = desc;
+    let mSize = modal.querySelector(".sizeContainer");
+    mSize.style.display = size == 0 ? "none" : "block";
+    modal.showModal();
+
+    if (ice == 2) {
+        modalIce.style.display = "inline-block";
+        modalHot.style.display = "inline-block";
+    } else if (ice == 1) {
+        modalHot.style.display = "none";
+        modalIce.style.display = "inline-block";
+    } else if (ice == 0) {
+        modalIce.style.display = "none";
+        modalHot.style.display = "inline-block";
+    } else if (ice == 3) {
+        modalIce.style.display = "none";
+        modalHot.style.display = "none";
+    }
+
+    // 커피마다 가지고 있는 옵션들 뭘 선택할 수 있게 보여줄지 제어
+    const optionsArray = options.split("!");
+    for (let i = 0; i < optionsArray.length; i++) {
+        if (optionsArray[i] != 'NONE') {
+            let foundEl = modal.querySelector("button[name='" + optionsArray[i].toLowerCase() + "']").parentNode;
+            foundEl.style.display = 'block';
+        }
+    }
+
+    // 가격세팅
+    plusbtn.onclick = () => {
+        cart.price += cart.unitPrice;
+        totalPriceEl.innerText = "₩" + cart.price + "원";
+        cart.cnt++;
+        totalCnt.innerText = '총 수량 : ' + cart.cnt;
+    };
+    
+    minusbtn.onclick = () => {
+        if (cart.price > cart.unitPrice) {
+            cart.price -= cart.unitPrice;
+            totalPriceEl.innerText = "₩" + cart.price + "원";
+            if (cart.cnt > 1) {
+                cart.cnt--;
+                totalCnt.innerText = '총 수량 : ' + cart.cnt;
+            }
+        }
+    };
+    
+    addCart.onclick = () => {
+		 // 모든 버튼의 active 클래스 제거
+	    const optionButtons = document.querySelectorAll(".optionBtn button");
+	    optionButtons.forEach(button => {
+	        button.classList.remove('active');
+	    });
+	    
+	    // 옵션세팅
+	    for (const option in selectedOptions) {
+	        // ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
+	        if (ice == 3 && options == 'NONE' && size == 0) {
+	            break;
+	        } 
+	        // size가 0인 경우도 예외로 처리
+		    else if (size == 0) {
+		        break;
+		    }
+	        else if (selectedOptions[option] === null) {
+	            alert(option + ' 옵션을 선택해주세요.');
+	            return;
+	        }
+	    }
+		
+		// cart객체랑 selectedOptions객체 합쳐진 객체로 다시 세팅
+        cart = {
+            ...cart,
+            ...selectedOptions
+        };
+		// 카트에 기본 car객체와 옵션선택이 합쳐진 그 객체가 다시 세팅
+    	addCartItem(cart);
+		
+		// 추가됐으니 다시 부름
+    	displayCartItems();
+		
+	    console.log('Selected Options:');
+	    for (const option in selectedOptions) {
+	        console.log(option + ': ' + selectedOptions[option]);
+	    }
+	    
+        ccName.value = cart.name;
+        ccPrice.value = cart.price;
+        ccCnt.value = cart.cnt;
+        ccIce.value = cart.iceOrHot;
+        ccImageSrc.value = cart.imageSrc;
+        
+        console.log(ccName.value);
+        console.log(ccPrice.value);
+        console.log(ccCnt.value);
+		console. log(ccIce. value);
+		console.log(ccImageSrc.value);
+        modal.close();
+    };
+}
+
+closeBtn.addEventListener("click", () => {
+	 // 모든 버튼의 active 클래스 제거
+    const optionButtons = document.querySelectorAll(".optionBtn button");
+    optionButtons.forEach(button => {
+        button.classList.remove('active');
+    });
+    modal.close();
+});
+
+// 페이지 로드되고 장바구니 보여주기
+window.onload = function() {
+    displayCartItems();
+};
