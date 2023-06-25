@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+@import "nomalize.css";
+
+/* menu_page에 있는 직원 호출 modal */
+#staff-call {
+	text-align: center;
+	width: 80vw;
+	height: 80vh;
+	font-size: 25pt;
+	color: #BD433B;
+}
+
+#staff-call-page {
+	position: relative;
+	top: 30%;
+}
+
+#close-button {
+	display: inline;
+	justify-content: center;
+	align-items: center;
+	width: 500px;
+	height: 100px;
+	background-color: #011E61;
+	border-radius: 20px;
+	color: white;
+	font-size: 50pt;
+}
+
+/* easy_contents_page에 있는 menu modal */
+#modal {
+	width: 80vw;
+	height: 80vh;
+	border: 1px solid #011E61;
+	border-radius: 20px;
+}
+
+.con {
+	position: relative;
+	top: 10%;
+	left: -5%;
+	text-align: center;
+}
+
+#modal-header {
+	display: flex;
+	justify-content: center;
+}
+
+#modal-img {
+	width: 300px;
+	height: 3S00px;
+}
+
+.modal-name {
+	position: relative;
+	top: 50px;
+	color: #011E61;
+	font-size: 50px;
+	line-height: 85px;
+	font-weight: bolder;
+}
+
+#modal-price {
+	position: relative;
+	top: 50px;
+	color:#BD433B;
+	font-size: 50px;
+	line-height: 85px;
+	font-weight: bolder;
+}
+
+.count {
+	position: relative;
+	top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 50px;
+	font-weight: bolder;
+	color: #011E61;
+}
+
+.count button {
+	border-radius: 5px;
+	width: 50px;
+	height: 50px;
+	font-size: 30px;
+	background: #FFFFFF;
+	border: 3px solid #011E61;
+	font-weight: bolder;
+	color: #011E61;
+}
+
+#size {
+	position: relative;
+	left: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30pt;
+	font-weight: bolder;
+}
+
+#w-size {
+	position: relative;
+	right: 100px;
+	color: #011E61;
+}
+
+#m-size {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	right: 50px;
+	border-radius: 50px;
+	background-color: #011E61;
+	color: white;
+	font-weight: bolder;
+}
+
+#l-size {
+	width: 100px;
+	height: 100px;
+	border-radius: 50px;
+	background-color: white;
+	color: #011E61;
+	font-weight: bolder;
+}
+
+.useIce {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	top: 50px;
+}
+
+#hot {
+	position: relative;
+	left: 25px;
+	font-size: 40px;
+	width: 250px;
+	height: 80px;
+	background: #BD433B;
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	font-weight: bolder;
+}
+
+#ice {
+	position: relative;
+	left: 50px;
+	font-size: 40px;
+	width: 250px;
+	height: 80px;
+	background-color: #0B3598;
+	border-radius: 5px;
+	color: white;
+	border: 0;
+	font-weight: bolder;
+	font-size: 40px;
+}
+
+#modal-footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+	top: 100px;
+}
+
+.close-modal {
+	position: relative;
+	left: 25px;
+	border-radius: 5px;
+	width: 350px;
+	height: 100px;
+	background-color: white;
+	border: 1px solid #011E61;
+	font-size: 35pt;
+	font-weight: bolder;
+	font-size: 35pt;
+	border: 1px solid #011E61;
+	background-color: white;
+	height: 100px;
+	width: 350px;
+	border-radius: 5px;
+}
+
+#in-my-pocket {
+	position: relative;
+	left: 50px;
+	border-radius: 5px;
+	width: 350px;
+	height: 100px;
+	background-color: #011E61;
+	border: 1px solid #011E61;
+	font-size: 35pt;
+	color: white;
+	font-weight: bolder;
+}
