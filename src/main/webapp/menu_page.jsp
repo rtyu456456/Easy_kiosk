@@ -98,11 +98,22 @@
 
 
 		<div class="easy-footer">
-			<div class="footer-page">
-			<jsp:include page="${easyBasketPage }"></jsp:include>
+			<div class="menu-box">
+				<img alt="" src="${a.img }"> <br> 
+				이름 : ${a.name } <br>
+ 				가격 : ${a.price } <br>
+ 				수량 : ${a.count }개 <br>
+ 				ice/hot : ${a.ice } <br>
+ 				사이즈 : ${a.size }
 			</div>
-			<div class="footer-button">
-				<button>결제하기</button>
+			<div class="pay-box">
+				<div class="line"></div>
+				<div class="comment-total">총 결제 금액</div>
+				<div class="total">원</div>
+				<div class="pay-btn">
+					<img alt="" src="css/img/cardIcon.png">
+					<div class="comment-pay">결제하기</div>
+				</div>
 			</div>
 		</div>
 
@@ -110,6 +121,5 @@
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/css.js"></script>
 	<script type="text/javascript" src="js/staff_call.js"></script>
-
 </body>
 </html>
