@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://kit.fontawesome.com/8990da9a35.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="../css/GeneralMenu.css" />
+    <link rel="stylesheet" type="text/css" href="css/GeneralMenu.css" />
 	<title>일반메뉴 네비게이션</title>
 </head>
 <body>

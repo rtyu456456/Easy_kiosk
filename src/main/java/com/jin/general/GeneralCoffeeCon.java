@@ -14,7 +14,7 @@ public class GeneralCoffeeCon extends HttpServlet {
 		GeneralMenuDAO.getGdao().generalMenuPaging(1, request);
 		request.setAttribute("navigation", "GeneralNavigation.jsp");
 		request.setAttribute("contentPage", "GeneralMenuItem.jsp");
-		request.getRequestDispatcher("jsp/GeneralMenu.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/generalMenu/GeneralMenu.jsp").forward(request, response);
 	
 	}
 

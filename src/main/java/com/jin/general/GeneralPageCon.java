@@ -13,7 +13,7 @@ public class GeneralPageCon extends HttpServlet {
 		GeneralMenuDAO.getGdao().generalMenuPaging(Integer.parseInt(request.getParameter("p")), request);
 		request.setAttribute("navigation", "GeneralNavigation.jsp");
 		request.setAttribute("contentPage", "GeneralMenuItem.jsp");
-		request.getRequestDispatcher("jsp/GeneralMenu.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/generalMenu/GeneralMenu.jsp").forward(request, response);
 	
 	}
 
