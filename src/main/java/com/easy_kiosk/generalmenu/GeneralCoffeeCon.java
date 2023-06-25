@@ -1,4 +1,4 @@
-package com.jin.general;
+package com.easy_kiosk.generalmenu;
 
 import java.io.IOException;
 import javax.servlet.ServletException;

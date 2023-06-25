@@ -26,7 +26,7 @@ public class ResultC extends HttpServlet {
 		
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "result.jsp");
-		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

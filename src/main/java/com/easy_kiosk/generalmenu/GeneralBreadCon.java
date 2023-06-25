@@ -1,4 +1,4 @@
-package com.jin.general;
+package com.easy_kiosk.generalmenu;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,10 +7,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/GeneralIceFlakeCon")
-public class GeneralIceFlakeCon extends HttpServlet {
+@WebServlet("/GeneralBreadCon")
+public class GeneralBreadCon extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		GeneralMenuDAO.getGdao().showAllIceFlake(request);
+		GeneralMenuDAO.getGdao().showAllBread(request);
 		GeneralMenuDAO.getGdao().generalMenuPaging(1, request);
 		request.setAttribute("navigation", "GeneralNavigation.jsp");
 		request.setAttribute("contentPage", "GeneralMenuItem.jsp");

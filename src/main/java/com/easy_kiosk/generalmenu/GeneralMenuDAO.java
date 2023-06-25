@@ -1,4 +1,4 @@
-package com.jin.general;
+package com.easy_kiosk.generalmenu;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

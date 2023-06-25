@@ -20,7 +20,7 @@ public class MainC extends HttpServlet {
 		EasyDAO.getEasyDAO().whereToEat(request);
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "order_type.jsp");
-		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
 	}
 
 }

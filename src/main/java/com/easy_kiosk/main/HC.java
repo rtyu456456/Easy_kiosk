@@ -15,7 +15,7 @@ public class HC extends HttpServlet {
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "main.jsp");
 		request.setAttribute("audioSource", "../mp3/01_Easy_Coffee에_오신_것을_환영합니다.mp3");
-		request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+		request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
 		// html로 하면 메소드나 System.out같은 '기능'들이 동작하지 않음!
 	}
 

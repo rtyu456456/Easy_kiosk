@@ -17,12 +17,13 @@ public class OrderTypeC extends HttpServlet {
 		if (session.getAttribute("orderType").equals("normalOrder")) {
 			request.getRequestDispatcher("GeneralOrderHomeCon").forward(request, response);
 		} else {
-			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
-			request.getRequestDispatcher("GeneralOrderHomeCon").forward(request, response);
+			request.setAttribute("contentPage", "simple_order.jsp");
+			request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
 		}
 	}
+	
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
 
+	}
 }
