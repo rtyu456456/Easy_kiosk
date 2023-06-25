@@ -1,4 +1,4 @@
-package com.easy_kiosk.main;
+package com.easy_kiosk.kimoon;
 
 public class User {
 	private String phoneNumber; // 전화번호

@@ -1,4 +1,4 @@
-package com.sa.easy;
+package com.easy_kiosk.sua;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

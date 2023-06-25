@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-		
+
 
 	<table id="cartTable2">
 		<tr>
@@ -30,7 +30,12 @@
 		<tr id="paybox">
 			<td style="vertical-align: middle;"><img alt=""
 				src="css/shopping_list/img/cardIcon.png"></td>
-			<td id="paybox_comment">결제하기</td>
+
+			<td id="paybox_comment">
+				<form action="PaymentMethodC" method="get">
+					<button style="all: unset;">결제하기</button>
+				</form>
+			</td>
 		</tr>
 	</table>
 </body>

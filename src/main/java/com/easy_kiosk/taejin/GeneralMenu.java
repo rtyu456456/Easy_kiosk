@@ -1,4 +1,4 @@
-package com.easy_kiosk.generalmenu;
+package com.easy_kiosk.taejin;
 
 public class GeneralMenu {
 	private String no;

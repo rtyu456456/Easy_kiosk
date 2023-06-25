@@ -1,4 +1,4 @@
-package com.easy_kiosk.main;
+package com.easy_kiosk.kimoon;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

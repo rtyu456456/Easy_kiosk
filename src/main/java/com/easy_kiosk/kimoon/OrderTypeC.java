@@ -1,4 +1,4 @@
-package com.easy_kiosk.main;
+package com.easy_kiosk.kimoon;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ public class OrderTypeC extends HttpServlet {
 			request.getRequestDispatcher("GeneralOrderHomeCon").forward(request, response);
 		} else {
 			request.setAttribute("contentPage", "simple_order.jsp");
-			request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
+			request.getRequestDispatcher("EasyMenuController").forward(request, response);
 		}
 	}
 	

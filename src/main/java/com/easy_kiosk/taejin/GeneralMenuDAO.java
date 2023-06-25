@@ -1,4 +1,4 @@
-package com.easy_kiosk.generalmenu;
+package com.easy_kiosk.taejin;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

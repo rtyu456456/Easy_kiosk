@@ -1,4 +1,4 @@
-package com.sa.easy;
+package com.easy_kiosk.sua;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -17,10 +17,10 @@ public class DessertController extends HttpServlet {
 		
 		request.getSession().setAttribute("tb", "dessert-button");
 		
-		request.setAttribute("easyBasketPage", "jsp/easy_basket.jsp");
-		request.setAttribute("easyTitlePage", "jsp/easy_title_page.jsp");
-		request.setAttribute("easyContentsPage", "jsp/easy_contents_page.jsp");
-		request.getRequestDispatcher("menu_page.jsp").forward(request, response);
+		request.setAttribute("easyBasketPage", "easy_basket.jsp");
+		request.setAttribute("easyTitlePage", "easy_title_page.jsp");
+		request.setAttribute("easyContentsPage", "easy_contents_page.jsp");
+		request.getRequestDispatcher("jsp/easyMenu/menu_page.jsp").forward(request, response);
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}

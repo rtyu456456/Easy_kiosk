@@ -1,4 +1,4 @@
-package com.sa.easy;
+package com.easy_kiosk.sua;
 
 public class SelectedMenu {
 
