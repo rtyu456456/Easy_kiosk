@@ -1,4 +1,4 @@
-package com.jin.general;
+package com.easy_kiosk.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

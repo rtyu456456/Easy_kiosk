@@ -14,6 +14,10 @@ pageEncoding="UTF-8"%>
     <title>일반메뉴 페이지</title>
   </head>
   <body>
+  <iframe src="./mp3/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+	<audio id="audio" autoplay>
+		<source src="./mp3/03_메뉴를_선택해주세요.mp3">
+	</audio>
     <div class="container">
       <jsp:include page="${navigation }"></jsp:include>  <!-- nav -->
       <div id="left-arrow">   <!-- 메뉴 왼쪽으로 넘기기 -->

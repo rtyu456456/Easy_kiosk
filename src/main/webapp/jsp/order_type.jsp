@@ -13,7 +13,7 @@
 		<source src="./mp3/02_주문_방식을_선택해주세요.mp3">
 	</audio>
 
-	<form action="OrderTypeC" method="post">
+	<form action="OrderTypeC">
 		<button name="orderType" value="normalOrder" class="top-blue">
 			<img src="./img/normalOrderIcon.png" class="normal-order-img"><span
 				class="normal-order-text">일반 주문 ></span><br>

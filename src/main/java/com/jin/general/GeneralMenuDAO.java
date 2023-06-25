@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.easy_kiosk.db.DBManager;
+
 public class GeneralMenuDAO {
 	
 	private ArrayList<GeneralMenu> menus;
@@ -292,10 +294,10 @@ public class GeneralMenuDAO {
 		
         request.setAttribute("curPageNo", page);
 
-        int cnt = 12; // ÇÑÆäÀÌÁö´ç º¸¿©ÁÙ °³¼ö
-        int total = menus.size(); // ÃÑ µ¥ÀÌÅÍ °³¼ö
+        int cnt = 12; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        int total = menus.size(); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         // 4
-        int pageCount = (int)Math.ceil((double)total / cnt); // ÃÑ ÆäÀÌÁö ¼ö
+        int pageCount = (int)Math.ceil((double)total / cnt); // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         // 4
         request.setAttribute("pageCount", pageCount);
         System.out.println(pageCount);

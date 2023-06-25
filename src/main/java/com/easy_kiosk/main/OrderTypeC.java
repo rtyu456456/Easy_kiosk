@@ -12,19 +12,17 @@ import javax.websocket.Session;
 @WebServlet("/OrderTypeC")
 public class OrderTypeC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = EasyDAO.getEasyDAO().orderType(request);
 		request.setAttribute("nav", "nav.jsp");
 		if (session.getAttribute("orderType").equals("normalOrder")) {
-			request.setAttribute("contentPage", "normal_order.jsp");
-			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+			request.getRequestDispatcher("GeneralOrderHomeCon").forward(request, response);
 		} else {
-			request.setAttribute("contentPage", "simple_order.jsp");
 			request.getRequestDispatcher("jsp/index.jsp").forward(request, response);
+			request.getRequestDispatcher("GeneralOrderHomeCon").forward(request, response);
 		}
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	}
 
 }

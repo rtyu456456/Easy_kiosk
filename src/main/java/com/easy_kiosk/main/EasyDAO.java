@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import com.easy_kiosk.db.DBManager;
+
 public class EasyDAO {
 
 	public static final EasyDAO EASYDAO = new EasyDAO();
