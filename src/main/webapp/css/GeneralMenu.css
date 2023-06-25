@@ -1,0 +1,253 @@
+@charset "UTF-8";
+
+:root {
+  --container-bgc: #011E61;
+  --section-bgc: #ffffff;
+  --payBtn-bgc: #BD433B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  position: absolute;
+  left: 50%;     
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1920px;
+  height: 1080px;
+  background-color: var(--container-bgc);
+}
+
+/* nav area */
+.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  position: absolute;
+  top: 21px;
+  left: 20px;
+  width: 288px;
+  height: 1038px;
+  background-color: var(--section-bgc);
+  border: 3px solid var(--container-bgc);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+}
+
+.nav__menu {
+  margin: 0;
+  padding: 0px 12px;
+  text-align: center;
+}
+
+.nav__menu__btns {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 26px;
+  margin: 18px auto;
+  padding: 8px 24px;
+  width: 180px;
+  border-radius: 30px;
+  border: 1px solid var(--section-bgc);
+  color: var(--container-bgc);
+}
+
+/* :hover 부분은 잠시 임시로만 작성 js로 온클릭 이벤트 처리해줘야됨 */
+.nav__menu__btns:hover {
+  background-color: var(--container-bgc);
+  padding: 8px 24px;
+  border-radius: 30px;
+  color: var(--section-bgc);
+}
+
+.nav__top {
+  text-align: center;
+  margin-top: 22px;
+}
+
+.nav__top button {
+  color: var(--container-bgc);	
+  background-color: transparent;
+  border: none;
+  outline: none;	
+}
+
+.nav__top span {
+  font-size: 24px;	
+  color: var(--container-bgc);	
+}
+
+.nav__footer {
+  text-align: center;
+  color: var(--container-bgc);	
+}
+
+.nav__footer__notice {
+  display: flex;
+}
+
+.nav__footer__notice span {
+  padding: 18px 25px;
+  font-size: 22px;
+}
+
+.nav__footer button {
+  margin: 0px 24px;
+  color: var(--container-bgc);	
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.fa-solid {
+  font-size: 56px;
+}
+
+#arrow i {
+  transform: rotate(180deg);
+}
+
+/* main area */
+
+.main {
+  position: absolute;
+  width: 1184px;
+  height: 943px;
+  left: 372px;
+  top: 61px;
+  background-color: var(--section-bgc);
+  border: 3px solid var(--container-bgc);
+  border-radius: 30px;
+}
+
+/* aside area (cart 장바구니) */
+
+.aside {
+  position: absolute;
+  width: 295px;
+  height: 1081px;
+  left: 1626px;
+  top: 0px;
+  background-color: var(--section-bgc);
+  border: 3px solid #ffffff;
+  border-radius: 30px 0px 0px 30px;
+}
+
+#line {
+  display: inline-block;
+  width: 246px;
+  height: 3px;
+  background-color: var(--container-bgc);
+  position: absolute;
+  left: -5px;
+  top: 780px;
+}
+
+.aside__grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 16px;
+  margin: 76px 12px;
+}
+
+.aside__grid-item {
+	width: 180px;
+	height: 100px;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid var(--container-bgc);
+	border-radius: 6px;
+	font-family: 'Inter';
+    font-style: normal;
+	font-size: 22px;
+	color: var(--container-bgc);
+}
+
+.aside__payText {
+  color: var(--container-bgc);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.aside__payPrice {
+  color: var(--payBtn-bgc);
+  font-size: 28px;
+}
+
+.aside__payBtn {
+  position: absolute;
+  left: -5px;	
+  top: 961px;
+  color: var(--section-bgc);
+  font-size: 26px;
+  width: 250px;
+  height: 116px;	
+  background-color: var(--container-bgc);
+  border-radius: 0px 0px 0px 30px;	
+  border: none;
+  outline: none;
+}
+
+.aside__payBtn:hover {
+  position: absolute;
+  left: -3px;	
+  top: 961px;
+  color: var(--section-bgc);
+  font-size: 26px;
+  width: 250px;
+  height: 116px;	
+  background-color: var(--container-bgc);
+  border-radius: 0px 0px 0px 30px;	
+  border: 1px solid var(--section-bgc);
+  outline: none;
+  transform: scale(1.05);
+}
+
+#pageBtn1 {
+  position: absolute;
+  top: 500px;
+  left: 332px;
+  color: var(--container-bgc);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transform: rotate(270deg);
+  z-index: 2;
+}
+
+#pageBtn2 {
+  position: absolute;
+  top: 500px;
+  left: 1530px;
+  color: var(--container-bgc);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transform: rotate(-270deg);
+  z-index: 2;
+}
+
+#pageBtn1:hover {
+  transform: rotate(270deg) scale(1.15);
+  z-index: 2;
+}
+
+#pageBtn2:hover {
+  transform: rotate(-270deg) scale(1.15);
+  z-index: 2;
+}
