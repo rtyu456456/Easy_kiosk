@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+
+.payment-method-card-img {
+	position: relative;
+	top: -17px;
+	left: -200px;
+}
+
+.payment-method-card-text {
+	position: relative;
+	width: 825px;
+	height: 206px;
+	left: -141px;
+	top: -34px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 170px;
+	letter-spacing: -5px;
+	line-height: 206px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+}
+
+.payment-method-card-desc {
+	position: relative;
+	left: -386px;
+	font-weight : 600;
+	font-size: 48px;
+	line-height: 58px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
+	font-weight: 600;
+}
+
+.payment-method-cash-img {
+	position: relative;
+	top: 21px;
+	left: -200px;
+}
+
+.payment-method-cash-text {
+	position: relative;
+	width: 825px;
+	height: 206px;
+	left: -160px;
+	top : -34px;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 170px;
+	letter-spacing: -5px;
+	line-height: 206px;
+	color: #011E61;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	top: -34px;
+}
+
+.payment-method-cash-desc {
+	position: relative;
+	left: -130px;
+	font-weight : 600;
+	font-size: 48px;
+	line-height: 58px;
+	color: #011E61;
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	font-weight: 600;
+}

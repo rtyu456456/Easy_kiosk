@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+@import "normalize.css";
+
+.point-round {
+	position: relative;
+	top: 50px;
+	left: 241px;
+}
+
+.point-text {
+	position: absolute;
+	left: 292px;
+	top: 59px;
+	font-weight: bold;
+	font-size: 150px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+	left: 292px;
+}
+
+.point-confirm-desc {
+	position: relative;
+	left: 246px;
+	top: 93px;
+	font-weight: bold;
+	font-size: 150px;
+	color: #FFFFFF;
+	text-shadow: 0px 4px 4px rgba(225, 225, 225, 0.25);
+	left: 246px;
+	top: 93px;
+}
+
+.point-confirm-no {
+	position: relative;
+    width: 578px;
+    height: 259px;
+    left: -270px;
+    top: 180px;
+    background: #FFFFFF;
+    border-radius: 165px;
+    font-weight: bold;
+    font-size: 120px;
+    color: #110E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 15px;
+}
+
+.point-confirm-no:active {
+	background: #D9D9D9;
+}
+
+.point-confirm-yes {
+	position: relative;
+    width: 578px;
+    height: 259px;
+    left: 1031px;
+    top: 172px;
+    background: #FFFFFF;
+    border-radius: 165px;
+    font-weight: bold;
+    font-size: 120px;
+    color: #110E61;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-bottom: 15px;
+}
+
+.point-confirm-yes:active {
+	background: #D9D9D9;
+}
