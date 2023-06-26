@@ -9,7 +9,7 @@ const ccPrice = document.getElementById("cartPrice");
 const ccCnt = document.getElementById("cartCnt");
 const ccIce = document.getElementById("cartIceOrHOt");
 
-let cart = {};
+let cart = {};  
 let selectedOptions = {
     iceOrHot: null,
     optionSize: null,
@@ -27,13 +27,23 @@ const minusbtn = modal.querySelector("#minus-btn");
 
 function addCartItem(cart) {
 	console.log(cart);  // cart 객체는 모달열때 값세팅이 되어지도록 됨
-	
+	 
 // cartItems가 null을 반환할경우 []가 사용되어짐 
 let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 	console.log(cartItems);
 	
+	 // 동일한 메뉴와 옵션을 가진 아이템이 이미 장바구니에 있는지 확인.
+    const existingItem = cartItems.find(item => isEqual(item, cart));
+
+    if (existingItem) {
+        // 동일한 아이템이 이미 존재하면 새롭게 만드는것이아니라 장바구니내 동일메뉴의 수량을 증가.
+        existingItem.cnt += cart.cnt;
+    } else {
+        // 장바구니에 새로운 아이템을 추가
+        cartItems.push(cart);
+    }
 // 빈cartItems 배열에 세팅된 cart객체를 여기서 담아줌
-cartItems.push(cart);
+//	cartItems.push(cart);
 	console.log(cartItems);
 	console.log(JSON.stringify(cartItems));
 	
@@ -42,10 +52,20 @@ localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
 }
 
+function isEqual(item1, item2) {
+    return (
+        item1.name === item2.name &&
+        item1.iceOrHot === item2.iceOrHot &&
+        item1.optionSize === item2.optionSize &&
+        item1.shot === item2.shot &&
+        item1.syrup === item2.syrup &&
+        item1.cream === item2.cream
+    );
+}
+
 function displayCartItems() {
 // 카트아이템스 가져오기
 let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-
 
 let cartContainer = document.getElementById("cartContainer");
 
@@ -288,20 +308,30 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 	    for (const option in selectedOptions) {
 	        // ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
 	        if (ice == 3 && options == 'NONE' && size == 0) {
-	            break;
-	        } 
-	        // size가 0인 경우도 예외로 처리
-		    else if (size == 0) {
-		        break;
-		    }
-	        else if (selectedOptions[option] === null) {
-	            alert(option + ' 옵션을 선택해주세요.');
-	            return;
-	        }
+		    break;
+			} else if (size == 0 && ice == 0 && selectedOptions.optionSize === null && selectedOptions.iceOrHot !== null) {
+			    // size가 0인 경우에 처리할 로직
+			    // 예외로 처리할 조건에 해당하는 경우.
+			    break;
+			} else if (size == 1 && ice == 1 && selectedOptions.optionSize !== null && selectedOptions.iceOrHot === null) {
+				alert('음료의 온도(Ice,Hot)을 선택해주세요');
+				return;
+			} else if (selectedOptions.iceOrHot === null) {
+			    // iceOrHot 옵션을 선택하지 않은 경우에 대한 처리 로직
+			    alert('음료의 온도(Ice,Hot)을 선택해주세요');
+			    return;
+			} else if (selectedOptions.optionSize === null) {
+			    // optionSize 옵션을 선택하지 않은 경우에 대한 처리 로직
+			    alert('음료의 사이즈를 선택해주세요');
+			    return;
+			} else {
+			    // 선택된 옵션이 모두 존재하는 경우에 대한 처리 로직
+			    // 여기에 원하는 동작을 추후에 추가가능.
+			}
 	    }
 		
 		// cart객체랑 selectedOptions객체 합쳐진 객체로 다시 세팅
-        cart = {
+        cart = {          
             ...cart,
             ...selectedOptions
         };
