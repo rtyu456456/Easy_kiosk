@@ -70,17 +70,16 @@
 			<input hidden value=${param.type } name="type">
 			<dialog id="addModal">
 			<div>
-				메뉴명 : <input placeholder="메뉴명">
+				메뉴명 : <input name="m_name" placeholder="메뉴명">
 			</div>
 			<div>
-				가격 : <input placeholder="가격">
+				가격 : <input name="m_ price" placeholder="가격">
 			</div>
 			<div>
-				메뉴사진 : <input type="file" value="">
+				메뉴사진 : <input name="m_img" type="file">
 			</div>
 			<div>
-				아이스핫 구분 : 
-				<select>
+				아이스핫 구분 : <select name="m_ice">
 					<option value=0>Hot만</option>
 					<option value=1>Ice만</option>
 					<option value=2>둘다</option>
@@ -88,35 +87,63 @@
 				</select>
 			</div>
 			<div>
-				사이즈 구분 : 
-				<select>
+				사이즈 구분 : <select name="m_size">
 					<option value=0>구분없음</option>
 					<option value=1>구분있음</option>
 				</select>
 			</div>
 			<div>
-				일반분류 : <input placeholder="일반분류">
+				일반분류 : <select name="m_type">
+					<option value="COFFEE">커피</option>
+					<option value="BLENDING_TEA">블렌딩 티</option>
+					<option value="BEVERAGE">베버리지</option>
+					<option value="FLATCCINO">플랫치노</option>
+					<option value="SHAKE_ADE">셰이크&에이드</option>
+					<option value="ICE_FLAKE">빙수</option>
+					<option value="BREAD">빵</option>
+					<option value="DESSERT">디저트</option>
+				</select>
 			</div>
 			<div>
-				간단분류 : <input placeholder="간단분류">
+				간단분류 : <select name="m_type_easy">
+					<option value="COFFEE">커피</option>
+					<option value="BEVERAGE">음료</option>
+					<option value="TEA">차</option>
+					<option value="DESSERT">디저트</option>
+					<option value="NONE">지정안함</option>
+				</select>
 			</div>
 			<div>
-				옵션여부 : <input placeholder="옵션여부">
+				옵션여부 : 
+				<input type="checkbox" name="m_option" value="SYRUP"> 시럽 
+				<input type="checkbox" name="m_option" value="SHOT"> 샷 
+				<input type="checkbox" name="m_option" value="CREAM"> 크림
 			</div>
 			<div>
-				메뉴설명 : <input placeholder="메뉴설명">
+				메뉴설명 :
+				<textarea name="m_desc"></textarea>
 			</div>
 			<div>
-				날씨별 추천여부 : <input placeholder="날씨별 추천여부">
+				날씨별 추천여부 : <select name="m_weather">
+					<option value="0">맑음</option>
+					<option value="1">비</option>
+					<option value="2">눈</option>
+					<option value="3">지정안함</option>
+				</select>
 			</div>
 			<div>
-				재고여부 : <input placeholder="재고여부">
+				재고여부 : <select name="m_soldout">
+					<option value="0">매진</option>
+					<option value="1">재고있음</option>
+				</select>
 			</div>
 			<div>
-				총주문수 : <input placeholder="총주문수">
+				총주문수 : <input name="m_order" placeholder="총주문수">
 			</div>
-
-
+			
+			<form action="AddMenuC" method="post" enctype="multipart/form-data">
+			<button id="confirmAdd">추가</button>
+			</form>
 			<button id="closeAdd">닫기</button>
 			</dialog>
 		</div>
