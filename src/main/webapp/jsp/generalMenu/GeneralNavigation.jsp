@@ -10,11 +10,22 @@
     <script src="https://kit.fontawesome.com/8990da9a35.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="css/GeneralMenu.css" />
 	<title>일반메뉴 네비게이션</title>
+	<script type="text/javascript">
+		function toHome() {
+			alert('처음으로가는버튼 클릭됨');
+		}
+		function callEmployee() {
+			alert('직원을 호출하였습니다 고객님 잠시만 기다려주세요');
+		}
+		function toBefore() {
+			alert('이전으로가는버튼 클릭됨');
+		}
+	</script>
 </head>
 <body>
 	<nav class="nav">
         <div class="nav__top">
-          <button id="home"><i class="fa-solid fa-house"></i></button> 
+          <button id="home" onclick="toHome()"><i class="fa-solid fa-house"></i></button> 
           <span>처음으로</span>
         </div>
         
@@ -57,8 +68,8 @@
         </ul>
         
         <div class="nav__footer">
-          <button id="bell"><i class="fa-solid fa-bell"></i></button>
-          <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+          <button id="bell" onclick="callEmployee()"><i class="fa-solid fa-bell"></i></button>
+          <button id="arrow" onclick="toBefore()"><i class="fa-solid fa-arrow-right"></i></button>
           <div class="nav__footer__notice">
           	<span>직원호출</span>
           	<span>이전으로</span>

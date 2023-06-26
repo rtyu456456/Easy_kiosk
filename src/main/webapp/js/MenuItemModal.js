@@ -79,12 +79,16 @@ cartItems.forEach((item, index) => {
  	// 총가격에 상품가격 더해주기
     totalCartPrice += item.price;
     
-	// 상위 요소를 생성
+	// 상위 요소를 생성 // iceOrHot 여부에 따라서 배경색 유동적으로 설정
     let itemContainer = document.createElement("div");
 	itemContainer.style.textAlign = "center";
 	itemContainer.style.border = "1.6px solid #222";
 	itemContainer.style.borderRadius = "6px";
-	itemContainer.style.backgroundColor = "#eed";
+	if (item.iceOrHot === null) {
+    itemContainer.style.backgroundColor = "#fad390";
+	} else {
+	    itemContainer.style.backgroundColor = item.iceOrHot === "ice" ? "#60a1ff" : "#ea8685";
+	}
     itemContainer.classList.add("itemContainer"); 
     
     // 이미지세팅
