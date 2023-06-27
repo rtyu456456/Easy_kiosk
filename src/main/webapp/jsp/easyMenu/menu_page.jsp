@@ -43,12 +43,14 @@
 					</div>
 					직원호출
 				</button>
+				<form action="MainC" method="post">
 				<button id="before-button">
 					<div>
 						<i class="fa-solid fa-arrow-right"></i>
 					</div>
 					이전으로
 				</button>
+				</form>
 			</div>
 		</div>
 
