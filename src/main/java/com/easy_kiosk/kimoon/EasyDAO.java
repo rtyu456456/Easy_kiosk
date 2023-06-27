@@ -40,13 +40,16 @@ public class EasyDAO {
 	}
 
 	public void getCustomer(HttpServletRequest request) { // 고객의 번호와 포인트 update 또는 insert
+		User user = (User) request.getSession().getAttribute("user");
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		String firstInput = request.getParameter("firstInput"); // 첫 번째 input
 	    String secondInput = request.getParameter("secondInput"); // 두 번째 input
         String phoneNumber = firstInput + secondInput; // 첫 번째 페이지에서 넘어온 값들을 합침
-		int point = 600; // 물건 구매시 받는 포인트(임의값, 물건 구매값*0.1)
+		int totalPrice = user.getTotalPrice();
+		System.out.println(totalPrice);
+		int point = (int) (totalPrice*0.1); // 물건 구매시 받는 포인트(임의값, 물건 구매값*0.1)
 		String sql_select = "select * from EK_USER where u_no = ?";
 
 		try {
@@ -87,9 +90,9 @@ public class EasyDAO {
 				rs = pstmt.executeQuery();
 				rs.next();
 			}
-			User user = new User();
 			user.setPhoneNumber(rs.getString("u_no")); // rs.getString에는 변수가 아니라 "DB내용"
 			user.setSavingPoint(rs.getInt("u_point"));
+			user.setRemainPoint(point);
 			System.out.println("toString : " + user.toString());
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
@@ -106,7 +109,7 @@ public class EasyDAO {
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
 		int usedPoint = 0; // 사용할 포인트
 		int remainPoint = 0; // 남은 포인트
-		int totalPrice = 6000; // 총 구매 가격
+		int totalPrice = user.getTotalPrice(); // 총 구매 가격
 		int finalPrice = 0; // 최종 결제 가격
 		try {
 			// if 현재 포인트 >= 총 구매가격
@@ -124,6 +127,7 @@ public class EasyDAO {
 			} else {
 				usedPoint = savingPoint;
 				finalPrice = totalPrice - usedPoint;
+				System.out.println("finalPrice : " + finalPrice);
 				remainPoint = 0;
 			}
 			user.setSavingPoint(savingPoint);
@@ -131,6 +135,7 @@ public class EasyDAO {
 			user.setRemainPoint(remainPoint);
 			user.setTotalPrice(totalPrice);
 			user.setFinalPrice(finalPrice);
+			System.out.println("userfinalprice : " + user.getFinalPrice());
 			System.out.println("getPhoneNumber : " + user.getPhoneNumber());
 			System.out.println("getSavingPoint : " + user.getSavingPoint());
 			HttpSession session = request.getSession();
@@ -153,7 +158,7 @@ public class EasyDAO {
 		int usedPoint = user.getUsedPoint(); // 사용할 포인트
 		int remainPoint = user.getRemainPoint(); // 남은 포인트
 		System.out.println("remainPoint : " + remainPoint);
-		int totalPrice = 6000; // 총 구매 가격
+		int totalPrice = user.getTotalPrice(); // 총 구매 가격
 		int finalPrice = user.getFinalPrice(); // 최종 결제 가격
 		String sql = "update EK_USER set u_point = ? where u_no = ?";
 		try {
@@ -187,10 +192,12 @@ public class EasyDAO {
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
 		int usedPoint = 0; // 사용할 포인트
 		int remainPoint = 0; // 남은 포인트
-		int totalPrice = 6000; // 총 구매 가격
+		int totalPrice = user.getTotalPrice(); // 총 구매 가격
 		int finalPrice = 0; // 최종 결제 가격
 		try {
 			remainPoint = (int) (totalPrice * 0.1 + savingPoint); // 남은 포인트 = 총 구매 가격 * 0.1 + 현재 포인트
+			System.out.println("totalPrice : " + totalPrice);
+			System.out.println("remainPoint : " + remainPoint);
 			finalPrice = totalPrice; // 최종 결제 가격 = 총 구매 가격(할인이 없기 때문)
 				user.setSavingPoint(savingPoint);
 				user.setUsedPoint(usedPoint);
@@ -217,7 +224,6 @@ public class EasyDAO {
 		int savingPoint = user.getSavingPoint(); // 현재 포인트
 		int usedPoint = user.getUsedPoint(); // 사용할 포인트
 		int remainPoint = user.getRemainPoint(); // 남은 포인트
-		int totalPrice = 6000; // 총 구매 가격
 		int finalPrice = user.getFinalPrice(); // 최종 결제 가격
 		String sql = "update EK_USER set u_point = ? where u_no = ?";
 		try {
@@ -292,7 +298,7 @@ public class EasyDAO {
 		    session.setAttribute("simpleNum", simpleNum);
 		}
 
-	public void test(HttpServletRequest request) {
+	public void easyPay(HttpServletRequest request) {
 		try {
 		String items =	request.getParameter("items");
 		System.out.println(items); // json 문자열덩어리
@@ -301,12 +307,28 @@ public class EasyDAO {
 		
 		JSONArray getData = (JSONArray) jp.parse(items);
 		System.out.println(getData);
+		int price = 0;
+		for (Object item : getData) {
+            JSONObject jsonObject = (JSONObject) item;
+            price += (int)(long) jsonObject.get("price");
+            System.out.println("Price: " + price);
+        }
+		User user = new User();
+		user.setTotalPrice(price);
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
+		
 		
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+	}
+
+	public void resetHowPoint(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.removeAttribute("howPoint");		
 	}
 		
 	

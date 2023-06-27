@@ -22,7 +22,7 @@
 	<c:if test="${sessionScope.howPoint != null}"> <!-- 포인트 기능 사용시 -->
 	<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint eq 'usePoint'}">
 	<!-- 일반 주문이고 포인트 사용시에만 출력 -->
-	총 구매 가격 : 6000<br>
+	총 구매 가격 : ${sessionScope.user.totalPrice}원<br>
 	사용 포인트 &nbsp: ${sessionScope.user.savingPoint }원<br>
 	</c:if>
 	남은 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>

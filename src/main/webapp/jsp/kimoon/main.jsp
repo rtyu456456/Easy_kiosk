@@ -5,6 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+deleteButton1.click();
+</script>
 </head>
 <body class="main-view">
 

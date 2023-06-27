@@ -7,6 +7,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	  var deleteButton1 = document.getElementById('resetLocalStorage');
+	  deleteButton1.addEventListener('click', function() {
+	    localStorage.clear();
+	    console.log("삭제 성공");
+	  });
+</script>
 </head>
 <body>
 <div style="position: relative; top:200px; left: 800px; width: 20%; border: solid black 1px; text-align: center">
@@ -33,7 +41,7 @@
 	</c:if>
 	주문하신 메뉴 : ?? 00개<br>
 	추가 옵션 : ??<hr>
-<button onclick="location.href='HC'">처음으로</button>
+<button onclick="location.href='HC'" id="resetLocalStorage">처음으로</button>
 </div>
 </body>
 </html>

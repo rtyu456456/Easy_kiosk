@@ -29,4 +29,7 @@
 		<br>
 	</form>
 </body>
+<script type="text/javascript">
+deleteButton1.click();
+</script>
 </html>
