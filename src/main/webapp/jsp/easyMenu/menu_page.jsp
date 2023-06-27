@@ -30,11 +30,13 @@
 
 
 		<div class="header">
-			<div class="home">
-				<button id="home">
-					<i class="fa-solid fa-house"></i> 처음으로
-				</button>
-			</div>
+			<form action="HC">
+				<div class="home">
+					<button id="home">
+						<i class="fa-solid fa-house"></i> 처음으로
+					</button>
+				</div>
+			</form>
 			<jsp:include page="${easyTitlePage }"></jsp:include>
 			<div class="header-under">
 				<button id="call-button">
@@ -127,7 +129,7 @@
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/css.js"></script>
-	<script type="text/javascript" src="js/staff_call.js"></script>
+	<script type="text/javascript" src="js/easy_menu_page.js"></script>
 	<script type="text/javascript" src="js/basket.js"></script>
 
 </body>

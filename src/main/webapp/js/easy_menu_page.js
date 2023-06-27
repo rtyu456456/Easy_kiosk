@@ -14,3 +14,10 @@ closeButton.addEventListener("click", () =>{
 	staffCall.close();
 	
 })
+
+
+const homeBtn = document.getElementById("home");
+
+homeBtn.onclick = () =>{
+	localStorage.removeItem("cartItems");
+}
