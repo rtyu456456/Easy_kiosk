@@ -27,7 +27,8 @@
 	남은 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
 	</c:if>
 	</span>
-	<span class="payment-card-finalPrice-text">결제 가격 : </span><span class="payment-card-finalPrice">${sessionScope.user.finalPrice }원</span>
+	<span class="payment-card-finalPrice-text">결제 가격 : </span><span class="payment-card-finalPrice">${sessionScope.user.finalPrice}원</span>
+	<input name="totalPrice" type="hidden">	
 		<button class="payment-card-button">확인</button>
 	</form>
 	<!-- 
@@ -47,5 +48,22 @@
 	-간편
 	1. 결제되는 가격
 	 -->
+	 <script>
+	 /* const finalPrice = document.querySelector(".payment-card-finalPrice");
+
+	 var jsonData = localStorage.getItem('cartItems');
+	 var parsedData = JSON.parse(jsonData);
+
+	 var totalPrice = 0; // 가격의 합계를 저장할 변수
+
+	 for (var i = 0; i < parsedData.length; i++) {
+	   totalPrice += parsedData[i].price;
+	 }
+	 finalPrice.innerText = totalPrice + "원";
+	 console.log(totalPrice);
+	 const total = document.querySelector("input[name='totalPrice']");
+	 total.value = totalPrice;
+	 console.log("total.value : ", total.value); */
+	 </script>
 </body>
 </html>

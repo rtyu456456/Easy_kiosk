@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/ResultC")
 public class ResultC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String totalPrice = request.getParameter("totalPrice");
+		System.out.println("totalPrice : " + totalPrice);
 		EasyDAO.getEasyDAO().orderNum(request); // 주문번호 계산
 		HttpSession session = request.getSession();
 		String howPoint = (String) session.getAttribute("howPoint");

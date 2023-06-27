@@ -7,6 +7,11 @@ import java.sql.ResultSet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
 import com.easy_kiosk.db.DBManager;
 
 public class EasyDAO {
@@ -280,11 +285,29 @@ public class EasyDAO {
 		            simpleNum = 3;
 		        }
 		    }
+		    
 
 		    // 수정된 변수 값을 세션에 다시 저장
 		    session.setAttribute("normalNum", normalNum);
 		    session.setAttribute("simpleNum", simpleNum);
 		}
+
+	public void test(HttpServletRequest request) {
+		try {
+		String items =	request.getParameter("items");
+		System.out.println(items); // json 문자열덩어리
+		
+		JSONParser jp = new JSONParser();
+		
+		JSONArray getData = (JSONArray) jp.parse(items);
+		System.out.println(getData);
+		
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 		
 	
 }
