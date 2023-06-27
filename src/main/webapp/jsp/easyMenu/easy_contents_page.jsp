@@ -14,7 +14,7 @@
 			<button class="grid-content-box"
 				onclick="modalPage('${menus.m_img}', '${menus.m_name }', ${menus.m_price }, '${menus.m_ice }', '${menus.m_size }')">
 				<img src="${menus.m_img }">
-				<div id="content-box-name">${menus.m_name} ${a }</div>
+				<div id="content-box-name">${menus.m_name}${a }</div>
 				<div id="content-box-price">${menus.m_price }원</div>
 			</button>
 		</c:forEach>
@@ -53,16 +53,15 @@
 		</div>
 		<div id="modal-footer">
 			<button id="modal-button" class="close-modal">취소</button>
-		<form action="BasketController">
-	 	<input type="hidden" id="pocketImg" name="pocketImg">
-	 	<input hidden id="pocketName" name="pocketName">
-	 	<input type="hidden" id="pocketIce" name="pocketIce">
-	 	<input type="hidden" id="pocketCount" name="pocketCount">
-	 	<input type="hidden" id="pocketPrice" name="pocketPrice">
-	 	<input type="hidden" id="pocketSize" name="pocketSize">
-	 	</form>
-			<button class="modal-button" id="in-my-pocket" onclick="addToCart()">선택
-				완료</button>
+			<input type="hidden" id="pocketImg" name="pocketImg"> 
+			<input type="hidden" id="pocketName" name="pocketName"> 
+			<input type="hidden" id="pocketIce" name="pocketIce"> 
+			<input type="hidden" id="pocketCount" name="pocketCount"> 
+			<input type="hidden" id="pocketPrice" name="pocketPrice"> 
+			<input type="hidden" id="pocketSize" name="pocketSize">
+			<button class="modal-button" id="in-my-pocket" onclick="addToCart()">
+			선택 완료
+			</button>
 		</div>
 	</dialog>
 

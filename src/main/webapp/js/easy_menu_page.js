@@ -21,3 +21,24 @@ const homeBtn = document.getElementById("home");
 homeBtn.onclick = () =>{
 	localStorage.removeItem("cartItems");
 }
+
+
+function payBtn(){
+	if(localStorage.getItem("cartItems") === null){
+		alert("상품을 담아주세요");
+	}else{
+		location.href='PaymentMethodC';
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
