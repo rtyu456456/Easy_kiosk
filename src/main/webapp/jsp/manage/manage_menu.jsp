@@ -56,24 +56,18 @@
 				<div class="manage-item">${m.m_soldout }</div>
 				<div class="manage-item">${m.m_order }</div>
 				<div>
-					<button id="openUpdate">수정</button>
-					<dialog id="updateModal">
-					<button>close</button>
-
-					</dialog>
-					<button onclick="location.href='DeleteMenuC?m_no=${m.m_no }'">삭제</button>
+					<button onclick="openUpdate('${m.m_no}','${m.m_name}','${m.m_price}','${m.m_img}','${m.m_ice}','${m.m_size}','${m.m_type}','${m.m_type_easy}','${m.m_option}','${m.m_desc}','${m.m_weather}','${m.m_soldout}','${m.m_order}')">수정</button>
+					<button onclick="delMenu('${m.m_no}')">삭제</button>
 				</div>
 			</div>
 		</c:forEach>
-		<div>
-			<button id="openAdd">메뉴추가</button>
-			<input hidden value=${param.type } name="type">
-			<dialog id="addModal">
+		<dialog id="updateModal">
+		<form action="UpdateMenuC" method="post" enctype="multipart/form-data">
 			<div>
 				메뉴명 : <input name="m_name" placeholder="메뉴명">
 			</div>
 			<div>
-				가격 : <input name="m_ price" placeholder="가격">
+				가격 : <input name="m_price" placeholder="가격">
 			</div>
 			<div>
 				메뉴사진 : <input name="m_img" type="file">
@@ -114,10 +108,9 @@
 				</select>
 			</div>
 			<div>
-				옵션여부 : 
-				<input type="checkbox" name="m_option" value="SYRUP"> 시럽 
-				<input type="checkbox" name="m_option" value="SHOT"> 샷 
-				<input type="checkbox" name="m_option" value="CREAM"> 크림
+				옵션여부 : <input type="checkbox" name="m_option" value="SYRUP">
+				시럽 <input type="checkbox" name="m_option" value="SHOT"> 샷 <input
+					type="checkbox" name="m_option" value="CREAM"> 크림
 			</div>
 			<div>
 				메뉴설명 :
@@ -140,13 +133,93 @@
 			<div>
 				총주문수 : <input name="m_order" placeholder="총주문수">
 			</div>
-			
+
+			<button id="confirmUpdate">수정</button>
+		</form>
+		<button id="closeUpdate">닫기</button>
+		</dialog>
+		<div>
+			<button id="openAdd">메뉴추가</button>
+			<input hidden value=${param.type } name="type">
+			<dialog id="addModal">
 			<form action="AddMenuC" method="post" enctype="multipart/form-data">
-			<button id="confirmAdd">추가</button>
+				<div>
+					메뉴명 : <input name="m_name" placeholder="메뉴명">
+				</div>
+				<div>
+					가격 : <input name="m_price" placeholder="가격">
+				</div>
+				<div>
+					메뉴사진 : <input name="m_img" type="file">
+				</div>
+				<div>
+					아이스핫 구분 : <select name="m_ice">
+						<option value=0>Hot만</option>
+						<option value=1>Ice만</option>
+						<option value=2>둘다</option>
+						<option value=3>구분없음</option>
+					</select>
+				</div>
+				<div>
+					사이즈 구분 : <select name="m_size">
+						<option value=0>구분없음</option>
+						<option value=1>구분있음</option>
+					</select>
+				</div>
+				<div>
+					일반분류 : <select name="m_type">
+						<option value="COFFEE">커피</option>
+						<option value="BLENDING_TEA">블렌딩 티</option>
+						<option value="BEVERAGE">베버리지</option>
+						<option value="FLATCCINO">플랫치노</option>
+						<option value="SHAKE_ADE">셰이크&에이드</option>
+						<option value="ICE_FLAKE">빙수</option>
+						<option value="BREAD">빵</option>
+						<option value="DESSERT">디저트</option>
+					</select>
+				</div>
+				<div>
+					간단분류 : <select name="m_type_easy">
+						<option value="COFFEE">커피</option>
+						<option value="BEVERAGE">음료</option>
+						<option value="TEA">차</option>
+						<option value="DESSERT">디저트</option>
+						<option value="NONE">지정안함</option>
+					</select>
+				</div>
+				<div>
+					옵션여부 : <input type="checkbox" name="m_option" value="SYRUP">
+					시럽 <input type="checkbox" name="m_option" value="SHOT"> 샷 <input
+						type="checkbox" name="m_option" value="CREAM"> 크림
+				</div>
+				<div>
+					메뉴설명 :
+					<textarea name="m_desc"></textarea>
+				</div>
+				<div>
+					날씨별 추천여부 : <select name="m_weather">
+						<option value="0">맑음</option>
+						<option value="1">비</option>
+						<option value="2">눈</option>
+						<option value="3">지정안함</option>
+					</select>
+				</div>
+				<div>
+					재고여부 : <select name="m_soldout">
+						<option value="0">매진</option>
+						<option value="1">재고있음</option>
+					</select>
+				</div>
+				<div>
+					총주문수 : <input name="m_order" placeholder="총주문수">
+				</div>
+
+				<button id="confirmAdd">추가</button>
 			</form>
 			<button id="closeAdd">닫기</button>
 			</dialog>
 		</div>
 	</div>
 </body>
+
 </html>
