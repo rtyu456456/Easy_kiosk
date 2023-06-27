@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href=css/menu_page.css>
-<link rel="stylesheet" href=css/basket_page.css>
+<link rel="stylesheet" href=css/easy_basket.css>
 <link rel="stylesheet" href=css/modal_page.css>
 <script src="https://kit.fontawesome.com/6b43b4cc79.js"
 	crossorigin="anonymous"></script>
@@ -105,13 +105,22 @@
 				</c:choose>
 			</div>
 		</div>
-
-
-		<div class="easy-footer">
-			<div class="footer-page">
-				<jsp:include page="${easyBasketPage }"></jsp:include>
+		
+		<aside class="aside">
+			<div class="cartConParent">
+				<div class="aside__grid-container" id="basketContainer"></div>
 			</div>
-		</div>
+			<span id="line"></span>
+			<p class="aside__payText">총 결제 금액</p>
+			<p class="aside__payPrice" id="basket-total-price"></p>
+			<form action="PaymentMethodC">
+				<button class="aside__payBtn">
+					<i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기
+				</button>
+			</form>
+		</aside>
+
+
 
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>

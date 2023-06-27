@@ -12,19 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 public class BasketController extends HttpServlet {
 	protected void doGet(HttpServletRequest request , HttpServletResponse response) throws ServletException, IOException {
 		
-		
-		  String price = request.getParameter("price"); 
-		  String ice = request.getParameter("ice"); 
-		  String count = request.getParameter("count");
-		  String name = request.getParameter("name");
-		  String size = request.getParameter("size"); 
-		  String img = request.getParameter("img");
-		  
-		  SelectedMenu selectedMenu = new SelectedMenu(price, ice, count, name, size, img);
-	
-		  request.setAttribute("a", selectedMenu);
-				
-		
 
 		
 		request.setAttribute("easyBasketPage", "easy_basket.jsp");

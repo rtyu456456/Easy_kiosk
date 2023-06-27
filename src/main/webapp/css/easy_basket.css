@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+.aside {
+  position: absolute;
+  width: 295px;
+  height: 1081px;
+  left: 1626px;
+  top: 0px;
+  background-color: var(--section-bgc);
+  border: 3px solid #ffffff;
+  border-radius: 30px 0px 0px 30px;
+}
+
+#line {
+  display: inline-block;
+  width: 246px;
+  height: 3px;
+  background-color: var(--container-bgc);
+  position: absolute;
+  left: -5px;
+  top: 780px;
+}
+
+.aside__grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 16px;
+  margin: 76px 12px;
+}
+
+.aside__grid-item {
+	width: 180px;
+	height: 100px;
+	text-align: center;
+	cursor: pointer;
+	border: 1px solid var(--container-bgc);
+	border-radius: 6px;
+	font-family: 'Inter';
+    font-style: normal;
+	font-size: 22px;
+	color: var(--container-bgc);
+}
+
+.aside__payText {
+  color: var(--container-bgc);
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.aside__payPrice {
+  color: var(--payBtn-bgc);
+  font-size: 28px;
+}
+
+.aside__payBtn {
+  position: absolute;
+  left: -5px;	
+  top: 961px;
+  color: var(--section-bgc);
+  font-size: 26px;
+  width: 250px;
+  height: 116px;	
+  background-color: var(--container-bgc);
+  border-radius: 0px 0px 0px 30px;	
+  border: none;
+  outline: none;
+}
+
+.aside__payBtn:hover {
+  position: absolute;
+  left: -3px;	
+  top: 961px;
+  color: var(--section-bgc);
+  font-size: 26px;
+  width: 250px;
+  height: 116px;	
+  background-color: var(--container-bgc);
+  border-radius: 0px 0px 0px 30px;	
+  border: 1px solid var(--section-bgc);
+  outline: none;
+  transform: scale(1.05);
+}
+
+#pageBtn1 {
+  position: absolute;
+  top: 500px;
+  left: 332px;
+  color: var(--container-bgc);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transform: rotate(270deg);
+  z-index: 2;
+}
+
+#pageBtn2 {
+  position: absolute;
+  top: 500px;
+  left: 1530px;
+  color: var(--container-bgc);
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  transform: rotate(-270deg);
+  z-index: 2;
+}
+
+#pageBtn1:hover {
+  transform: rotate(270deg) scale(1.15);
+  z-index: 2;
+}
+
+#pageBtn2:hover {
+  transform: rotate(-270deg) scale(1.15);
+  z-index: 2;
+}
