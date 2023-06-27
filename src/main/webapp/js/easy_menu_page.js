@@ -24,7 +24,7 @@ homeBtn.onclick = () =>{
 
 
 function payBtn(){
-	if(localStorage.getItem("cartItems") === null){
+	if(localStorage.getItem("cartItems") === "[]"){
 		alert("상품을 담아주세요");
 	}else{
 		location.href='PaymentMethodC';
