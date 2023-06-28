@@ -23,7 +23,6 @@ public class ResultC extends HttpServlet {
 			System.out.println("포인트 사용 메소드 호출 성공");
 			EasyDAO.getEasyDAO().usePoint(request); // 결제 끝나면 실제로 DB에 적용
 		} else if(howPoint.equals("savePoint")) { // 포인트 적립시(그냥 else로 적으면 간편 주문시 터짐)
-			System.out.println("resultC howPoint : " + howPoint);
 			EasyDAO.getEasyDAO().savePoint(request); // 결제 끝나면 실제로 DB에 적용
 		}
 		

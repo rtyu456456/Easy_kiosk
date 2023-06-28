@@ -7,6 +7,7 @@ public class User {
 	private int remainPoint; // 남은 포인트
 	private int totalPrice; // 총 구매가격
 	private int finalPrice; // 최종 결제가격
+	private int totalCnt;
 	private String productName;
 	private int productPrice;
 	private String option_size;
@@ -20,8 +21,8 @@ public class User {
 	}
 
 	public User(String phoneNumber, int savingPoint, int usedPoint, int remainPoint, int totalPrice, int finalPrice,
-			String productName, int productPrice, String option_size, String option_iceOrHot, String option_shot,
-			String option_syrup, String option_cream) {
+			int totalCnt, String productName, int productPrice, String option_size, String option_iceOrHot,
+			String option_shot, String option_syrup, String option_cream) {
 		super();
 		this.phoneNumber = phoneNumber;
 		this.savingPoint = savingPoint;
@@ -29,6 +30,7 @@ public class User {
 		this.remainPoint = remainPoint;
 		this.totalPrice = totalPrice;
 		this.finalPrice = finalPrice;
+		this.totalCnt = totalCnt;
 		this.productName = productName;
 		this.productPrice = productPrice;
 		this.option_size = option_size;
@@ -84,6 +86,14 @@ public class User {
 
 	public void setFinalPrice(int finalPrice) {
 		this.finalPrice = finalPrice;
+	}
+
+	public int getTotalCnt() {
+		return totalCnt;
+	}
+
+	public void setTotalCnt(int totalCnt) {
+		this.totalCnt = totalCnt;
 	}
 
 	public String getProductName() {
@@ -146,12 +156,10 @@ public class User {
 	public String toString() {
 		return "User [phoneNumber=" + phoneNumber + ", savingPoint=" + savingPoint + ", usedPoint=" + usedPoint
 				+ ", remainPoint=" + remainPoint + ", totalPrice=" + totalPrice + ", finalPrice=" + finalPrice
-				+ ", productName=" + productName + ", productPrice=" + productPrice + ", option_size=" + option_size
-				+ ", option_iceOrHot=" + option_iceOrHot + ", option_shot=" + option_shot + ", option_syrup="
-				+ option_syrup + ", option_cream=" + option_cream + "]";
+				+ ", totalCnt=" + totalCnt + ", productName=" + productName + ", productPrice=" + productPrice
+				+ ", option_size=" + option_size + ", option_iceOrHot=" + option_iceOrHot + ", option_shot="
+				+ option_shot + ", option_syrup=" + option_syrup + ", option_cream=" + option_cream + "]";
 	}
-	
-	
 	
 	
 }

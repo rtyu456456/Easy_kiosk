@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	<c:if test="${sessionScope.howPoint eq 'savePoint'}"> <!-- 포인트 적립시 -->
 		현재 포인트 : ${sessionScope.user.remainPoint }<br>
 	</c:if>
-	주문하신 메뉴 : ?? 00개<br>
+	주문하신 메뉴 : ${sessionScope.user.totalCnt }개<br>
 	추가 옵션 : ??<hr>
 <button onclick="location.href='HC'" id="resetLocalStorage">처음으로</button>
 </div>

@@ -308,13 +308,17 @@ public class EasyDAO {
 		JSONArray getData = (JSONArray) jp.parse(items);
 		System.out.println(getData);
 		int price = 0;
+		int cnt = 0;
 		for (Object item : getData) {
             JSONObject jsonObject = (JSONObject) item;
             price += (int)(long) jsonObject.get("price");
+            cnt += (int)(long) jsonObject.get("cnt");
             System.out.println("Price: " + price);
+            System.out.println("cnt: " + cnt);
         }
 		User user = new User();
 		user.setTotalPrice(price);
+		user.setTotalCnt(cnt);
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		
