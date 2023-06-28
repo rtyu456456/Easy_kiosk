@@ -59,7 +59,7 @@ public class ManageDAO {
 		ResultSet rs = null;
 		String sql = "SELECT * FROM EK_MENU WHERE M_TYPE LIKE ? ORDER BY M_ORDER DESC";
 		String type = request.getParameter("type");
-		
+
 		try {
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
@@ -122,9 +122,9 @@ public class ManageDAO {
 			// checkbox로 된 m_option 배열로 받아서 처리
 			String[] m_option = mr.getParameterValues("m_option");
 			String m_option2 = "";
-			if(m_option != null) {
+			if (m_option != null) {
 				for (int i = 0; i < m_option.length; i++) {
-					if(i == m_option.length - 1) {
+					if (i == m_option.length - 1) {
 						m_option2 += m_option[i];
 					} else {
 						m_option2 += m_option[i] + "!";
@@ -137,7 +137,7 @@ public class ManageDAO {
 			// 메뉴소개 없을 시 공백 문자열로 표시 및 줄바꿈 처리
 			String m_desc = mr.getParameter("m_desc");
 			System.out.println(m_desc);
-			if(m_desc.isEmpty()) {
+			if (m_desc.isEmpty()) {
 				m_desc = "";
 			} else {
 				m_desc = m_desc.replaceAll("\r\n", "<br>");
@@ -185,7 +185,7 @@ public class ManageDAO {
 	public static void updateMenu(HttpServletRequest request) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "UPDATE EK_MENU SET M_NAME = ?, M_PRICE = ?, M_IMG = ?, M_ICE = ?, M_TYPE = ?, M_TYPE_EASY = ?, M_WEATHER = ?, M_STOCK =? WHERE M_NO = ?";
+		String sql = "UPDATE EK_MENU SET M_NAME = ?, M_PRICE = ?, M_IMG = ?, M_ICE = ?, M_SIZE = ?,  M_TYPE = ?, M_TYPE_EASY = ?, M_OPTION = ?, M_DESC = ?, M_WEATHER = ?, M_SOLDOUT =?, M_ORDER = ? WHERE M_NO = ?";
 		String path = request.getServletContext().getRealPath("imgs");
 
 		try {
@@ -201,11 +201,29 @@ public class ManageDAO {
 				pstmt.setString(3, mr.getFilesystemName("m_new_img"));
 			}
 			pstmt.setString(4, mr.getParameter("m_ice"));
-			pstmt.setString(5, mr.getParameter("m_type"));
-			pstmt.setString(6, mr.getParameter("m_type_easy"));
-			pstmt.setString(7, mr.getParameter("m_weather"));
-			pstmt.setString(8, mr.getParameter("m_stock"));
-			pstmt.setString(9, mr.getParameter("m_no"));
+			pstmt.setString(5, mr.getParameter("m_size"));
+			pstmt.setString(6, mr.getParameter("m_type"));
+			pstmt.setString(7, mr.getParameter("m_type_easy"));
+			// checkbox로 된 m_option 배열로 받아서 처리
+			String[] m_option = mr.getParameterValues("m_option");
+			String m_option2 = "";
+			if (m_option != null) {
+				for (int i = 0; i < m_option.length; i++) {
+					if (i == m_option.length - 1) {
+						m_option2 += m_option[i];
+					} else {
+						m_option2 += m_option[i] + "!";
+					}
+				}
+			} else {
+				m_option2 = "NONE";
+			}
+			pstmt.setString(8, m_option2);
+			pstmt.setString(9, mr.getParameter("m_desc"));
+			pstmt.setString(10, mr.getParameter("m_weather"));
+			pstmt.setString(11, mr.getParameter("m_soldout"));
+			pstmt.setString(12, mr.getParameter("m_order"));
+			pstmt.setString(13, mr.getParameter("m_no"));
 
 			if (pstmt.executeUpdate() == 1) {
 				System.out.println("수정성공");
@@ -243,14 +261,18 @@ public class ManageDAO {
 			menu.setM_price(rs.getInt("M_PRICE"));
 			menu.setM_img(rs.getString("M_IMG"));
 			menu.setM_ice(rs.getInt("M_ICE"));
+			menu.setM_size(rs.getInt("M_SIZE"));
 			menu.setM_type(rs.getString("M_TYPE"));
 			menu.setM_type_easy(rs.getString("M_TYPE_EASY"));
+			menu.setM_option(rs.getString("M_OPTION"));
+			menu.setM_desc(rs.getString("M_DESC"));
 			menu.setM_weather(rs.getInt("M_WEATHER"));
-			menu.setM_soldout(rs.getInt("M_STOCK"));
+			menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+			menu.setM_order(rs.getInt("M_ORDER"));
 			menus.add(menu);
-			request.setAttribute("menus", menus);
 			request.setAttribute("menu", menu);
-			
+			request.setAttribute("menus", menus);
+
 		} catch (
 
 		Exception e) {
@@ -261,26 +283,26 @@ public class ManageDAO {
 		}
 
 	}
-	
+
 	public void paging(int page, HttpServletRequest request) {
-		
+
 		ArrayList<Menu> menus = (ArrayList<Menu>) request.getAttribute("menus");
 		request.setAttribute("curPageNo", page);
-		
+
 		int cnt = 3; // 한 페이지당 보여줄 개수
 		int total = menus.size(); // 총 데이터 개수
-		int pageCount = (int)Math.ceil((double)total/cnt);
-		
+		int pageCount = (int) Math.ceil((double) total / cnt);
+
 		request.setAttribute("pageCount", pageCount);
-		
+
 		int start = total - (cnt * (page - 1));
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
-		
+
 		ArrayList<Menu> items = new ArrayList<Menu>();
 		for (int i = start - 1; i > end; i--) {
 			items.add(menus.get(i));
 		}
-		
+
 		request.setAttribute("menus", items);
 	}
 

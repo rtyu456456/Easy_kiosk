@@ -10,10 +10,13 @@ let select_ice = updateModal.querySelector('select[name="m_ice"]');
 let select_size = updateModal.querySelector('select[name="m_size"]');
 let select_type = updateModal.querySelector('select[name="m_type"]');
 let select_type_easy = updateModal.querySelector('select[name="m_type_easy"]');
+let txt_desc = updateModal.querySelector('textarea[name="m_desc"]')
 let select_weather = updateModal.querySelector('select[name="m_weather"]');
 let select_soldout = updateModal.querySelector('select[name="m_soldout"]');
 let optionChk = updateModal.querySelectorAll('input[name="m_option"]');
 let inputOrder = updateModal.querySelector('input[name="m_order"]')
+let inputNo = updateModal.querySelector('input[name="m_no"]');
+let inputOldimg = updateModal.querySelector('input[name="m_old_img"]')
 
 function openUpdate(
 	m_no, m_name, m_price, m_img, m_ice, m_size, m_type, m_type_easy, m_option, m_desc, m_weather, m_soldout, m_order
@@ -21,12 +24,21 @@ function openUpdate(
 	// 모달 열기
 	updateModal.showModal();
 	
+	// 메뉴번호 전달용
+	inputNo.value = m_no;
+	
+	// 예전 이미지 전달용
+	inputOldimg.value = m_img;
+	
 	// 이름 찝어주기
 	inputName.value = m_name;
 	
 	// 가격 찝어주기
 	inputPrice.value = m_price;
 	
+	// 설명 찝어주기
+	txt_desc.value = m_desc;
+		
 	// select_ice 찝기
 
 	for (let i = 0; i < select_ice.options.length; i++) {

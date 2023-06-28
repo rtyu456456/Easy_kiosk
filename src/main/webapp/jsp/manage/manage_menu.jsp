@@ -64,6 +64,7 @@
 		<dialog id="updateModal">
 		<form action="UpdateMenuC" method="post" enctype="multipart/form-data">
 			<div>
+				<input hidden name="m_no">
 				메뉴명 : <input name="m_name" placeholder="메뉴명">
 			</div>
 			<div>
@@ -71,6 +72,7 @@
 			</div>
 			<div>
 				메뉴사진 : <input name="m_img" type="file">
+				<input hidden name="m_old_img">
 			</div>
 			<div>
 				아이스핫 구분 : <select name="m_ice">
@@ -114,7 +116,7 @@
 			</div>
 			<div>
 				메뉴설명 :
-				<textarea name="m_desc"></textarea>
+				<textarea name="m_desc" style="resize: none;"></textarea>
 			</div>
 			<div>
 				날씨별 추천여부 : <select name="m_weather">
