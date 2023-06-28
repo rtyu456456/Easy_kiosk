@@ -39,6 +39,18 @@ public class EasyDAO {
 		session.setAttribute("orderType", orderType);
 		return session;
 	}
+	
+	public void howPayment(HttpServletRequest request) { // 매장, 포장 선택 값 세션에 담기
+		String card = request.getParameter("card");
+		String cash = request.getParameter("cash");
+		HttpSession session = request.getSession();
+		if (card != null) {
+			session.setAttribute("howPayment", card);
+		} else {
+			session.setAttribute("howPayment", cash);
+		}
+		 
+	}
 
 	public void getCustomer(HttpServletRequest request) { // 고객의 번호와 포인트 update 또는 insert
 		User user = (User) request.getSession().getAttribute("user");
@@ -312,6 +324,7 @@ public class EasyDAO {
 		int cnt = 0;
 		int unitPrice = 0;
 		String name = "";
+		String iceOrHot = "";
 		String optionSize = "";
 		String shot = "";
 		String syrup = "";
@@ -332,6 +345,7 @@ public class EasyDAO {
             unitPrice = (int)(long) jsonObject.get("unitPrice");
             name = (String) jsonObject.get("name");
             optionSize = (String) jsonObject.get("optionSize");
+            iceOrHot = (String) jsonObject.get("iceOrHot");
             shot = (String) jsonObject.get("shot");
             syrup = (String) jsonObject.get("syrup");
             cream = (String) jsonObject.get("cream");
@@ -340,6 +354,7 @@ public class EasyDAO {
             System.out.println("unitPrice: " + unitPrice);
             System.out.println("name: " + name);
             System.out.println("optionSize: " + optionSize);
+            System.out.println("iceOrHot: " + iceOrHot);
             System.out.println("shot: " + shot);
             System.out.println("syrup: " + syrup);
             System.out.println("cream: " + cream);
@@ -349,6 +364,7 @@ public class EasyDAO {
             menus.setUnitPrice(unitPrice);
             menus.setName(name);
             menus.setOptionSize(optionSize);
+            menus.setIceOrHot(iceOrHot);
             menus.setShot(shot);
             menus.setSyrup(syrup);
             menus.setCream(cream);
