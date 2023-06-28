@@ -57,13 +57,16 @@ pageEncoding="UTF-8"%>
       	<div class="cartConParent">
       		<div class="aside__grid-container" id="cartContainer">
       		</div>
+      		<i class="fa-solid fa-cart-shopping" id="cartIcon"><span id="cartIcon__text">주문목록</span><span id="line2"></span></i> 
       	</div>
       	<span id="line"></span>
       	<p class="aside__payText">총 결제 금액</p>
       	<p class="aside__payPrice" id="total-cart-price"></p>
-      	<form action="EarnPointC" method="get">
-      	<button class="aside__payBtn"><i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기</button>
-		</form>
+	    <div class="payBtnCon">
+      	  <form action="EarnPointC" method="get">
+      	    <button class="aside__payBtn"><i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기</button>
+		  </form>
+    	</div>
       </aside>
     </div>
   </body>

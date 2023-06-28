@@ -30,7 +30,6 @@ ul {
 	cursor: pointer;
 	border: 1px solid var(--container-bgc);
 	border-radius: 30px;
-	/* 	padding-top: 12px; */
 	font-family: 'Inter';
 	font-style: normal;
 	font-size: 20px;
@@ -44,6 +43,7 @@ ul {
 
 .grid-item img:hover {
 	transform: scale(1.2);
+	transition: all 0.35s ease-out;
 }
 
 .aside__grid-item {
@@ -60,13 +60,14 @@ ul {
 .cartConParent {
 	overflow-y: auto;
     scroll-behavior: smooth;
-    margin: 25px 50px 50px 0px;
+    margin: 30px 50px 50px 0px;
     height: 70%;
 }
 
 #cartContainer {
 	max-width: 136px;
 	max-height: 108px;
+	margin: 90px auto; 
 }
 
 #cartContainer button {

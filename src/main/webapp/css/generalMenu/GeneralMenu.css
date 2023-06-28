@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
 body {
   margin: 0;
 }
@@ -25,7 +29,7 @@ ul {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 1920px;
-  height: 1080px;
+  height: 1082px;
   background-color: var(--container-bgc);
 }
 
@@ -118,6 +122,23 @@ ul {
   font-size: 56px;
 }
 
+#cartIcon {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: var(--container-bgc);	 	
+}
+
+#cartIcon__text {
+  display: inline-block;
+  color: var(--container-bgc);	 
+  font-size: 22px;
+  padding: 6px 38px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+}
+
 #arrow i {
   transform: rotate(180deg);
 }
@@ -136,26 +157,40 @@ ul {
 }
 
 /* aside area (cart 장바구니) */
+.cartConParent::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
 
 .aside {
   position: absolute;
-  width: 295px;
+  width: 270px;
   height: 1081px;
   left: 1626px;
   top: 0px;
   background-color: var(--section-bgc);
-  border: 3px solid #ffffff;
-  border-radius: 30px 0px 0px 30px;
+  border: 1.5px solid var(--container-bgc);
+  border-radius: 26px;
+  border-color: var(--container-bgc);
 }
 
 #line {
   display: inline-block;
-  width: 246px;
+  width: 100%;
   height: 3px;
   background-color: var(--container-bgc);
   position: absolute;
   left: -5px;
   top: 780px;
+}
+
+#line2 {
+  display: inline-block;
+  width: 320px;
+  height: 2px;
+  background-color: var(--container-bgc);
+  position: absolute;
+  left: -60px;
+  top: 66px;
 }
 
 .aside__grid-container {
@@ -189,33 +224,48 @@ ul {
   font-size: 28px;
 }
 
+@keyframes pulse {
+  0% { transform: scale(1); } /* 원래 크기 */
+  50% { transform: scale(1.05); } /* 약간 더 크게 */
+  100% { transform: scale(1); } /* 원래 크기로 돌아옵니다 */
+}
+
+.payBtnCon {
+  width: 100%;
+  height: 122.6px;
+  border-radius: 2px;
+  border-top: 2px;
+  border-color: var(--container-bgc);
+  background-color: var(--container-bgc);
+}
+
 .aside__payBtn {
   position: absolute;
   left: -5px;	
-  top: 962px;
+  top: 958px;
   color: var(--section-bgc);
   font-size: 26px;
-  width: 250px;
-  height: 116px;	
+  width: 100%;
+  height: 112px;	
   background-color: var(--container-bgc);
-  border-radius: 0px 0px 0px 30px;	
-  border: none;
+  border-radius: 30px;	
+  border: 1px solid var(--section-bgc);
   outline: none;
+  animation: pulse 1.6s infinite; /* 'pulse' 애니메이션을 2초 동안 무한 반복합니다. */
 }
 
 .aside__payBtn:hover {
   position: absolute;
-  left: -3px;	
-  top: 961px;
+  left: -5px;	
+  top: 958px;
   color: var(--section-bgc);
   font-size: 26px;
-  width: 250px;
-  height: 116px;	
+  width: 100%;
+  height: 112px;	
   background-color: var(--container-bgc);
-  border-radius: 0px 0px 0px 30px;	
+  border-radius: 30px;
   border: 1px solid var(--section-bgc);
   outline: none;
-  transform: scale(1.05);
 }
 
 #pageBtn1 {
