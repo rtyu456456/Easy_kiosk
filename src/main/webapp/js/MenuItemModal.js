@@ -21,9 +21,18 @@ let selectedOptions = {
 let modalIce = document.getElementById("modal-ice");
 let modalHot = document.getElementById("modal-hot");
 
+let largeBtn = document.querySelector("#size-large");
+let mediumBtn = document.querySelector("#size-medium");
 const addCart = modal.querySelector("#cart-btn");
 const plusbtn = modal.querySelector("#plus-btn");
 const minusbtn = modal.querySelector("#minus-btn");
+
+// 옵션까지 똑같은 음료에 대한 장바구니내 가격계산 함수
+function calSameCoffeePrice(item) {
+    // 선택된 옵션에 따라 가격을 조정하여 반환
+    let selectedPrice = item.optionSize === "large" ? item.unitPrice + 500 : item.unitPrice;
+    return selectedPrice * item.cnt;
+}
 
 function addCartItem(cart) {
 	console.log(cart);  // cart 객체는 모달열때 값세팅이 되어지도록 됨
@@ -34,17 +43,17 @@ let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 	
 	 // 동일한 메뉴와 옵션을 가진 아이템이 이미 장바구니에 있는지 확인.
     const existingItem = cartItems.find(item => isEqual(item, cart));
-
+	
     if (existingItem) {
         // 동일한 아이템이 이미 존재하면 새롭게 만드는것이아니라 장바구니내 동일메뉴의 수량을 증가.
         existingItem.cnt += cart.cnt;
+        existingItem.price = calSameCoffeePrice(existingItem); // 가격을 올바르게 계산하여 업데이트합니다.
     } else {
         // 장바구니에 새로운 아이템을 추가
         cartItems.push(cart);
     }
+    
 // 빈cartItems 배열에 세팅된 cart객체를 여기서 담아줌
-//	cartItems.push(cart);
-	console.log(cartItems);
 	console.log(JSON.stringify(cartItems));
 	
 // 로컬스토리지에는 문자열만 들어갈수있기때문에 cartItems(Json)을 문자열로 바꿔서 넣어줌
@@ -59,7 +68,7 @@ function isEqual(item1, item2) {
         item1.optionSize === item2.optionSize &&
         item1.shot === item2.shot &&
         item1.syrup === item2.syrup &&
-        item1.cream === item2.cream
+        item1.cream === item2.cream 
     );
 }
 
@@ -167,7 +176,7 @@ cartItems.forEach((item, index) => {
 	
 	// 총가격 업뎃하기
 	let totalPriceCa = document.getElementById("total-cart-price");
-	totalPriceCa.innerText = "₩" + totalCartPrice + "원";
+	totalPriceCa.innerText = '₩' + totalCartPrice + '원';
 	
 }
 
@@ -175,8 +184,14 @@ function updateCartItem(index, item) {
     // 로컬스토리지에서 카트아이템스 가져오기
     let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 	
+	 // 옵션에 따라 적절한 가격 설정
+    let selectedPrice = item.optionSize === "large" ? item.unitPrice + 500 : item.unitPrice;
+
     // 새로운 갯수를 기반으로 항목의 총 가격을 업데이트
-    item.price = item.unitPrice * item.cnt;
+    item.price = selectedPrice * item.cnt;
+	
+    // 새로운 갯수를 기반으로 항목의 총 가격을 업데이트
+//    item.price = item.unitPrice * item.cnt;
 	
     // 수정한 그 객체 카트아이템스 배열에 다시 세팅
     cartItems[index] = item;
@@ -189,17 +204,17 @@ function updateCartItem(index, item) {
 }
 
 function deleteCartItem(index) {
-// 카트아이템스 가져오기
-let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-
-// 카트아이템스 배열에서 index번호에 있는 1개의 요소를 삭제
-cartItems.splice(index, 1);
-
-// 삭제했으니까 로컬스토리지 내용 다시 세팅
-localStorage.setItem("cartItems", JSON.stringify(cartItems));
-
-// 다시 세팅 됐으니까 다시 보여주기
-displayCartItems();
+	// 카트아이템스 가져오기
+	let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+	
+	// 카트아이템스 배열에서 index번호에 있는 1개의 요소를 삭제
+	cartItems.splice(index, 1);
+	
+	// 삭제했으니까 로컬스토리지 내용 다시 세팅
+	localStorage.setItem("cartItems", JSON.stringify(cartItems));
+	
+	// 다시 세팅 됐으니까 다시 보여주기
+	displayCartItems();
 }
 
 function openModal(imageSrc, name, price, ice, desc, options, size) {
@@ -243,14 +258,13 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 
     // 모달 열때마다 선택한 그 커피를 세팅
     cart = {name: name, price: price, unitPrice: price, iceOrHot: ice, imageSrc: imageSrc, cnt: 1};
-    
     // 모달 열때마다 cart에 담을 커피객체 값들 세팅
     totalPriceEl.innerText = cart.price;
     totalCnt.innerText = '총 수량 : ' + cart.cnt;
     let modalName = modal.querySelector(".modal-name");
     modalName.innerText = name;
     let modalPrice = modal.querySelector("#total-price");
-    modalPrice.innerText = "₩" + price + "원";
+    modalPrice.innerText = '₩' + price + '원';
     let modalImage = document.getElementById("modalImage");
     modalImage.src = imageSrc;
     let modalDesc = modal.querySelector(".m-desc");
@@ -258,7 +272,41 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
     let mSize = modal.querySelector(".sizeContainer");
     mSize.style.display = size == 0 ? "none" : "block";
     modal.showModal();
-
+    
+  	let mediumPrice = parseInt(totalPriceEl.innerText.replace(/[^\d]/g, '')); // '₩' + '원' 이것들 제거하고 숫자만남기기위해서 처리
+  	let largePrice = mediumPrice + 500;
+	let selectedPrice = cart.unitPrice;
+	let largeBtnClicked = false; 
+	
+	largeBtn.onclick = () => {
+		if (!largeBtnClicked) { 
+		largeBtnClicked = true;
+		selectedOptions.optionSize = "large";		
+   	    cart.price = largePrice;
+   	    totalPriceEl.innerText = '₩' + largePrice + '원';
+   	    selectedPrice = largePrice;
+   	    mediumBtn.style.backgroundColor = "#515e7e"; 
+   	    largeBtn.style.backgroundColor = "#FF6347";
+   	    cart.cnt = 1;
+   	    totalCnt.innerText = '총 수량 : ' + cart.cnt;
+   	    } else {  
+		        return;
+        // 이미 largeBtn이 클릭된 경우 원래의 값으로 되돌리지 않고 아무 동작도 하지 않음
+    	}
+	};
+	
+	mediumBtn.onclick = () => {
+		largeBtnClicked = false;
+		selectedOptions.optionSize = "medium";
+   	    cart.price = mediumPrice;
+  	    totalPriceEl.innerText = '₩' + mediumPrice + '원';
+   	    selectedPrice = mediumPrice;
+   	    largeBtn.style.backgroundColor = "#515e7e";
+   	    mediumBtn.style.backgroundColor = "#2090ff";
+   	    cart.cnt = 1;
+   	    totalCnt.innerText = '총 수량 : ' + cart.cnt;
+	};
+	
     if (ice == 2) {
         modalIce.style.display = "inline-block";
         modalHot.style.display = "inline-block";
@@ -284,24 +332,27 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 
     // 가격세팅
     plusbtn.onclick = () => {
-        cart.price += cart.unitPrice;
-        totalPriceEl.innerText = "₩" + cart.price + "원";
+        cart.price += selectedPrice;
+        totalPriceEl.innerText = '₩' + cart.price + '원';
         cart.cnt++;
         totalCnt.innerText = '총 수량 : ' + cart.cnt;
+
     };
     
     minusbtn.onclick = () => {
-        if (cart.price > cart.unitPrice) {
-            cart.price -= cart.unitPrice;
-            totalPriceEl.innerText = "₩" + cart.price + "원";
+        if (cart.price > selectedPrice) {
+            cart.price -= selectedPrice;
+            totalPriceEl.innerText = '₩' + cart.price + '원';
             if (cart.cnt > 1) {
                 cart.cnt--;
                 totalCnt.innerText = '총 수량 : ' + cart.cnt;
             }
-        }
+        } 
     };
     
     addCart.onclick = () => {
+		mediumBtn.style.backgroundColor = "#515e7e"; 
+   		largeBtn.style.backgroundColor = "#515e7e";
 		 // 모든 버튼의 active 클래스 제거
 	    const optionButtons = document.querySelectorAll(".optionBtn button");
 	    optionButtons.forEach(button => {
@@ -365,16 +416,18 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
     };
 }
 
-closeBtn.addEventListener("click", () => {
-	 // 모든 버튼의 active 클래스 제거
-    const optionButtons = document.querySelectorAll(".optionBtn button");
-    optionButtons.forEach(button => {
-        button.classList.remove('active');
-    });
-    modal.close();
-});
+	closeBtn.addEventListener("click", () => {
+		 // 모든 버튼의 active 클래스 제거
+	    const optionButtons = document.querySelectorAll(".optionBtn button");
+	    optionButtons.forEach(button => {
+	        button.classList.remove('active');
+	    });
+	    mediumBtn.style.backgroundColor = "#515e7e"; 
+	   	largeBtn.style.backgroundColor = "#515e7e";
+	    modal.close();
+	});
 
-// 페이지 로드되고 장바구니 보여주기
-window.onload = function() {
-    displayCartItems();
-};
+	// 페이지 로드되고 장바구니 보여주기
+	window.onload = function() {
+	    displayCartItems();
+	};
