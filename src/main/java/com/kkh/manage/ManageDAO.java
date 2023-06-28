@@ -18,7 +18,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_MENU ORDER BY M_ORDER DESC";
+		String sql = "SELECT * FROM EK_MENU ORDER BY M_ORDER";
 
 		try {
 			con = DBManager.connect();
@@ -284,25 +284,26 @@ public class ManageDAO {
 
 	}
 
-	public void paging(int page, HttpServletRequest request) {
+	public static void paging(int page, HttpServletRequest request) {
 
-		ArrayList<Menu> menus = (ArrayList<Menu>) request.getAttribute("menus");
+		ArrayList<Menu> menus = (ArrayList<Menu>)request.getAttribute("menus");
+
 		request.setAttribute("curPageNo", page);
-
-		int cnt = 3; // 한 페이지당 보여줄 개수
+		
+		int cnt = 7; // 한 페이지당 보여줄 개수
 		int total = menus.size(); // 총 데이터 개수
-		int pageCount = (int) Math.ceil((double) total / cnt);
-
+		int pageCount = (int)Math.ceil((double)total/cnt);
+		
 		request.setAttribute("pageCount", pageCount);
-
+		
 		int start = total - (cnt * (page - 1));
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
-
+		
 		ArrayList<Menu> items = new ArrayList<Menu>();
 		for (int i = start - 1; i > end; i--) {
 			items.add(menus.get(i));
 		}
-
+		
 		request.setAttribute("menus", items);
 	}
 

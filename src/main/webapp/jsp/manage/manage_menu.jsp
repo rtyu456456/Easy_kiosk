@@ -25,7 +25,7 @@
 			<a href="ManageMenuC?type=ICE_FLAKE"> 빙수 </a>
 		</div>
 		<div class="manage-item">
-			<a href="ManageMenuC?type=FLATCHINO"> 플랫치노 </a>
+			<a href="ManageMenuC?type=FLATCCINO"> 플랫치노 </a>
 		</div>
 		<div class="manage-item">
 			<a href="ManageMenuC?type=BREAD"> 빵 </a>
@@ -56,7 +56,8 @@
 				<div class="manage-item">${m.m_soldout }</div>
 				<div class="manage-item">${m.m_order }</div>
 				<div>
-					<button onclick="openUpdate('${m.m_no}','${m.m_name}','${m.m_price}','${m.m_img}','${m.m_ice}','${m.m_size}','${m.m_type}','${m.m_type_easy}','${m.m_option}','${m.m_desc}','${m.m_weather}','${m.m_soldout}','${m.m_order}')">수정</button>
+					<button
+						onclick="openUpdate('${m.m_no}','${m.m_name}','${m.m_price}','${m.m_img}','${m.m_ice}','${m.m_size}','${m.m_type}','${m.m_type_easy}','${m.m_option}','${m.m_desc}','${m.m_weather}','${m.m_soldout}','${m.m_order}')">수정</button>
 					<button onclick="delMenu('${m.m_no}')">삭제</button>
 				</div>
 			</div>
@@ -64,15 +65,15 @@
 		<dialog id="updateModal">
 		<form action="UpdateMenuC" method="post" enctype="multipart/form-data">
 			<div>
-				<input hidden name="m_no">
-				메뉴명 : <input name="m_name" placeholder="메뉴명">
+				<input hidden name="m_no"> 메뉴명 : <input name="m_name"
+					placeholder="메뉴명">
 			</div>
 			<div>
 				가격 : <input name="m_price" placeholder="가격">
 			</div>
 			<div>
-				메뉴사진 : <input name="m_img" type="file">
-				<input hidden name="m_old_img">
+				메뉴사진 : <input name="m_img" type="file"> <input hidden
+					name="m_old_img">
 			</div>
 			<div>
 				아이스핫 구분 : <select name="m_ice">
@@ -220,6 +221,16 @@
 			</form>
 			<button id="closeAdd">닫기</button>
 			</dialog>
+		</div>
+		<div>
+			<a href="MenuPageC?p=1"> [맨처음] </a>
+			<c:if test="^"></c:if>
+				<a href="MenuPageC?p= "> 이전 </a>
+			<c:forEach begin="1" end="5" var="i">
+				<a href="MenuPageC?p=${i }"> [${i }] </a>
+			</c:forEach>
+				<a href="MenuPageC?p=${i } "> 다음 </a>
+			<a href="MenuPageC?p=${pageCount }"> [끝] </a>
 		</div>
 	</div>
 </body>
