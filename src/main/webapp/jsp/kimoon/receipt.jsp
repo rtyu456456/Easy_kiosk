@@ -7,14 +7,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	  var deleteButton1 = document.getElementById('resetLocalStorage');
-	  deleteButton1.addEventListener('click', function() {
-	    localStorage.clear();
-	    console.log("삭제 성공");
-	  });
-</script>
 </head>
 <body>
 <div style="position: relative; top:200px; left: 800px; width: 20%; border: solid black 1px; text-align: center">
@@ -40,8 +32,23 @@ document.addEventListener('DOMContentLoaded', function() {
 		현재 포인트 : ${sessionScope.user.remainPoint }<br>
 	</c:if>
 	주문하신 메뉴 : ${sessionScope.user.totalCnt }개<br>
+	<div id="menu">
+	메뉴:<br>
+	수량:<br>
+	옵션:<br>
+	</div>
+	
 	추가 옵션 : ??<hr>
 <button onclick="location.href='HC'" id="resetLocalStorage">처음으로</button>
+<script type="text/javascript">
+var menu = document.getElementById('menu');
+
+for (var i = 1; i <= 5; i++) {
+  var div = document.createElement('div');
+  div.textContent = '내용 ' + i;
+  container.appendChild(div);
+}
+</script>
 </div>
 </body>
 </html>

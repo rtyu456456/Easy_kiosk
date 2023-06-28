@@ -7,22 +7,22 @@ public class User {
 	private int remainPoint; // 남은 포인트
 	private int totalPrice; // 총 구매가격
 	private int finalPrice; // 최종 결제가격
-	private int totalCnt;
-	private String productName;
-	private int productPrice;
-	private String option_size;
-	private String option_iceOrHot;
-	private String option_shot;
-	private String option_syrup;
-	private String option_cream;
+	private int cnt;
+	private int unitPrice;
+	private String name;
+	private String optionSize;
+	private String iceOrHot;
+	private String shot;
+	private String syrup;
+	private String cream;
 	
 	public User() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public User(String phoneNumber, int savingPoint, int usedPoint, int remainPoint, int totalPrice, int finalPrice,
-			int totalCnt, String productName, int productPrice, String option_size, String option_iceOrHot,
-			String option_shot, String option_syrup, String option_cream) {
+			int cnt, int unitPrice, String name, String optionSize, String iceOrHot, String shot, String syrup,
+			String cream) {
 		super();
 		this.phoneNumber = phoneNumber;
 		this.savingPoint = savingPoint;
@@ -30,14 +30,14 @@ public class User {
 		this.remainPoint = remainPoint;
 		this.totalPrice = totalPrice;
 		this.finalPrice = finalPrice;
-		this.totalCnt = totalCnt;
-		this.productName = productName;
-		this.productPrice = productPrice;
-		this.option_size = option_size;
-		this.option_iceOrHot = option_iceOrHot;
-		this.option_shot = option_shot;
-		this.option_syrup = option_syrup;
-		this.option_cream = option_cream;
+		this.cnt = cnt;
+		this.unitPrice = unitPrice;
+		this.name = name;
+		this.optionSize = optionSize;
+		this.iceOrHot = iceOrHot;
+		this.shot = shot;
+		this.syrup = syrup;
+		this.cream = cream;
 	}
 
 	public String getPhoneNumber() {
@@ -88,78 +88,78 @@ public class User {
 		this.finalPrice = finalPrice;
 	}
 
-	public int getTotalCnt() {
-		return totalCnt;
+	public int getCnt() {
+		return cnt;
 	}
 
-	public void setTotalCnt(int totalCnt) {
-		this.totalCnt = totalCnt;
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 
-	public String getProductName() {
-		return productName;
+	public int getUnitPrice() {
+		return unitPrice;
 	}
 
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setUnitPrice(int unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 
-	public int getProductPrice() {
-		return productPrice;
+	public String getName() {
+		return name;
 	}
 
-	public void setProductPrice(int productPrice) {
-		this.productPrice = productPrice;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public String getOption_size() {
-		return option_size;
+	public String getOptionSize() {
+		return optionSize;
 	}
 
-	public void setOption_size(String option_size) {
-		this.option_size = option_size;
+	public void setOptionSize(String optionSize) {
+		this.optionSize = optionSize;
 	}
 
-	public String getOption_iceOrHot() {
-		return option_iceOrHot;
+	public String getIceOrHot() {
+		return iceOrHot;
 	}
 
-	public void setOption_iceOrHot(String option_iceOrHot) {
-		this.option_iceOrHot = option_iceOrHot;
+	public void setIceOrHot(String iceOrHot) {
+		this.iceOrHot = iceOrHot;
 	}
 
-	public String getOption_shot() {
-		return option_shot;
+	public String getShot() {
+		return shot;
 	}
 
-	public void setOption_shot(String option_shot) {
-		this.option_shot = option_shot;
+	public void setShot(String shot) {
+		this.shot = shot;
 	}
 
-	public String getOption_syrup() {
-		return option_syrup;
+	public String getSyrup() {
+		return syrup;
 	}
 
-	public void setOption_syrup(String option_syrup) {
-		this.option_syrup = option_syrup;
+	public void setSyrup(String syrup) {
+		this.syrup = syrup;
 	}
 
-	public String getOption_cream() {
-		return option_cream;
+	public String getCream() {
+		return cream;
 	}
 
-	public void setOption_cream(String option_cream) {
-		this.option_cream = option_cream;
+	public void setCream(String cream) {
+		this.cream = cream;
 	}
 
 	@Override
 	public String toString() {
 		return "User [phoneNumber=" + phoneNumber + ", savingPoint=" + savingPoint + ", usedPoint=" + usedPoint
 				+ ", remainPoint=" + remainPoint + ", totalPrice=" + totalPrice + ", finalPrice=" + finalPrice
-				+ ", totalCnt=" + totalCnt + ", productName=" + productName + ", productPrice=" + productPrice
-				+ ", option_size=" + option_size + ", option_iceOrHot=" + option_iceOrHot + ", option_shot="
-				+ option_shot + ", option_syrup=" + option_syrup + ", option_cream=" + option_cream + "]";
+				+ ", cnt=" + cnt + ", unitPrice=" + unitPrice + ", name=" + name + ", optionSize=" + optionSize
+				+ ", iceOrHot=" + iceOrHot + ", shot=" + shot + ", syrup=" + syrup + ", cream=" + cream + "]";
 	}
 	
 	
+
 }

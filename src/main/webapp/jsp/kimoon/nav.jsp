@@ -2,23 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <script src="https://kit.fontawesome.com/f0a74bdf41.js" crossorigin="anonymous"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	  var deleteButton1 = document.getElementById('resetLocalStorage1');
-	  deleteButton1.addEventListener('click', function() {
-	    localStorage.clear();
-	    console.log("삭제 성공");
-	  });
-	    
-	  var deleteButton2 = document.getElementById('resetLocalStorage2');
-
-	  deleteButton2.addEventListener('click', function() {
-	    localStorage.clear();
-	    console.log("삭제 성공");
-	});
-	});
-	
-</script>
 	<div class="nav">
 		<c:if test="${sessionScope.whereToEat eq null}"> <!-- 첫 화면에서만 출력 -->
 		<img src="./img/Logo.png" class="nav-logo">

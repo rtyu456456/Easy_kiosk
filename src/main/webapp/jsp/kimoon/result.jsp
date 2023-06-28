@@ -8,14 +8,6 @@
 <meta charset="UTF-8">
 <title>결과 화면</title>
 <script type="text/javascript" src="js/result.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	  var deleteButton1 = document.getElementById('resetLocalStorage');
-	  deleteButton1.addEventListener('click', function() {
-	    localStorage.clear();
-	    console.log("삭제 성공");
-	  });
-</script>
 </head>
 <body>
 
@@ -30,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	<br><span class="result-receipt-text">영수증을 출력하시겠습니까?</span>
 	<form action="ReceiptC">
 		<button class="result-receipt-yes">예</button>
-		<button type="button" onclick="location.href='HC'" class="result-receipt-no" id="resetLocalStorage">아니오</button>
+		<button type="button" onclick="location.href='HC'" class="result-receipt-no">아니오</button>
 	</form>
 	<p class="result-countdown"><span id="countdown"></span>초 후에 창이 닫힙니다.</p>
 </body>

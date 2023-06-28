@@ -309,16 +309,42 @@ public class EasyDAO {
 		System.out.println(getData);
 		int price = 0;
 		int cnt = 0;
+		int unitPrice = 0;
+		String name = "";
+		String optionSize = "";
+		String shot = "";
+		String syrup = "";
+		String cream = "";
 		for (Object item : getData) {
             JSONObject jsonObject = (JSONObject) item;
             price += (int)(long) jsonObject.get("price");
-            cnt += (int)(long) jsonObject.get("cnt");
+            
+            cnt = (int)(long) jsonObject.get("cnt");
+            unitPrice = (int)(long) jsonObject.get("unitPrice");
+            name = (String) jsonObject.get("name");
+            optionSize = (String) jsonObject.get("optionSize");
+            shot = (String) jsonObject.get("shot");
+            syrup = (String) jsonObject.get("syrup");
+            cream = (String) jsonObject.get("cream");
             System.out.println("Price: " + price);
             System.out.println("cnt: " + cnt);
+            System.out.println("unitPrice: " + unitPrice);
+            System.out.println("name: " + name);
+            System.out.println("optionSize: " + optionSize);
+            System.out.println("shot: " + shot);
+            System.out.println("syrup: " + syrup);
+            System.out.println("cream: " + cream);
+            System.out.println("------------------");
         }
 		User user = new User();
 		user.setTotalPrice(price);
-		user.setTotalCnt(cnt);
+		user.setCnt(cnt);
+		user.setUnitPrice(unitPrice);
+		user.setName(name);
+		user.setOptionSize(optionSize);
+		user.setShot(shot);
+		user.setSyrup(syrup);
+		user.setCream(cream);
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
 		
