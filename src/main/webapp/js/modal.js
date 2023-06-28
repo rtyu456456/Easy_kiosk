@@ -60,9 +60,13 @@ function displayCartItems() {
 		
 		let itemContainer = document.createElement("div");
 		itemContainer.style.textAlign = "center";
-		itemContainer.style.border = "1.6px solid #222";
-		itemContainer.style.borderRadius = "6px";
-		itemContainer.style.backgroundColor = "#eed";
+		itemContainer.style.border = "3px solid #011E61";
+		itemContainer.style.borderRadius = "20px";
+		itemContainer.style.height = "250px";
+		itemContainer.style.width = "260px";
+		itemContainer.style.position = "relative";
+		itemContainer.style.top = "-50px";
+		itemContainer.style.backgroundColor = "white";
 		itemContainer.classList.add("itemContainer");
 
 		let itemImg = document.createElement("img");
@@ -75,11 +79,16 @@ function displayCartItems() {
 		let minusBtn = document.createElement("button");
 		minusBtn.innerText = "-";
 		minusBtn.style.marginRight = "5px";
+		minusBtn.style.width= "40px"; 
+		minusBtn.style.height= "40px"; 
 		minusBtn.style.padding = "2px 8px";
-		minusBtn.style.fontSize = "18px";
+		minusBtn.style.fontSize = "30px";
 		minusBtn.style.fontWeight = "600";
-		minusBtn.style.color = "#011E61";
-		minusBtn.style.backgroundColor = "white";
+		minusBtn.style.borderRadius = "3px";
+		minusBtn.style.position= "relative"; 
+		minusBtn.style.bottom= "10px"; 
+		minusBtn.style.color = "white";
+		minusBtn.style.backgroundColor = "#011E61";
 		minusBtn.onclick = () => {
 			if (item.count > 1) {
 				item.count--;
@@ -89,15 +98,23 @@ function displayCartItems() {
 
 		let itemBtnText = document.createElement("span");
 		itemBtnText.innerText = item.count;
+		itemBtnText.style.fontSize = "30px";
+		itemBtnText.style.width= "40px"; 
+		itemBtnText.style.position= "relative"; 
+		itemBtnText.style.bottom= "10px"; 
 
 		let plusBtn = document.createElement("button");
 		plusBtn.innerText = "+";
-		plusBtn.style.marginRight = "5px";
+		plusBtn.style.width= "40px"; 
+		plusBtn.style.height= "40px"; 
+		plusBtn.style.position= "relative"; 
+		plusBtn.style.bottom= "10px"; 
 		plusBtn.style.padding = "2px 8px";
-		plusBtn.style.fontSize = "18px";
+		plusBtn.style.fontSize = "30px";
 		plusBtn.style.fontWeight = "600";
-		plusBtn.style.color = "#011E61";
-		plusBtn.style.backgroundColor = "white";
+		plusBtn.style.color = "white";
+		plusBtn.style.borderRadius = "3px";
+		plusBtn.style.backgroundColor = "#011E61";
 		plusBtn.onclick = () => {
 			item.count++;
 			updateCartItem(index, item);
@@ -115,11 +132,15 @@ function displayCartItems() {
 
 		let deleteBtn = document.createElement("button");
 		deleteBtn.classList.add("deleteBtn");
-		deleteBtn.innerText = "x";
-		deleteBtn.style.fontSize = "18px";
+		deleteBtn.innerText = "X";
+		deleteBtn.style.width= "50px"; 
+		deleteBtn.style.height= "40px"; 
+		deleteBtn.style.margin= "1px -8px";
+		deleteBtn.style.fontSize = "18pt";
 		deleteBtn.style.fontWeight = "500";
-		deleteBtn.style.color = "#011E61";
-		deleteBtn.style.backgroundColor = "grey";
+		deleteBtn.style.color = "white";
+		deleteBtn.style.borderRadius = "5px";
+		deleteBtn.style.backgroundColor = "#011E61";
 		deleteBtn.onclick = () => {
 			deleteCartItem(index);
 		};
