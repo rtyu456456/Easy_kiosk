@@ -32,11 +32,31 @@ function payBtn(){
 	
 }
 
+/*	let itemBox = document.querySelector(".grid-content-box");
+	const soldout = document.querySelector(".soldout");
+	console.log("***************");
+	console.log(itemBox.value);
+	if(itemBox.value == 0){
+		itemBox.classList.add("soldout");
+	}else{
+		itemBox.classList.remove("soldout");
+	};
+*/
 
 
 
+/*
+	let soldoutImg = document.createElement("img");
+	soldoutImg.style.zIndex="3";
+	soldoutImg.src="img/SoldOut.png"; 
+	soldoutImg.style.position="absolute";
+	soldoutImg.style.top="80px";
+	soldoutImg.style.right="45px";
+	soldoutImg.style.width="250px";
+	soldoutImg.style.height="250px";
 
-
+	soldout.appendChild(soldoutImg);*/
+	
 
 
 
