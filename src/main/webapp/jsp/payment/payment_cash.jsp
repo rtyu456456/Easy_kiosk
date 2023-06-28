@@ -28,7 +28,7 @@
 	남은 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
 	</c:if>
 	</span>
-	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice }원</span>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
 		<button class="payment-cash-button">확인</button>
 	</form>
 </body>

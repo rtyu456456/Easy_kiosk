@@ -316,20 +316,18 @@ public class EasyDAO {
 		String shot = "";
 		String syrup = "";
 		String cream = "";
-		ArrayList<User> menus = new ArrayList<>();
+		
 		User user = new User();
-		
-		for (Object item : getData) {
-            JSONObject jsonObject = (JSONObject) item;
-            price += (int)(long) jsonObject.get("price");
-            System.out.println("Price: " + price);
-            user.setTotalPrice(price);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
-		}
-		
 		for (Object item : getData) {
 			JSONObject jsonObject = (JSONObject) item;
+			price += (int)(long) jsonObject.get("price");
+		}
+		user.setTotalPrice(price);
+		
+		ArrayList<Menus> menuList = new ArrayList<Menus>();
+		for (Object item : getData) {
+			JSONObject jsonObject = (JSONObject) item;
+		
             cnt = (int)(long) jsonObject.get("cnt");
             unitPrice = (int)(long) jsonObject.get("unitPrice");
             name = (String) jsonObject.get("name");
@@ -337,6 +335,7 @@ public class EasyDAO {
             shot = (String) jsonObject.get("shot");
             syrup = (String) jsonObject.get("syrup");
             cream = (String) jsonObject.get("cream");
+            System.out.println("Price: " + price);
             System.out.println("cnt: " + cnt);
             System.out.println("unitPrice: " + unitPrice);
             System.out.println("name: " + name);
@@ -345,20 +344,24 @@ public class EasyDAO {
             System.out.println("syrup: " + syrup);
             System.out.println("cream: " + cream);
             System.out.println("------------------");
-            user.setCnt(cnt);
-            user.setUnitPrice(unitPrice);
-            user.setName(name);
-            user.setOptionSize(optionSize);
-            user.setShot(shot);
-            user.setSyrup(syrup);
-            user.setCream(cream);
-            HttpSession session2 = request.getSession();
-            session2.setAttribute("menus", menus);
+            Menus menus = new Menus();
+            menus.setCnt(cnt);
+            menus.setUnitPrice(unitPrice);
+            menus.setName(name);
+            menus.setOptionSize(optionSize);
+            menus.setShot(shot);
+            menus.setSyrup(syrup);
+            menus.setCream(cream);
+            menuList.add(menus);
 		}
-		System.out.println(user.getTotalPrice());
-		System.out.println(user.getName());
+            
+            
+            HttpSession session = request.getSession();
+            session.setAttribute("user", user);
+            session.setAttribute("menus", menuList);
+            System.out.println(user.getTotalPrice());
+            System.out.println("menus.getName : " + menuList);
 		} catch (ParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
