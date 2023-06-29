@@ -22,8 +22,8 @@ public class ManageMenuC extends HttpServlet {
 			ManageDAO.showTypemenu(request);
 			ManageDAO.paging(1, request);
 		}
-		request.setAttribute("contentPage", "jsp/manage/manage_menu.jsp");
-		request.getRequestDispatcher("manage_index.jsp").forward(request, response);
+		request.setAttribute("contentPage", "manage_menu.jsp");
+		request.getRequestDispatcher("jsp/manage/manage_index.jsp").forward(request, response);
 		
 	}
 

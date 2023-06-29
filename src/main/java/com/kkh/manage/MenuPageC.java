@@ -23,8 +23,8 @@ public class MenuPageC extends HttpServlet {
 			ManageDAO.showTypemenu(request);
 			ManageDAO.paging(Integer.parseInt(request.getParameter("p")), request);
 		}
-		request.setAttribute("contentPage", "jsp/manage/manage_menu.jsp");
-		request.getRequestDispatcher("manage_index.jsp").forward(request, response);
+		request.setAttribute("contentPage", "manage_menu.jsp");
+		request.getRequestDispatcher("jsp/manage/manage_index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

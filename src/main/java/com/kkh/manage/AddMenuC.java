@@ -18,8 +18,8 @@ public class AddMenuC extends HttpServlet {
 		} else {
 			ManageDAO.showTypemenu(request);
 		}
-		request.setAttribute("contentPage", "jsp/manage/manage_menu_add.jsp");
-		request.getRequestDispatcher("manage_index.jsp").forward(request, response);
+		request.setAttribute("contentPage", "manage_menu_add.jsp");
+		request.getRequestDispatcher("jsp/manage/manage_index.jsp").forward(request, response);
 		
 	}
 

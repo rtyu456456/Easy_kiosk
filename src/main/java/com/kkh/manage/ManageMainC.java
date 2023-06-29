@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 public class ManageMainC extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("contentPage", "jsp/manage/manage_order.jsp");
-		request.getRequestDispatcher("manage_index.jsp").forward(request, response);
+		request.setAttribute("contentPage", "manage_order.jsp");
+		request.getRequestDispatcher("jsp/manage/manage_index.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
