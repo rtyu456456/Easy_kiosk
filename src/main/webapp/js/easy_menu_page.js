@@ -23,13 +23,31 @@ homeBtn.onclick = () => {
 }
 
 
-function payBtn() {
+const grid_content_box = document.querySelector(".grid-content-box");
+function getCartItems() {
 	if (localStorage.getItem("cartItems") === "[]") {
 		alert("상품을 담아주세요");
-	} else {
-		location.href = 'PaymentMethodC';
 	}
+	
+	if (localStorage.getItem("cartItems") === 14) {
+		alert("최대 수량은 15개까지입니다.");
+	// 버튼 비활성화	
+		grid_content_box.disabled = ture;
+		
+	}else{
 
+	// 버튼 활성화	
+	grid_content_box.disabled = false;
+	}
+	
+
+	let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+
+	return cartItems;
+}
+
+const aside__payBtn = document.querySelector(".aside__payBtn");
+aside__payBtn.addEventListener("click", () => {
 	const cartItems = getCartItems(); // 장바구니 아이템들의 정보를 가져오는 함수 호출
 	let cartItems2 = JSON.stringify(cartItems);
 	console.log(cartItems2);
@@ -37,14 +55,7 @@ function payBtn() {
 	document.querySelector('input[name=items]').value = cartItems2;
 	document.querySelector('#testForm').submit();
 
-}
-
-function getCartItems() {
-
-	let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-
-	return cartItems;
-}
+});
 
 
 /*	let itemBox = document.querySelector(".grid-content-box");
