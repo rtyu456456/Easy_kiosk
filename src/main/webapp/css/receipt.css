@@ -48,10 +48,23 @@
 	vertical-align : top;
 }
 
-.receipt-howPayment {
+.receipt-finalPrice {
 	border-top-style: double;
+	border-bottom-style: double;
 }
 
 .receipt-border-bottom{
 	border-bottom: 1px solid gray;
+}
+
+.receipt-button {
+	margin-left: 262px;
+    margin-top: 49px;
+    width: 100px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: bolder;
+    background: #011e61;
+    color: white;
+    border-radius: 18px;
 }

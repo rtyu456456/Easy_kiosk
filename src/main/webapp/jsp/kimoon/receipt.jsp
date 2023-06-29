@@ -35,7 +35,7 @@
 	
 	<tr><td colspan="5" class="receipt-date">
 	<c:set var="now" value="<%=new java.util.Date()%>" />
-	주문일시 : <fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss" />
+	거래일시 : <fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss" />
 	</td></tr>
 	
 	<tr>
@@ -48,50 +48,68 @@
 	
 	<c:forEach items="${sessionScope.menus}" var="menus">
 	<tr>
-	<td class="receipt-menus-name receipt-border-bottom">${menus.name}</td>
-    <td class="receipt-border-bottom">
-    <c:if test="${menus.optionSize != null && menus.optionSize eq 'medium'}">
-    일반 사이즈<br>
-    </c:if>
-    <c:if test="${menus.optionSize != null && menus.optionSize eq 'large'}">
-    큰 사이즈<br>
-    </c:if>
-    <c:if test="${menus.iceOrHot != null && menus.iceOrHot eq 'ice'}">
-    얼음<br>
-    </c:if>
-    <c:if test="${menus.iceOrHot != null && menus.iceOrHot eq 'hot'}">
-    뜨겁게<br>
-    </c:if>
-    <c:if test="${menus.shot != null && menus.shot eq 'yes'}">
-    샷 추가<br>
-    </c:if>
-    <c:if test="${menus.syrup != null && menus.syrup eq 'yes'}">
-    시럽 추가<br>
-    </c:if>
-    <c:if test="${menus.cream != null && menus.cream eq 'yes'}">
-    크림 추가<br>
-    </c:if>
-    </td>  
-	<td class="receipt-menus-unitPrice receipt-border-bottom">${menus.unitPrice}</td>
-	<td class="receipt-menus-cnt receipt-border-bottom">${menus.cnt }</td>
-	<td class="receipt-menus-unitTotalPrice receipt-border-bottom">${menus.unitPrice * menus.cnt}</td>
+		<td class="receipt-menus-name receipt-border-bottom">${menus.name}</td><!-- 상품명 -->
+    	<td class="receipt-border-bottom"><!-- 옵션 -->
+    		<c:if test="${menus.optionSize != null && menus.optionSize eq 'medium'}">
+    		일반 사이즈<br>
+    		</c:if>
+    		<c:if test="${menus.optionSize != null && menus.optionSize eq 'large'}">
+    		큰 사이즈<br>
+    		</c:if>
+    		<c:if test="${menus.iceOrHot != null && menus.iceOrHot eq 'ice'}">
+    		얼음<br>
+    		</c:if>
+    		<c:if test="${menus.iceOrHot != null && menus.iceOrHot eq 'hot'}">
+    		뜨겁게<br>
+    		</c:if>
+    		<c:if test="${menus.shot != null && menus.shot eq 'yes'}">
+    		샷 추가<br>
+    		</c:if>
+    		<c:if test="${menus.syrup != null && menus.syrup eq 'yes'}">
+    		시럽 추가<br>
+    		</c:if>
+    		<c:if test="${menus.cream != null && menus.cream eq 'yes'}">
+    		크림 추가<br>
+    		</c:if>
+    		</td>  
+		<td class="receipt-menus-unitPrice receipt-border-bottom" style="text-align: right;"><!-- 단가 -->
+			<fmt:formatNumber value="${menus.unitPrice}" pattern="#,###" />원
+		</td>
+		<td class="receipt-menus-cnt receipt-border-bottom" style="text-align: right;"><!-- 수량 -->
+			${menus.cnt }개
+		</td>
+		<td class="receipt-menus-unitTotalPrice receipt-border-bottom" style="text-align: right;"><!-- 금액 -->
+			<fmt:formatNumber value="${menus.unitPrice * menus.cnt}" pattern="#,###" />원
+		</td>
 	</tr>
     </c:forEach>
 	
+	
+	
+	<tr>
+		<td colspan="4" class="receipt-finalPrice">결제금액</td>
+		<td  class="receipt-finalPrice" style="text-align: right;">
+		<fmt:formatNumber value="${sessionScope.user.finalPrice }" pattern="#,###" />원
+		</td>
+	</tr>
+	
 	<c:if test="${sessionScope.howPoint eq 'usePoint'}"> <!-- 포인트 사용시 -->
-	<tr><td colspan="5">구매하신 금액 : ${sessionScope.user.totalPrice }</td></tr>
-	<tr><td colspan="5">할인받은 금액 : ${sessionScope.user.usedPoint }</td></tr>
-	<tr><td colspan="5">남은 포인트 : ${sessionScope.user.remainPoint }</td></tr>
+		<tr><td colspan="5">구매하신 금액 : ${sessionScope.user.totalPrice }</td></tr>
+		<tr><td colspan="5">할인받은 금액 : ${sessionScope.user.usedPoint }</td></tr>
+		<tr><td colspan="5">남은 포인트 : ${sessionScope.user.remainPoint }</td></tr>
 	</c:if>
 	
 	<tr>
-    <td colspan="4" class="receipt-howPayment">결제 종류</td>
+    <td colspan="4">결제 종류 : 
     <c:if test="${sessionScope.howPayment  eq 'card'}">
-    <td class="receipt-howPayment">카드</td>
+    카드
     </c:if>
     <c:if test="${sessionScope.howPayment  eq 'cash'}">
-    <td class="receipt-howPayment">현금</td>
+    현금
     </c:if>
+    </td>
+    
+    
     </tr>
 	
 	<c:if test="${sessionScope.howPoint eq 'savePoint'}"> <!-- 포인트 적립시 -->
@@ -103,12 +121,9 @@
 	</tr>
 	</c:if>
 	
-	<tr>
-	<td colspan="4">합계금액</td>
-	<td>${sessionScope.user.finalPrice }</td>
-	</tr>
 	
-	<tr><td colspan="5"><button onclick="location.href='HC'" id="resetLocalStorage">처음으로</button></td></tr>
+	
+	<tr><td colspan="5"><button onclick="location.href='HC'" id="resetLocalStorage" class="receipt-button">처음으로</button></td></tr>
 </table>
 </div>
 </body>
