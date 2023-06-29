@@ -45,6 +45,7 @@ function addCartItem(cart) {
 
 	if (existingItem) {
 		existingItem.count += cart.count;
+		existingItem.price += cart.price;
 	} else {
 		cartItems.push(cart);
 
