@@ -40,14 +40,14 @@ function addCartItem(cart) {
 		console.log('장바구니 아이템 수가 제한에 도달했습니다.');
 		return;
 	}
-	
+
 	const existingItem = cartItems.find(item => isEqual(item, cart));
-	
-	if(existingItem){
+
+	if (existingItem) {
 		existingItem.count += cart.count;
-	}else{
+	} else {
 		cartItems.push(cart);
-		
+
 	}
 	localStorage.setItem("cartItems", JSON.stringify(cartItems));
 }
@@ -193,6 +193,7 @@ function deleteCartItem(index) {
 
 function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 
+	easyName = easyName.replace(/<br>/g, ' ');
 	console.log(easyName);
 	console.log(easyPrice);
 	console.log(imgSrc);
@@ -387,12 +388,12 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 
 }
 
-function isEqual(item1, item2){
-	return(
+function isEqual(item1, item2) {
+	return (
 		item1.name === item2.name &&
 		item1.iceOrHot === item2.iceOrHot &&
 		item1.size === item2.size
-		
+
 	);
 }
 
