@@ -19,7 +19,27 @@
 	<div class="payment-cash-title">카운터의 점원에게
 	<br>현금결제 부탁합니다.</div>
 	<span class="payment-cash-desc">
-	<c:if test="${sessionScope.howPoint != null}"> <!-- 포인트 기능 사용시 -->
+	<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint eq 'usePoint'}"> <!-- 포인트 기능 사용시 -->
+	<!-- 일반 주문이고 포인트 사용시에만 출력 -->
+	총 구매 가격 : ${sessionScope.user.totalPrice}원<br>
+	사용 포인트 &nbsp: ${sessionScope.user.savingPoint }원<br>
+	남은 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
+	</c:if>
+	<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint eq 'savePoint'}">
+	결제 후 적립될 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
+	</c:if>
+	<c:if test="${sessionScope.orderType eq 'simpleOrder' || sessionScope.howPoint eq null }">
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.totalPrice}원</span>
+	</c:if>
+	</span>
+	<input name="totalPrice" type="hidden">	
+		<button class="payment-cash-button">확인</button>
+	</form>
+	
+	
+	<%-- <c:if test="${sessionScope.howPoint != null}"> <!-- 포인트 기능 사용시 -->
 	<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint eq 'usePoint'}">
 	<!-- 일반 주문이고 포인트 사용시에만 출력 -->
 	총 구매 가격 : ${sessionScope.user.totalPrice}원<br>
@@ -30,6 +50,6 @@
 	</span>
 	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
 		<button class="payment-cash-button">확인</button>
-	</form>
+	</form> --%>
 </body>
 </html>

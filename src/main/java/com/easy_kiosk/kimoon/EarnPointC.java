@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/EarnPointC")
 public class EarnPointC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		EasyDAO.getEasyDAO().easyPay(request);
+		EasyDAO.getEasyDAO().jsonToURL(request);
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "../point/point_confirm.jsp");
 		request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
