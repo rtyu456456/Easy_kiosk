@@ -356,7 +356,6 @@ public class EasyDAO {
 		System.out.println(session);
 		session.setAttribute("whereToEat", null);
 		session.setAttribute("orderType", null);
-		session.setAttribute("phoneNumber", null);
 		session.setAttribute("user", null);
 		session.setAttribute("howPoint", null);
 		session.setAttribute("menus", null);
@@ -364,9 +363,11 @@ public class EasyDAO {
 //		session.invalidate();
 	}
 
-	public void resetHowPoint(HttpServletRequest request) { // 포인트 사용/적립 세션을 초기화 시키는 세션(뒤로 가기 눌렀을때도 세션이 살아있는 사태를 막기 위해)
+	public void resetPointAndNumber(HttpServletRequest request) { // 포인트 사용/적립 세션에서 초기화 시키는 세션(뒤로 가기 눌렀을때도 세션이 살아있는 사태를 막기 위해)
 		HttpSession session = request.getSession();
 		session.removeAttribute("howPoint");
+		User user = (User) request.getSession().getAttribute("user");
+		user.setPhoneNumber(null);
 	}
 
 	public void confirmOrder(HttpServletRequest request) { // 관리자 매상매출 테이블에 주문확인/취소용 값 넣기
@@ -379,6 +380,9 @@ public class EasyDAO {
 			HttpSession session = request.getSession();
 			String whereToEat = (String) session.getAttribute("whereToEat"); // whereToEat 세션 가져오기
 			String userNo = user.getPhoneNumber(); // 핸드폰 번호
+			if (userNo == null) {
+				userNo = "00000000";
+			}
 			String menuName = ""; // 아메리카노!에스프레소!카푸치노
 			String menuCnt = ""; // 메뉴 갯수  2!1!3
 			for (Menus menu : menus) {
