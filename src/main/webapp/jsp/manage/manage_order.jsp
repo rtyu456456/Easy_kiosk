@@ -8,6 +8,22 @@
 <title>Insert title here</title>
 </head>
 <body>
-	주문관리
+	<div class="manage-menu-wrapper">
+		<c:forEach items="${orders }" var="s">
+			<div class="manage-menu-main">
+				<div class="manage-item">${s.s_no }</div>
+				<div class="manage-item">${s.s_tel }</div>
+				<div class="manage-item">${s.s_menu }</div>
+				<div class="manage-item">${s.s_count }</div>
+				<div class="manage-item">${s.s_price }</div>
+				<div class="manage-item">${s.s_type }</div>
+				<div>
+					<button onclick="location.href='ConfirmOrderC?s_no=${s.s_no }'">확인</button>
+					<button onclick="cancelOrder(${s.s_no })">취소</button>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+		
 </body>
 </html>

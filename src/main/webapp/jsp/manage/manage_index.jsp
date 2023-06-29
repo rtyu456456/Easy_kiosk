@@ -25,7 +25,7 @@
 	</div>
 
 </body>
-<script src="js/updateMenu.js"></script>
-<script src="js/addMenu.js"></script>
-<script src="js/deleteMenu.js"></script>
+<script src="js/manage/deleteMenu.js"></script>
+<script src="js/manage/manageOrder.js"></script>
+
 </html>

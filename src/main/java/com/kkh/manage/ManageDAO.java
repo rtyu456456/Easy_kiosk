@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -305,6 +306,95 @@ public class ManageDAO {
 		}
 		
 		request.setAttribute("menus", items);
+	}
+
+	public static void getAllOrder(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT * FROM EK_SALES WHERE S_CONFIRM = 0 ORDER BY SYSDATE DESC";
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			ArrayList<Order> orders = new ArrayList<Order>();
+			while (rs.next()) {
+				Order order = new Order();
+				order.setS_no(rs.getInt("S_NO"));
+				String howPoint = "포인트 적립";
+				if(rs.getString("S_TEL").equals("00000000")) {
+					howPoint = "포인트 미적립";
+				}
+				order.setS_tel(howPoint);
+				order.setS_menu(rs.getString("S_MENU"));
+				order.setS_count(rs.getString("S_COUNT"));
+				order.setS_price(rs.getInt("S_PRICE"));
+				order.setS_confirm(rs.getInt("S_CONFIRM"));
+				String orderType = "매장";
+				if(rs.getString("S_TYPE").equals("takeout")) {
+					orderType = "포장";
+				}
+				order.setS_type(orderType);
+				order.setS_date(rs.getDate("S_DATE"));
+				orders.add(order);
+			}
+
+			request.setAttribute("orders", orders);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public static void cancelOrder(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "DELETE FROM EK_SALES WHERE S_NO = ?";
+		String s_no = request.getParameter("s_no");
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, s_no);
+
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("삭제성공");
+			}
+		} catch (Exception e) {
+			System.out.println("삭제실패");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
+	}
+
+	public static void confirmOrder(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE EK_SALES SET S_CONFIRM = 1 WHERE S_NO = ?";
+		String s_no = request.getParameter("s_no");
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, s_no);
+
+			if (pstmt.executeUpdate() == 1) {
+				System.out.println("수정성공");
+			}
+		} catch (Exception e) {
+			System.out.println("수정실패");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
+		}
 	}
 
 }

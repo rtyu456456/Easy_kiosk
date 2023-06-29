@@ -234,5 +234,6 @@
 		</div>
 	</div>
 </body>
-
+<script src="js/manage/updateMenu.js"></script>
+<script src="js/manage/addMenu.js"></script>
 </html>
