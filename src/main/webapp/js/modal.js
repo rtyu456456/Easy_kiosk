@@ -398,6 +398,9 @@ function modalPage(imgSrc, easyName, easyPrice, useice, size) {
 		modal.close();
 	});
 
+F
+
+
 	window.onload = function() {
 		displayCartItems();
 	};

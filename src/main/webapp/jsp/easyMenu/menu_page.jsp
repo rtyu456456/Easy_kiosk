@@ -117,7 +117,7 @@
 			<span id="line"></span>
 			<p class="aside__payText">총 결제 금액</p>
 			<p class="aside__payPrice" id="basket-total-price"></p>
-				<button class="aside__payBtn" onclick="payBtn()">
+				<button class="aside__payBtn" onclick="payBtn()" id="testForm">
 					<i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기
 				</button>
 		</aside>
