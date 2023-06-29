@@ -25,21 +25,18 @@ homeBtn.onclick = () => {
 
 const grid_content_box = document.querySelector(".grid-content-box");
 function getCartItems() {
-	if (localStorage.getItem("cartItems") === "[]") {
-		alert("상품을 담아주세요");
-	}
-	
+
 	if (localStorage.getItem("cartItems") === 14) {
 		alert("최대 수량은 15개까지입니다.");
-	// 버튼 비활성화	
+		// 버튼 비활성화	
 		grid_content_box.disabled = ture;
-		
-	}else{
 
-	// 버튼 활성화	
-	grid_content_box.disabled = false;
+	} else {
+
+		// 버튼 활성화	
+		grid_content_box.disabled = false;
 	}
-	
+
 
 	let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 
@@ -47,41 +44,41 @@ function getCartItems() {
 }
 
 const aside__payBtn = document.querySelector(".aside__payBtn");
-aside__payBtn.addEventListener("click", () => {
+
+aside__payBtn.onclick=()=>{
+	if (localStorage.getItem("cartItems") === "[]") {
+		alert("상품을 담아주세요");
+		return false; 
+	}else{
 	const cartItems = getCartItems(); // 장바구니 아이템들의 정보를 가져오는 함수 호출
 	let cartItems2 = JSON.stringify(cartItems);
 	console.log(cartItems2);
 
 	document.querySelector('input[name=items]').value = cartItems2;
 	document.querySelector('#testForm').submit();
-
-});
-
-
-/*	let itemBox = document.querySelector(".grid-content-box");
-	const soldout = document.querySelector(".soldout");
-	console.log("***************");
-	console.log(itemBox.value);
-	if(itemBox.value == 0){
-		itemBox.classList.add("soldout");
-	}else{
-		itemBox.classList.remove("soldout");
-	};
-*/
+	}
+	
+}
 
 
+const contentPage = document.querySelector(".grid-content-box");
+console.log(contentPage.value);
+if (contentPage.value === "0") {
+	contentPage.disabled = true;
+	contentPage.style.backgroundColor = 'gray';
+}
 
-/*
-	let soldoutImg = document.createElement("img");
-	soldoutImg.style.zIndex="3";
-	soldoutImg.src="img/SoldOut.png"; 
-	soldoutImg.style.position="absolute";
-	soldoutImg.style.top="80px";
-	soldoutImg.style.right="45px";
-	soldoutImg.style.width="250px";
-	soldoutImg.style.height="250px";
 
-	soldout.appendChild(soldoutImg);*/
+let soldoutImg = document.createElement("img");
+soldoutImg.style.zIndex = "3";
+soldoutImg.src = "img/SoldOut.png";
+soldoutImg.style.position = "absolute";
+soldoutImg.style.top = "80px";
+soldoutImg.style.right = "45px";
+soldoutImg.style.width = "250px";
+soldoutImg.style.height = "250px";
+
+contentPage.appendChild(soldoutImg);
 
 
 

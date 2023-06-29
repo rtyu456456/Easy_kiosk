@@ -304,13 +304,11 @@
 	height: 200px;
 	position: relative;
 	bottom: 25px;
-/* 	z-index: -1; */
 }
 
 .grid-content-box img:hover {
 	position: relative;
 	transform: scale(1.2);
-	/* z-index: -1; */
 }
 
 #content-box-name {
@@ -319,7 +317,6 @@
 	color: #011E61;
 	position: relative;
 	bottom: 10px;
-	/* z-index: -1; */
 }
 
 #content-box-price {
@@ -327,7 +324,6 @@
 	font-weight: 600;
 	font-size: 35px;
 	color: #BD433B;
-	/* z-index: 0; */
 }
 
 /*footer*/
