@@ -89,7 +89,12 @@
 	<tr>
 		<td colspan="4" class="receipt-finalPrice">결제금액</td>
 		<td  class="receipt-finalPrice" style="text-align: right;">
+		<c:if test="${sessionScope.orderType eq 'simpleOrder' || sessionScope.howPoint eq null }">
+		<fmt:formatNumber value="${sessionScope.user.totalPrice }" pattern="#,###" />원
+		</c:if>
+		<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint != null }">
 		<fmt:formatNumber value="${sessionScope.user.finalPrice }" pattern="#,###" />원
+		</c:if>
 		</td>
 	</tr>
 	

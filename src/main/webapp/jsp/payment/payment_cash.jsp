@@ -24,14 +24,17 @@
 	총 구매 가격 : ${sessionScope.user.totalPrice}원<br>
 	사용 포인트 &nbsp: ${sessionScope.user.savingPoint }원<br>
 	남은 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
-	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span>
+	<span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
 	</c:if>
 	<c:if test="${sessionScope.orderType eq 'normalOrder' && sessionScope.howPoint eq 'savePoint'}">
 	결제 후 적립될 포인트 &nbsp: ${sessionScope.user.remainPoint }원<br>
-	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span>
+	<span class="payment-cash-finalPrice">${sessionScope.user.finalPrice}원</span>
 	</c:if>
 	<c:if test="${sessionScope.orderType eq 'simpleOrder' || sessionScope.howPoint eq null }">
-	<span class="payment-cash-finalPrice-text">결제 가격 : </span><span class="payment-cash-finalPrice">${sessionScope.user.totalPrice}원</span>
+	<span class="payment-cash-finalPrice-text">결제 가격 : </span>
+	<span class="payment-cash-finalPrice">${sessionScope.user.totalPrice}원</span>
 	</c:if>
 	</span>
 	<input name="totalPrice" type="hidden">	

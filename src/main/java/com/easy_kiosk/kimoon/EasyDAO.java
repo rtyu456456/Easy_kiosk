@@ -389,7 +389,8 @@ public class EasyDAO {
 				menuName += menu.getName() + "!";
 				menuCnt += menu.getCnt() + "!";
 			}
-			int finalPrice = user.getFinalPrice(); // 결제 가격
+			int finalPrice = user.getFinalPrice(); // 포인트 기능 사용시 결제 가격
+			int totalPrice = user.getTotalPrice(); // 포인트 기능 미 사용시 결제 가격
 			System.out.println("result userNO : " + userNo);
 			System.out.println("result menuName : " + menuName);
 			System.out.println("result menuCnt : " + menuCnt);
@@ -400,7 +401,11 @@ public class EasyDAO {
 			pstmt.setString(1, userNo);
 			pstmt.setString(2, menuName);
 			pstmt.setString(3, menuCnt);
-			pstmt.setInt(4, finalPrice);
+			if (finalPrice == 0) {
+				pstmt.setInt(4, totalPrice);
+			} else {
+				pstmt.setInt(4, finalPrice);
+			}
 			pstmt.setString(5, whereToEat);
 			pstmt.executeUpdate();
 			
