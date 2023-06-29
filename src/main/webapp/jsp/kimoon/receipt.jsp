@@ -34,8 +34,8 @@
 	<tr><td colspan="5">TEL 1544-0714</td></tr>
 	
 	<tr><td colspan="5" class="receipt-date">
-	<c:set var="now" value="<%=new java.util.Date()%>" />
-	거래일시 : <fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss" />
+		<c:set var="now" value="<%=new java.util.Date()%>" />
+		거래일시 : <fmt:formatDate value="${now}" pattern="yyyy-MM-dd hh:mm:ss" />
 	</td></tr>
 	
 	<tr>
@@ -100,31 +100,25 @@
 	</c:if>
 	
 	<tr>
-    <td colspan="4">결제 종류 : 
-    <c:if test="${sessionScope.howPayment  eq 'card'}">
-    카드
-    </c:if>
-    <c:if test="${sessionScope.howPayment  eq 'cash'}">
-    현금
-    </c:if>
-    </td>
-    
-    
+    	<td colspan="4">결제 종류 : 
+    		<c:if test="${sessionScope.howPayment  eq 'card'}">
+    		카드
+    		</c:if>
+    		<c:if test="${sessionScope.howPayment  eq 'cash'}">
+    		현금
+   	 	</c:if>
+    	</td>
     </tr>
 	
 	<c:if test="${sessionScope.howPoint eq 'savePoint'}"> <!-- 포인트 적립시 -->
 	<tr>
-	<td colspan="4">현재 포인트</td>
-	<td>
-		${sessionScope.user.remainPoint }<br>
-	</td>
+		<td colspan="4">현재 포인트 : ${sessionScope.user.remainPoint }</td>
 	</tr>
 	</c:if>
 	
-	
-	
 	<tr><td colspan="5"><button onclick="location.href='HC'" id="resetLocalStorage" class="receipt-button">처음으로</button></td></tr>
 </table>
+
 </div>
 </body>
 </html>
