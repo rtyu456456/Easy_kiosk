@@ -31,37 +31,37 @@
         
         <ul class="nav__menu">
           <li>
-            <button onclick="location.href='GeneralCoffeeCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralCoffeeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralCoffeeCon">
               커피
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBeverageCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralBeverageCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBeverageCon">
               음료
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBlendingTeaCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralBlendingTeaCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBlendingTeaCon">
               블렌딩 티
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralFlatccinoCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralFlatccinoCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralFlatccinoCon">
               플랫치노
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralShakeAdeCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralShakeAdeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralShakeAdeCon">
               쉐이크&<br />에이드
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralIceFlakeCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralIceFlakeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralIceFlakeCon">
               빙수
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBreadCon'" class="nav__menu__btns">
+            <button onclick="location.href='GeneralBreadCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBreadCon">
               빵
             </button>
           </li>

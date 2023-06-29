@@ -19,7 +19,7 @@
 	  	<div class="grid-item" onclick="openModal('${m.img}', '${m.name }', ${m.price }, '${m.ice }', '${m.desc }', '${m.option }', '${m.size }')">
 	  	<img src="${m.img }" style="position: relative; top: 15px;"/>
 	    <h3 style="margin-bottom: 6px; font-weight: 800;">${m.name}</h3>
-	    <p style="margin-top: 6px; font-weight: 800; font-size: 24px;">${m.price}원</p>
+	    <p style="margin-top: 6px; font-weight: 800; font-size: 24px; color: #BD433B;">${m.price}원</p>
 	    </div>
 	  	</c:forEach>
 	  </div>

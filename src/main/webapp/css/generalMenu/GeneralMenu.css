@@ -30,7 +30,13 @@ ul {
   transform: translate(-50%, -50%);
   width: 1920px;
   height: 1082px;
-  background-color: var(--container-bgc);
+  background: rgba( 1, 30, 97, 0.95 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9.5px );
+  -webkit-backdrop-filter: blur( 9.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  /*   background-color: var(--container-bgc); */
 }
 
 /* nav area */
@@ -43,19 +49,22 @@ ul {
   left: 20px;
   width: 288px;
   height: 1038px;
-  background-color: var(--section-bgc);
-  border: 3px solid var(--container-bgc);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: rgba( 255, 255, 255, 0.85 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
   border-radius: 30px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .nav__menu {
   margin: 0;
   padding: 0px 12px;
   text-align: center;
+  cursor: pointer;
 }
 
 .nav__menu__btns {
@@ -63,12 +72,17 @@ ul {
   font-style: normal;
   font-weight: 600;
   font-size: 26px;
+  color: var(--container-bgc);
   margin: 18px auto;
   padding: 8px 24px;
   width: 180px;
   border-radius: 30px;
-  border: 1px solid var(--section-bgc);
-  color: var(--container-bgc);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 255, 255, 255, 0.9 );
+  box-shadow: 0 2px 6px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18.5px );
+  -webkit-backdrop-filter: blur( 18.5px );
+  cursor: pointer;
 }
 
 /* :hover 부분은 잠시 임시로만 작성 js로 온클릭 이벤트 처리해줘야됨 */
@@ -76,6 +90,12 @@ ul {
   background-color: var(--container-bgc);
   padding: 8px 24px;
   border-radius: 30px;
+  color: var(--section-bgc);
+  cursor: pointer;
+}
+
+.nav__menu__btns.active {
+  background-color: var(--container-bgc);
   color: var(--section-bgc);
 }
 
@@ -151,9 +171,12 @@ ul {
   height: 943px;
   left: 372px;
   top: 61px;
-  background-color: var(--section-bgc);
-  border: 3px solid var(--container-bgc);
-  border-radius: 30px;
+  background: rgba( 241, 242, 246, 0.65 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 /* aside area (cart 장바구니) */
@@ -164,13 +187,14 @@ ul {
 .aside {
   position: absolute;
   width: 270px;
-  height: 1081px;
+  height: 1080px;
   left: 1626px;
   top: 0px;
-  background-color: var(--section-bgc);
-  border: 1.5px solid var(--container-bgc);
-  border-radius: 26px;
-  border-color: var(--container-bgc);
+  border-radius: 30px;
+  background: rgba( 255, 255, 255, 0.9 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18.5px );
+  -webkit-backdrop-filter: blur( 18.5px );
 }
 
 #line {
@@ -185,12 +209,13 @@ ul {
 
 #line2 {
   display: inline-block;
-  width: 320px;
+  width: 270px;
   height: 2px;
-  background-color: var(--container-bgc);
+  background-color: rgba( 1, 30, 97, 0.85 );
   position: absolute;
-  left: -60px;
+  left: -32px;
   top: 66px;
+  margin-top: 8px;
 }
 
 .aside__grid-container {
@@ -211,17 +236,19 @@ ul {
     font-style: normal;
 	font-size: 22px;
 	color: var(--container-bgc);
+	cursor: pointer;
 }
 
 .aside__payText {
   color: var(--container-bgc);
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 800;
 }
 
 .aside__payPrice {
   color: var(--payBtn-bgc);
   font-size: 28px;
+  font-weight: 800;
 }
 
 @keyframes pulse {
@@ -244,7 +271,7 @@ ul {
   left: -5px;	
   top: 958px;
   color: var(--section-bgc);
-  font-size: 26px;
+  font-size: 28px;
   width: 100%;
   height: 112px;	
   background-color: var(--container-bgc);
@@ -252,6 +279,7 @@ ul {
   border: 1px solid var(--section-bgc);
   outline: none;
   animation: pulse 1.6s infinite; /* 'pulse' 애니메이션을 2초 동안 무한 반복합니다. */
+  cursor: pointer;
 }
 
 .aside__payBtn:hover {
@@ -259,7 +287,7 @@ ul {
   left: -5px;	
   top: 958px;
   color: var(--section-bgc);
-  font-size: 26px;
+  font-size: 28px;
   width: 100%;
   height: 112px;	
   background-color: var(--container-bgc);

@@ -26,6 +26,7 @@ let mediumBtn = document.querySelector("#size-medium");
 const addCart = modal.querySelector("#cart-btn");
 const plusbtn = modal.querySelector("#plus-btn");
 const minusbtn = modal.querySelector("#minus-btn");
+const aside__payBtn = document.querySelector(".aside__payBtn");
 
 // 옵션까지 똑같은 음료에 대한 장바구니내 가격계산 함수
 function calSameCoffeePrice(item) {
@@ -91,14 +92,19 @@ function displayCartItems() {
 		// 상위 요소를 생성 // iceOrHot 여부에 따라서 배경색 유동적으로 설정
 		let itemContainer = document.createElement("div");
 		itemContainer.style.textAlign = "center";
-		itemContainer.style.border = "1.6px solid #011E61";
 		itemContainer.style.borderRadius = "6px";
 		itemContainer.style.margin = "5px";
 		itemContainer.style.padding = "6px 25px";
 		if (item.iceOrHot === null) {
-			itemContainer.style.backgroundColor = "#fad390";
+//			itemContainer.style.backgroundColor = "#fad390";
+			itemContainer.style.backgroundColor = "rgba( 245, 166, 35, 0.2 )";
+			itemContainer.style.boxShadow = "0 2px 8px 0 rgba(31, 38, 135, 0.37)";
+			itemContainer.style.backdropFilter = "blur(16px)";
+			itemContainer.style.webkitBackdropFilter = "blur(16px)";
+			itemContainer.style.border = "1.6px solid rgba( 255, 255, 255, 0.18 )";
 		} else {
-			itemContainer.style.backgroundColor = item.iceOrHot === "ice" ? "#60a1ff" : "#ea8685";
+			itemContainer.style.backgroundColor = item.iceOrHot === "ice" ? "rgba( 74, 144, 226, 0.25 )" : "rgba( 208, 2, 27, 0.25 )";
+			itemContainer.style.border = item.iceOrHot === "ice" ? "1.6px solid #011E61" : "1.6px solid #BD433B";   
 		}
 		itemContainer.classList.add("itemContainer");
 
@@ -113,12 +119,12 @@ function displayCartItems() {
 
 		let minusBtn = document.createElement("button");
 		minusBtn.innerText = "-";
-		minusBtn.style.marginRight = "5px";
-		minusBtn.style.padding = "2px 10px";
-		minusBtn.style.fontSize = "18px";
-		minusBtn.style.fontWeight = "600";
+		minusBtn.style.marginRight = "6px";
+		minusBtn.style.padding = "1px 9px";
+		minusBtn.style.fontSize = "24px";
+		minusBtn.style.fontWeight = "500";
 		minusBtn.style.color = "#dee";
-		minusBtn.style.backgroundColor = "#BD433B";
+		minusBtn.style.backgroundColor = "rgba( 228, 41, 59, 1 )";
 		minusBtn.onclick = () => {
 			if (item.cnt > 1) {
 				item.cnt--;
@@ -131,12 +137,12 @@ function displayCartItems() {
 
 		let plusBtn = document.createElement("button");
 		plusBtn.innerText = "+";
-		plusBtn.style.marginLeft = "5px";
-		plusBtn.style.padding = "2px 10px";
-		plusBtn.style.fontSize = "18px";
+		plusBtn.style.marginLeft = "6px";
+		plusBtn.style.padding = "1px 9px";
+		plusBtn.style.fontSize = "24px";
 		plusBtn.style.fontWeight = "500";
 		plusBtn.style.color = "#dee";
-		plusBtn.style.backgroundColor = "#0b3598";
+		plusBtn.style.backgroundColor = "rgba( 17, 94, 228, 1 )";
 		plusBtn.onclick = () => {
 			item.cnt++;
 			updateCartItem(index, item);
@@ -149,17 +155,18 @@ function displayCartItems() {
 		// 삭제 버튼의 컨테이너 생성, 나중에 css파일에 이쪽에서 제어하는 css부분들 분리해줄예정
 		let deleteBtnContainer = document.createElement("div");
 		deleteBtnContainer.style.textAlign = "end";
-		deleteBtnContainer.style.marginTop = "-8px";
-		deleteBtnContainer.style.marginRight = "-19px";
+		deleteBtnContainer.style.marginTop = "-6.6px";
+		deleteBtnContainer.style.marginRight = "-26px";
 		deleteBtnContainer.style.marginBottom = "10px";
 
 		let deleteBtn = document.createElement("button");
 		deleteBtn.classList.add("dBtn");
 		deleteBtn.innerText = "X";
-		deleteBtn.style.fontSize = "18px";
+		deleteBtn.style.fontSize = "20px";
 		deleteBtn.style.fontWeight = "500";
 		deleteBtn.style.color = "#222";
-		deleteBtn.style.backgroundColor = "grey";
+		deleteBtn.style.backgroundColor = "rgba( 155, 155, 155, 1 )";
+		deleteBtn.style.borderRadius = "2px";
 		deleteBtn.onclick = () => {
 			let opacity = 1; // 시작 투명도를 설정합니다.
 
@@ -272,7 +279,7 @@ function animate(image) {
 	}
 }
 
-
+// 모달 여는, 열때 함수
 function openModal(imageSrc, name, price, ice, desc, options, size) {
 
 	console.log(imageSrc);
@@ -495,6 +502,20 @@ closeBtn.addEventListener("click", () => {
 	largeBtn.style.backgroundColor = "#515e7e";
 	modal.close();
 });
+
+
+// 페이지 로드 시 setActiveButton 함수를 호출하여 현재 페이지에 해당하는 버튼을 강조 표시합니다.
+document.addEventListener('DOMContentLoaded', setActiveButton);
+
+function checkCartIsEmpty() {
+  let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  if (cartItems.length === 0) {
+    alert("장바구니가 비어 있습니다. 상품을 추가해주세요.");
+    return false; // 폼 제출을 막기 위해 false 반환.
+  }
+  
+  return true; // 폼 제출을 허용하려면 true 반환.
+}
 
 // 페이지 로드되고 장바구니 보여주기
 window.onload = function() {
