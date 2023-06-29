@@ -19,7 +19,6 @@
 			</button>
 		</c:forEach>
 	</div>
-
 	<dialog id="modal">
 	<div class="con">
 		<div id="modal-header">

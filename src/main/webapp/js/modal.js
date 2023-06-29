@@ -31,6 +31,24 @@ const MAX_ITEMS = 15;
 /*cart라는 객체를 json을 통해 localStorage에 담고 다시 json을 통해 js로 옮기는 과정*/
 function addCartItem(cart) {
 	console.log(cart);
+	if(cart.name === "진한우유커피 (카푸치노)"){
+		cart.name = "카푸치노";
+	}
+	if(cart.name === "초코커피 (카페 모카)"){
+		cart.name = "카페 모카";
+	}
+	if(cart.name === "우유커피 (카페라떼)"){
+		cart.name = "카페라떼";
+	}
+	if(cart.name === "저온추출커피 (콜드브루 아메리카노)"){
+		cart.name = "콜드브루 아메리카노";
+	}
+	if(cart.name === "카라멜커피 (카라멜 마끼아또)"){
+		cart.name = "카라멜 마끼아또";
+	}
+	if(cart.name === "밀크쉐이크 (오리진 쉐이크)"){
+		cart.name = "오리진 쉐이크";
+	}
 
 	let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
 	console.log(cartItems);
