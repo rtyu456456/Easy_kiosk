@@ -64,21 +64,21 @@ aside__payBtn.onclick=()=>{
 const contentPage = document.querySelector(".grid-content-box");
 console.log(contentPage.value);
 if (contentPage.value === "0") {
+	contentPage.classList.add("disabled");
 	contentPage.disabled = true;
 	contentPage.style.backgroundColor = 'gray';
+	let soldoutImg = document.createElement("img");
+	soldoutImg.src = "img/SoldOut.png";
+	soldoutImg.style.position = "absolute";
+	soldoutImg.style.top = "80px";
+	soldoutImg.style.right = "45px";
+	soldoutImg.style.width = "250px";
+	soldoutImg.style.height = "250px";
+
+	contentPage.appendChild(soldoutImg);
 }
 
 
-let soldoutImg = document.createElement("img");
-soldoutImg.style.zIndex = "3";
-soldoutImg.src = "img/SoldOut.png";
-soldoutImg.style.position = "absolute";
-soldoutImg.style.top = "80px";
-soldoutImg.style.right = "45px";
-soldoutImg.style.width = "250px";
-soldoutImg.style.height = "250px";
-
-contentPage.appendChild(soldoutImg);
 
 
 

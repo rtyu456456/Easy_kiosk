@@ -13,6 +13,7 @@
 		<c:forEach var="menus" items="${menus }">
 			<button class="grid-content-box" value="${menus.m_soldout }"
 				onclick="modalPage('${menus.m_img}', '${menus.m_name }', ${menus.m_price }, '${menus.m_ice }', '${menus.m_size }')">
+				
 				<img src="${menus.m_img }">
 				<div id="content-box-name">${menus.m_name}</div>
 				<div id="content-box-price">${menus.m_price }원</div>
@@ -20,6 +21,7 @@
 		</c:forEach>
 	</div>
 
+<!-- <span class="s-name"></span> -->
 
 	<dialog id="modal">
 	<div class="con">

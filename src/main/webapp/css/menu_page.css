@@ -277,17 +277,6 @@
 	position: relative;
 }
 
-/* .soldout{
-	position: relative;
-	background-color: #c0c0c0;
-	width: 350px;
-	height: 400px;
-	border-radius: 20px;
-	z-index: 1;
-	filter: blur(2px);
-}
- */
-
 .grid-content-box {
 	position: relative;
 	background-color: white;
@@ -296,7 +285,6 @@
 	border: 1px solid #011E61;
 	border-radius: 20px;
 	text-align: center;
-/* 	z-index: -1; */
 }
 
 .grid-content-box img {
@@ -311,9 +299,13 @@
 	transform: scale(1.2);
 }
 
+.grid-content-box.disabled {
+  pointer-events: none;
+}
+
 #content-box-name {
 	font-weight: 600;
-	font-size: 40px;
+	font-size: 33px;
 	color: #011E61;
 	position: relative;
 	bottom: 10px;
