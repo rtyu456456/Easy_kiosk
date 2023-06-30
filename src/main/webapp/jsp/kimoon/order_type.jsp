@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>주문 방식 선택</title>
 </head>
+<script type="text/javascript" src="js/deleteLocalStorage.js"></script>
 <body>
 
 	<iframe src="./mp3/silence.mp3" id="audio" style="display:none"></iframe>

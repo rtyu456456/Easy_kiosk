@@ -435,30 +435,37 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 		});
 
 		// 옵션세팅
-		for (const option in selectedOptions) {
-			// ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
-			if (ice == 3 && options == 'NONE' && size == 0 || ice == 1 && size == 0 && options == 'NONE') {
-				break;
-			} else if (size == 0 && ice == 0 && selectedOptions.optionSize === null && selectedOptions.iceOrHot !== null) {
-				// size가 0인 경우에 처리할 로직
-				// 예외로 처리할 조건에 해당하는 경우.
-				break;
-			} else if (size == 1 && ice == 1 && selectedOptions.optionSize !== null && selectedOptions.iceOrHot === null) {
-				alert('음료의 온도(Ice,Hot)을 선택해주세요');
-				return;
-			} else if (selectedOptions.iceOrHot === null) {
-				// iceOrHot 옵션을 선택하지 않은 경우에 대한 처리 로직
-				alert('음료의 온도(Ice,Hot)을 선택해주세요');
-				return;
-			} else if (selectedOptions.optionSize === null) {
-				// optionSize 옵션을 선택하지 않은 경우에 대한 처리 로직
-				alert('음료의 사이즈를 선택해주세요');
-				return;
-			} else {
-				// 선택된 옵션이 모두 존재하는 경우에 대한 처리 로직
-				// 여기에 원하는 동작을 추후에 추가가능.
-			}
-		}
+        for (const option in selectedOptions) {
+            // ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
+            if (ice == 3 && options == 'NONE' && size == 0 || ice == 1 && size == 0 && options == 'NONE') {
+                break;
+            } else if (size == 0 && ice == 0 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
+                selectedOptions.iceOrHot = 'hot';
+                // size가 0인 경우에 처리할 로직
+                // 예외로 처리할 조건에 해당하는 경우.
+                break;
+            } else if (size == 1 && ice == 1 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
+                selectedOptions.iceOrHot = 'ice';
+                alert('음료의 사이즈를 선택해주세요');
+                return;
+            } else if (size == 1 && ice == 1 && selectedOptions.optionSize !== null && selectedOptions.iceOrHot === null) {
+                selectedOptions.iceOrHot = 'ice';
+
+            } else if (selectedOptions.iceOrHot === null && size != 1 && ice != 1) {
+                // iceOrHot 옵션을 선택하지 않은 경우에 대한 처리 로직
+                alert('음료의 온도(Ice,Hot)을 선택해주세요');
+                return;
+            } else if (selectedOptions.optionSize === null && size != 0 && ice != 0) {
+                if (selectedOptions.iceOrHot === null && size == 1 && ice == 2) {
+                    alert('음료의 온도(Ice,Hot)을 선택해주세요');
+                }
+                    alert('음료의 사이즈를 선택해주세요');
+                    return;
+            } else {
+                // 선택된 옵션이 모두 존재하는 경우에 대한 처리 로직
+                // 여기에 원하는 동작을 추후에 추가가능.
+            }
+        }
 
 		// cart객체랑 selectedOptions객체 합쳐진 객체로 다시 세팅
 		cart = {
