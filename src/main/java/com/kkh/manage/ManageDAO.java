@@ -313,7 +313,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_SALES WHERE S_CONFIRM = 0 ORDER BY SYSDATE DESC";
+		String sql = "SELECT * FROM EK_SALES WHERE S_CONFIRM = 0 ORDER BY S_DATE DESC";
 
 		try {
 			con = DBManager.connect();
@@ -394,6 +394,49 @@ public class ManageDAO {
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, null);
+		}
+	}
+
+	public static void showSales(HttpServletRequest request) {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "SELECT TRUNC(S_DATE, 'DD') AS \"날짜\", SUM(S_PRICE) AS \"총매출\" FROM EK_SALES WHERE S_CONFIRM = 1 GROUP BY TRUNC(S_DATE, 'DD') ORDER BY \"날짜\"";
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+
+			ArrayList<Sales> sales = new ArrayList<Sales>();
+			while (rs.next()) {
+				Sales sales = new Sales();
+				order.setS_no(rs.getInt("S_NO"));
+				String howPoint = "포인트 적립";
+				if(rs.getString("S_TEL").equals("00000000")) {
+					howPoint = "포인트 미적립";
+				}
+				order.setS_tel(howPoint);
+				order.setS_menu(rs.getString("S_MENU"));
+				order.setS_count(rs.getString("S_COUNT"));
+				order.setS_price(rs.getInt("S_PRICE"));
+				order.setS_confirm(rs.getInt("S_CONFIRM"));
+				String orderType = "매장";
+				if(rs.getString("S_TYPE").equals("takeout")) {
+					orderType = "포장";
+				}
+				order.setS_type(orderType);
+				order.setS_date(rs.getDate("S_DATE"));
+				orders.add(order);
+			}
+
+			request.setAttribute("orders", orders);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, rs);
 		}
 	}
 
