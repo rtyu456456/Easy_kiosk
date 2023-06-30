@@ -63,7 +63,8 @@ pageEncoding="UTF-8"%>
       	<p class="aside__payText">총 결제 금액</p>
       	<p class="aside__payPrice" id="total-cart-price"></p>
 	    <div class="payBtnCon">
-      	  <form action="EarnPointC" method="get" onsubmit="return checkCartIsEmpty()">
+      	  <form action="EarnPointC" method="get" id="testForm" onsubmit="return checkCartIsEmpty()">
+	      	<input hidden name="items">
       	    <button class="aside__payBtn"><i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기</button>
 		  </form>
     	</div>
