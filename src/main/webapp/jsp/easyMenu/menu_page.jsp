@@ -118,7 +118,7 @@
 			<p class="aside__payText">총 결제 금액</p>
 			<p class="aside__payPrice" id="basket-total-price"></p>
 			
-			<form action="PaymentMethodC" id="testForm">
+			<form action="EasyPaymentMethodC" id="testForm">
 			<input type="hidden" name="items">
 				<button class="aside__payBtn" onclick="getCartItems()">
 					<i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기

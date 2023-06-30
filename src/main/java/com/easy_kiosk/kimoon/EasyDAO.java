@@ -350,6 +350,77 @@ public class EasyDAO {
 		}
 
 	}
+	
+	public void EasyjsonToURL(HttpServletRequest request) {
+		
+		try {
+			String items = request.getParameter("items");
+			System.out.println(items); // json 문자열덩어리
+
+			JSONParser jp = new JSONParser();
+
+			JSONArray getData = (JSONArray) jp.parse(items);
+			System.out.println(getData);
+			int price = 0;
+			int cnt = 0;
+			int unitPrice = 0;
+			String name = "";
+			String iceOrHot = "";
+			String optionSize = "";
+			String shot = "";
+			String syrup = "";
+			String cream = "";
+
+			User user = new User();
+			for (Object item : getData) {
+				JSONObject jsonObject = (JSONObject) item;
+				price += (int) (long) jsonObject.get("price");
+			}
+			user.setTotalPrice(price);
+
+			ArrayList<Menus> menuList = new ArrayList<Menus>();
+			for (Object item : getData) {
+				JSONObject jsonObject = (JSONObject) item;
+
+				cnt = (int) (long) jsonObject.get("count");
+				unitPrice = (int) (long) jsonObject.get("unitPrice");
+				name = (String) jsonObject.get("name");
+				optionSize = (String) jsonObject.get("optionSize");
+				iceOrHot = (String) jsonObject.get("iceOrHot");
+				System.out.println("SimplePrice: " + price);
+				System.out.println("cnt: " + cnt);
+				System.out.println("unitPrice: " + unitPrice);
+				System.out.println("name: " + name);
+				System.out.println("optionSize: " + optionSize);
+				System.out.println("iceOrHot: " + iceOrHot);
+				System.out.println("shot: " + shot);
+				System.out.println("syrup: " + syrup);
+				System.out.println("cream: " + cream);
+				System.out.println("------------------");
+				Menus menus = new Menus();
+				menus.setCnt(cnt);
+				menus.setUnitPrice(unitPrice);
+				menus.setName(name);
+				menus.setOptionSize(optionSize);
+				menus.setIceOrHot(iceOrHot);
+				menus.setShot(shot);
+				menus.setSyrup(syrup);
+				menus.setCream(cream);
+				menuList.add(menus);
+			}
+
+			HttpSession session = request.getSession();
+			session.setAttribute("user", user);
+			session.setAttribute("menus", menuList);
+			System.out.println(user.getTotalPrice());
+			System.out.println("menuList : " + menuList);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		
+	}
+
 
 	public void resetSession(HttpServletRequest request) { // 처음으로 돌아갈때 호출되는 세션 삭제
 		HttpSession session = request.getSession();
@@ -367,7 +438,9 @@ public class EasyDAO {
 		HttpSession session = request.getSession();
 		session.removeAttribute("howPoint");
 		User user = (User) request.getSession().getAttribute("user");
+		if(user != null) {
 		user.setPhoneNumber(null);
+		}
 	}
 
 	public void confirmOrder(HttpServletRequest request) { // 관리자 매상매출 테이블에 주문확인/취소용 값 넣기
@@ -417,4 +490,5 @@ public class EasyDAO {
 
 	}
 
+	
 }

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 public class PaymentMethodC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		if(request.getParameter("savePoint") != null){ // 포인트 적립시에만
 			EasyDAO.getEasyDAO().savePointForView(request); // 포인트 적립(DB적용X, 예상 수치 보여주기만)
 		} else {
