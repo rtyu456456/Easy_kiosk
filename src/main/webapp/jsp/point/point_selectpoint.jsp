@@ -24,7 +24,7 @@
 			</c:if>
 		</div>
 		<div class="point-selectpoint-under-white">
-			<span class="point-selectpoint-pluspoint-text">예상 적립 포인트 : <span class="point-selectpoint-pluspoint">600원</span></span>
+			<span class="point-selectpoint-pluspoint-text">예상 적립 포인트 : <span class="point-selectpoint-pluspoint">${sessionScope.user.remainPoint }원</span></span>
 			<button type="button" onclick="location.href='PaymentMethodC?savePoint=savePoint'" class="point-selectpoint-savepoint">적립하기</button>
 		</div>
 	<!--

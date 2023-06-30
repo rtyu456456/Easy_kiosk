@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+.receipt-border{
+	margin : 100px 30% 100px;
+	width: 40%;
+    border: 2px solid black;
+    height: auto;
+}
+.receipt-container {
+	margin: 80px;
+    width: 80%;
+    border-collapse: collapse;
+}
+
+
+
+.receipt-title {
+	text-align: center;
+	font-size: 30pt;
+}
+
+.receipt-whereToEat {
+	text-align: center;
+	font-size: 30pt;
+	border-bottom-style: dashed;
+}
+
+.receipt-orderNum-text {
+	text-align: center;
+	font-size: 30pt;
+}
+
+.receipt-orderNum {
+	text-align: center;
+	font-size: 50pt;
+	font-weight: border;
+}
+
+.receipt-date {
+	border-bottom-style: double;
+}
+
+.receipt-category {
+	text-align: center;
+}
+
+.receipt-menus-name, .receipt-menus-unitPrice, .receipt-menus-cnt, .receipt-menus-unitTotalPrice {
+	vertical-align : top;
+}
+
+.receipt-finalPrice {
+	border-top-style: double;
+	border-bottom-style: double;
+}
+
+.receipt-border-bottom{
+	border-bottom: 1px solid gray;
+}
+
+.receipt-button {
+	margin-left: 262px;
+    margin-top: 49px;
+    width: 100px;
+    height: 50px;
+    font-size: 19px;
+    font-weight: bolder;
+    background: #011e61;
+    color: white;
+    border-radius: 18px;
+}

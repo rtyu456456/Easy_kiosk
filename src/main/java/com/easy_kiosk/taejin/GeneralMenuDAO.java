@@ -69,7 +69,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'BEVERAGE'";
+			String sql = "select * from EK_MENU where M_TYPE = 'BEVERAGE' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -107,7 +107,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'BLENDING_TEA'";
+			String sql = "select * from EK_MENU where M_TYPE = 'BLENDING_TEA' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -145,7 +145,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'FLATCCINO'";
+			String sql = "select * from EK_MENU where M_TYPE = 'FLATCCINO' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -183,7 +183,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'SHAKE_ADE'";
+			String sql = "select * from EK_MENU where M_TYPE = 'SHAKE_ADE' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -221,7 +221,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'ICE_FLAKE'";
+			String sql = "select * from EK_MENU where M_TYPE = 'ICE_FLAKE' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
@@ -259,7 +259,7 @@ public class GeneralMenuDAO {
 		ResultSet rs = null;
 		
 		try {
-			String sql = "select * from EK_MENU where M_TYPE = 'BREAD'";
+			String sql = "select * from EK_MENU where M_TYPE = 'BREAD' ORDER BY M_ORDER DESC";
 			con = DBManager.connect();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();

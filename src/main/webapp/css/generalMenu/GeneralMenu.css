@@ -10,6 +10,10 @@
   box-sizing: border-box;
 }
 
+body::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+}
+
 body {
   margin: 0;
 }
@@ -25,8 +29,14 @@ ul {
   top: 50%;
   transform: translate(-50%, -50%);
   width: 1920px;
-  height: 1080px;
-  background-color: var(--container-bgc);
+  height: 1082px;
+  background: rgba( 1, 30, 97, 0.95 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 9.5px );
+  -webkit-backdrop-filter: blur( 9.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  /*   background-color: var(--container-bgc); */
 }
 
 /* nav area */
@@ -39,19 +49,22 @@ ul {
   left: 20px;
   width: 288px;
   height: 1038px;
-  background-color: var(--section-bgc);
-  border: 3px solid var(--container-bgc);
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background: rgba( 255, 255, 255, 0.85 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 15px );
+  -webkit-backdrop-filter: blur( 15px );
   border-radius: 30px;
   font-family: "Inter";
   font-style: normal;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .nav__menu {
   margin: 0;
   padding: 0px 12px;
   text-align: center;
+  cursor: pointer;
 }
 
 .nav__menu__btns {
@@ -59,12 +72,17 @@ ul {
   font-style: normal;
   font-weight: 600;
   font-size: 26px;
+  color: var(--container-bgc);
   margin: 18px auto;
   padding: 8px 24px;
   width: 180px;
   border-radius: 30px;
-  border: 1px solid var(--section-bgc);
-  color: var(--container-bgc);
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  background: rgba( 255, 255, 255, 0.9 );
+  box-shadow: 0 2px 6px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18.5px );
+  -webkit-backdrop-filter: blur( 18.5px );
+  cursor: pointer;
 }
 
 /* :hover 부분은 잠시 임시로만 작성 js로 온클릭 이벤트 처리해줘야됨 */
@@ -72,6 +90,12 @@ ul {
   background-color: var(--container-bgc);
   padding: 8px 24px;
   border-radius: 30px;
+  color: var(--section-bgc);
+  cursor: pointer;
+}
+
+.nav__menu__btns.active {
+  background-color: var(--container-bgc);
   color: var(--section-bgc);
 }
 
@@ -85,6 +109,7 @@ ul {
   background-color: transparent;
   border: none;
   outline: none;	
+  cursor: pointer;
 }
 
 .nav__top span {
@@ -95,6 +120,11 @@ ul {
 .nav__footer {
   text-align: center;
   color: var(--container-bgc);	
+}
+
+.toMainCon {
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav__footer__notice {
@@ -118,8 +148,32 @@ ul {
   font-size: 56px;
 }
 
+#cartIcon {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  color: var(--container-bgc);	 	
+}
+
+#cartIcon__text {
+  display: inline-block;
+  color: var(--container-bgc);	 
+  font-size: 22px;
+  padding: 6px 38px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+}
+
+#bell i {
+  cursor: pointer;
+}
+
 #arrow i {
   transform: rotate(180deg);
+  cursor: pointer;
+  margin-top: -3px;
+  margin-left: -28px;
 }
 
 /* main area */
@@ -130,32 +184,52 @@ ul {
   height: 943px;
   left: 372px;
   top: 61px;
-  background-color: var(--section-bgc);
-  border: 3px solid var(--container-bgc);
-  border-radius: 30px;
+  background: rgba( 241, 242, 246, 0.65 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 1.5px );
+  -webkit-backdrop-filter: blur( 1.5px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 /* aside area (cart 장바구니) */
+.cartConParent::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
 
 .aside {
   position: absolute;
-  width: 295px;
-  height: 1081px;
+  width: 270px;
+  height: 1050px;
   left: 1626px;
   top: 0px;
-  background-color: var(--section-bgc);
-  border: 3px solid #ffffff;
-  border-radius: 30px 0px 0px 30px;
+  margin: 12px 0px;
+  border-radius: 30px;
+  background: rgba( 255, 255, 255, 0.9 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 18.5px );
+  -webkit-backdrop-filter: blur( 18.5px );
 }
 
 #line {
   display: inline-block;
-  width: 246px;
+  width: 100%;
   height: 3px;
   background-color: var(--container-bgc);
   position: absolute;
   left: -5px;
   top: 780px;
+}
+
+#line2 {
+  display: inline-block;
+  width: 270px;
+  height: 2px;
+  background-color: rgba( 1, 30, 97, 0.85 );
+  position: absolute;
+  left: -32px;
+  top: 66px;
+  margin-top: 8px;
 }
 
 .aside__grid-container {
@@ -176,46 +250,64 @@ ul {
     font-style: normal;
 	font-size: 22px;
 	color: var(--container-bgc);
+	cursor: pointer;
 }
 
 .aside__payText {
   color: var(--container-bgc);
-  font-size: 26px;
-  font-weight: 600;
+  font-size: 28px;
+  font-weight: 800;
 }
 
 .aside__payPrice {
   color: var(--payBtn-bgc);
   font-size: 28px;
+  font-weight: 800;
 }
+
+@keyframes pulse {
+  0% { transform: scale(1); } /* 원래 크기 */
+  50% { transform: scale(1.05); } /* 약간 더 크게 */
+  100% { transform: scale(1); } /* 원래 크기로 돌아옵니다 */
+}
+
+/* .payBtnCon { */
+/*   width: 100%; */
+/*   height: 122.6px; */
+/*   border-radius: 2px; */
+/*   border-top: 2px; */
+/*   border-color: var(--container-bgc); */
+/*   background-color: var(--container-bgc); */
+/* } */
 
 .aside__payBtn {
   position: absolute;
-  left: -5px;	
-  top: 961px;
+  left: -0px;	
+  top: 938px;
   color: var(--section-bgc);
-  font-size: 26px;
-  width: 250px;
-  height: 116px;	
+  font-size: 28px;
+  width: 100%;
+  height: 112px;	 
   background-color: var(--container-bgc);
-  border-radius: 0px 0px 0px 30px;	
-  border: none;
+  border-radius: 30px;	
+  border: 1px solid var(--section-bgc);
   outline: none;
+  animation: pulse 1.6s infinite; /* 'pulse' 애니메이션을 2초 동안 무한 반복합니다. */
+  cursor: pointer;
 }
 
 .aside__payBtn:hover {
   position: absolute;
-  left: -3px;	
-  top: 961px;
+  left: -5px;	
+  top: 958px;
   color: var(--section-bgc);
-  font-size: 26px;
-  width: 250px;
-  height: 116px;	
+  font-size: 28px;
+  width: 100%;
+  height: 112px;	
   background-color: var(--container-bgc);
-  border-radius: 0px 0px 0px 30px;	
+  border-radius: 30px;
   border: 1px solid var(--section-bgc);
   outline: none;
-  transform: scale(1.05);
 }
 
 #pageBtn1 {

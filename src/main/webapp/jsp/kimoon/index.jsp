@@ -16,9 +16,11 @@
 <link rel="stylesheet" href="css/payment/payment_card.css">
 <link rel="stylesheet" href="css/payment/payment_cash.css">
 <link rel="stylesheet" href="css/result.css">
+<link rel="stylesheet" href="css/modal_page.css">
 </head>
 <body class="main-view">
 	<jsp:include page="${nav}"></jsp:include>
 	<jsp:include page="${contentPage}"></jsp:include>
+	
 </body>
 </html>

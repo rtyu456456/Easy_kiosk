@@ -62,6 +62,11 @@
 	color: #011E61;
 }
 
+#km-call-button{
+	background : white;
+	border: none;
+}
+
 .call-text {
 	position: absolute;
 	left: 13px;

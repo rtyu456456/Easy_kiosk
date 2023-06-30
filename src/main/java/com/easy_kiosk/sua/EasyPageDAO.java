@@ -50,6 +50,31 @@ public class EasyPageDAO {
 				
 				String no = rs.getString("m_no");
 				String name = rs.getString("m_name");
+				
+				if (name.equals("카페 모카")) {
+					name = "초코커피<br>(카페 모카)";
+				}
+				
+				if (name.equals("카푸치노")) {
+					name = "진한우유커피<br>(카푸치노)";
+				}
+				
+				if (name.equals("카페라떼")) {
+					name = "우유커피<br>(카페라떼)";
+				}
+				
+				if (name.equals("콜드브루 아메리카노")) {
+					name = "저온추출커피<br>(콜드브루 아메리카노)";
+				}
+				
+				if (name.equals("카라멜 마끼아또")) {
+					name = "카라멜커피<br>(카라멜 마끼아또)";
+				}
+				
+				
+				
+				
+				System.out.println(name);
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
 				int ice = rs.getInt("m_ice");
@@ -62,7 +87,7 @@ public class EasyPageDAO {
 				int soldout = rs.getInt("m_soldout");
 				int order = rs.getInt("m_order");
 				Menu menu = new Menu(no, name, price, img, ice, size, type, type_easy, option, desc, weather, soldout, order);
-				System.out.println(img);
+				
 				menus.add(menu);
 				
 			}
@@ -100,6 +125,10 @@ public class EasyPageDAO {
 				
 				String no = rs.getString("m_no");
 				String name = rs.getString("m_name");
+				if (name.equals("밀크티")) {
+					name = "홍차우유<br>(밀크티)";
+				}
+				
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
 				int ice = rs.getInt("m_ice");
@@ -203,6 +232,10 @@ public class EasyPageDAO {
 				
 				String no = rs.getString("m_no");
 				String name = rs.getString("m_name");
+				if (name.equals("오리진 쉐이크")) {
+					name = "밀크쉐이크<br>(오리진 쉐이크)";
+				}
+				
 				int price = rs.getInt("m_price");
 				String img = rs.getString("m_img");
 				int ice = rs.getInt("m_ice");

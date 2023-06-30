@@ -23,7 +23,7 @@ public class ResultC extends HttpServlet {
 		} else if(howPoint.equals("savePoint")) { // 포인트 적립시(그냥 else로 적으면 간편 주문시 터짐)
 			EasyDAO.getEasyDAO().savePoint(request); // 결제 끝나면 실제로 DB에 적용
 		}
-		
+		EasyDAO.getEasyDAO().confirmOrder(request); // 관리자 매상관리 테이블에 추가시킴(주문 확인/취소용)
 		request.setAttribute("nav", "nav.jsp");
 		request.setAttribute("contentPage", "result.jsp");
 		request.getRequestDispatcher("jsp/kimoon/index.jsp").forward(request, response);
