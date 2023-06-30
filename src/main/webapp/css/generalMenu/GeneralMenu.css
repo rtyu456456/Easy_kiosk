@@ -109,6 +109,7 @@ ul {
   background-color: transparent;
   border: none;
   outline: none;	
+  cursor: pointer;
 }
 
 .nav__top span {
@@ -119,6 +120,11 @@ ul {
 .nav__footer {
   text-align: center;
   color: var(--container-bgc);	
+}
+
+.toMainCon {
+  display: flex;
+  justify-content: space-around;
 }
 
 .nav__footer__notice {
@@ -159,8 +165,15 @@ ul {
   font-weight: 800;
 }
 
+#bell i {
+  cursor: pointer;
+}
+
 #arrow i {
   transform: rotate(180deg);
+  cursor: pointer;
+  margin-top: -3px;
+  margin-left: -28px;
 }
 
 /* main area */
@@ -187,9 +200,10 @@ ul {
 .aside {
   position: absolute;
   width: 270px;
-  height: 1080px;
+  height: 1050px;
   left: 1626px;
   top: 0px;
+  margin: 12px 0px;
   border-radius: 30px;
   background: rgba( 255, 255, 255, 0.9 );
   box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
@@ -257,23 +271,23 @@ ul {
   100% { transform: scale(1); } /* 원래 크기로 돌아옵니다 */
 }
 
-.payBtnCon {
-  width: 100%;
-  height: 122.6px;
-  border-radius: 2px;
-  border-top: 2px;
-  border-color: var(--container-bgc);
-  background-color: var(--container-bgc);
-}
+/* .payBtnCon { */
+/*   width: 100%; */
+/*   height: 122.6px; */
+/*   border-radius: 2px; */
+/*   border-top: 2px; */
+/*   border-color: var(--container-bgc); */
+/*   background-color: var(--container-bgc); */
+/* } */
 
 .aside__payBtn {
   position: absolute;
-  left: -5px;	
-  top: 958px;
+  left: -0px;	
+  top: 938px;
   color: var(--section-bgc);
   font-size: 28px;
   width: 100%;
-  height: 112px;	
+  height: 112px;	 
   background-color: var(--container-bgc);
   border-radius: 30px;	
   border: 1px solid var(--section-bgc);

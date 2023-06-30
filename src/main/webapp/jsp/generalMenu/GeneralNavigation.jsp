@@ -11,65 +11,63 @@
     <link rel="stylesheet" type="text/css" href="css/GeneralMenu.css" />
 	<title>일반메뉴 네비게이션</title>
 	<script type="text/javascript">
-		function toHome() {
-			alert('처음으로가는버튼 클릭됨');
-		}
 		function callEmployee() {
 			alert('직원을 호출하였습니다 고객님 잠시만 기다려주세요');
-		}
-		function toBefore() {
-			alert('이전으로가는버튼 클릭됨');
 		}
 	</script>
 </head>
 <body>
 	<nav class="nav">
         <div class="nav__top">
-          <button id="home" onclick="toHome()"><i class="fa-solid fa-house"></i></button> 
+          <button id="home" onclick="location.href='HC'"><i class="fa-solid fa-house"></i></button> 
           <span>처음으로</span>
         </div>
         
         <ul class="nav__menu">
           <li>
-            <button onclick="location.href='GeneralCoffeeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralCoffeeCon">
+            <button onclick="location.href='GeneralCoffeeCon'; savePage('GeneralCoffeeCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralCoffeeCon">
               커피
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBeverageCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBeverageCon">
+            <button onclick="location.href='GeneralBeverageCon'; savePage('GeneralBeverageCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBeverageCon">
               음료
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBlendingTeaCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBlendingTeaCon">
+            <button onclick="location.href='GeneralBlendingTeaCon'; savePage('GeneralBlendingTeaCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBlendingTeaCon">
               블렌딩 티
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralFlatccinoCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralFlatccinoCon">
+            <button onclick="location.href='GeneralFlatccinoCon'; savePage('GeneralFlatccinoCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralFlatccinoCon">
               플랫치노
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralShakeAdeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralShakeAdeCon">
+            <button onclick="location.href='GeneralShakeAdeCon'; savePage('GeneralShakeAdeCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralShakeAdeCon">
               쉐이크&<br />에이드
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralIceFlakeCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralIceFlakeCon">
+            <button onclick="location.href='GeneralIceFlakeCon'; savePage('GeneralIceFlakeCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralIceFlakeCon">
               빙수
             </button>
           </li>
           <li>
-            <button onclick="location.href='GeneralBreadCon'" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBreadCon">
+            <button onclick="location.href='GeneralBreadCon'; savePage('GeneralBreadCon');" class="nav__menu__btns" data-page="Easy_kiosk/GeneralBreadCon">
               빵
             </button>
           </li>
         </ul>
         
         <div class="nav__footer">
-          <button id="bell" onclick="callEmployee()"><i class="fa-solid fa-bell"></i></button>
-          <button id="arrow" onclick="toBefore()"><i class="fa-solid fa-arrow-right"></i></button>
+          <div class="toMainCon">
+            <button id="bell" onclick="callEmployee()"><i class="fa-solid fa-bell"></i></button>
+            <form action="MainC" method="post" class="toMainC">
+              <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+            </form>
+          </div>
           <div class="nav__footer__notice">
           	<span>직원호출</span>
           	<span>이전으로</span>

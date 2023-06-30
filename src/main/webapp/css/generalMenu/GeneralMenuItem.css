@@ -50,7 +50,7 @@ ul {
 	font-size: 20px;
 	color: var(--container-bgc);
 	transform: scale(1.07);
-	transition: all 0.35s ease-out;
+	transition: all 0.3s ease-out;
 }
 
 .grid-item img {
@@ -72,7 +72,7 @@ ul {
 .cartConParent {
 	overflow-y: auto;
     scroll-behavior: smooth;
-    margin: 23px 50px 50px 0px;
+    margin: 20px 50px 50px 0px;
     height: 70%;
 }
 
@@ -89,11 +89,14 @@ ul {
 
 .modal {
 	text-align: center;
-	background-color: var(--section-bgc);
 	width: 60%;
 	height: 1500px;
-	border: 2px solid var(--container-bgc);
-	border-radius: 12px;
+	background: rgba( 236, 240, 241, 0.8 );
+	box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+	backdrop-filter: blur( 12px );
+	-webkit-backdrop-filter: blur( 12px );
+	border-radius: 16px;
+	border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 #modalImage {

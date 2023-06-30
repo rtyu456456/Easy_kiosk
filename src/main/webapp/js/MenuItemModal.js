@@ -155,7 +155,7 @@ function displayCartItems() {
 		// 삭제 버튼의 컨테이너 생성, 나중에 css파일에 이쪽에서 제어하는 css부분들 분리해줄예정
 		let deleteBtnContainer = document.createElement("div");
 		deleteBtnContainer.style.textAlign = "end";
-		deleteBtnContainer.style.marginTop = "-6.6px";
+		deleteBtnContainer.style.marginTop = "-6.8px";
 		deleteBtnContainer.style.marginRight = "-26px";
 		deleteBtnContainer.style.marginBottom = "10px";
 
@@ -503,19 +503,42 @@ closeBtn.addEventListener("click", () => {
 	modal.close();
 });
 
-
-// 페이지 로드 시 setActiveButton 함수를 호출하여 현재 페이지에 해당하는 버튼을 강조 표시합니다.
-document.addEventListener('DOMContentLoaded', setActiveButton);
-
 function checkCartIsEmpty() {
   let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
   if (cartItems.length === 0) {
     alert("장바구니가 비어 있습니다. 상품을 추가해주세요.");
-    return false; // 폼 제출을 막기 위해 false 반환.
+    return false; // 폼 제출을 막기 위해 false 반환
   }
   
-  return true; // 폼 제출을 허용하려면 true 반환.
+  return true; // 폼 제출을 허용할땐 true 반환
 }
+
+function savePage(page) {
+    sessionStorage.setItem('selectedPage', page);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    // 모든 nav 버튼 색상 초기화
+    const allNavButtons = document.querySelectorAll('.nav__menu__btns');
+    allNavButtons.forEach(button => {
+        button.style.backgroundColor = 'rgba( 255, 255, 255, 0.9 )'; 
+        button.style.color = '#011E61'; 
+    });
+
+    // 세션에서 선택된 페이지 읽어오기
+    const selectedPage = sessionStorage.getItem('selectedPage');
+
+    if (selectedPage) {
+        // 선택된 페이지의 버튼 찾기
+        const selectedButton = document.querySelector(`button[data-page='Easy_kiosk/${selectedPage}']`);
+
+        if (selectedButton) {
+            // 버튼 색상 변경
+            selectedButton.style.backgroundColor = '#011E61'; 
+            selectedButton.style.color = '#ffffff'; 
+        }
+    }
+});
 
 // 페이지 로드되고 장바구니 보여주기
 window.onload = function() {
