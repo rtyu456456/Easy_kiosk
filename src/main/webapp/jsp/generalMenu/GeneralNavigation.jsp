@@ -19,7 +19,7 @@
 <body>
 	<nav class="nav">
         <div class="nav__top">
-          <button id="home" onclick="location.href='HC'"><i class="fa-solid fa-house"></i></button> 
+          <button id="home" onclick="location.href='HC'; removePage();"><i class="fa-solid fa-house"></i></button> 
           <span>처음으로</span>
         </div>
         
@@ -64,8 +64,8 @@
         <div class="nav__footer">
           <div class="toMainCon">
             <button id="bell" onclick="callEmployee()"><i class="fa-solid fa-bell"></i></button>
-            <form action="MainC" method="post" class="toMainC">
-              <button id="arrow"><i class="fa-solid fa-arrow-right"></i></button>
+            <form action="MainC" method="post" class="toMainC" onsubmit="removePage();">
+              <button id="arrow"><i class="fa-solid fa-arrow-right" ></i></button>
             </form>
           </div>
           <div class="nav__footer__notice">

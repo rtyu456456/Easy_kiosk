@@ -111,6 +111,7 @@ function displayCartItems() {
 		// 이미지세팅
 		let imgEl = document.createElement("img");
 		imgEl.src = item.imageSrc;
+		imgEl.style.paddingBottom = "10px";
 
 		let quantityContainer = document.createElement("div");
 		quantityContainer.style.display = "flex";
@@ -120,7 +121,7 @@ function displayCartItems() {
 		let minusBtn = document.createElement("button");
 		minusBtn.innerText = "-";
 		minusBtn.style.marginRight = "6px";
-		minusBtn.style.padding = "1px 9px";
+		minusBtn.style.padding = "1px 12px";
 		minusBtn.style.fontSize = "24px";
 		minusBtn.style.fontWeight = "500";
 		minusBtn.style.color = "#dee";
@@ -134,11 +135,13 @@ function displayCartItems() {
 
 		let quantityEl = document.createElement("span");
 		quantityEl.innerText = item.cnt;
+		quantityEl.style.fontSize = "20px";
+		quantityEl.style.fontWeight = "500";
 
 		let plusBtn = document.createElement("button");
 		plusBtn.innerText = "+";
 		plusBtn.style.marginLeft = "6px";
-		plusBtn.style.padding = "1px 9px";
+		plusBtn.style.padding = "1px 12px";
 		plusBtn.style.fontSize = "24px";
 		plusBtn.style.fontWeight = "500";
 		plusBtn.style.color = "#dee";
@@ -522,6 +525,10 @@ function checkCartIsEmpty() {
 
 function savePage(page) {
     sessionStorage.setItem('selectedPage', page);
+}
+
+function removePage() {
+    sessionStorage.removeItem('selectedPage');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
