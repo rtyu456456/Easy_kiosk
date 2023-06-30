@@ -16,10 +16,15 @@
 	<main class="main">
 	  <div class="grid-container">
 	  	<c:forEach items="${M}" var="m">
-	  	<div class="grid-item" onclick="openModal('${m.img}', '${m.name }', ${m.price }, '${m.ice }', '${m.desc }', '${m.option }', '${m.size }')">
+	  	<div class="grid-item" data-value="${m.soldout}" onclick="openModal('${m.img}', '${m.name }', ${m.price }, '${m.ice }', '${m.desc }', '${m.option }', '${m.size }')">
+	  	<c:if test="${m.soldout == 0 }">
+	  	<img alt="soldOutImg" src="img/soldOutPng.png" style="margin-top: 26px;">
+	  	</c:if>
+	  	<c:if test="${m.soldout == 1 }">
 	  	<img src="${m.img }" style="position: relative; top: 15px;"/>
+	  	</c:if>
 	    <h3 style="margin-bottom: 6px; font-weight: 800;">${m.name}</h3>
-	    <p style="margin-top: 6px; font-weight: 800; font-size: 24px;">${m.price}원</p>
+	    <p style="margin-top: 6px; font-weight: 800; font-size: 24px; color: #BD433B;">${m.price}원</p>
 	    </div>
 	  	</c:forEach>
 	  </div>
