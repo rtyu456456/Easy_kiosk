@@ -52,7 +52,7 @@
 	font-weight: 600;
 	font-size: 70px;
 	line-height: 97px;
-	color: #011E61;
+	color: white;
 	border: 0;
 	background-color: #c0c0c0;
 }
@@ -86,7 +86,7 @@
 	font-weight: 600;
 	font-size: 70px;
 	line-height: 97px;
-	color: #011E61;
+	color: white;
 	border: 0;
 	background-color: #c0c0c0;
 }
@@ -120,12 +120,12 @@
 	font-weight: 600;
 	font-size: 60px;
 	line-height: 97px;
-	color: #011E61;
+	color: white;
 	border: 0;
 	background-color: #c0c0c0;
 }
 
-#dessert-button:hover{
+#dessert-button:hover {
 	position: absolute;
 	width: 224px;
 	height: 115px;
@@ -154,7 +154,7 @@
 	font-weight: 600;
 	font-size: 70px;
 	line-height: 97px;
-	color: #011E61;
+	color: white;
 	border: 0;
 	background-color: #c0c0c0;
 }
@@ -264,20 +264,18 @@
 	width: 1184px;
 	height: 943px;
 	text-align: center;
-	left:16%;
+	left: 16%;
 	top: 5%;
 }
 
-.grid-contents{
+.grid-contents {
 	display: grid;
 	grid-template-columns: repeat(2, 400px);
-	grid-template-rows: repeat(2, 1fr); 
+	grid-template-rows: repeat(2, 1fr);
 	grid-gap: 50px;
 	margin: 0 auto;
- 	position: relative;
-	
+	position: relative;
 }
-
 
 .grid-content-box {
 	position: relative;
@@ -286,9 +284,7 @@
 	height: 400px;
 	border: 1px solid #011E61;
 	border-radius: 20px;
-	background-color: white;
 	text-align: center;
-	
 }
 
 .grid-content-box img {
@@ -299,21 +295,27 @@
 }
 
 .grid-content-box img:hover {
+	position: relative;
 	transform: scale(1.2);
+}
+
+.grid-content-box.disabled {
+  pointer-events: none;
 }
 
 #content-box-name {
 	font-weight: 600;
-	font-size: 40px;
+	font-size: 33px;
 	color: #011E61;
 	position: relative;
 	bottom: 10px;
 }
 
 #content-box-price {
+	position: relative;
 	font-weight: 600;
 	font-size: 35px;
-	color:#BD433B;
+	color: #BD433B;
 }
 
 /*footer*/
@@ -328,4 +330,3 @@
 	border: 3px solid #FFFFFF;
 	border-radius: 30px 0px 0px 30px;
 }
-

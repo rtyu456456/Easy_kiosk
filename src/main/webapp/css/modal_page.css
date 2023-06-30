@@ -146,6 +146,8 @@
 	font-weight: bolder;
 }
 
+
+
 #l-size {
 	width: 100px;
 	height: 100px;
@@ -154,6 +156,7 @@
 	color: #011E61;
 	font-weight: bolder;
 }
+
 
 .useIce {
 	display: flex;

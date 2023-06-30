@@ -8,7 +8,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href=css/menu_page.css>
-<link rel="stylesheet" href=css/basket_page.css>
+<link rel="stylesheet" href=css/easy_basket.css>
 <link rel="stylesheet" href=css/modal_page.css>
 <script src="https://kit.fontawesome.com/6b43b4cc79.js"
 	crossorigin="anonymous"></script>
@@ -30,11 +30,13 @@
 
 
 		<div class="header">
-			<div class="home">
-				<button id="home">
-					<i class="fa-solid fa-house"></i> 처음으로
-				</button>
-			</div>
+			<form action="HC">
+				<div class="home">
+					<button id="home">
+						<i class="fa-solid fa-house"></i> 처음으로
+					</button>
+				</div>
+			</form>
 			<jsp:include page="${easyTitlePage }"></jsp:include>
 			<div class="header-under">
 				<button id="call-button">
@@ -43,12 +45,14 @@
 					</div>
 					직원호출
 				</button>
+				<form action="MainC" method="post">
 				<button id="before-button">
 					<div>
 						<i class="fa-solid fa-arrow-right"></i>
 					</div>
 					이전으로
 				</button>
+				</form>
 			</div>
 		</div>
 
@@ -105,18 +109,29 @@
 				</c:choose>
 			</div>
 		</div>
-
-
-		<div class="easy-footer">
-			<div class="footer-page">
-				<jsp:include page="${easyBasketPage }"></jsp:include>
+		
+		<aside class="aside">
+			<div class="cartConParent">
+				<div class="aside__grid-container" id="basketContainer"></div>
 			</div>
-		</div>
+			<span id="line"></span>
+			<p class="aside__payText">총 결제 금액</p>
+			<p class="aside__payPrice" id="basket-total-price"></p>
+			
+			<form action="PaymentMethodC" id="testForm">
+			<input type="hidden" name="items">
+				<button class="aside__payBtn" onclick="getCartItems()">
+					<i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기
+				</button>
+			</form>
+		</aside>
+
+
 
 	</div>
 	<script type="text/javascript" src="js/modal.js"></script>
 	<script type="text/javascript" src="js/css.js"></script>
-	<script type="text/javascript" src="js/staff_call.js"></script>
+	<script type="text/javascript" src="js/easy_menu_page.js"></script>
 	<script type="text/javascript" src="js/basket.js"></script>
 
 </body>
