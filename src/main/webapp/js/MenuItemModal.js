@@ -499,6 +499,15 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 		console.log(ccIce.value);
 		console.log(ccImageSrc.value);
 		//modal.close();
+		
+		let optionsToReset = ['shot', 'syrup', 'cream', 'size', 'ice hot'];
+		for (let option of optionsToReset) {
+        	let foundEl = modal.querySelector("button[name='" + option + "']");
+      		  if (foundEl) {
+            	  foundEl.parentNode.style.display = 'none';
+          	  }
+    	  }
+    	  
 	};
 }
 
@@ -508,8 +517,18 @@ closeBtn.addEventListener("click", () => {
 	optionButtons.forEach(button => {
 		button.classList.remove('active');
 	});
+	
 	mediumBtn.style.backgroundColor = "#515e7e";
 	largeBtn.style.backgroundColor = "#515e7e";
+	
+	let optionsToReset = ['shot', 'syrup', 'cream', 'size', 'ice hot'];
+	for (let option of optionsToReset) {
+        let foundEl = modal.querySelector("button[name='" + option + "']");
+        if (foundEl) {
+              foundEl.parentNode.style.display = 'none';
+            }
+      }
+      
 	modal.close();
 });
 
