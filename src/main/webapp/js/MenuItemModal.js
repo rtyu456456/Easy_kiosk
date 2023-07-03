@@ -111,6 +111,7 @@ function displayCartItems() {
 		// 이미지세팅
 		let imgEl = document.createElement("img");
 		imgEl.src = item.imageSrc;
+		imgEl.style.paddingBottom = "10px";
 
 		let quantityContainer = document.createElement("div");
 		quantityContainer.style.display = "flex";
@@ -120,7 +121,7 @@ function displayCartItems() {
 		let minusBtn = document.createElement("button");
 		minusBtn.innerText = "-";
 		minusBtn.style.marginRight = "6px";
-		minusBtn.style.padding = "1px 9px";
+		minusBtn.style.padding = "1px 12px";
 		minusBtn.style.fontSize = "24px";
 		minusBtn.style.fontWeight = "500";
 		minusBtn.style.color = "#dee";
@@ -134,11 +135,13 @@ function displayCartItems() {
 
 		let quantityEl = document.createElement("span");
 		quantityEl.innerText = item.cnt;
+		quantityEl.style.fontSize = "20px";
+		quantityEl.style.fontWeight = "500";
 
 		let plusBtn = document.createElement("button");
 		plusBtn.innerText = "+";
 		plusBtn.style.marginLeft = "6px";
-		plusBtn.style.padding = "1px 9px";
+		plusBtn.style.padding = "1px 12px";
 		plusBtn.style.fontSize = "24px";
 		plusBtn.style.fontWeight = "500";
 		plusBtn.style.color = "#dee";
@@ -435,37 +438,37 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 		});
 
 		// 옵션세팅
-        for (const option in selectedOptions) {
-            // ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
-            if (ice == 3 && options == 'NONE' && size == 0 || ice == 1 && size == 0 && options == 'NONE') {
-                break;
-            } else if (size == 0 && ice == 0 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
-                selectedOptions.iceOrHot = 'hot';
-                // size가 0인 경우에 처리할 로직
-                // 예외로 처리할 조건에 해당하는 경우.
-                break;
-            } else if (size == 1 && ice == 1 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
-                selectedOptions.iceOrHot = 'ice';
-                alert('음료의 사이즈를 선택해주세요');
-                return;
-            } else if (size == 1 && ice == 1 && selectedOptions.optionSize !== null && selectedOptions.iceOrHot === null) {
-                selectedOptions.iceOrHot = 'ice';
-
-            } else if (selectedOptions.iceOrHot === null && size != 1 && ice != 1) {
-                // iceOrHot 옵션을 선택하지 않은 경우에 대한 처리 로직
-                alert('음료의 온도(Ice,Hot)을 선택해주세요');
-                return;
-            } else if (selectedOptions.optionSize === null && size != 0 && ice != 0) {
-                if (selectedOptions.iceOrHot === null && size == 1 && ice == 2) {
-                    alert('음료의 온도(Ice,Hot)을 선택해주세요');
-                }
-                    alert('음료의 사이즈를 선택해주세요');
-                    return;
-            } else {
-                // 선택된 옵션이 모두 존재하는 경우에 대한 처리 로직
-                // 여기에 원하는 동작을 추후에 추가가능.
-            }
-        }
+		for (const option in selectedOptions) {
+			// ice가 3이고, options가 NONE이며, size가 0인 경우는 예외로 처리
+			if (ice == 3 && options == 'NONE' && size == 0 || ice == 1 && size == 0 && options == 'NONE') {
+				break;
+			} else if (size == 0 && ice == 0 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
+				selectedOptions.iceOrHot = 'hot';
+				// size가 0인 경우에 처리할 로직
+				// 예외로 처리할 조건에 해당하는 경우.
+				break;
+			} else if (size == 1 && ice == 1 && selectedOptions.optionSize === null && selectedOptions.iceOrHot === null) {
+				selectedOptions.iceOrHot = 'ice';
+				alert('음료의 사이즈를 선택해주세요');
+				return;
+			} else if (size == 1 && ice == 1 && selectedOptions.optionSize !== null && selectedOptions.iceOrHot === null) {
+				selectedOptions.iceOrHot = 'ice';
+				
+			} else if (selectedOptions.iceOrHot === null && size != 1 && ice != 1) {
+				// iceOrHot 옵션을 선택하지 않은 경우에 대한 처리 로직
+				alert('음료의 온도(Ice,Hot)을 선택해주세요');
+				return;
+			} else if (selectedOptions.optionSize === null && size != 0 && ice != 0) {
+				if (selectedOptions.iceOrHot === null && size == 1 && ice == 2) {
+					alert('음료의 온도(Ice,Hot)을 선택해주세요');
+				}
+					alert('음료의 사이즈를 선택해주세요');
+					return;
+			} else {
+				// 선택된 옵션이 모두 존재하는 경우에 대한 처리 로직
+				// 여기에 원하는 동작을 추후에 추가가능.
+			}
+		}
 
 		// cart객체랑 selectedOptions객체 합쳐진 객체로 다시 세팅
 		cart = {
@@ -496,6 +499,15 @@ function openModal(imageSrc, name, price, ice, desc, options, size) {
 		console.log(ccIce.value);
 		console.log(ccImageSrc.value);
 		//modal.close();
+		
+		let optionsToReset = ['shot', 'syrup', 'cream', 'size', 'ice hot'];
+		for (let option of optionsToReset) {
+        	let foundEl = modal.querySelector("button[name='" + option + "']");
+      		  if (foundEl) {
+            	  foundEl.parentNode.style.display = 'none';
+          	  }
+    	  }
+    	  
 	};
 }
 
@@ -505,8 +517,18 @@ closeBtn.addEventListener("click", () => {
 	optionButtons.forEach(button => {
 		button.classList.remove('active');
 	});
+	
 	mediumBtn.style.backgroundColor = "#515e7e";
 	largeBtn.style.backgroundColor = "#515e7e";
+	
+	let optionsToReset = ['shot', 'syrup', 'cream', 'size', 'ice hot'];
+	for (let option of optionsToReset) {
+        let foundEl = modal.querySelector("button[name='" + option + "']");
+        if (foundEl) {
+              foundEl.parentNode.style.display = 'none';
+            }
+      }
+      
 	modal.close();
 });
 
@@ -522,6 +544,10 @@ function checkCartIsEmpty() {
 
 function savePage(page) {
     sessionStorage.setItem('selectedPage', page);
+}
+
+function removePage() {
+    sessionStorage.removeItem('selectedPage');
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -545,29 +571,6 @@ document.addEventListener("DOMContentLoaded", function() {
             selectedButton.style.color = '#ffffff'; 
         }
     }
-});
-
-function getCartItems() {
-  // 장바구니 아이템들 가져오기
-  let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
-  return cartItems;
-//  const items = document.querySelector('input[name="items"]');
-//  items.value = cartItems;
-  
-  // 가져온 아이템 정보를 사용하여 원하는 방식으로 넘어갈 수 있습니다.
-}
-
-aside__payBtn.addEventListener("click", () => {
-  // 장바구니에 담긴 모든 메뉴들의 정보를 가져오는 코드 작성
-const cartItems = getCartItems(); // 장바구니 아이템들의 정보를 가져오는 함수 호출
-let cartItems2 = JSON.stringify(cartItems);
-console.log(cartItems2);
-
-	document.querySelector('input[name=items]').value = cartItems2;
-	document.querySelector('#testForm').submit(); 
-  // 정보를 GET 요청으로 넘기는 코드 작성
-  // GET 요청을 보내는 코드 작성
-  // 이 코드는 실제로 GET 요청을 보내는 방법에 따라 다를 수 있습니다.
 });
 
 // 페이지 로드되고 장바구니 보여주기
