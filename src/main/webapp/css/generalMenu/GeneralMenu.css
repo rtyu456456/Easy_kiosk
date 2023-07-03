@@ -257,12 +257,14 @@ ul {
   color: var(--container-bgc);
   font-size: 28px;
   font-weight: 800;
+  margin-left: 52px;
 }
 
 .aside__payPrice {
   color: var(--payBtn-bgc);
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 800;
+  margin-left: 52px;
 }
 
 @keyframes pulse {
@@ -298,8 +300,8 @@ ul {
 
 .aside__payBtn:hover {
   position: absolute;
-  left: -5px;	
-  top: 958px;
+  left: -0px;	
+  top: 938px;
   color: var(--section-bgc);
   font-size: 28px;
   width: 100%;
