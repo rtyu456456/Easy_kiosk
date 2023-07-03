@@ -9,7 +9,6 @@ import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
-
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 
@@ -287,29 +286,29 @@ public class ManageDAO {
 
 	public static void paging(int page, HttpServletRequest request) {
 
-		ArrayList<Menu> menus = (ArrayList<Menu>)request.getAttribute("menus");
+		ArrayList<Menu> menus = (ArrayList<Menu>) request.getAttribute("menus");
 
 		request.setAttribute("curPageNo", page);
-		
+
 		int cnt = 7; // 한 페이지당 보여줄 개수
 		int total = menus.size(); // 총 데이터 개수
-		int pageCount = (int)Math.ceil((double)total/cnt);
-		
+		int pageCount = (int) Math.ceil((double) total / cnt);
+
 		request.setAttribute("pageCount", pageCount);
-		
+
 		int start = total - (cnt * (page - 1));
 		int end = (page == pageCount) ? -1 : start - (cnt + 1);
-		
+
 		ArrayList<Menu> items = new ArrayList<Menu>();
 		for (int i = start - 1; i > end; i--) {
 			items.add(menus.get(i));
 		}
-		
+
 		request.setAttribute("menus", items);
 	}
 
 	public static void getAllOrder(HttpServletRequest request) {
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -325,7 +324,7 @@ public class ManageDAO {
 				Order order = new Order();
 				order.setS_no(rs.getInt("S_NO"));
 				String howPoint = "포인트 적립";
-				if(rs.getString("S_TEL").equals("00000000")) {
+				if (rs.getString("S_TEL").equals("00000000")) {
 					howPoint = "포인트 미적립";
 				}
 				order.setS_tel(howPoint);
@@ -334,7 +333,7 @@ public class ManageDAO {
 				order.setS_price(rs.getInt("S_PRICE"));
 				order.setS_confirm(rs.getInt("S_CONFIRM"));
 				String orderType = "매장";
-				if(rs.getString("S_TYPE").equals("takeout")) {
+				if (rs.getString("S_TYPE").equals("takeout")) {
 					orderType = "포장";
 				}
 				order.setS_type(orderType);
@@ -349,7 +348,7 @@ public class ManageDAO {
 		} finally {
 			DBManager.close(con, pstmt, rs);
 		}
-		
+
 	}
 
 	public static void cancelOrder(HttpServletRequest request) {
@@ -375,7 +374,7 @@ public class ManageDAO {
 	}
 
 	public static void confirmOrder(HttpServletRequest request) {
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		String sql = "UPDATE EK_SALES SET S_CONFIRM = 1 WHERE S_NO = ?";
@@ -398,7 +397,7 @@ public class ManageDAO {
 	}
 
 	public static void showSales(HttpServletRequest request) {
-		
+
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -410,28 +409,24 @@ public class ManageDAO {
 			rs = pstmt.executeQuery();
 
 			ArrayList<Sales> sales = new ArrayList<Sales>();
-			while (rs.next()) {
-				Sales sales = new Sales();
-				order.setS_no(rs.getInt("S_NO"));
-				String howPoint = "포인트 적립";
-				if(rs.getString("S_TEL").equals("00000000")) {
-					howPoint = "포인트 미적립";
-				}
-				order.setS_tel(howPoint);
-				order.setS_menu(rs.getString("S_MENU"));
-				order.setS_count(rs.getString("S_COUNT"));
-				order.setS_price(rs.getInt("S_PRICE"));
-				order.setS_confirm(rs.getInt("S_CONFIRM"));
-				String orderType = "매장";
-				if(rs.getString("S_TYPE").equals("takeout")) {
-					orderType = "포장";
-				}
-				order.setS_type(orderType);
-				order.setS_date(rs.getDate("S_DATE"));
-				orders.add(order);
+
+			Sales sale = new Sales();
+			
+			
+			if(request.getParameter("period").equals("day")) {
+				
+			}
+			
+			if(request.getParameter("period").equals("week")) {
+				
+			}
+			if(request.getParameter("period").equals("month")) {
+				
+			}
+			if(request.getParameter("period").equals("select")) {
+				
 			}
 
-			request.setAttribute("orders", orders);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

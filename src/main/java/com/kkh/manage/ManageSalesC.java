@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/ManageSalesC")
 public class ManageSalesC extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		ManageDAO.showSales(request);
+		ManageDAO.showSales(request);
 		request.setAttribute("contentPage", "manage_sales.jsp");
 		request.getRequestDispatcher("jsp/manage/manage_index.jsp").forward(request, response);
 	}
