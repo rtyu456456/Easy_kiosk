@@ -65,7 +65,7 @@ pageEncoding="UTF-8"%>
 	    <div class="payBtnCon">
       	  <form action="EarnPointC" method="get" id="testForm" onsubmit="return checkCartIsEmpty()">
 	      	<input hidden name="items">
-      	    <button class="aside__payBtn"><i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기</button>
+      	    <button class="aside__payBtn" onclick="getCartItems"><i class="fa-sharp fa-solid fa-credit-card"></i> 결제하기</button>
 		  </form>
     	</div>
       </aside>

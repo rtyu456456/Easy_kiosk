@@ -573,6 +573,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+function getCartItems() {
+  // 장바구니 아이템들 가져오기
+  let cartItems = JSON.parse(localStorage.getItem("cartItems") || "[]");
+  return cartItems;
+//  const items = document.querySelector('input[name="items"]');
+//  items.value = cartItems;
+
+  // 가져온 아이템 정보를 사용하여 원하는 방식으로 넘어갈 수 있습니다.
+}
+
+const asidePayButton = document.querySelector(".aside__payBtn");
+asidePayButton.addEventListener("click", () => {
+  // 장바구니에 담긴 모든 메뉴들의 정보를 가져오는 코드 작성
+  const cartItems = getCartItems(); // 장바구니 아이템들의 정보를 가져오는 함수 호출
+let cartItems2 = JSON.stringify(cartItems);
+console.log(cartItems2);
+
+    document.querySelector('input[name=items]').value = cartItems2;
+    document.querySelector('#testForm').submit(); 
+  // 정보를 GET 요청으로 넘기는 코드 작성
+  // GET 요청을 보내는 코드 작성
+  // 이 코드는 실제로 GET 요청을 보내는 방법에 따라 다를 수 있습니다.
+});
+
+
 // 페이지 로드되고 장바구니 보여주기
 window.onload = function() {
 	displayCartItems();
