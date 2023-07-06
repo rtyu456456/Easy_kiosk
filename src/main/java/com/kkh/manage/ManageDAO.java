@@ -328,8 +328,8 @@ public class ManageDAO {
 					howPoint = "포인트 미적립";
 				}
 				order.setS_tel(howPoint);
-				order.setS_menu(rs.getString("S_MENU"));
-				order.setS_count(rs.getString("S_COUNT"));
+				order.setS_menu(rs.getString("S_Menu").replace("!", "<br>"));
+				order.setS_count(rs.getString("S_COUNT").replace("!", "<br>"));
 				order.setS_price(rs.getInt("S_PRICE"));
 				order.setS_confirm(rs.getInt("S_CONFIRM"));
 				String orderType = "매장";

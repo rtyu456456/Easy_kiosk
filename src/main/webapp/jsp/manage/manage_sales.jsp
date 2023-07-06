@@ -14,29 +14,14 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="css/reset.css">
 </head>
-<body>
-	<div class="container">
+<body >
+	<div class="container mt-5 ml-5">
 		<c:forEach items="${sales }" var="s" >
 			<input hidden class="data1" value="${s.s_date }">
 			<input hidden class="data2" value="${s.s_price }">
-		
 		</c:forEach>
-		<div class="manage-menu-type">
-			<div class="manage-item">
-				<a href="ManageSalesC?period=day"> 일별 </a>
-			</div>
-			<div class="manage-item">
-				<a href="ManageSalesC?period=week"> 주별 </a>
-			</div>
-			<div class="manage-item">
-				<a href="ManageSalesC?period=month"> 월별 </a>
-			</div>
-			<div class="manage-item">
-				<a href="ManageSalesC?period=select"> 특정일자 </a>
-			</div>
-		</div>
 		<div class="row">
-			<div class="col-md-10">
+			<div class="col-md-14">
 				<canvas id="myChartOne"></canvas>
 			</div>
 		</div>

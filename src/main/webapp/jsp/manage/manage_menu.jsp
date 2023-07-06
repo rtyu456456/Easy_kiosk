@@ -50,7 +50,7 @@
 				<div class="manage-item">
 					<img src="${m.m_img }">
 				</div>
-				<div class="manage-item">${m.m_name }</div>
+				<div class="manage-item" >${m.m_name }</div>
 				<div class="manage-item">${m.m_price }</div>
 				<div class="manage-item">${m.m_type }</div>
 				<div class="manage-item">${m.m_soldout }</div>

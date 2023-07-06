@@ -6,17 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
-	<div class="manage-menu-wrapper">
+	<div>
+	<span>주문관리</span>
+	</div>
+	<div class="manage-order-wrapper">
 		<c:forEach items="${orders }" var="s">
-			<div class="manage-menu-main">
-				<div class="manage-item">${s.s_no }</div>
-				<div class="manage-item">${s.s_tel }</div>
-				<div class="manage-item">${s.s_menu }</div>
-				<div class="manage-item">${s.s_count }</div>
-				<div class="manage-item">${s.s_price }</div>
-				<div class="manage-item">${s.s_type }</div>
+			<div class="manage-order-main">
+				<div class="manage-order-item">${s.s_no }</div>
+				<div class="manage-order-item">${s.s_tel }</div>
+				<div class="manage-order-item">${s.s_menu }</div>
+				<div class="manage-order-item">${s.s_count }</div>
+				<div class="manage-order-item">${s.s_price }</div>
+				<div class="manage-order-item">${s.s_type }</div>
 				<div>
 					<button onclick="location.href='ConfirmOrderC?s_no=${s.s_no }'">확인</button>
 					<button onclick="cancelOrder(${s.s_no })">취소</button>
