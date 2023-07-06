@@ -18,7 +18,6 @@
 				<li><a href="ManageSalesC">매상관리</a></li>
 			</ul>
 		</div>
-		<div class="manage-search">검색, 필터링, 날짜지정</div>
 		<div class="manage-main">
 			<jsp:include page="${contentPage }"></jsp:include>
 		</div>

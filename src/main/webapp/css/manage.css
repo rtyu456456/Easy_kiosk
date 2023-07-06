@@ -7,7 +7,7 @@
  grid-template-columns: 150px auto;
  grid-template-rows: 50px auto;
  grid-template-areas:
- 'logo search'
+ 'logo main'
  'navbar main';
 }
 

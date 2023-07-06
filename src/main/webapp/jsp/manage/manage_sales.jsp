@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core"  prefix="c"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,6 +16,11 @@
 </head>
 <body>
 	<div class="container">
+		<c:forEach items="${sales }" var="s" >
+			<input hidden class="data1" value="${s.s_date }">
+			<input hidden class="data2" value="${s.s_price }">
+		
+		</c:forEach>
 		<div class="manage-menu-type">
 			<div class="manage-item">
 				<a href="ManageSalesC?period=day"> 일별 </a>
@@ -29,7 +36,7 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-12">
+			<div class="col-md-10">
 				<canvas id="myChartOne"></canvas>
 			</div>
 		</div>
@@ -37,14 +44,21 @@
 </body>
 <script type="text/javascript">
 	let myChartOne = document.getElementById('myChartOne').getContext('2d');
-
+	let datas1 = document.querySelectorAll('.data1');
+	let datas2 = document.querySelectorAll('.data2');
+	
+	console.log(datas1[1].value);
+	let datas1arr = Array.from(datas1).map((data) => data.value);
+	let datas2arr = Array.from(datas2).map((data) => data.value);
+	
+	
 	let barChart = new Chart(myChartOne, {
-		type : 'bar',
+		type : 'line',
 		data : {
-			labels : [ '학원', '연구원', '출판사', '미디어사', '위니브' ],
+			labels : datas1arr,
 			datasets : [ {
 				label : '일별 매출액',
-				data : [ 10, 100, 100, 200, 500 ]
+				data : datas2arr
 			} ]
 		}
 

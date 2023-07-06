@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +23,10 @@
 				</div>
 			</div>
 		</c:forEach>
+		<form action="ConfirmOrderC" method="post">
+			<button>일괄확인</button>
+		</form>
 	</div>
-		
+
 </body>
 </html>

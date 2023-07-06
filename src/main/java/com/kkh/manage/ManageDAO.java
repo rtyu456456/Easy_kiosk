@@ -401,37 +401,60 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT TRUNC(S_DATE, 'DD') AS \"날짜\", SUM(S_PRICE) AS \"총매출\" FROM EK_SALES WHERE S_CONFIRM = 1 GROUP BY TRUNC(S_DATE, 'DD') ORDER BY \"날짜\"";
 
 		try {
 			con = DBManager.connect();
+			
+			String sql = "SELECT TRUNC(S_DATE, 'DD') AS \"날짜\", SUM(S_PRICE) AS \"총매출\" FROM EK_SALES WHERE S_CONFIRM = 1 GROUP BY TRUNC(S_DATE, 'DD') ORDER BY \"날짜\"";
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
+			
+			
 
+			
 			ArrayList<Sales> sales = new ArrayList<Sales>();
-
-			Sales sale = new Sales();
 			
-			
-			if(request.getParameter("period").equals("day")) {
-				
+			while(rs.next()) {
+				Sales sale = new Sales();
+				sale.setS_date(rs.getDate("날짜"));
+				sale.setS_price(rs.getInt("총매출"));
+				sales.add(sale);
 			}
 			
-			if(request.getParameter("period").equals("week")) {
-				
+			if(sales.size() > 5) {
+				ArrayList<Sales> sublist = (ArrayList<Sales>) sales.subList(5, sales.size()); // 5번 인덱스 이후의 부분 리스트 추출
+			    sublist.clear(); 
 			}
-			if(request.getParameter("period").equals("month")) {
-				
-			}
-			if(request.getParameter("period").equals("select")) {
-				
-			}
+			
+			System.out.println(sales);
+			
+			request.setAttribute("sales", sales);
+			
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			DBManager.close(con, pstmt, rs);
+		}
+	}
+
+	public static void confirmAllOrder(HttpServletRequest request) {
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE EK_SALES SET S_CONFIRM = 1 WHERE S_CONFIRM = 0";
+
+		try {
+			con = DBManager.connect();
+			pstmt = con.prepareStatement(sql);
+
+			System.out.println("수정성공");
+
+		} catch (Exception e) {
+			System.out.println("수정실패");
+			e.printStackTrace();
+		} finally {
+			DBManager.close(con, pstmt, null);
 		}
 	}
 

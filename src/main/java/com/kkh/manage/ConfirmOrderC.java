@@ -17,6 +17,8 @@ public class ConfirmOrderC extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		ManageDAO.confirmAllOrder(request);
+		response.sendRedirect("ManageMainC");
 	}
 
 }
