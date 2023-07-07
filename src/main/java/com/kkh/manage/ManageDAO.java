@@ -18,7 +18,7 @@ public class ManageDAO {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		String sql = "SELECT * FROM EK_MENU ORDER BY M_ORDER";
+		String sql = "SELECT * FROM EK_MENU ORDER BY M_NAME DESC";
 
 		try {
 			con = DBManager.connect();

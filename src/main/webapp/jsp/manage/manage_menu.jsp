@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,7 @@
 				<div class="manage-item">
 					<img src="${m.m_img }">
 				</div>
-				<div class="manage-item" >${m.m_name }</div>
+				<div class="manage-item">${m.m_name }</div>
 				<div class="manage-item">${m.m_price }</div>
 				<div class="manage-item">${m.m_type }</div>
 				<div class="manage-item">${m.m_soldout }</div>
@@ -138,8 +139,8 @@
 			</div>
 
 			<button id="confirmUpdate">수정</button>
+			<button type="button" id="closeUpdate">닫기</button>
 		</form>
-		<button id="closeUpdate">닫기</button>
 		</dialog>
 		<div>
 			<button id="openAdd">메뉴추가</button>
@@ -218,19 +219,34 @@
 				</div>
 
 				<button id="confirmAdd">추가</button>
+				<button type="button" id="closeAdd">닫기</button>
 			</form>
-			<button id="closeAdd">닫기</button>
 			</dialog>
 		</div>
+		<%
+		int currentPage = (Integer) request.getAttribute("curPageNo");
+		int pageCount = (Integer) request.getAttribute("pageCount");
+
+		int startPage = ((currentPage - 1) / 5) * 5 + 1;
+		int endPage = Math.min(startPage + 4, pageCount);
+
+		String baseUrl = "MenuPageC?p=";
+
+		String previousLink = (currentPage > 1) ? baseUrl + (currentPage - 1) : "#";
+		String nextLink = (currentPage < pageCount) ? baseUrl + (currentPage + 1) : "#";
+		%>
+
 		<div>
-			<a href="MenuPageC?p=1"> [맨처음] </a>
-			<c:if test="^"></c:if>
-				<a href="MenuPageC?p= "> 이전 </a>
-			<c:forEach begin="1" end="5" var="i">
-				<a href="MenuPageC?p=${i }"> [${i }] </a>
-			</c:forEach>
-				<a href="MenuPageC?p=${i } "> 다음 </a>
-			<a href="MenuPageC?p=${pageCount }"> [끝] </a>
+			<a href="<%=previousLink%>">이전</a>
+			<%
+			for (int i = startPage; i <= endPage; i++) {
+			%>
+			<a href="<%=baseUrl + i%>">[<%=i%>]
+			</a>
+			<%
+			}
+			%>
+			<a href="<%=nextLink%>">다음</a>
 		</div>
 	</div>
 </body>

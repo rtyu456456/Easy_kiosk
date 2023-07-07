@@ -13,7 +13,12 @@
 
 .manage-logo {
 	grid-area: logo;
-	border: 2px solid blue;
+}
+
+.manage-logo img{
+	position: absolute;
+	top: 10px;
+	left: 6px;
 }
 
 .manage-navbar {
@@ -26,7 +31,6 @@
 
 .manage-main {
 	grid-area: main;
-	border: 2px solid red;
 	display: grid;
 	grid-template-rows: 40px 40px 1fr;
 }
@@ -36,11 +40,14 @@
 }
 
 .manage-menu-type div {
-	width: 120px;
+	width: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 10px;
+	font-family: 'Inter';
+	font-weight: 600;
+	font-size: 13px;
 }
 
 .manage-menu-desc,
@@ -61,4 +68,79 @@
 	width: 80px;
 }
 
-.manage-order-item
+#manage-order-btn {
+	position: absolute;
+	width: 120px;
+	height: 50px;
+	left: 13px;
+	top: 70px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 30px;
+	color: white;
+	border: 0;
+	background-color: #c0c0c0;
+}
+
+#manage-menu-btn {
+	position: absolute;
+	width: 120px;
+	height: 50px;
+	left: 13px;
+	top: 145px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 30px;
+	color: white;
+	border: 0;
+	background-color: #c0c0c0;
+}
+
+#manage-sales-btn {
+	position: absolute;
+	width: 120px;
+	height: 50px;
+	left: 13px;
+	top: 220px;
+	border-radius: 30px;
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 30px;
+	color: white;
+	border: 0;
+	background-color: #c0c0c0;
+}
+
+#manage-order-header{
+	height: 60px;
+	text-align: center;
+	margin-top: auto;
+	margin-bottom: auto;
+	font-family: 'Inter';
+	font-weight: 600;
+	font-size: 20px;
+}
+
+#manage-order-orders{
+	text-align: center;
+	border: 1px solid black;
+}
+
+#manage-order-header td,
+#manage-order-orders td{
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid black;
+}
+
+#manage-order-confirm {
+	border: 0;
+}
