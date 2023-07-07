@@ -12,7 +12,7 @@ public class Menu {
 	private String m_option;
 	private String m_desc;
 	private int m_weather;
-	private int m_soldout;
+	private String m_soldout;
 	private int m_order;
 
 
@@ -153,13 +153,13 @@ public class Menu {
 
 
 
-	public int getM_soldout() {
+	public String getM_soldout() {
 		return m_soldout;
 	}
 
 
 
-	public void setM_soldout(int m_soldout) {
+	public void setM_soldout(String m_soldout) {
 		this.m_soldout = m_soldout;
 	}
 
@@ -178,7 +178,7 @@ public class Menu {
 
 
 	public Menu(int m_no, String m_name, int m_price, String m_img, int m_ice, int m_size, String m_type,
-			String m_type_easy, String m_option, String m_desc, int m_weather, int m_soldout, int m_order) {
+			String m_type_easy, String m_option, String m_desc, int m_weather, String m_soldout, int m_order) {
 		super();
 		this.m_no = m_no;
 		this.m_name = m_name;

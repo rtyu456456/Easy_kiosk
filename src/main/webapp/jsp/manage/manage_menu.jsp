@@ -65,33 +65,33 @@
 		</c:forEach>
 		<dialog id="updateModal">
 		<form action="UpdateMenuC" method="post" enctype="multipart/form-data">
-			<div>
-				<input hidden name="m_no"> 메뉴명 : <input name="m_name"
-					placeholder="메뉴명">
+			<div class="modal-name">
+				<input hidden name="m_no"> <span> 메뉴명 : </span> <input
+					name="m_name" placeholder="메뉴명">
 			</div>
-			<div>
-				가격 : <input name="m_price" placeholder="가격">
+			<div class="modal-price">
+				<span> 가격 : </span> <input name="m_price" placeholder="가격">
 			</div>
-			<div>
-				메뉴사진 : <input name="m_img" type="file"> <input hidden
-					name="m_old_img">
+			<div class="modal-img">
+				<span> 메뉴사진 : </span> <input name="m_img" type="file"> <input
+					hidden name="m_old_img">
 			</div>
-			<div>
-				아이스핫 구분 : <select name="m_ice">
+			<div class="modal-ice">
+				<span> 아이스핫 구분 : </span> <select name="m_ice">
 					<option value=0>Hot만</option>
 					<option value=1>Ice만</option>
 					<option value=2>둘다</option>
 					<option value=3>구분없음</option>
 				</select>
 			</div>
-			<div>
-				사이즈 구분 : <select name="m_size">
+			<div class="modal-size">
+				<span> 사이즈 구분 : </span> <select name="m_size">
 					<option value=0>구분없음</option>
 					<option value=1>구분있음</option>
 				</select>
 			</div>
-			<div>
-				일반분류 : <select name="m_type">
+			<div class="modal-type">
+				<span> 일반분류 : </span> <select name="m_type">
 					<option value="COFFEE">커피</option>
 					<option value="BLENDING_TEA">블렌딩 티</option>
 					<option value="BEVERAGE">베버리지</option>
@@ -102,8 +102,8 @@
 					<option value="DESSERT">디저트</option>
 				</select>
 			</div>
-			<div>
-				간단분류 : <select name="m_type_easy">
+			<div class="modal-type-easy">
+				<span> 간단분류 : </span> <select name="m_type_easy">
 					<option value="COFFEE">커피</option>
 					<option value="BEVERAGE">음료</option>
 					<option value="TEA">차</option>
@@ -111,31 +111,32 @@
 					<option value="NONE">지정안함</option>
 				</select>
 			</div>
-			<div>
-				옵션여부 : <input type="checkbox" name="m_option" value="SYRUP">
-				시럽 <input type="checkbox" name="m_option" value="SHOT"> 샷 <input
-					type="checkbox" name="m_option" value="CREAM"> 크림
+			<div class="modal-option">
+				<span> 옵션여부 : </span> <input type="checkbox" name="m_option"
+					value="SYRUP"> 시럽 <input type="checkbox" name="m_option"
+					value="SHOT"> 샷 <input type="checkbox" name="m_option"
+					value="CREAM"> 크림
 			</div>
-			<div>
-				메뉴설명 :
+			<div class="modal-desc">
+				<span> 메뉴설명 : </span>
 				<textarea name="m_desc" style="resize: none;"></textarea>
 			</div>
-			<div>
-				날씨별 추천여부 : <select name="m_weather">
+			<div class="modal-weather">
+				<span> 날씨별 추천여부 : </span> <select name="m_weather">
 					<option value="0">맑음</option>
 					<option value="1">비</option>
 					<option value="2">눈</option>
 					<option value="3">지정안함</option>
 				</select>
 			</div>
-			<div>
-				재고여부 : <select name="m_soldout">
+			<div class="modal-soldout">
+				<span> 재고여부 : </span> <select name="m_soldout">
 					<option value="0">매진</option>
 					<option value="1">재고있음</option>
 				</select>
 			</div>
-			<div>
-				총주문수 : <input name="m_order" placeholder="총주문수">
+			<div class="modal-order">
+				<span> 총주문수 : </span> <input name="m_order" placeholder="총주문수">
 			</div>
 
 			<button id="confirmUpdate">수정</button>
@@ -147,31 +148,32 @@
 			<input hidden value=${param.type } name="type">
 			<dialog id="addModal">
 			<form action="AddMenuC" method="post" enctype="multipart/form-data">
-				<div>
-					메뉴명 : <input name="m_name" placeholder="메뉴명">
+				<div class="modal-name">
+					<span> 메뉴명 : </span> <input name="m_name" placeholder="메뉴명">
 				</div>
-				<div>
-					가격 : <input name="m_price" placeholder="가격">
+				<div class="modal-price">
+					<span> 가격 : </span> <input name="m_price" placeholder="가격">
+
 				</div>
-				<div>
-					메뉴사진 : <input name="m_img" type="file">
+				<div class="modal-img">
+					<span> 메뉴사진 : </span> <input name="m_img" type="file">
 				</div>
-				<div>
-					아이스핫 구분 : <select name="m_ice">
+				<div class="modal-ice">
+					<span> 아이스핫 구분 : </span> <select name="m_ice">
 						<option value=0>Hot만</option>
 						<option value=1>Ice만</option>
 						<option value=2>둘다</option>
 						<option value=3>구분없음</option>
 					</select>
 				</div>
-				<div>
-					사이즈 구분 : <select name="m_size">
+				<div class="modal-size">
+					<span> 사이즈 구분 : </span> <select name="m_size">
 						<option value=0>구분없음</option>
 						<option value=1>구분있음</option>
 					</select>
 				</div>
-				<div>
-					일반분류 : <select name="m_type">
+				<div class="modal-type">
+					<span> 일반분류 : </span> <select name="m_type">
 						<option value="COFFEE">커피</option>
 						<option value="BLENDING_TEA">블렌딩 티</option>
 						<option value="BEVERAGE">베버리지</option>
@@ -182,8 +184,8 @@
 						<option value="DESSERT">디저트</option>
 					</select>
 				</div>
-				<div>
-					간단분류 : <select name="m_type_easy">
+				<div class="modal-type-easy">
+					<span> 간단분류 : </span> <select name="m_type_easy">
 						<option value="COFFEE">커피</option>
 						<option value="BEVERAGE">음료</option>
 						<option value="TEA">차</option>
@@ -191,31 +193,32 @@
 						<option value="NONE">지정안함</option>
 					</select>
 				</div>
-				<div>
-					옵션여부 : <input type="checkbox" name="m_option" value="SYRUP">
-					시럽 <input type="checkbox" name="m_option" value="SHOT"> 샷 <input
-						type="checkbox" name="m_option" value="CREAM"> 크림
+				<div class="modal-option">
+					<span> 옵션여부 : </span> <input type="checkbox" name="m_option"
+						value="SYRUP"> 시럽 <input type="checkbox" name="m_option"
+						value="SHOT"> 샷 <input type="checkbox" name="m_option"
+						value="CREAM"> 크림
 				</div>
-				<div>
-					메뉴설명 :
+				<div class="modal-desc">
+					<span> 메뉴설명 : </span>
 					<textarea name="m_desc"></textarea>
 				</div>
-				<div>
-					날씨별 추천여부 : <select name="m_weather">
+				<div class="modal-weather">
+					<span> 날씨별 추천여부 : </span> <select name="m_weather">
 						<option value="0">맑음</option>
 						<option value="1">비</option>
 						<option value="2">눈</option>
 						<option value="3">지정안함</option>
 					</select>
 				</div>
-				<div>
-					재고여부 : <select name="m_soldout">
+				<div class="modal-soldout">
+					<span> 재고여부 : </span> <select name="m_soldout">
 						<option value="0">매진</option>
 						<option value="1">재고있음</option>
 					</select>
 				</div>
-				<div>
-					총주문수 : <input name="m_order" placeholder="총주문수">
+				<div class="modal-order">
+					<span> 총주문수 : </span> <input name="m_order" placeholder="총주문수">
 				</div>
 
 				<button id="confirmAdd">추가</button>
@@ -226,11 +229,15 @@
 		<%
 		int currentPage = (Integer) request.getAttribute("curPageNo");
 		int pageCount = (Integer) request.getAttribute("pageCount");
-
+		String baseUrl = "MenuPageC?p=";
+		if(request.getParameter("type") != null){
+		String type = request.getParameter("type");
+			baseUrl = "MenuPageC?type=" + type + "&p=";
+		}
+		
 		int startPage = ((currentPage - 1) / 5) * 5 + 1;
 		int endPage = Math.min(startPage + 4, pageCount);
 
-		String baseUrl = "MenuPageC?p=";
 
 		String previousLink = (currentPage > 1) ? baseUrl + (currentPage - 1) : "#";
 		String nextLink = (currentPage < pageCount) ? baseUrl + (currentPage + 1) : "#";

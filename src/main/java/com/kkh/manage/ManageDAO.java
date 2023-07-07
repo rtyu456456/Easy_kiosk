@@ -39,7 +39,11 @@ public class ManageDAO {
 				menu.setM_option(rs.getString("M_OPTION"));
 				menu.setM_desc(rs.getString("M_DESC"));
 				menu.setM_weather(rs.getInt("M_WEATHER"));
-				menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+				String soldout = "매진";
+				if(rs.getInt("M_SOLDOUT") == 1) {
+					soldout="재고있음";
+				}
+				menu.setM_soldout(soldout);
 				menu.setM_order(rs.getInt("M_ORDER"));
 				menus.add(menu);
 			}
@@ -80,7 +84,11 @@ public class ManageDAO {
 				menu.setM_option(rs.getString("M_OPTION"));
 				menu.setM_desc(rs.getString("M_DESC"));
 				menu.setM_weather(rs.getInt("M_WEATHER"));
-				menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+				String soldout = "매진";
+				if(rs.getInt("M_SOLDOUT") == 1) {
+					soldout="재고있음";
+				}
+				menu.setM_soldout(soldout);
 				menu.setM_order(rs.getInt("M_ORDER"));
 				menus.add(menu);
 			}
@@ -267,7 +275,11 @@ public class ManageDAO {
 			menu.setM_option(rs.getString("M_OPTION"));
 			menu.setM_desc(rs.getString("M_DESC"));
 			menu.setM_weather(rs.getInt("M_WEATHER"));
-			menu.setM_soldout(rs.getInt("M_SOLDOUT"));
+			String soldout = "매진";
+			if(rs.getInt("M_SOLDOUT") == 1) {
+				soldout="재고있음";
+			}
+			menu.setM_soldout(soldout);
 			menu.setM_order(rs.getInt("M_ORDER"));
 			menus.add(menu);
 			request.setAttribute("menu", menu);

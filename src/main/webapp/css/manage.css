@@ -144,3 +144,32 @@
 #manage-order-confirm {
 	border: 0;
 }
+
+#addModal div,
+#updateModal div{
+	width: 550px;
+	height: 45px;
+}
+
+.modal-desc textarea{
+	width: 400px;
+	resize: none;
+}
+
+.modal-name span,
+.modal-price span,
+.modal-img span,
+.modal-ice span,
+.modal-size span,
+.modal-type span,
+.modal-type-easy span,
+.modal-weather span,
+.modal-option span,
+.modal-desc span,
+.modal-soldout span,
+.modal-order span{
+	font-family:"Inter";
+	font-weight:600;
+	font-size: 20px;
+}
+
